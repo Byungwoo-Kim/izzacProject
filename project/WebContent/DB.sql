@@ -15,7 +15,7 @@ create table Sales_Files(
 	FOREIGN KEY(email) REFERENCES Sales_Member(email)
 );
 
-create table Sales_Pre(`	
+create table Sales_Pre(
 	email varchar2(25),
 	pDate date not null,
 	preData varchar2(80) not null,
