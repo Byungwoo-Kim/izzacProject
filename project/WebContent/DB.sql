@@ -25,6 +25,11 @@ create table Sales_Pre(
 create table Sales_Anal(
 	email varchar2(25) not null,
 	aDate date not null,
-	analData varchar2(80) not null,
+	analData1 varchar2(1000) not null,
+	analData2 varchar2(1000) not null,
+	analData3 varchar2(1000) not null,
+	analData4 varchar2(1000) not null,
+	analData5 varchar2(1000) not null,
+	analAccu varchar2(50) not null,
 	FOREIGN KEY(email) REFERENCES Sales_Member(email)
 );
