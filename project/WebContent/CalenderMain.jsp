@@ -3,6 +3,7 @@
 <%@page import="java.util.GregorianCalendar"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@include file='dailyInfo.jsp'%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +37,13 @@ body {
 	height: 30px;
 	border-radius: 50%;
 	background-color: rgba(0, 0, 0, 0.1);
+}
+
+#dailyInfo {
+	background-size: cover;
+	background-color: white;
+	border: 0;
+	outline: 0;
 }
 
 table {
@@ -142,25 +150,6 @@ td {
 </head>
 <body>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<%
 		GregorianCalendar today = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
@@ -221,6 +210,7 @@ td {
 				</THEAD>
 				<TBODY>
 					<TR>
+
 						<%
 							Calendar cal = Calendar.getInstance();
 
@@ -261,6 +251,7 @@ td {
 
 								//달력 칸 나누기
 								out.println("<TD>");
+								out.println("<button id = 'dailyInfo' onclick='dailyInfo()'>");
 						%>
 						<!-- 칸에 날짜넣기  -->
 						<font color='<%=color%>'> <%=index%>
@@ -285,6 +276,7 @@ td {
 								newLine++;
 							}
 						%>
+
 					</TR>
 
 				</TBODY>
@@ -302,14 +294,16 @@ td {
 		<a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="left"><img src="images/left.png" width="30" height="30"></a>
+		target="_self" id="left"><img src="images/left.png"
+			width="30" height="30"></a>
 		<%
 			} else if (nowMonth == 0) {
 		%>
 		<a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="left"><img src="images/left.png" width="30" height="30"> </a>
+		target="_self" id="left"><img src="images/left.png"
+			width="30" height="30"> </a>
 		<%
 			}
 		%>
@@ -321,14 +315,16 @@ td {
 			href='CalendarForChange.jsp?yearNext=<%=nowYear%>
 		&amp;monthNext=<%=nowMonth + 1%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="right"><img src="images/right.png" width="30" height="30"></a>
+		target="_self" id="right"><img src="images/right.png"
+			width="30" height="30"></a>
 		<%
 			} else if (nowMonth == 11) {
 		%><a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear + 1%>
 		&amp;monthNext=<%=0%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="right"><img src="images/right.png" width="30" height="30"></a>
+		target="_self" id="right"><img src="images/right.png"
+			width="30" height="30"></a>
 		<%
 			}
 		%>
@@ -413,38 +409,13 @@ td {
 			imgs[order].style.display = "block";
 
 		}
+		function dailyInfo() {
+
+		}
 	</script>
 	<form name="calendarFrm" id="calendarFrm" action="" method="post">
 
 	</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -306,7 +306,8 @@ td {
 
 		</div>
 		<!-- end calendar-container -->
-			<%
+		<!--달력 넘기기  -->
+		<%
 			if (nowMonth > 0) {
 		%>
 
@@ -343,7 +344,7 @@ td {
 		<%
 			}
 		%>
-	</div>
+		<!--달력 넘기기 끝  -->
 	<!-- end container -->
 
 
