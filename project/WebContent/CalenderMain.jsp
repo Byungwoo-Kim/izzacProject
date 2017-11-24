@@ -302,14 +302,14 @@ td {
 		<a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="left">¢¸</a>
+		target="_self" id="left"><img src="images/left.png" width="30" height="30"></a>
 		<%
 			} else if (nowMonth == 0) {
 		%>
 		<a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="left">¢¸ </a>
+		target="_self" id="left"><img src="images/left.png" width="30" height="30"> </a>
 		<%
 			}
 		%>
@@ -321,14 +321,14 @@ td {
 			href='CalendarForChange.jsp?yearNext=<%=nowYear%>
 		&amp;monthNext=<%=nowMonth + 1%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="right">¢º</a>
+		target="_self" id="right"><img src="images/right.png" width="30" height="30"></a>
 		<%
 			} else if (nowMonth == 11) {
 		%><a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear + 1%>
 		&amp;monthNext=<%=0%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="right">¢º</a>
+		target="_self" id="right"><img src="images/right.png" width="30" height="30"></a>
 		<%
 			}
 		%>
