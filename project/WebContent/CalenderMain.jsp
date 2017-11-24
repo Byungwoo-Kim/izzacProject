@@ -225,7 +225,9 @@ td {
 							Calendar cal = Calendar.getInstance();
 
 							int start = cal.get(java.util.Calendar.DAY_OF_WEEK) - 1;
+
 							int endDay = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
+
 							int newLine = 0;
 							Calendar todayCal = Calendar.getInstance();
 							SimpleDateFormat sdf = new SimpleDateFormat("yyyMMdd");
@@ -292,9 +294,45 @@ td {
 			<div class="ring-right"></div>
 
 		</div>
-		<!-- end calendar-container -->
-		<input id="left" type="button" value="◀" onclick="slide(-1)">
-		<input id="right" type="button" value="▶" onclick="slide(1)">
+		<!--달력 넘기기  -->
+		<%
+			if (nowMonth > 0) {
+		%>
+
+		<a
+			href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
+			"
+		target="_self" id="left">◀</a>
+		<%
+			} else if (nowMonth == 0) {
+		%>
+		<a
+			href='CalendarForChange.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
+			"
+		target="_self" id="left">◀ </a>
+		<%
+			}
+		%>
+
+		<%
+			if (nowMonth < 11) {
+		%>
+		<a
+			href='CalendarForChange.jsp?yearNext=<%=nowYear%>
+		&amp;monthNext=<%=nowMonth + 1%>&amp;startDayNext=<%=start%>'
+			"
+		target="_self" id="right">▶</a>
+		<%
+			} else if (nowMonth == 11) {
+		%><a
+			href='CalendarForChange.jsp?yearNext=<%=nowYear + 1%>
+		&amp;monthNext=<%=0%>&amp;startDayNext=<%=start%>'
+			"
+		target="_self" id="right">▶</a>
+		<%
+			}
+		%>
+		<!--달력 넘기기 끝  -->
 
 	</div>
 	<!-- end container -->
@@ -367,6 +405,7 @@ td {
 			order += num;
 			//전달로
 			if (order == -1) {
+
 				order = imgs.length - 1;
 			} else if (order == imgs.length) {
 				order = 0;
@@ -402,73 +441,10 @@ td {
 
 
 
-	<a
-		href='CalendarExam2.jsp?year=<%=nowYear - 1%>&amp;month=<%=nowMonth%>'
-		"
-		target="_self"> <b>&lt;&lt;</b> <!-- 이전해 -->
-	</a>
-	<%
-		if (nowMonth > 0) {
-	%>
-	<a
-		href="<c:url value='/CalendarExam2.jsp' />?year=<%=nowYear%>&amp;month=<%=nowMonth - 1%>"
-		target="_self"> <b>&lt;</b> <!-- 이전달 -->
-	</a>
-	<%
-		} else {
-	%>
-	<b>&lt;</b>
-	<%
-		}
-	%>
-	&nbsp;&nbsp;
-	<%=nowYear%>년
-	<%=nowMonth + 1%>월 &nbsp;&nbsp;
-	<%
-		if (nowMonth < 11) {
-	%>
-	<a
-		href="<c:url value='CalendarExam2.jsp' />?year=<%=nowYear%>&amp;month=<%=nowMonth + 1%>"
-		target="_self"> <!-- 다음달 --> <b>&gt;</b>
-	</a>
-	<%
-		} else {
-	%>
-	<b>&gt;</b>
-	<%
-		}
-	%>
-	<a
-		href="<c:url value='/CalendarExam2.jsp' />?year=<%=nowYear + 1%>&amp;month=<%=nowMonth%>"
-		target="_self"> <!-- 다음해 --> <b>&gt;&gt;</b>
-	</a><
 
 
-	<a id="Previous" href="#">&lt;&lt;</a>
-	<span id="CurrentMonth">January</span>
-	<a id="Next" href="#">&gt;&gt;</a>
-	<script type="text/javascript">
-		var currentMonth = 0;
-		$(function() {
-			var months = [ "January", "February", "March", "April", "May",
-					"June", "July", "August", "September", "October",
-					"November", "December" ];
 
-			$("#Next").click(function() {
-				if (currentMonth < 11) {
-					currentMonth++;
-					$("#CurrentMonth").text(months[currentMonth]);
-				}
-			});
 
-			$("#Previous").click(function() {
-				if (currentMonth > 0) {
-					currentMonth--;
-					$("#CurrentMonth").text(months[currentMonth]);
-				}
-			});
-		});
-	</script>
 
 
 

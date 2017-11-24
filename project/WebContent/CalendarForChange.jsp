@@ -141,6 +141,7 @@ td {
 </style>
 </head>
 <body>
+
 	<%
 		GregorianCalendar today = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
@@ -148,6 +149,9 @@ td {
 		int nowDay = today.get(today.DAY_OF_MONTH);
 		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
 		String eng_month = "";
+		nowYear = Integer.parseInt(request.getParameter("yearNext"));
+		nowMonth = Integer.parseInt(request.getParameter("monthNext"));
+		
 		if (nowMonth == 0) {
 			eng_month = "January";
 		} else if (nowMonth == 1) {
@@ -173,6 +177,8 @@ td {
 		} else if (nowMonth == 11) {
 			eng_month = "December";
 		}
+		
+
 	%>
 	<!-- jQuery UI CSS파일  -->
 
@@ -204,8 +210,35 @@ td {
 						<%
 							Calendar cal = Calendar.getInstance();
 
-							int start = cal.get(java.util.Calendar.DAY_OF_WEEK) - 1;
-							int endDay = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
+							int start = Integer.parseInt(request.getParameter("startDayNext"));
+							Calendar cal2 =  new GregorianCalendar(nowYear, nowMonth, 1);
+							int endDay = cal2.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
+							if(endDay==30){
+								if(start==6){
+									start=1;
+								}else if(start==7){
+									start=2;
+								}else{
+									start+=2;
+								}
+							}else if(endDay==31){
+								if(start==5){
+									start=1;
+								}else if(start==6){
+									start=2;
+								}else if(start==7){
+									start=3;
+								}else{
+									start+=3;
+								}
+							}else if(endDay==29){
+								if(start==7){
+									start=1;
+								}else{
+									start+=1;
+								}
+							}
+							
 							int newLine = 0;
 							Calendar todayCal = Calendar.getInstance();
 							SimpleDateFormat sdf = new SimpleDateFormat("yyyMMdd");
@@ -273,9 +306,47 @@ td {
 
 		</div>
 		<!-- end calendar-container -->
-		<input id="left" type="button" value="◀" onclick="slide(-1)">
-		<input id="right" type="button" value="▶" onclick="slide(1)">
+	<%
 
+		if (nowMonth > 0) {
+	%>
+	<a
+		href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
+		"
+		target="_self" id = "left"> ◀<!-- 이전해 -->
+	</a>
+	<%
+		} else if (nowMonth == 0){
+	%>	<a
+		href='CalendarForChange.jsp?yearNext=<%=nowYear-1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
+		"
+		target="_self" id = "left" >◀ <!-- 이전해 -->
+	</a>
+	<%
+		}
+	%>
+	&nbsp;&nbsp;
+
+	<%
+		if (nowMonth < 11) {
+	%>
+	<a
+		href='CalendarForChange.jsp?yearNext=<%=nowYear%>
+		&amp;monthNext=<%=nowMonth + 1%>&amp;startDayNext=<%=start%>'
+		"
+		target="_self" id = "right"> <!-- 다음달 --> ▶
+	</a>
+	<%
+		} else if (nowMonth==11){
+	%><a
+		href='CalendarForChange.jsp?yearNext=<%=nowYear+1%>
+		&amp;monthNext=<%=0%>&amp;startDayNext=<%=start%>'
+		"
+		target="_self" id = "right"> <!-- 다음달 --> ▶
+	</a>
+	<%
+		}
+	%>
 	</div>
 	<!-- end container -->
 
@@ -376,6 +447,8 @@ td {
 	<form name="calendarFrm" id="calendarFrm" action="" method="post">
 
 	</form>
+	
+
 
 
 </body>
