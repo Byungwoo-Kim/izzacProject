@@ -11,6 +11,12 @@ public class PreDTO {
 		this.pDate = pDate;
 		this.preData = preData;
 	}
+	
+	public PreDTO(String pDate, String preData) {
+		super();
+		this.pDate = pDate;
+		this.preData = preData;
+	}
 
 	public String getEmail() {
 		return email;

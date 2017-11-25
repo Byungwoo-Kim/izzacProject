@@ -12,7 +12,6 @@ public class FileDTO {
 		this.up_Date = up_Date;
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
