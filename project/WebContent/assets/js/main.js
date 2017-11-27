@@ -101,6 +101,7 @@
 					$('<style>#sidebar .inner::-webkit-scrollbar { display: none; }</style>')
 						.appendTo($head);
 
+				
 			// Toggle.
 				if (skel.vars.IEVersion > 9) {
 
