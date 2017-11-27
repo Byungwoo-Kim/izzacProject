@@ -1,4 +1,4 @@
-package mysns.sns;
+package com.DTO;
 
 
 /**
@@ -6,7 +6,7 @@ package mysns.sns;
  * Desc : 답글 Data Object 클래스
  * @author 황희정(dinfree@dinfree.com)
  */
-public class Reply {
+public class ReplyDTO {
 	// 원본글 id
 	private int mid;
 	

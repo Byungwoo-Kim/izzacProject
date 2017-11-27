@@ -1,4 +1,4 @@
-package mysns.sns;
+package com.DTO;
 
 /**
  * File : Message.java
@@ -6,7 +6,7 @@ package mysns.sns;
  * @author È²ÈñÁ¤(dinfree@dinfree.com)
  *
  */
-public class Message {
+public class MessageDTO {
 	// °Ô½Ã±Û ½ÃÄö½º id
 	private int mid;
 	

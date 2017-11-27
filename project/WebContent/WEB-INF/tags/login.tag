@@ -9,11 +9,11 @@
 	<input type="hidden" name="action" value="logout">
 	<input type="submit" value="로그아웃">
 </c:when>
-<c:otherwise>
+<%-- <c:otherwise>
 	<li><a href="#"> :: </a></li>
 		<li><a href="#">Login</a></li>
 			<input type="hidden" name="action" value="login">
 		&nbsp;<input type="text" name="email" size="10"> <input type="password" name="pw" size="10"><input type="submit" value="로그인">
-</c:otherwise>
+</c:otherwise> --%>
 </c:choose>
 </form>

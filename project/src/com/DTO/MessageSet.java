@@ -1,4 +1,4 @@
-package mysns.sns;
+package com.DTO;
 
 import java.util.ArrayList;
 
@@ -9,21 +9,21 @@ import java.util.ArrayList;
  */
 public class MessageSet {
 	// 메시지
-	private Message message;
+	private MessageDTO message;
 	
 	// 해당 메시지에 대한 댓글 목록
-	private ArrayList<Reply> rlist = new ArrayList<Reply>();
+	private ArrayList<ReplyDTO> rlist = new ArrayList<ReplyDTO>();
 	
-	public Message getMessage() {
+	public MessageDTO getMessage() {
 		return message;
 	}
-	public void setMessage(Message message) {
+	public void setMessage(MessageDTO message) {
 		this.message = message;
 	}
-	public ArrayList<Reply> getRlist() {
+	public ArrayList<ReplyDTO> getRlist() {
 		return rlist;
 	}
-	public void setRlist(ArrayList<Reply> rlist) {
+	public void setRlist(ArrayList<ReplyDTO> rlist) {
 		this.rlist = rlist;
 	}
 }

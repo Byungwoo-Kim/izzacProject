@@ -12,8 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.DTO.MemberDTO;
-
-import mysns.util.DBManager;
+import com.Util.DBManager;
 
 public class MemberDAO {
 	Connection conn = null;
@@ -21,22 +20,6 @@ public class MemberDAO {
 	ResultSet rs = null;
 	
 	Logger logger = LoggerFactory.getLogger(MemberDAO.class);
-
-	//connection
-	public void getConn() throws Exception {
-		InputStream in = (this.getClass().getResourceAsStream("../../../../DB.properties"));
-
-		Properties p = new Properties();
-
-		p.load(in);
-
-		String url = p.getProperty("dburl");
-		String dbid = p.getProperty("dbid");
-		String dbpw = p.getProperty("dbpw");
-
-		Class.forName(p.getProperty("dbclass"));
-		conn = DriverManager.getConnection(url, dbid, dbpw);
-	}
 	
 	//close
 	public void close() throws Exception {
@@ -48,7 +31,7 @@ public class MemberDAO {
 	// 회원추가
 	public boolean addMember(MemberDTO member) throws Exception {
 		conn = DBManager.getConnection();
-		String sql = "insert into s_member(email, pw, phone, category, signUpDate, payDate) values(?, ?, ?, ?, to_char(sysdate, 'YYYY-MM-DD'), to_char(sysdate + 7, 'YYYY-MM-DD'))";
+		String sql = "insert into Sales_Member(email, pw, phone, category, signUpDate, payDate) values(?, ?, ?, ?, to_char(sysdate, 'YYYY-MM-DD'), to_char(sysdate + 7, 'YYYY-MM-DD'))";
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, member.getEmail());
@@ -64,8 +47,7 @@ public class MemberDAO {
 		}
 		finally {
 			try {
-				pst.close();
-				conn.close();
+				close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -82,7 +64,7 @@ public class MemberDAO {
 	 */
 	public boolean login(String email, String pw) throws Exception {
 		conn = DBManager.getConnection();
-		String sql = "select email, pw from s_member where email = ?";
+		String sql = "select email, pw from Sales_Member where email = ?";
 		boolean result = false;
 		
 		try {
@@ -98,8 +80,7 @@ public class MemberDAO {
 		}
 		finally {
 			try {
-				pst.close();
-				conn.close();
+				close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -109,7 +90,7 @@ public class MemberDAO {
 
 	// 회원정보 수정을 위한 정보 조회
 	public MemberDTO ForMemberUpdate(String email, String pw) throws Exception {
-		getConn();
+		conn = DBManager.getConnection();
 
 		pst = conn.prepareStatement("select * from Sales_Member where email = ? and pw = ?");
 		pst.setString(1, email);
@@ -135,7 +116,7 @@ public class MemberDAO {
 	
 	//회원정보 수정
 	public int MemberUpdate(String email, String pw, int phone, String category, String environ) throws Exception {
-		getConn();
+		conn = DBManager.getConnection();
 
 		pst = conn.prepareStatement("update Sales_Member set pw=?, phone=?, category=?, environ=? where email=?");
 		pst.setString(1, pw);
@@ -153,7 +134,7 @@ public class MemberDAO {
 	
 	//회원정보 만료일자수정
 	public int MemberPayDateUpdate(String email, String pw, String payDate) throws Exception {
-		getConn();
+		conn = DBManager.getConnection();
 
 		pst = conn.prepareStatement("update Sales_Member set payDate where email=? and pw=?");
 		pst.setString(1, payDate);

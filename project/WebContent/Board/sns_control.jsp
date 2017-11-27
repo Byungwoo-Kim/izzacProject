@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
-	pageEncoding="UTF-8" import="mysns.sns.*,com.DAO.*,com.DTO.*,java.util.*"%>
+	pageEncoding="UTF-8" import="com.DAO.*,com.DTO.*,java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- 메시지 처리 빈즈 -->
-<jsp:useBean id="msg" class="mysns.sns.Message" />
-<jsp:useBean id="msgdao" class="mysns.sns.MessageDAO" />
-<jsp:useBean id="reply" class="mysns.sns.Reply" />
+<jsp:useBean id="msg" class="com.DTO.MessageDTO" />
+<jsp:useBean id="msgdao" class="com.DAO.MessageDAO" />
+<jsp:useBean id="reply" class="com.DTO.ReplyDTO" />
 
 <!-- 프로퍼티 set -->
 <jsp:setProperty name="msg" property="*" />
