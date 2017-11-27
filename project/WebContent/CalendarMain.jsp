@@ -3,150 +3,19 @@
 <%@page import="java.util.GregorianCalendar"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@include file='dailyInfo.jsp'%>
+
 <!DOCTYPE html>
 <html>
 <head>
-
+<script type="text/javascript">
+	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
+	function clickTrEvent(trObj) {
+		alert(trObj.id);
+	}
+</script>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style type="text/css">
-body {
-	background: #ccc;
-	font: 87.5%/1.5em 'Lato', sans-serif;
-	margin: 0;
-}
-
-#left {
-	position: absolute;
-	top: 50%;
-	left: 0px;
-	border: 0px;
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	background-color: rgba(0, 0, 0, 0.1);
-}
-
-#right {
-	position: absolute;
-	top: 50%;
-	right: 0px;
-	border: 0px;
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	background-color: rgba(0, 0, 0, 0.1);
-}
-
-#dailyInfo {
-	background-size: cover;
-	background-color: white;
-	border: 0;
-	outline: 0;
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-td {
-	padding: 0;
-}
-
-.container {
-	left: 50%;
-	position: fixed;
-	top: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.calendar-container {
-	position: relative;
-	width: 450px;
-}
-
-.calendar-container header {
-	border-radius: 1em 1em 0 0;
-	background: #e66b6b;
-	color: #fff;
-	padding: 3em 2em;
-}
-
-.day {
-	font-size: 8em;
-	font-weight: 900;
-	line-height: 1em;
-}
-
-.month {
-	font-size: 4em;
-	line-height: 1em;
-	text-transform: lowercase;
-}
-
-.calendar {
-	background: #fff;
-	border-radius: 0 0 1em 1em;
-	-webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, .2), 0 3px 1px #fff;
-	box-shadow: 0 2px 1px rgba(0, 0, 0, .2), 0 3px 1px #fff;
-	color: #555;
-	display: inline-block;
-	padding: 2em;
-}
-
-.calendar thead {
-	color: #e66b6b;
-	font-weight: 700;
-	text-transform: uppercase;
-}
-
-.calendar td {
-	padding: .5em 1em;
-	text-align: center;
-}
-
-.calendar tbody td:hover {
-	background: #cacaca;
-	color: #fff;
-}
-
-.current-day {
-	color: #e66b6b;
-}
-
-.prev-month, .next-month {
-	color: #cacaca;
-}
-
-.ring-left, .ring-right {
-	position: absolute;
-	top: 230px;
-}
-
-.ring-left {
-	left: 2em;
-}
-
-.ring-right {
-	right: 2em;
-}
-
-.ring-left:before, .ring-left:after, .ring-right:before, .ring-right:after
-	{
-	background: #fff;
-	border-radius: 4px;
-	-webkit-box-shadow: 0 3px 1px rgba(0, 0, 0, .3), 0 -1px 1px
-		rgba(0, 0, 0, .2);
-	box-shadow: 0 3px 1px rgba(0, 0, 0, .3), 0 -1px 1px rgba(0, 0, 0, .2);
-	content: "";
-	display: inline-block;
-	margin: 8px;
-	height: 32px;
-	width: 8px;
-}
-</style>
+<link rel="stylesheet" href="assets/css/CalendarStyle.css">
 </head>
 <body>
 
@@ -224,7 +93,7 @@ td {
 							int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 							//시작하는 요일 설정
 							for (int index = 1; index < start; index++) {
-								out.println("<TD >&nbsp;</TD>");
+								out.println("<TD id='blank'>&nbsp;</TD>");
 								newLine++;
 							}
 
@@ -250,8 +119,7 @@ td {
 								int iUseDate = Integer.parseInt(sUseDate);
 
 								//달력 칸 나누기
-								out.println("<TD>");
-								out.println("<button id = 'dailyInfo' onclick='dailyInfo()'>");
+								out.println("<TD onclick='javascript:clickTrEvent(this)'>");
 						%>
 						<!-- 칸에 날짜넣기  -->
 						<font color='<%=color%>'> <%=index%>
@@ -287,15 +155,17 @@ td {
 
 		</div>
 		<!--달력 넘기기  -->
+		<!-- slide 함수에 2들어가면 해가 바뀌고 1이 넘어가면 월이 바뀐다  -->
 		<%
 			if (nowMonth > 0) {
 		%>
-
-		<a
+		<input id="left" type="button" value="◀" onclick="slide(<%=nowYear%>)">
+		<%-- 		<a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="left"><img src="images/left.png"
-			width="30" height="30"></a>
+			width="30" height="30"></a> --%>
+
 		<%
 			} else if (nowMonth == 0) {
 		%>
@@ -400,14 +270,27 @@ td {
 
 			order += num;
 			//전달로
-			if (order == -1) {
+			if (order == -2) {
+				var tdTag = document.getElementById("blank");
+				tdTag.innerHTML = 'a';
 
-				order = imgs.length - 1;
-			} else if (order == imgs.length) {
+				nowMonth == 11;
+				nowYear-= nowYear;
+
+				<%-- <a
+				href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
+				"
+			target="_self" id="left"><img src="images/left.png"
+				width="30" height="30"></a> --%>
+				
+				
+				
+				
+			}/*  else if (order == imgs.length) {
 				order = 0;
 			}
 			imgs[order].style.display = "block";
-
+ */
 		}
 		function dailyInfo() {
 
