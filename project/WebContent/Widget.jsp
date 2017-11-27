@@ -27,7 +27,7 @@
 /* Colors declarations */
 /* General styles */
 .wrapper {
-	width: 600px;
+	width: 330px;
 	height: 800px;
 	margin: 10% auto;
 	background-color: #1F222A;
@@ -118,7 +118,7 @@ section h1 a.add:hover {
 section .temperature {
 	padding: 40px 0px;
 	color: #3D414C;
-	font-size: 6em;
+	font-size: 3em;
 	transition: color 0.5s ease;
 }
 
@@ -237,24 +237,29 @@ section .share:hover {
 
 		<div class="temperature entypo-light-up">
 			<h2>
-				64<span class="degree-symbol">°</span>F<span class="celcius">|
-					C</span>
+				64<span class="degree-symbol">°</span>C
 			</h2>
 		</div>
 
 		<ul>
 			<li class="fontawesome-leaf left"><span>4 mph</span></li>
+			<br>
+			<br>
+			<br><
 			<li class="fontawesome-tint center"><span>65%</span></li>
 			<li class="fontawesome-umbrella right"><span>10%</span></li>
-		</ul>
-		<ul>
-			<li class="fontawesome-leaf left"><span> 기름 모양 이미지 바꾸고 유가</span></li>
-		</ul>
-		<ul>
-			<li class="fontawesome-tint center"><span>  돈모양 넣고 물가???</span></li>
-		</ul>
-				<ul>
+			<li class="fontawesome-leaf left"><span> 유가?</span></li>
+			<li class="fontawesome-tint center"><span> 물가?</span></li>
 			<li class="fontawesome-umbrella right"><span>뭘 넣어야하지 ? </span></li>
+		</ul>
+		<ul>
+
+		</ul>
+		<ul>
+
+		</ul>
+		<ul>
+
 		</ul>
 		</section>
 
