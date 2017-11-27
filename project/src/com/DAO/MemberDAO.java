@@ -5,14 +5,22 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.DTO.MemberDTO;
+
+import mysns.util.DBManager;
 
 public class MemberDAO {
 	Connection conn = null;
 	PreparedStatement pst = null;
 	ResultSet rs = null;
+	
+	Logger logger = LoggerFactory.getLogger(MemberDAO.class);
 
 	//connection
 	public void getConn() throws Exception {
@@ -38,48 +46,64 @@ public class MemberDAO {
 	}
 
 	// 회원추가
-	public int MemberJoin(String email, String pw, int phone, String category, String environ) throws Exception {
-		getConn();
-
-		pst = conn.prepareStatement(
-				"insert into Sales_Member(email, pw, phone, category, environ, signUpDate, payDate) values(?, ?, ?, ?, ?, TO_CHAR(sysdate, 'YYYY-MM-DD'), TO_CHAR(sysdate + 14, 'YYYY-MM-DD'))");
-		pst.setString(1, email);
-		pst.setString(2, pw);
-		pst.setInt(3, phone);
-		pst.setString(4, category);
-		pst.setString(5, environ);
-
-		int cnt = pst.executeUpdate();
-		
-		close();
-
-		return cnt;
-	}
-
-	// 로그인을 위한 회원 조회
-	public boolean MemberLogin(String email, String pw) throws Exception {
-		getConn();
-
-		pst = conn.prepareStatement("select * from Sales_Member where email = ?");
-		pst.setString(1, email);
-
-		rs = pst.executeQuery();
-
-		boolean result;
-
-		if (rs.next()) {
-			String getpw = rs.getString(2);
-			if (pw.equals(getpw)) {
-				result = true;
-			} else {
-				result = false;
-			}
-		} else {
-			result = false;
+	public boolean addMember(MemberDTO member) throws Exception {
+		conn = DBManager.getConnection();
+		String sql = "insert into s_member(email, pw, phone, category, signUpDate, payDate) values(?, ?, ?, ?, to_char(sysdate, 'YYYY-MM-DD'), to_char(sysdate + 7, 'YYYY-MM-DD'))";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, member.getEmail());
+			pst.setString(2, member.getPw());
+			pst.setInt(3, member.getPhone());
+			pst.setString(4, member.getCategory());
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Error : " + e.getMessage());
+			logger.info("Error Code : {}",e.getErrorCode());
+			return false;
 		}
+		finally {
+			try {
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * 회원 로그인
+	 * @param uid
+	 * @param passwd
+	 * @return
+	 * @throws Exception 
+	 */
+	public boolean login(String email, String pw) throws Exception {
+		conn = DBManager.getConnection();
+		String sql = "select email, pw from s_member where email = ?";
+		boolean result = false;
 		
-		close();
-
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, email);
+			rs = pst.executeQuery();
+			rs.next();
+			if(rs.getString("pw").equals(pw))
+				result=true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		finally {
+			try {
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return result;
 	}
 

@@ -35,16 +35,29 @@ create table Sales_Anal(
 	FOREIGN KEY(email) REFERENCES Sales_Member(email)
 );
 
-create table Sales_Board(
-	num number not null,
-	email varchar2(25) not null,
-	wDate varchar2(20) not null,
-	category varchar2(10) not null,
-	title varchar2(25) not null,
-	content varchar2(1000) not null,
-	FOREIGN KEY(email) REFERENCES Sales_Member(email)
-);
+CREATE TABLE Sales_Message (
+  mid number NOT NULL primary key,
+  email varchar2(25) NOT NULL,
+  msg varchar2(100) NOT NULL,
+  favcount number DEFAULT '0',
+  replycount number DEFAULT '0',
+  mdate varchar2(20) NOT NULL,
+  FOREIGN KEY(email) REFERENCES s_member(email)
+)
 
-create sequence board_num
+create sequence message_num
+start with 1
+increment by 1;
+
+CREATE TABLE Sales_Reply (
+  rid number NOT NULL primary key,
+  mid number NOT NULL,
+  email varchar2(25) NOT NULL,
+  rdate varchar2(20) NOT NULL,
+  rmsg varchar2(50) NOT NULL,
+  FOREIGN KEY (mid) REFERENCES s_message (mid)
+)
+
+create sequence reply_num
 start with 1
 increment by 1;
