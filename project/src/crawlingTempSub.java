@@ -1,4 +1,4 @@
-package com.Util;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +15,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 @WebServlet("/WeatherCrawling")
-public class WeatherCrawling extends HttpServlet {
+public class crawlingTempSub extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -58,7 +58,12 @@ public class WeatherCrawling extends HttpServlet {
 		String windS = windEmt.get(0).text();
 		String wind = "";
 		System.out.println(windS + windS.length());
-
+		/*
+		 * if (windS.length()==13) {
+		 * 
+		 * 
+		 * }
+		 */
 		if ((windS.charAt(5) >= 48) && (windS.charAt(5) <= 57)) {
 			wind = windS.substring(5);
 		} else if ((windS.charAt(6) >= 48) && (windS.charAt(6) <= 57)) {
@@ -68,15 +73,25 @@ public class WeatherCrawling extends HttpServlet {
 		}
 		PrintWriter out = response.getWriter();
 		String[] weather = new String[3];
-
-		weather[0] = temp;
+		/*weather[0] = temp;
 		weather[1] = hum;
 		weather[2] = rain;
-		weather[3] = wind;
+		weather[3] = wind;*/
 
-		out.print(wind);
+		out.print(temp);
 
-		
+		/*
+		 * Parser parser = new Parser(); String temp = parser.parsing(cityNum);
+		 * 
+		 * request.setAttribute("temp", temp);
+		 * 
+		 * RequestDispatcher dispatcher = request.getRequestDispatcher("ParserWidget");
+		 * dispatcher.forward(request, response);
+		 */
+
+		/*
+		 * out.print(hum); out.print(rain); out.print(wind);
+		 */
 	}
 
 }
