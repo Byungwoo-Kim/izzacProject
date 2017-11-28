@@ -1,3 +1,5 @@
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 
@@ -81,7 +83,7 @@ nav ul li a:hover {
 section {
 	height: 100%;
 	box-sizing: border-box;
-	padding: 10px 40px;
+	padding: 0px 20px;
 	float: left;
 	position: relative;
 	background-color: #1F222A;
@@ -89,7 +91,7 @@ section {
 }
 
 section h1 {
-	padding: 20px 0px 35px 0px;
+	padding: 2px 0px 35px 0px;
 	position: relative;
 	font-size: 1.5em;
 	border-bottom: 2px solid #4b4e57;
@@ -116,9 +118,9 @@ section h1 a.add:hover {
 }
 
 section .temperature {
-	padding: 40px 0px;
+	padding: 0px 0px;
 	color: #3D414C;
-	font-size: 3em;
+	font-size: 2em;
 	transition: color 0.5s ease;
 }
 
@@ -222,9 +224,260 @@ section .share {
 section .share:hover {
 	right: -20px;
 }
+
+.widget_content {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/*  background: rgba(0, 0, 0, 0.8); */
+	opacity: 0;
+	/*-webkit-transition: opacity 400ms ease-in; */
+	/*-moz-transition: opacity 400ms ease-in; */
+	/* transition: opacity 400ms ease-in; */ /*천천히 나타나는 애니매이션  */
+	pointer-events: none;
+}
+
+.widget_content:target {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.widget_content>div {
+	position: absolute;
+	top: 25%;
+	left: 60%;
+	width: 30%;
+	height: 20%;
+	padding: 16px;
+	border: 3px solid #3d414c;
+	background-color: #1F222A;
+	overflow: auto;
+}
+
+#simbol {
+	font-size: 0.3em;
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script language="javascript">
+	//옵션 선택하면 값 넘기기
+	function psnSelect() {
+		//분류1
+		var region = document.getElementById("wide_select");
+		var regionIndex = region.options[region.selectedIndex].text;
+
+		//분류2
+		var city = document.getElementById("city");
+		var cityIndex = city.options[city.selectedIndex].text;
+		var cityNum = city.options[city.selectedIndex].value;
+
+		//ajax 
+		$.ajax({
+			url : "WeatherCrawling",
+			data : "cityNum=" + cityNum,
+			success : function(result) {
+				alert(result);
+			},
+			error : function() {
+				alert("오류");
+
+			}
+		});
+	}
+
+	//상위 셀렉트로 하위 셀렉트 제어하기
+	function showSub(obj) {
+
+		f = document.forms.select_machine;
+
+		if (obj == 1) {
+
+			f.SUB1.style.display = "";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "none";
+		} else if (obj == 2) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "none";
+
+		} else if (obj == 3) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "none";
+
+		} else if (obj == 4) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "none";
+
+		} else if (obj == 5) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "none";
+
+		} else if (obj == 6) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "none";
+
+		} else if (obj == 7) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "none";
+
+		} else if (obj == 8) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "none";
+
+		} else if (obj == 9) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "none";
+
+		} else if (obj == 10) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "none";
+
+		} else if (obj == 11) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "";
+			f.SUB12.style.display = "none";
+
+		} else if (obj == 12) {
+
+			f.SUB1.style.display = "none";
+			f.SUB2.style.display = "none";
+			f.SUB3.style.display = "none";
+			f.SUB4.style.display = "none";
+			f.SUB5.style.display = "none";
+			f.SUB6.style.display = "none";
+			f.SUB7.style.display = "none";
+			f.SUB8.style.display = "none";
+			f.SUB9.style.display = "none";
+			f.SUB10.style.display = "none";
+			f.SUB11.style.display = "none";
+			f.SUB12.style.display = "";
+
+		}
+	}
+</script>
+
 </head>
 <body>
 	<div class="wrapper">
@@ -232,22 +485,247 @@ section .share:hover {
 		<section>
 
 		<h1>
-			Los Angeles, CA <a href="#" class="add">+</a>
+			Los Angeles, CA <a href="#widgetOpen" class="add">+</a>
+			<div class="widget_content" id="widgetOpen">
+				<div>
+					<form name="select_machine" action="Widget.jsp">
+
+						<select name="test" title="시,도" id="wide_select"
+							onChange="showSub(this.options[this.selectedIndex].value);">
+							<option value="1">강원영동</option>
+							<option value="2">강원영서</option>
+							<option value="3">경상남도</option>
+							<option value="4">경상북도</option>
+							<option value="5" selected="selected">서울·경기</option>
+							<option value="6">서해5도</option>
+							<option value="7">울릉도·독도</option>
+							<option value="8">전라남도</option>
+							<option value="9">전라북도</option>
+							<option value="10">제주도</option>
+							<option value="11">충청남도</option>
+							<option value="12">충청북도</option>
+						</select> <select name="SUB1" style="display:;" id="city"><option
+								value="">지역선택</option>
+							<option value="11D20501">강릉</option>
+							<option value="11D20502">강원</option>
+							<option value="11D20402">고성</option>
+							<option value="11D20201">대관령</option>
+							<option value="11D20601">동해</option>
+							<option value="11D20202">산간(중부)</option>
+							<option value="11D20602">삼척</option>
+							<option value="11D20401">속초</option>
+							<option value="11D20403">양양</option>
+							<option value="11D20301">태백</option></select> <select name="SUB2"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="11D10202">양구</option>
+							<option value="11D10501">영월</option>
+							<option value="11D10401">원주</option>
+							<option value="11D10201">인제</option>
+							<option value="11D10502">정선</option>
+							<option value="11D10101">철원</option>
+							<option value="11D10301">춘천</option>
+							<option value="11D10503">평창</option>
+							<option value="11D10302">홍천</option>
+							<option value="11D10102">화천</option>
+							<option value="11D10402">횡성</option></select> <select name="SUB3"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="11H20403">거제</option>
+							<option value="11H20502">거창</option>
+							<option value="11H20404">고성</option>
+							<option value="11H20304">김해</option>
+							<option value="11H20405">남해</option>
+							<option value="11H20302">마산</option>
+							<option value="11H20601">밀양</option>
+							<option value="11H20201">부산</option>
+							<option value="11H20402">사천</option>
+							<option value="11H20703">산청</option>
+							<option value="11H20102">양산</option>
+							<option value="11H20101">울산</option>
+							<option value="11H20602">의령</option>
+							<option value="11H20701">진주</option>
+							<option value="11H20303">진해</option>
+							<option value="11H20604">창녕</option>
+							<option value="11H20301">창원</option>
+							<option value="11H20401">통영</option>
+							<option value="11H20702">하동(내륙)</option>
+							<option value="11H20406">하동(해안)</option>
+							<option value="11H20603">함안</option>
+							<option value="11H20501">함양</option>
+							<option value="11H20503">합천</option></select> <select name="SUB4"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="11H10703">경산</option>
+							<option value="11H10202">경주</option>
+							<option value="11H10604">고령</option>
+							<option value="11H10602">구미</option>
+							<option value="11H10603">군위</option>
+							<option value="11H10601">김천</option>
+							<option value="11H10701">대구</option>
+							<option value="11H10301">문경</option>
+							<option value="11H10402">봉화</option>
+							<option value="11H10302">상주</option>
+							<option value="11H10605">성주</option>
+							<option value="11H10501">안동</option>
+							<option value="11H10102">영덕</option>
+							<option value="11H10403">영양</option>
+							<option value="11H10401">영주</option>
+							<option value="11H10702">영천</option>
+							<option value="11H10303">예천</option>
+							<option value="11H10101">울진</option>
+							<option value="11H10502">의성</option>
+							<option value="11H10704">청도</option>
+							<option value="11H10503">청송</option>
+							<option value="11H10705">칠곡</option>
+							<option value="11H10201">포항</option></select> <select name="SUB5"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="11B20404">가평</option>
+							<option value="11B20101">강화</option>
+							<option value="11B20302">고양</option>
+							<option value="11B20608">과천</option>
+							<option value="11B20607">광명</option>
+							<option value="11B20702">광주</option>
+							<option value="11B20501">구리</option>
+							<option value="11B20610">군포</option>
+							<option value="11B20102">김포</option>
+							<option value="11B20502">남양주</option>
+							<option value="11B20401">동두천</option>
+							<option value="11B20305">문산</option>
+							<option value="11B20204">부천</option>
+							<option value="11B10101">서울</option>
+							<option value="11B20605">성남</option>
+							<option value="11B20601">수원</option>
+							<option value="11B20202">시흥</option>
+							<option value="11B20203">안산</option>
+							<option value="11B20611">안성</option>
+							<option value="11B20602">안양</option>
+							<option value="11B20304">양주</option>
+							<option value="11B20503">양평</option>
+							<option value="11B20703">여주</option>
+							<option value="11B20402">연천</option>
+							<option value="11B20603">오산</option>
+							<option value="11B20612">용인</option>
+							<option value="11B20609">의왕</option>
+							<option value="11B20301">의정부</option>
+							<option value="11B20701">이천</option>
+							<option value="11B20201">인천</option>
+							<option value="11B20303">파주</option>
+							<option value="11B20606">평택</option>
+							<option value="11B20403">포천</option>
+							<option value="11B20504">하남</option>
+							<option value="11B20604">화성</option></select> <select name="SUB6"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="11A00101">백령도</option>
+							<option value="11A00103">소청도</option>
+							<option value="11A00102">연평도</option></select> <select name="SUB7"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="11E00102">독도</option>
+							<option value="11E00101">울릉도</option></select> <select name="SUB8"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="11F20303">강진</option>
+							<option value="11F20403">고흥</option>
+							<option value="11F20602">곡성</option>
+							<option value="11F20402">광양</option>
+							<option value="11F20501">광주</option>
+							<option value="11F20601">구례</option>
+							<option value="11F20503">나주</option>
+							<option value="11F20504">담양</option>
+							<option value="21F20801">목포</option>
+							<option value="21F20804">무안</option>
+							<option value="11F20404">보성</option>
+							<option value="11F20405">순천</option>
+							<option value="11F20603">순천(주암)</option>
+							<option value="21F20803">신안</option>
+							<option value="11F20401">여수</option>
+							<option value="21F20102">영광</option>
+							<option value="21F20802">영암</option>
+							<option value="11F20301">완도</option>
+							<option value="11F20502">장성</option>
+							<option value="11F20304">장흥</option>
+							<option value="21F20201">진도</option>
+							<option value="21F20101">함평</option>
+							<option value="11F20302">해남</option>
+							<option value="21F20202">해남(화원)</option>
+							<option value="11F20505">화순</option>
+							<option value="11F20701">흑산도</option></select> <select name="SUB9"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="21F10601">고창</option>
+							<option value="21F10501">군산</option>
+							<option value="21F10502">김제</option>
+							<option value="11F10401">남원</option>
+							<option value="11F10302">무주</option>
+							<option value="21F10602">부안</option>
+							<option value="11F10403">순창</option>
+							<option value="11F10205">완주</option>
+							<option value="11F10202">익산</option>
+							<option value="11F10402">임실</option>
+							<option value="11F10301">장수</option>
+							<option value="11F10201">전주</option>
+							<option value="11F10203">정읍</option>
+							<option value="11F10303">진안</option></select> <select name="SUB10"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="11G00501">고산</option>
+							<option value="11G00401">서귀포</option>
+							<option value="11G00101">성산</option>
+							<option value="11G00302">성판악</option>
+							<option value="11G00301">윗세오름</option>
+							<option value="11G00201">제주</option></select> <select name="SUB11"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="11C20403">계룡</option>
+							<option value="11C20402">공주</option>
+							<option value="11C20601">금산</option>
+							<option value="11C20602">논산</option>
+							<option value="11C20103">당진</option>
+							<option value="11C20401">대전</option>
+							<option value="11C20201">보령</option>
+							<option value="11C20501">부여</option>
+							<option value="11C20101">서산</option>
+							<option value="11C20202">서천</option>
+							<option value="11C20404">세종</option>
+							<option value="11C20302">아산</option>
+							<option value="11C20303">예산</option>
+							<option value="11C20301">천안</option>
+							<option value="11C20502">청양</option>
+							<option value="11C20102">태안</option>
+							<option value="11C20104">홍성</option></select> <select name="SUB12"
+							style="display: none;" id="city"><option value="">지역선택</option>
+							<option value="11C10303">괴산</option>
+							<option value="11C10202">단양</option>
+							<option value="11C10302">보은</option>
+							<option value="11C10402">영동</option>
+							<option value="11C10403">옥천</option>
+							<option value="11C10103">음성</option>
+							<option value="11C10201">제천</option>
+							<option value="11C10304">증평</option>
+							<option value="11C10102">진천</option>
+							<option value="11C10305">청원</option>
+							<option value="11C10301">청주</option>
+							<option value="11C10401">추풍령</option>
+							<option value="11C10101">충주</option></select>
+
+						<button onclick='psnSelect()'>onclick(자바스크립트)</button>
+
+					</form>
+
+
+
+					<p>
+						주소 입력 <a href="#close">닫기</a>
+					</p>
+				</div>
+			</div>
 		</h1>
 
 		<div class="temperature entypo-light-up">
 			<h2>
-				64<span class="degree-symbol">°</span>C
+				32<span class="degree-symbol">℃</span>
+				<ul id="simbol">
+					<li class="fontawesome-leaf left"><span>4 mph</span></li>
+					<li class="fontawesome-tint center"><span>65%</span></li>
+					<li class="fontawesome-umbrella right"><span>10%</span></li>
+				</ul>
 			</h2>
 		</div>
 
 		<ul>
-			<li class="fontawesome-leaf left"><span>4 mph</span></li>
-			<br>
-			<br>
-			<br><
-			<li class="fontawesome-tint center"><span>65%</span></li>
-			<li class="fontawesome-umbrella right"><span>10%</span></li>
 			<li class="fontawesome-leaf left"><span> 유가?</span></li>
 			<li class="fontawesome-tint center"><span> 물가?</span></li>
 			<li class="fontawesome-umbrella right"><span>뭘 넣어야하지 ? </span></li>
@@ -266,5 +744,6 @@ section .share:hover {
 	</div>
 
 	<div class="result"></div>
+
 </body>
 </html>
