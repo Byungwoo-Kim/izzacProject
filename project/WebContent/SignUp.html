@@ -14,6 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="SubLime Signup Form web template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>;
 <!-- //custom-theme -->
 <script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
 <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -30,15 +31,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 				<div class="clear"></div>
 				
-				<form action="#" method="post" class="w3_agile_login">
+				<form action="#" method="post" class="w3_agile_login" onsubmit="check()" name="f">
 				  <p>Email</p>
 				  <input type="email" name="email" required="required" />
 				  <p>phoneNum</p>
-				  <input type="text" name="username" required="required" />
+				  <input type="text" name="phoneNum" required="required" maxlength="13"/>
 				  <p>Password</p>
-				  <input type="password" name="Password1" id="password1"  required="required">
+				  <input type="password" name="password1" id="password1"  required="required">
 				  <p>Confirm Password</p>
-				  <input type="text" name="password2" id="password2" required="required" />
+				  <input type="password" name="password2" id="password2" required="required" />
 				  <div class="w3_agile_login">
 						<input type="submit" value="Sign up">
 					</div> 
@@ -50,9 +51,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<h3 class="w3ls-left">sign in </h3>
 						<form action="#" method="post" class="w3_agile_login">
 							<p>Email</p>
-							<input type="email" name="name" class="email" placeholder="your mail" required="">
+							<input type="email" name="email" class="email" placeholder="your mail" required="">
 							 <p>Password</p>
-							<input type="password" name="name" class="password" placeholder="your password" required="">
+							<input type="password" name="password" class="password" placeholder="your password" required="">
 							<div class="w3_agile_login">
 								<input type="submit" value="sign in">
 							</div>
@@ -83,6 +84,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		});
 	</script>
 	<script src="assets/js/jquery.vide.min.js"></script>
+	
+	<script type="text/javascript">
+	//유효검사
+	
+	function check(){
+		//비밀번호 길이 체크(4~8자 까지 허용)
+        if (document.f.password1.value.length<4 || document.f.password1.value.length>12) {
+            alert("비밀번호를 4~12자까지 입력해주세요.")
+            document.f.my_pwd.focus()
+            document.f.my_pwd.select()
+            return false;
+        }
+	//비밀번호 확인 체크
+		if(document.f.password1.value!=document.f.password2.value){
+			alert("비밀번호가 일치하지 않습니다.")
+            document.f.my_pwd.focus()
+            document.f.my_pwd.select()
+            return false;
+		}
+	//폰번호 체크
+		 if (!isNumeric(document.f.phoneNum.value)) {
+            alert("핸드폰번호는 숫자로 입력하세요.");
+            document.f.phoneNum.value = ""
+            document.f.phoneNum.focus()
+            return false;
+          } 
+		
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	</script>
 </body>
 </html>
 
