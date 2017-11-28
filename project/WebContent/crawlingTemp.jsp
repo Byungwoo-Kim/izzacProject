@@ -294,10 +294,9 @@ section .share:hover {
 			url : "WeatherCrawling",
 			data : "cityNum=" + cityNum,
 			success : function(result) {
-				var resultAll = result[0] + result[1] + result[2] + result[3];
-				/* h2,tempShow */
+				/* var resultAll = result[0] + result[1] + result[2] + result[3];  */
 				
-				alert(resultAll);
+				alert(result);
 				
 			},
 			error : function() {
@@ -734,12 +733,12 @@ section .share:hover {
 		</h1>
 
 		<div class="temperature entypo-light-up">
-			<h2 id = "tempShow">
+			<h2>
 				32<span class="degree-symbol">กษ</span>
 				<ul id="simbol">
-					<li class="fontawesome-leaf left" id = "rainShow"><span>4 mph</span></li>
-					<li class="fontawesome-tint center" id = "humShow"><span>65%</span></li>
-					<li class="fontawesome-umbrella right" id = "windShow"><span>10%</span></li>
+					<li class="fontawesome-leaf left"><span>4 mph</span></li>
+					<li class="fontawesome-tint center"><span>65%</span></li>
+					<li class="fontawesome-umbrella right"><span>10%</span></li>
 				</ul>
 			</h2>
 		</div>
