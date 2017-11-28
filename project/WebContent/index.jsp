@@ -40,7 +40,7 @@
             <header id="header"> <a href="index.jsp" class="logo"><strong>Project</strong>
                by BBcompany</a>
             <ul class="icons">
-               <li><a href="#open" class="button special fit">LOGIN</a></li>
+               <li><a href="#open" class="button special fit">Sign In / Up</a></li>
             </ul>
             </header>
             <!-- Banner -->
