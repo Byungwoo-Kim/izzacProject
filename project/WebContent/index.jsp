@@ -23,7 +23,10 @@
    padding: 16px;
    /*  overflow: auto */;
 }
+
+
 </style>
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -56,13 +59,13 @@
                </div>
             </div>
 
-            <script type="text/javascript">
-               function close() {
-                  document.querySelector("div.white_content").style.opacity = "0";
-               }
-            </script>
-            <iframe name="mainFrame" id="mainFrame" frameborder="0" scrolling="no" width="100%" height="800px"></iframe>
-             </section>
+				<script type="text/javascript">
+					function close() {
+						document.querySelector("div.white_content").style.opacity = "0";
+					}
+				</script>
+				<iframe name="mainFrame" id="mainFrame" frameborder="0" scrolling="no" width="100%" height="1816px" ></iframe>
+				 </section>
 
          </div>
       </div>
