@@ -262,25 +262,30 @@ section .share:hover {
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script language="javascript">
 	//옵션 선택하면 값 넘기기
 	function psnSelect() {
 		//분류1
 		var region = document.getElementById("wide_select");
 		var regionIndex = region.options[region.selectedIndex].text;
-		
+
 		//분류2
 		var city = document.getElementById("city");
 		var cityIndex = city.options[city.selectedIndex].text;
-		var cityNum = city.options[city.selectedIndex].value;		
+		var cityNum = city.options[city.selectedIndex].value;
 
 		//ajax 
 		$.ajax({
-			url:"WeatherCrawling",
-			data:"cityNum=" + cityNum,
-			success:function(result){
+			url : "WeatherCrawling",
+			data : "cityNum=" + cityNum,
+			success : function(result) {
 				alert(result);
+			},
+			error : function() {
+				alert("오류");
+
 			}
 		});
 	}
@@ -304,7 +309,6 @@ section .share:hover {
 			f.SUB10.style.display = "none";
 			f.SUB11.style.display = "none";
 			f.SUB12.style.display = "none";
-
 		} else if (obj == 2) {
 
 			f.SUB1.style.display = "none";
@@ -500,8 +504,8 @@ section .share:hover {
 							<option value="10">제주도</option>
 							<option value="11">충청남도</option>
 							<option value="12">충청북도</option>
-						</select> <select name="SUB1" style="display:;" id = "city"><option value="">
-								지역선택</option>
+						</select> <select name="SUB1" style="display:;" id="city"><option
+								value="">지역선택</option>
 							<option value="11D20501">강릉</option>
 							<option value="11D20502">강원</option>
 							<option value="11D20402">고성</option>
@@ -512,7 +516,7 @@ section .share:hover {
 							<option value="11D20401">속초</option>
 							<option value="11D20403">양양</option>
 							<option value="11D20301">태백</option></select> <select name="SUB2"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="11D10202">양구</option>
 							<option value="11D10501">영월</option>
 							<option value="11D10401">원주</option>
@@ -524,7 +528,7 @@ section .share:hover {
 							<option value="11D10302">홍천</option>
 							<option value="11D10102">화천</option>
 							<option value="11D10402">횡성</option></select> <select name="SUB3"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="11H20403">거제</option>
 							<option value="11H20502">거창</option>
 							<option value="11H20404">고성</option>
@@ -548,7 +552,7 @@ section .share:hover {
 							<option value="11H20603">함안</option>
 							<option value="11H20501">함양</option>
 							<option value="11H20503">합천</option></select> <select name="SUB4"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="11H10703">경산</option>
 							<option value="11H10202">경주</option>
 							<option value="11H10604">고령</option>
@@ -572,7 +576,7 @@ section .share:hover {
 							<option value="11H10503">청송</option>
 							<option value="11H10705">칠곡</option>
 							<option value="11H10201">포항</option></select> <select name="SUB5"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="11B20404">가평</option>
 							<option value="11B20101">강화</option>
 							<option value="11B20302">고양</option>
@@ -608,14 +612,14 @@ section .share:hover {
 							<option value="11B20403">포천</option>
 							<option value="11B20504">하남</option>
 							<option value="11B20604">화성</option></select> <select name="SUB6"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="11A00101">백령도</option>
 							<option value="11A00103">소청도</option>
 							<option value="11A00102">연평도</option></select> <select name="SUB7"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="11E00102">독도</option>
 							<option value="11E00101">울릉도</option></select> <select name="SUB8"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="11F20303">강진</option>
 							<option value="11F20403">고흥</option>
 							<option value="11F20602">곡성</option>
@@ -642,7 +646,7 @@ section .share:hover {
 							<option value="21F20202">해남(화원)</option>
 							<option value="11F20505">화순</option>
 							<option value="11F20701">흑산도</option></select> <select name="SUB9"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="21F10601">고창</option>
 							<option value="21F10501">군산</option>
 							<option value="21F10502">김제</option>
@@ -657,14 +661,14 @@ section .share:hover {
 							<option value="11F10201">전주</option>
 							<option value="11F10203">정읍</option>
 							<option value="11F10303">진안</option></select> <select name="SUB10"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="11G00501">고산</option>
 							<option value="11G00401">서귀포</option>
 							<option value="11G00101">성산</option>
 							<option value="11G00302">성판악</option>
 							<option value="11G00301">윗세오름</option>
 							<option value="11G00201">제주</option></select> <select name="SUB11"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="11C20403">계룡</option>
 							<option value="11C20402">공주</option>
 							<option value="11C20601">금산</option>
@@ -682,7 +686,7 @@ section .share:hover {
 							<option value="11C20502">청양</option>
 							<option value="11C20102">태안</option>
 							<option value="11C20104">홍성</option></select> <select name="SUB12"
-							style="display: none;" id = "city"><option value="">지역선택</option>
+							style="display: none;" id="city"><option value="">지역선택</option>
 							<option value="11C10303">괴산</option>
 							<option value="11C10202">단양</option>
 							<option value="11C10302">보은</option>
@@ -696,7 +700,7 @@ section .share:hover {
 							<option value="11C10301">청주</option>
 							<option value="11C10401">추풍령</option>
 							<option value="11C10101">충주</option></select>
-							
+
 						<button onclick='psnSelect()'>onclick(자바스크립트)</button>
 
 					</form>
