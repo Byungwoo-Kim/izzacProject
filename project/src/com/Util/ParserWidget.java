@@ -9,15 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/ParserWidget")
 public class ParserWidget extends HttpServlet {
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("받아졌다.");
+		
+		String temp = (String) request.getAttribute("temp");
 		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter out = response.getWriter();
-		out.print((String)request.getAttribute("temp"));
+		System.out.println(temp);
+		out.print(temp);
 	}
 
 }

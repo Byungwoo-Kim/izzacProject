@@ -1,3 +1,6 @@
+<%@page import="org.jsoup.select.Elements"%>
+<%@page import="org.jsoup.Jsoup"%>
+<%@page import="org.jsoup.nodes.Document"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -269,15 +272,23 @@ section .share:hover {
 	function psnSelect() {
 		//분류1
 		var region = document.getElementById("wide_select");
-		var regionIndex = region.options[region.selectedIndex].text;
+		var regionName = region.options[region.selectedIndex].text;
 
 		//분류2
+
 		var city = document.getElementById("city");
-		var cityIndex = city.options[city.selectedIndex].text;
+		var cityName = city.options[city.selectedIndex].text;
 		var cityNum = city.options[city.selectedIndex].value;
+		alert(cityName);
+		var h1Tag = document.getElementById("selectedCity");
+
+		function changeCity() {
+			h1Tag.innerHTML = regionName + " " + cityName;
+		}
+		changeCity();
 
 		//ajax 
-		$.ajax({
+		/* $.ajax({
 			url : "WeatherCrawling",
 			data : "cityNum=" + cityNum,
 			success : function(result) {
@@ -287,7 +298,7 @@ section .share:hover {
 				alert("오류");
 
 			}
-		});
+		}); */
 	}
 
 	//상위 셀렉트로 하위 셀렉트 제어하기
@@ -484,7 +495,7 @@ section .share:hover {
 
 		<section>
 
-		<h1>
+		<h1 id="selectedCity">
 			Los Angeles, CA <a href="#widgetOpen" class="add">+</a>
 			<div class="widget_content" id="widgetOpen">
 				<div>
@@ -492,11 +503,12 @@ section .share:hover {
 
 						<select name="test" title="시,도" id="wide_select"
 							onChange="showSub(this.options[this.selectedIndex].value);">
+							<option>선택</option>
 							<option value="1">강원영동</option>
 							<option value="2">강원영서</option>
 							<option value="3">경상남도</option>
 							<option value="4">경상북도</option>
-							<option value="5" selected="selected">서울·경기</option>
+							<option value="5">서울·경기</option>
 							<option value="6">서해5도</option>
 							<option value="7">울릉도·독도</option>
 							<option value="8">전라남도</option>
@@ -590,7 +602,7 @@ section .share:hover {
 							<option value="11B20401">동두천</option>
 							<option value="11B20305">문산</option>
 							<option value="11B20204">부천</option>
-							<option value="11B10101">서울</option>
+							<option value="11B10101" selected="selected">서울</option>
 							<option value="11B20605">성남</option>
 							<option value="11B20601">수원</option>
 							<option value="11B20202">시흥</option>
@@ -744,6 +756,23 @@ section .share:hover {
 	</div>
 
 	<div class="result"></div>
+
+	<%
+		String cityNum = request.getParameter("cityNum");
+		System.out.println(cityNum);
+		Document doc = Jsoup.connect("http://news.nate.com/weather?areaCode=" + cityNum).get();
+
+		Elements tempEmt = doc.select(".celsius");
+		Elements humEmt = doc.select(".humidity");
+		Elements rainEmt = doc.select(".rainfall");
+		Elements windEmt = doc.select(".wind");
+
+		String temp = tempEmt.get(0).text();
+		String hum = humEmt.get(0).text();
+		String rain = rainEmt.get(0).text();
+		String wind = windEmt.get(0).text();
+		out.print("temp");
+	%>
 
 </body>
 </html>
