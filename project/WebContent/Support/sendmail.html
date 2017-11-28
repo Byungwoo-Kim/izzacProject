@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../assets/css/Support.css"/>
+</head>
+<body>
+<!-- 	<form method="post" action="#">
+		<div class="field half">
+			<label for="name">Tel</label><input type="text" name="name"
+				id="SupportName" />
+		</div>
+		<div class="field half">
+			<label for="email">Email</label> <input type="email" name="email"
+				id="SupportEmail" />
+		</div>
+		<div class="field">
+			<label for="SupportMessage">Message</label>
+			<textarea name="SupportMessage" id="SupportMessage" rows="4"></textarea>
+		</div>
+		<ul class="actions">
+			<input type="submit" value="문의하기"
+				class="button special" />
+		</ul>
+	</form> -->
+	
+	<form method="post" action="#">
+	<br><br>
+	<table id="SupportTable">
+		<tr>
+			<td>답변받으실 연락처</td>
+			<td>답변받으실 이메일</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="name" id="supportName"/></td>
+			<td><input type="text" name="email" id="supportEmail"/></td>
+		</tr>
+		<tr>
+			<td colsapn="2">제목</td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="text" name="supportTitle" id="supportTitle"/></td>
+		</tr>
+		<tr>
+			<td colspan="2">질문</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2"><textarea name="supportMessage" id="supportMessage" rows="4"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right" id="supportSubmit"><input type="submit" value="문의하기" class="QNA_Button"/></td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>
