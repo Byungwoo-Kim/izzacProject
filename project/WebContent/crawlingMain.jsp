@@ -45,7 +45,7 @@
 /* General styles */
 .wrapper {
 	width: 330px;
-	height: 800px;
+	height: 270px;
 	margin: 10% auto;
 	background-color: #1F222A;
 	border-radius: 7px;
@@ -65,7 +65,7 @@ nav {
 	border-radius: 7px;
 }
 
-nav ul li {
+nav li {
 	width: 120px;
 	height: 90px;
 	float: left;
@@ -74,25 +74,21 @@ nav ul li {
 	background-color: #373B46;
 }
 
-nav ul li.last {
+nav li.last {
 	height: 100px;
 	line-height: 140px;
 }
 
-nav ul li.active {
+nav li.active {
 	background-color: #4b4e57;
 	border-radius: 7px 0px 0px 0px;
 }
 
-nav ul li a {
+nav li a {
 	color: #eee;
-	font-size: 2.2em;
+	/* font-size: 2.2em; */
 	text-decoration: none;
-	transition: font-size 0.2s;
-}
-
-nav ul li a:hover {
-	font-size: 2.6em;
+	/* transition: font-size 0.2s; */
 }
 
 section {
@@ -108,7 +104,7 @@ section {
 section h1 {
 	/* padding: 2px 0px 35px 0px; */
 	position: relative;
-	font-size: 1.5em;
+	/* font-size: 1.5em; */
 	border-bottom: 2px solid #4b4e57;
 }
 
@@ -119,7 +115,7 @@ section h1 a.add {
 	/* 	top: 5px; */
 	right: 0px;
 	color: #4b4e57;
-	font-size: 1.9em;
+	/* font-size: 1.9em; */
 	text-align: center;
 	line-height: 30px;
 	text-decoration: none;
@@ -135,7 +131,7 @@ section h1 a.add:hover {
 section .temperature {
 	padding: 0px 0px;
 	color: #3D414C;
-	font-size: 2em;
+	/* font-size: 2em; */
 	transition: color 0.5s ease;
 }
 
@@ -152,42 +148,33 @@ section .temperature h2 {
 section .temperature h2 span.degree-symbol {
 	display: inline-block;
 	margin: 0px 15px;
-	font-size: 0.6em;
+	/* font-size: 0.6em; */
 	vertical-align: top;
 }
 
-section .temperature h2 span.celcius {
-	display: inline-block;
-	margin: 10px 0px 0px 15px;
-	color: #3D414C;
-	font-size: 0.3em;
-	vertical-align: top;
-}
-
-section ul {
+section {
 	padding: 5px;
 	margin-bottom: 70px;
 }
 
-section ul li {
+section li {
 	display: block;
 	float: left;
 	margin-right: 60px;
-	color: #3D414C;
-	font-size: 2em;
+
 }
 
-section ul li:last-child {
+section li:last-child {
 	margin-right: 0px;
 }
 
-section ul li span {
+ section li span {
 	padding-left: 10px;
 	color: #eee;
-	font-size: 0.6em;
+
 	line-height: 30px;
 	vertical-align: top;
-}
+} 
 
 section .bullets {
 	height: 70px;
@@ -197,17 +184,17 @@ section .bullets {
 
 section .bullets span {
 	margin-right: 10px;
-	font-size: 0.6em;
+	/* font-size: 0.6em; */
 }
 
 section .bullets span.active {
 	color: #eee;
-	font-size: 0.8em;
+	/* font-size: 0.8em; */
 }
 
 section a {
 	color: #60646e;
-	font-size: 1.2em;
+/* 	font-size: 1.2em; */
 	text-decoration: none;
 	transition: color 0.5s;
 }
@@ -218,7 +205,7 @@ section a:hover {
 
 section a .external-link {
 	padding-left: 5px;
-	font-size: 0.6em;
+/* 	font-size: 0.6em; */
 	vertical-align: middle;
 }
 
@@ -229,7 +216,7 @@ section .share {
 	bottom: 20px;
 	right: -10px;
 	color: #eee;
-	font-size: 2em;
+/* 	font-size: 2em; */
 	text-align: center;
 	line-height: 90px;
 	background-color: rgba(210, 58, 81, 0.9);
@@ -277,11 +264,12 @@ section .share:hover {
 }
 
 #simbol {
-	font-size: 0.3em;
+/* 	font-size: 0.3em; */
+	color: #eee;
 }
 
 #conText {
-	color: #eee
+	color: #eee;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -290,8 +278,6 @@ section .share:hover {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	
-	
-
 </script>
 <script language="javascript">
 	var temp = "";
@@ -343,43 +329,62 @@ section .share:hover {
 		var rainVar = document.getElementById("rainShow");
 		var imgVar = document.getElementById("weatherImage");
 
+		var oilVar = document.getElementById("oilShow");
+
 		function changeCity() {
 			h1Tag.innerHTML = regionName + " " + cityName;
 		}
 		changeCity();
 
-		//ajax 
-		$.ajax({
-			url : "CrawlingSub",
-			data : "cityNum=" + cityNum,
-			success : function(result) {
-				var array = result.split(",");
-				temp = array[0];
-				hum = array[1];
-				rain = array[2];
-				wind = array[3];
-				weatherImage = array[4];
-				function show() {
-					tempVar.innerHTML = temp + "℃";
-					humVar.innerHTML = hum + "%";
-					rainVar.innerHTML = rain + "mm";
-					windVar.innerHTML = wind + "m/s";
-					alert(weatherImage);
-					if (weatherImage == '맑음') {
-						imgVar.setAttribute("src", "img/sunny.png");
-					} else if ((weatherImage == '구름조금')
-							|| (weatherImage == '흐려져 비')) {
-						imgVar.setAttribute("src", "img/sunCloud.png");
-					} else if (weatherImage == '비또는 눈') {
-						imgVar.setAttribute("src", "img/rainSnow.png");
-					} else if (weatherImage == '비') {
-						imgVar.setAttribute("src", "img/rain.png");
-					} else if ((weatherImage == '구름많음')
-							|| (weatherImage == '흐림')|| (weatherImage == '연무')) {
-						imgVar.setAttribute("src", "img/cloud.png");
-					} else if (weatherImage == '눈') {
-						imgVar.setAttribute("src", "img/snow.png");
+		//ajax 날씨
+		$
+				.ajax({
+					url : "CrawlingSub",
+					data : "cityNum=" + cityNum,
+					success : function(result) {
+						var array = result.split(",");
+						temp = array[0];
+						hum = array[1];
+						rain = array[2];
+						wind = array[3];
+						weatherImage = array[4];
+						function show() {
+							tempVar.innerHTML = " " + temp + "℃";
+							humVar.innerHTML = " " + hum + " %";
+							rainVar.innerHTML = " " + rain + " mm";
+							windVar.innerHTML = " " + wind;
+							if (weatherImage == '맑음') {
+								imgVar.setAttribute("src", "img/sunny.png");
+							} else if ((weatherImage == '구름조금')
+									|| (weatherImage == '흐려져 비')) {
+								imgVar.setAttribute("src", "img/sunCloud.png");
+							} else if (weatherImage == '비또는 눈') {
+								imgVar.setAttribute("src", "img/rainSnow.png");
+							} else if (weatherImage == '비') {
+								imgVar.setAttribute("src", "img/rain.png");
+							} else if ((weatherImage == '구름많음')
+									|| (weatherImage == '흐림')
+									|| (weatherImage == '연무')) {
+								imgVar.setAttribute("src", "img/cloud.png");
+							} else if (weatherImage == '눈') {
+								imgVar.setAttribute("src", "img/snow.png");
+							}
+
+						}
+						show();
+					},
+					error : function(request, status, error) {
+						alert("code:" + request.status + "\n" + "message:"
+								+ request.responseText + "\n" + "error:"
+								+ error);
 					}
+
+				});
+		$.ajax({
+			url : "CrawlingOil",
+			success : function(result) {
+				function show() {
+					oilVar.innerHTML = result + "원";
 
 				}
 				show();
@@ -390,42 +395,58 @@ section .share:hover {
 			}
 
 		});
- 		imgVar.addEventListener("mouseover", function() {
+
+		$.ajax({
+			url : "CrawlingLife",
+			success : function(result) {
+				function show() {
+					lifeShow.innerHTML = result;
+
+				}
+				show();
+			},
+			error : function(request, status, error) {
+				alert("code:" + request.status + "\n" + "message:"
+						+ request.responseText + "\n" + "error:" + error);
+			}
+
+		});
+
+		//ajax 기름값
+		imgVar.addEventListener("mouseover", function() {
 			if (weatherImage == '맑음') {
 				imgVar.setAttribute("src", "img/sunny2.png");
-			} else if ((weatherImage == '구름조금')
-					|| (weatherImage == '흐려져 비')) {
+			} else if ((weatherImage == '구름조금') || (weatherImage == '흐려져 비')) {
 				imgVar.setAttribute("src", "img/sunCloud2.png");
 			} else if (weatherImage == '비또는 눈') {
 				imgVar.setAttribute("src", "img/rainSnow2.png");
 			} else if (weatherImage == '비') {
 				imgVar.setAttribute("src", "img/rain2.png");
-			} else if ((weatherImage == '구름많음')
-					|| (weatherImage == '흐림')|| (weatherImage == '연무')) {
+			} else if ((weatherImage == '구름많음') || (weatherImage == '흐림')
+					|| (weatherImage == '연무')) {
 				imgVar.setAttribute("src", "img/cloud2.png");
 			} else if (weatherImage == '눈') {
 				imgVar.setAttribute("src", "img/snow2.png");
 			}
 
 		})
- 		imgVar.addEventListener("mouseout", function() {
+		imgVar.addEventListener("mouseout", function() {
 			if (weatherImage == '맑음') {
 				imgVar.setAttribute("src", "img/sunny.png");
-			} else if ((weatherImage == '구름조금')
-					|| (weatherImage == '흐려져 비')) {
+			} else if ((weatherImage == '구름조금') || (weatherImage == '흐려져 비')) {
 				imgVar.setAttribute("src", "img/sunCloud.png");
 			} else if (weatherImage == '비또는 눈') {
 				imgVar.setAttribute("src", "img/rainSnow.png");
 			} else if (weatherImage == '비') {
 				imgVar.setAttribute("src", "img/rain.png");
-			} else if ((weatherImage == '구름많음')
-					|| (weatherImage == '흐림')|| (weatherImage == '연무')) {
+			} else if ((weatherImage == '구름많음') || (weatherImage == '흐림')
+					|| (weatherImage == '연무')) {
 				imgVar.setAttribute("src", "img/cloud.png");
 			} else if (weatherImage == '눈') {
 				imgVar.setAttribute("src", "img/snow.png");
 			}
 
-		}) 
+		})
 	}
 
 	//상위 셀렉트로 하위 셀렉트 제어하기
@@ -855,33 +876,45 @@ section .share:hover {
 		</h1>
 		<div class="temperature entypo-light-up">
 			<h2>
-				<img id="weatherImage" src="img/sunny.png"> <span
-					class="degree-symbol" id="tempShow">32℃</span>
-				<ul id="simbol">
-					<li class="fontawesome-leaf left" id="humShow"><span
-						id="conText">4 mph</span></li>
-					<li class="fontawesome-tint center" id="rainShow"><span
-						id="conText">65%</span></li>
-					<li class="fontawesome-umbrella right" id="windShow"><span
-						id="conText">10%</span></li>
-				</ul>
+				<table>
+					<tr>
+						<td><img id="weatherImage" src="img/sunny.png"></td>
+						<td width="30"><span class="degree-symbol" id="tempShow">32℃</span></td>
+
+						<td>
+							<li class="fontawesome-leaf left" id="humShow"><span
+								id="conText">4mph</span></li>
+							<li class="fontawesome-tint center" id="rainShow"><span
+								id="conText">65%</span></li>
+							<li class="fontawesome-umbrella right" id="windShow"><span
+								id="conText">10%</span></li>
+						</td>
+					</tr>
+
+				</table>
+
+
+
 			</h2>
 		</div>
 
-		<ul>
-			<li class="fontawesome-leaf left"><span> 유가?</span></li>
-			<li class="fontawesome-tint center"><span> 물가?</span></li>
-			<li class="fontawesome-umbrella right"><span>뭘 넣어야하지 ? </span></li>
-		</ul>
-		<ul>
+		<div>
+			<table>
+				<tr>
+					<td><li class="fontawesome-leaf left"><span id="oilShow">
+								유가?</span></li></td>
+				</tr>
+				<tr>
+					<td><li class="fontawesome-tint center"><span
+							id="lifeShow"> 물가?</span></li></td>
+				</tr>
 
-		</ul>
-		<ul>
+			</table>
 
-		</ul>
-		<ul>
 
-		</ul>
+
+		</div>
+
 		</section>
 
 	</div>

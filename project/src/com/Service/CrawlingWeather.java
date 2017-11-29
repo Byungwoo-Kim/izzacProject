@@ -16,7 +16,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 @WebServlet("/CrawlingSub")
-public class CrawlingSub extends HttpServlet {
+public class CrawlingWeather extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
