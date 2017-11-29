@@ -8,7 +8,7 @@
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<style type="text/css">
+<!-- <style type="text/css">
 .white_content:target {
    opacity: 1;
    pointer-events: auto;
@@ -26,7 +26,7 @@
 }
 
 
-</style>
+</style> -->
 
 <title>Insert title here</title>
 </head>
@@ -43,7 +43,7 @@
             <c:choose>
             	<c:when test="${empty email}">
 		            <ul class="icons">
-		               <li><a href="#open" class="button special fit">Sign In / Up</a></li>
+		               <li><a href="#" class="button special fit" onclick="window.open('dasol.html','login/join','resizable=no width=780,height=550,left=500, top=300 menubar=1 status=0')">LOGIN</a></li>
 		            </ul>
 	            </c:when>
 	            <c:otherwise>
