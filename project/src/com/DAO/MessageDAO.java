@@ -111,8 +111,9 @@ public class MessageDAO {
 	 */
 	public boolean newMsg(MessageDTO msg) throws Exception {
 		conn = DBManager.getConnection();
-		String sql = "insert into Sales_Message(mid, email, msg, mdate) values(s_message_num.nextval, ?, ?, to_char(sysdate, 'YYYY-MM-DD / HH24:MI'))";
+		String sql = "insert into Sales_Message(mid, email, msg, mdate) values(Sales_message_num.nextval, ?, ?, to_char(sysdate, 'YYYY-MM-DD / HH24:MI'))";
 		try {
+			System.out.println(msg.getEmail() + " / " + msg.getMsg());
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, msg.getEmail());
 			pst.setString(2, msg.getMsg());
@@ -169,7 +170,7 @@ public class MessageDAO {
 	 */
 	public boolean newReply(ReplyDTO reply) throws Exception {
 		conn = DBManager.getConnection();
-		String sql = "insert into Sales_Reply(rid,mid,email,rmsg,rdate) values(s_reply_num.nextval,?,?,?,to_char(sysdate, 'YYYY-MM-DD'))";
+		String sql = "insert into Sales_Reply(rid,mid,email,rmsg,rdate) values(reply_num.nextval,?,?,?,to_char(sysdate, 'YYYY-MM-DD / HH24:MI'))";
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, reply.getMid());

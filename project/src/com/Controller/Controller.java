@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.Service.Command;
+import com.Service.JoinService;
+import com.Service.LoginService;
+import com.Service.UpdateService;
 
 @WebServlet("*.do")
 public class Controller extends HttpServlet {
@@ -17,11 +20,10 @@ public class Controller extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException { //실행했을 때 최초 1회만 실행
-		//map.put("Login.do", new LoginService());
-		//map.put("Join.do", new JoinService());
-		//map.put("MessageInsert.do", new MessageInsertService());
+		map.put("Login.do", new LoginService());
+		map.put("Join.do", new JoinService());
+		map.put("Update.do", new UpdateService());
 		//map.put("delete.do", new DeleteService());
-		//map.put("Update.do", new UpdateService());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

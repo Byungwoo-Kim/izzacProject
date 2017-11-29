@@ -31,15 +31,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 				<div class="clear"></div>
 				
-				<form action="#" method="post" class="w3_agile_login" onsubmit="check()" name="f">
+				<form action="Join.do" method="post" class="w3_agile_login" onsubmit="check()" name="f">
 				  <p>Email</p>
 				  <input type="email" name="email" required="required" />
+				  <p>Password</p>
+				  <input type="password" name="pw" id="password1"  required="required">
+				  <p>Confirm Password</p>
+				  <input type="password" name="pwConfrim" id="password2" required="required" />
 				  <p>phoneNum</p>
 				  <input type="text" name="phoneNum" required="required" maxlength="13"/>
-				  <p>Password</p>
-				  <input type="password" name="password1" id="password1"  required="required">
-				  <p>Confirm Password</p>
-				  <input type="password" name="password2" id="password2" required="required" />
+				  <p>Category</p>
+				  <input type="text" name="category" required="required" maxlength="13"/>
 				  <div class="w3_agile_login">
 						<input type="submit" value="Sign up">
 					</div> 
@@ -109,17 +111,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             document.f.phoneNum.value = ""
             document.f.phoneNum.focus()
             return false;
-          } 
-		
-	
-	
-	
+          } 	
 	}
-	
-	
-	
-	
-	
 	</script>
 </body>
 </html>

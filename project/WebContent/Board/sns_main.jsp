@@ -18,14 +18,6 @@
 			active : parseInt("${curmsg == null ? 0:curmsg}")
 		});
 	});
-
-	function newuser() {
-		window
-				.open(
-						"new_user.jsp",
-						"newuser",
-						"titlebar=no,location=no,scrollbars=no,resizeable=no,menubar=no,toolbar=no,width=300,height=240");
-	}
 </script>
 
 <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->

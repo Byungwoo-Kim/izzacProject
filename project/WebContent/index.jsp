@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,9 +40,18 @@
             <!-- Header -->
             <header id="header"> <a href="index.jsp" class="logo"><strong>Project</strong>
                by BBcompany</a>
-            <ul class="icons">
-               <li><a href="#open" class="button special fit">Sign In / Up</a></li>
-            </ul>
+            <c:choose>
+            	<c:when test="${empty email}">
+		            <ul class="icons">
+		               <li><a href="#open" class="button special fit">Sign In / Up</a></li>
+		            </ul>
+	            </c:when>
+	            <c:otherwise>
+		            <ul class="icons">
+		               <li><a href="Logout.jsp" class="button special fit">Logout</a></li>
+		            </ul>
+	            </c:otherwise>
+           	</c:choose>
             </header>
             <!-- Banner -->
             <section id="banner">

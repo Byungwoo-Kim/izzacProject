@@ -42,10 +42,10 @@ CREATE TABLE Sales_Message (
   favcount number DEFAULT '0',
   replycount number DEFAULT '0',
   mdate varchar2(20) NOT NULL,
-  FOREIGN KEY(email) REFERENCES s_member(email)
-)
+  FOREIGN KEY(email) REFERENCES Sales_member(email)
+);
 
-create sequence message_num
+create sequence Sales_message_num
 start with 1
 increment by 1;
 
@@ -55,8 +55,8 @@ CREATE TABLE Sales_Reply (
   email varchar2(25) NOT NULL,
   rdate varchar2(20) NOT NULL,
   rmsg varchar2(50) NOT NULL,
-  FOREIGN KEY (mid) REFERENCES s_message (mid)
-)
+  FOREIGN KEY (mid) REFERENCES Sales_Message (mid)
+);
 
 create sequence reply_num
 start with 1

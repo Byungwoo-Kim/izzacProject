@@ -19,6 +19,14 @@ public class MemberDTO {
 		this.signUpDate = signUpDate;
 		this.payDate =payDate;
 	}
+	
+	public MemberDTO(String email, String pw, int phone, String category) {
+		super();
+		this.email = email;
+		this.pw = pw;
+		this.phone = phone;
+		this.category = category;
+	}
 
 	public String getEmail() {
 		return email;

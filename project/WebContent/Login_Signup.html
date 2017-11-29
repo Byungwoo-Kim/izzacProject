@@ -9,12 +9,12 @@
 	<div class="wrapper">
 			<div class="container">
 				<h1>Welcome to Parasol</h1>
-				<form class="form">
-					<input type="text" placeholder="ID"> <input type="password"
-						placeholder="Password">
+				<form action="Login.do" class="form" >
+					<input type="text" placeholder="Email" name="email" required="required">
+					<input type="password" placeholder="Password" name="pw" required="required">
 					<button type="submit" id="login-button">Login</button>
 					<br>
-					<button type="submit" id="login-button" onclick="window.open('SignUp.html','window_name','width=650,height=840,location=no,status=no,scrollbars=yes, menubar=no, left=600, top=100');">Join</button>
+					<button type="submit" id="Join-button" onclick="window.open('SignUp.html','window_name','width=650,height=840,location=no,status=no,scrollbars=yes, menubar=no, left=600, top=100');">Join</button>
 				</form>
 
 			</div>
