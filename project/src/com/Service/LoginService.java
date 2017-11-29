@@ -15,6 +15,8 @@ public class LoginService implements Command{
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
 		
+		System.out.println("login : " + email +" / " + pw);
+		
 		MemberDAO dao = new MemberDAO();
 		
 		try {
