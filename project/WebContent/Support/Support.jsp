@@ -16,7 +16,7 @@ width: 100%;
 </head>
 <body>
 
-<table border="1px solid black" cellspacing="0" align="center" >
+<table border="1px solid black" cellspacing="0" align="center" width="1200em">
 
 	<tr align="center">
 		<td><a onclick="supportClick('FAQ')" target="aa" href="faq.html"><img src="../images/faq.png"></a><br>FAQ</td>
