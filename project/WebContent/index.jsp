@@ -82,7 +82,7 @@
                <li><a href="ServiceMain.html" target="mainFrame">서비스 소개(폰트 나중에 수정)</a></li>
                <li><span class="opener">내 정보</span>
                   <ul>
-                     <li><a href="#" target="mainFrame">캐쉬 충전</a></li>
+                     <li><a href="payment/payment.html" onclick="window.open('payment/payment.html','window','width=1900,height=1000,left=0,top=0')">서비스가입 / 연장</a></li>
                      <li><a href="#" target="mainFrame">내 정보 수정</a></li>
                   </ul></li>
                <li><span class="opener">매출 분석</span>
