@@ -86,10 +86,10 @@
             <section id="search" class="alt">누구님 시계 날씨 위젯 남은 정액기간</section>
             <!-- Menu -->
             <nav id="menu"> <header class="major">
-            <h2>Menu</h2>
+            <h2>MENU</h2>
             </header>
             <ul>
-               <li><a href="ServiceMain.html" target="mainFrame">서비스 소개(폰트 나중에 수정)</a></li>
+               <li><a href="ServiceMain.html" target="mainFrame">서비스 소개</a></li>
                <li><span class="opener">내 정보</span>
                   <ul>
                      <li><a href="#" onclick="window.open('payment/payment.html','window','width=1900,height=1000,left=0,top=0')">서비스가입 / 연장</a></li>
@@ -111,7 +111,7 @@
             <section> <a href="#"><img src="images/Banner.jpg"
                alt="" id="ban"></a> <!-- 회원가입으로 고고 -->
             <ul class="contact">
-               <li class="fa-envelope-o"><a href="#">smhrd@smhrd.co.kr</a></li>
+               <li class="fa-envelope-o">smhrd@smhrd.co.kr</li>
                <li class="fa-phone">070-1234-4567</li>
                <li class="fa-home">광주 남구 송암로 60 광주CGI센터<br> 진흥원동 2층
                   스마트미디어학회
