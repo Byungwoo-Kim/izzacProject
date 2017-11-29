@@ -350,7 +350,7 @@ section .share:hover {
 
 		//ajax 
 		$.ajax({
-			url : "WeatherCrawling",
+			url : "CrawlingSub",
 			data : "cityNum=" + cityNum,
 			success : function(result) {
 				var array = result.split(",");
