@@ -111,7 +111,8 @@
             <!-- Footer -->
             <footer id="footer">
             <p class="copyright">&copy; iÂ¦ ÇÁ·ÎÁ§Æ® È«¼ºÀº ±èº´¿ì °­»õÈû À±´Ù¼Ö<br>
-            kutar37@tistory.com</p>
+            kutar37@tistory.com<br>
+            http://blog.naver.com/kbw0104</p>
             </footer>
          </div>
       </div>
