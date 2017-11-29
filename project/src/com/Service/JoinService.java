@@ -1,14 +1,18 @@
 package com.Service;
 
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.DAO.MemberDAO;
 import com.DTO.MemberDTO;
 
-public class JoinService implements Command{
+public class JoinService implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -25,6 +29,9 @@ public class JoinService implements Command{
 			PrintWriter out = response.getWriter();
 			
 			if(isAdd) {
+				HttpSession session = request.getSession();
+				session.setAttribute("email", email);
+				
 				out.println("<script>alert('정상적으로 등록 되었습니다. 로그인 하세요!!');opener.window.location.reload();window.close();</script>");
 			} else {
 				out.println("<script>alert('같은 아이디가 존재 합니다!!');history.go(-1);</script>");
