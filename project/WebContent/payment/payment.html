@@ -1,0 +1,201 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tabs Payment Form Flat Responsive Widget Template :: w3layouts</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Tabs Payment Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //custom-theme -->
+<link href="../assets/css/payment/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="../assets/css/payment/creditly.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../assets/css/payment/easy-responsive-tabs.css">
+<script src="../assets/js/payment/jquery.min.js"></script>
+<!-- font-awesome-icons -->
+<link href="../assets/css/payment/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome-icons -->
+<link href="//fonts.googleapis.com/css?family=Mirza:400,500,600,700&amp;subset=arabic,latin-ext" rel="stylesheet">
+</head>
+<body>
+	<div class="main">	
+		<h1 style="font-family: sans-serif;">이용해주셔서 감사합니다.</h1>
+		
+		<div class="w3_agile_main_grids">
+			<div class="w3layouts_main_grid_left">
+				<div class="agileinfo_main_grid_left_grid">
+					<h3>Select Period</h3>
+					<form name="f">
+					<ul>
+						<li><input type="radio" value="100,000" name="period" onclick="price()"/> 30일 (30 DAYS) </li>
+						<li style="font-size: 1.2em; font-family: sans-serif;">100,000원</li>
+					</ul>
+					<ul>
+						<li><input type="radio" value="280,000" name="period" onclick="price()"/> 90일 (90 DAYS) <span style="font-family: sans-serif;">- 할인율 10% </span></li>
+						<li style="font-size: 1.2em; font-family: sans-serif;">280,000원</li>
+					</ul>
+					<ul>
+						<li><input type="radio" value="480,000" name="period" onclick="price()"/> 180일 (180 DAYS) <span style="font-family: sans-serif;">- 할인율 20% </span></li>
+						<li style="font-size: 1.2em; font-family: sans-serif;">480,000원</li>
+					</ul>
+					<ul>
+						<li><input type="radio" value="840,000" name="period" onclick="price()"/> 365일 (365 DAYS) <span style="font-family: sans-serif;">- 할인율 30% </span></li>
+						<li style="font-size: 1.2em; font-family: sans-serif;">840,000원</li>
+					</ul>
+					</form>
+				</div>
+				
+				<script type="text/javascript">
+						
+				function price(){
+		
+						var result = document.getElementById("result");
+						result.innerHTML= document.f.period.value+" WON";
+				
+				}
+				
+				function payment(){
+					var result = document.getElementById("result");
+										
+					alert("이용해주셔서 감사합니다.");
+					
+					if(result.innerHTML=="100,000 WON"){						
+						window.location.href = "#?payDate="+30;
+					}else if(result.innerHTML=="280,000 WON"){
+						window.location.href = "#?payDate="+90;
+					}else if(result.innerHTML=="480,000 WON"){
+						window.location.href = "#?payDate="+180;
+					}else if(result.innerHTML=="840,000 WON"){
+						window.location.href = "#?payDate="+365;
+					}
+										
+				}
+								
+				</script>
+				
+				<div class="agile_amount">
+					<h3 style="font-family: sans-serif;">Total Price</h3>
+					<h4 id="result"></h4>
+					<p style="font-family: sans-serif;">*부가가치세 10% 포함</p>
+				</div>
+			</div>
+			<div class="agileits_main_grid_right">
+				<div class="wthree_payment_grid">
+					<h2 style="font-family: sans-serif;">결제수단을 선택해주세요.</h2>
+					<div id="horizontalTab">
+						<ul class="resp-tabs-list">
+							<li><img src="../images/payment/1.jpg" alt=" " /></li>
+							<li><img src="../images/payment/2.jpg" alt=" " /></li>
+						</ul>
+						<div class="resp-tabs-container">
+							<div class="agileits_w3layouts_tab1">
+								<form action="#" class="creditly-card-form agileinfo_form">
+									<section class="creditly-wrapper wthree, w3_agileits_wrapper">
+										<div class="credit-card-wrapper">
+											<div class="first-row form-group">
+												<div class="controls">
+													<label class="control-label" style="font-family: sans-serif;">카드 앞면 이름</label>
+													<input class="billing-address-name form-control" type="text" name="name" placeholder="Hong Seong Eun">
+												</div>
+												<div class="w3_agileits_card_number_grids">
+													<div class="w3_agileits_card_number_grid_left">
+														<div class="controls">
+															<label class="control-label" style="font-family: sans-serif;">카드번호</label>
+															<input class="number credit-card-number form-control" type="text" name="number"
+																		  inputmode="numeric" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number"
+																		  placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
+														</div>
+													</div>
+													<div class="w3_agileits_card_number_grid_right">
+														<div class="controls">
+															<label class="control-label" style="font-family: sans-serif;">CVC 번호</label>
+															<input class="security-code form-control"Â·
+																		  inputmode="numeric"
+																		  type="text" name="security-code"
+																		  placeholder="&#149;&#149;&#149;">
+														</div>
+													</div>
+													<div class="clear"> </div>
+												</div>
+												<div class="controls">
+													<label class="control-label" style="font-family: sans-serif;">유효기간(월/년)</label>
+													<input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
+												</div>
+											</div>
+											<button class="submit" onclick="payment()"><span> THANK YOU <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button>
+										</div>
+									</section>
+								</form>
+							</div>
+							<div class="agileits_w3layouts_tab2">
+								<h3>paypal Account Login </h3>
+								<form action="f?period=">
+									<input type="email" name="Email" placeholder="Email" required="">
+									<input type="password" name="Password" placeholder="Password" required="">
+									<input type="submit" value="Login" onclick="payment()">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"> </div>
+		</div>
+		
+		<div class="agileits_copyright">
+			<p>© 2017 Tabs Payment Form. All rights reserved | Parasol </p>
+		</div>
+	</div>
+	
+	<!-- credit-card -->
+		<script type="text/javascript" src="../assets/js/payment/creditly.js"></script>
+		<script type="text/javascript">
+			$(function() {
+			  var creditly = Creditly.initialize(
+				  '.creditly-wrapper .expiration-month-and-year',
+				  '.creditly-wrapper .credit-card-number',
+				  '.creditly-wrapper .security-code',
+				  '.creditly-wrapper .card-type');
+
+			  $(".creditly-card-form .submit").click(function(e) {
+				e.preventDefault();
+				var output = creditly.validate();
+				if (output) {
+				  // Your validated credit card output
+				  console.log(output);
+				}
+			  });
+			});
+		</script>
+	<!-- //credit-card -->
+	<!-- tabs -->
+	<script src="../assets/js/payment/easy-responsive-tabs.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion           
+				width: 'auto', //auto or any width like 600px
+				fit: true,   // 100% fit in a container
+				closed: 'accordion', // Start closed if in accordion view
+				activate: function(event) { // Callback function if tab is switched
+				var $tab = $(this);
+				var $info = $('#tabInfo');
+				var $name = $('span', $info);
+				$name.text($tab.text());
+				$info.show();
+				}
+			});
+		});
+	</script>
+	<!-- //tabs -->
+
+</body>
+</html>
