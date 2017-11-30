@@ -1,0 +1,36 @@
+@charset "EUC-KR";
+
+* {
+	border: 1px solid black;
+}
+
+#wrapper {
+	width: 1000px;
+	margin: 10px auto;
+	height: 900px;
+}
+#text{
+	height:10%;
+}
+#content1 {
+	box-sizing: border-box;
+	height: 43.5%;
+}
+#checkbox{
+	height:5%
+}
+#wrapper2{
+	height: 43.5%;
+}
+#content2{
+	box-sizing: border-box;
+	height:100%;
+	width:50%;
+	float: left;
+}
+#content3{
+	box-sizing: border-box;
+	height:100%;
+	width:50%;
+	float:right;
+}
