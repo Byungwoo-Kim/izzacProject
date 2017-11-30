@@ -1,0 +1,262 @@
+@charset "EUC-KR";
+
+<style type="text/css">
+/* Import Icon fonts and web font */
+@import "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700";
+
+/*기본으로 들어가있던 태양 이미지  */
+/* @import "http://weloveiconfonts.com/api/?family=entypo"; */
+
+/*태양  */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+/* entypo */
+[class*="entypo-"]:before {
+	font-family: 'entypo', sans-serif;
+}
+
+/* iconicfill */
+[class*="iconicfill-"]:before {
+	font-family: 'IconicFill', sans-serif;
+}
+
+/* iconicfill */
+[class*="iconicfill-"]:before {
+	font-family: 'IconicFill', sans-serif;
+}
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+	font-family: 'FontAwesome', sans-serif;
+}
+
+/* Colors declarations */
+/* General styles */
+.wrapper {
+	width: 330px;
+	height: 270px;
+	margin: 10% auto;
+	background-color: #f5f6f7;
+	border-radius: 7px;
+}
+
+body {
+	color: #eee;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #f5f6f7;
+}
+
+nav {
+	width: 120px;
+	height: 100%;
+	float: left;
+	background-color: #373B46;
+	border-radius: 7px;
+}
+
+nav li {
+	width: 120px;
+	height: 90px;
+	float: left;
+	text-align: center;
+	line-height: 90px;
+	background-color: #373B46;
+}
+
+nav li.last {
+	height: 100px;
+	line-height: 140px;
+}
+
+nav li.active {
+	background-color: #4b4e57;
+	border-radius: 7px 0px 0px 0px;
+}
+
+nav li a {
+	color: #eee;
+	/* font-size: 2.2em; */
+	text-decoration: none;
+	/* transition: font-size 0.2s; */
+}
+
+section {
+	height: 100%;
+	box-sizing: border-box;
+	padding: 0px 20px;
+	float: left;
+	position: relative;
+	background-color: #1F222A;
+	border-radius: 7px;
+}
+
+section h1 {
+	/* padding: 2px 0px 35px 0px; */
+	position: relative;
+	/* font-size: 1.5em; */
+	border-bottom: 2px solid #4b4e57;
+}
+
+section h1 a.add {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	/* 	top: 5px; */
+	right: 0px;
+	color: #4b4e57;
+	/* font-size: 1.9em; */
+	text-align: center;
+	line-height: 30px;
+	text-decoration: none;
+	background-color: black;
+	border-radius: 3px;
+	transition: color 0.5s;
+}
+
+section h1 a.add:hover {
+	color: #eee;
+}
+
+section .temperature {
+	padding: 0px 0px;
+	color: #3D414C;
+	/* font-size: 2em; */
+	transition: color 0.5s ease;
+}
+
+section .temperature:hover {
+	color: yellow;
+}
+
+section .temperature h2 {
+	display: inline;
+	color: #eee;
+	font-weight: 300;
+}
+
+section .temperature h2 span.degree-symbol {
+	display: inline-block;
+	margin: 0px 15px;
+	/* font-size: 0.6em; */
+	vertical-align: top;
+}
+
+section {
+	padding: 5px;
+	margin-bottom: 70px;
+}
+
+section li {
+	display: block;
+	float: left;
+	margin-right: 60px;
+
+}
+
+section li:last-child {
+	margin-right: 0px;
+}
+
+ section li span {
+	padding-left: 10px;
+	color: #eee;
+
+	line-height: 30px;
+	vertical-align: top;
+} 
+
+section .bullets {
+	height: 70px;
+	color: #3D414C;
+	text-align: center;
+}
+
+section .bullets span {
+	margin-right: 10px;
+	/* font-size: 0.6em; */
+}
+
+section .bullets span.active {
+	color: #eee;
+	/* font-size: 0.8em; */
+}
+
+section a {
+	color: #60646e;
+/* 	font-size: 1.2em; */
+	text-decoration: none;
+	transition: color 0.5s;
+}
+
+section a:hover {
+	color: #eee;
+}
+
+section a .external-link {
+	padding-left: 5px;
+/* 	font-size: 0.6em; */
+	vertical-align: middle;
+}
+
+section .share {
+	width: 100px;
+	height: 90px;
+	position: absolute;
+	bottom: 20px;
+	right: -10px;
+	color: #eee;
+/* 	font-size: 2em; */
+	text-align: center;
+	line-height: 90px;
+	background-color: rgba(210, 58, 81, 0.9);
+	transition: right 0.2s;
+}
+
+section .share:hover {
+	right: -20px;
+}
+
+.widget_content {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/*  background: rgba(0, 0, 0, 0.8); */
+	opacity: 0;
+	/*-webkit-transition: opacity 400ms ease-in; */
+	/*-moz-transition: opacity 400ms ease-in; */
+	/* transition: opacity 400ms ease-in; */ /*천천히 나타나는 애니매이션  */
+	pointer-events: none;
+}
+
+.widget_content:target {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.widget_content>div {
+	position: absolute;
+	top: 25%;
+	left: 60%;
+	width: 30%;
+	height: 20%;
+	padding: 16px;
+	border: 3px solid #3d414c;
+	background-color: #1F222A;
+	overflow: auto;
+}
+
+#weatherImage {
+	width: 50px;
+	height: 50px;
+}
+
+#simbol {
+/* 	font-size: 0.3em; */
+	color: #eee;
+}
+
+#conText {
+	color: #eee;
+}
+</style>

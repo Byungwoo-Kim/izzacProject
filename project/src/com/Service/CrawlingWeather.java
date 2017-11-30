@@ -1,3 +1,4 @@
+package com.Service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,8 +15,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-@WebServlet("/WeatherCrawling")
-public class CrawlingSub extends HttpServlet {
+@WebServlet("/CrawlingSub")
+public class CrawlingWeather extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

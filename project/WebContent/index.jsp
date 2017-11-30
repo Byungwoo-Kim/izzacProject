@@ -83,7 +83,13 @@
       <div id="sidebar">
          <div class="inner">
             <!-- Search -->
-            <section id="search" class="alt">´©±¸´Ô ½Ã°è ³¯¾¾ À§Á¬ ³²Àº Á¤¾×±â°£</section>
+            <section id="search" class="alt">
+           <iframe width="340" height="305" src='crawlingMain.jsp' name="test" scrolling="no"></iframe> 
+           <%-- <%@include file = "crawlingMain.jsp" %> --%>
+  
+            
+            
+            </section>
             <!-- Menu -->
             <nav id="menu"> <header class="major">
             <h2>MENU</h2>
