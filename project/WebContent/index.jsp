@@ -55,25 +55,6 @@
             </header>
             <!-- Banner -->
             <section id="banner">
-			
-
-            <div class="white_content" id="open">
-
-               <div>
-                  <div style="position: relative;">
-                     <a href='#'
-                        style="position: absolute; right: 10px; color: white; font-size: 25px; font-weight: bold;"
-                        onclick="close()">X</a>
-                  </div>
-                  <iframe width="100%" height="1000px" src='Login_Signup.html'></iframe>
-               </div>
-            </div>
-
-				<script type="text/javascript">
-					function close() {
-						document.querySelector("div.white_content").style.opacity = "0";
-					}
-				</script>
 				<iframe name="mainFrame" id="mainFrame" frameborder="0" scrolling="no" width="100%" height="1816px" src = "MainContents.jsp" ></iframe>
 				 </section>
 

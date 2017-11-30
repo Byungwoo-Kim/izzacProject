@@ -1,0 +1,64 @@
+@charset "EUC-KR";
+
+* {
+	box-sizing: border-box;
+	padding: 4px 4px 4px 4px;
+}
+*:not(#video){
+	
+}
+#wrap {
+	width: 1100px;
+	height: 1000px;
+}
+
+table {
+	width: 100%;
+	height: 100%;
+}
+
+td#img {
+	height: 60%;
+	width: 30%;
+	border-radius: 0px 15px 0px 15px;
+}
+
+td.right {
+	width: 35%;
+	height: 30%
+}
+
+.title {
+	font-weight: bold;
+	font-size: medium;
+}
+
+#middle-center-div {
+	background-color: #61564B;
+	border-radius: 0px 15px 0px 15px;
+	width: 350px;
+	height: 400px;
+}
+
+#bottom {
+	height: 40%;
+}
+
+h2 {
+	color: #FFC331;
+}
+
+#middle-right-div {
+	width:345px;
+	height:495px;
+	border:5px solid gray
+}
+#team{
+	font-family:"@aÅÂ¹é»ê¸Æ",serif;
+	font-size: 30px
+}
+#bottom-left{
+	border:5px solid gray
+}
+
+
