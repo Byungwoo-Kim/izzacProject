@@ -13,13 +13,17 @@
 		<div id="text">테이블 형태?</div>
 		<!-- 오늘의 매출 그래프 R그래프 주소 넣으셈-->
 		<section id="content1"> <img alt="" src=""> </section>
-		<section id="checkbox">
-		<input type="checkbox" name="chk_info" value="풍속">풍속
-		<input type="checkbox" name="chk_info" value="풍속">유가
-		<input type="checkbox" name="chk_info" value="풍속">물가
-		</section>
-		<!-- 유가물가  그래프 R그래프 주소 넣으셈-->
+		<section id="checkbox"> <input type="checkbox"
+			name="chk_info" value="풍속">풍속 <input type="checkbox"
+			name="chk_info" value="풍속">유가 <input type="checkbox"
+			name="chk_info" value="풍속">물가 </section>
 		<div id="wrapper2">
+			<iframe src="ConsumerGraph.jsp" width="990px" height="460px"
+				frameborder=0 framespacing=0 marginheight=0 marginwidth=0
+				scrolling=no vspace=0></iframe>
+			<iframe src="OilInfo.jsp" width="897px" height="310px"
+				frameborder=0 framespacing=0 marginheight=0 marginwidth=0
+				scrolling=no vspace=0></iframe>
 			<section id="content2"> <img alt="" src=""> </section>
 			<section id="content3"> <img alt="" src=""> </section>
 		</div>
