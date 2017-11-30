@@ -183,30 +183,30 @@ body .container .content select.location {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-body .container .content input.inpt::-webkit-input-placeholder, body .container .content select.select::-webkit-input-placeholder, body .container .content select.location::-webkit-input-placeholder {
+body .container .content input.inpt::-webkit-input-placeholder, body .container .content select.select::-webkit-input-placeholder, body .container .content select.location::-webkit-input-placeholder, body .container .content button.emailCk::-webkit-input-placeholder {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt:-moz-placeholder, body .container .content select.select:-moz-placeholder, body .container .content select.location:-moz-placeholder {
+body .container .content input.inpt:-moz-placeholder, body .container .content select.select:-moz-placeholder, body .container .content select.location:-moz-placeholder, body .container .content button.emailCk:-moz-placeholder {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt::-moz-placeholder, body .container .content  select.select::-moz-placeholder, body .container .content select.location::-moz-placeholder  {
+body .container .content input.inpt::-moz-placeholder, body .container .content  select.select::-moz-placeholder, body .container .content select.location::-moz-placeholder, body .container .content button.emailCk::-moz-placeholder  {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt:-ms-input-placeholder, body .container .content select.select:-ms-input-placeholder, body .container .content select.location:-ms-input-placeholder {
+body .container .content input.inpt:-ms-input-placeholder, body .container .content select.select:-ms-input-placeholder, body .container .content select.location:-ms-input-placeholder, body .container .content button.emailCk:-ms-input-placeholder {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt:focus, body .container .content select.select:focus, body .container .content select.location:focus {
+body .container .content input.inpt:focus, body .container .content select.select:focus, body .container .content select.location:focus, body .container .content button.emailCk:focus {
   border-color: #999999;
 }
-body .container .content input.submit {
+body .container .content input.submit{
   font-size: 12px;
   line-height: 42px;
   display: block;
@@ -214,6 +214,23 @@ body .container .content input.submit {
   height: 42px;
   cursor: pointer;
   vertical-align: middle;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #263238;
+  border: 1px solid #263238;
+  background: transparent;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+body .container .content button.emailCk{
+  font-size: 12px;
+  line-height: 24px;
+  display: inline;
+  width: 38%;
+  height: 42px;
+  cursor: pointer;
+  vertical-align: top;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #263238;
@@ -231,7 +248,7 @@ body .container .content input.submit:hover {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
-body .container .content input:focus, body .container .content select:focus {
+body .container .content input:focus, body .container .content select:focus, body .container .content button:focus {
   outline: none;
 }
 body .container .content .checkbox {
