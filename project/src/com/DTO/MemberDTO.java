@@ -5,27 +5,30 @@ public class MemberDTO {
 	private String pw;
 	private int phone;
 	private String category;
+	private String area;
 	private String environ;
 	private String signUpDate;
 	private String payDate;
 	
-	public MemberDTO(String email, String pw, int phone, String category, String environ, String signUpDate, String payDate) {
+	public MemberDTO(String email, String pw, int phone, String category, String area, String environ, String signUpDate, String payDate) {
 		super();
 		this.email = email;
 		this.pw = pw;
 		this.phone = phone;
 		this.category = category;
+		this.area = area;
 		this.environ = environ;
 		this.signUpDate = signUpDate;
 		this.payDate =payDate;
 	}
 	
-	public MemberDTO(String email, String pw, int phone, String category) {
+	public MemberDTO(String email, String pw, int phone, String category, String area) {
 		super();
 		this.email = email;
 		this.pw = pw;
 		this.phone = phone;
 		this.category = category;
+		this.area = area;
 	}
 
 	public String getEmail() {
@@ -82,5 +85,13 @@ public class MemberDTO {
 
 	public void setPayDate(String payDate) {
 		this.payDate = payDate;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
 	}
 }

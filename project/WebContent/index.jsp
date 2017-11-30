@@ -43,7 +43,7 @@
             <c:choose>
             	<c:when test="${empty email}">
 		            <ul class="icons">
-		               <li><a href="#" class="button special fit" onclick="window.open('dasol.html','login/join','resizable=no width=780,height=550,left=500, top=300 menubar=1 status=0')">LOGIN</a></li>
+		               <li><a href="#" class="button special fit" onclick="window.open('dasol.html','login/join','resizable=no width=780,height=680,left=500, top=250 menubar=1 status=0')">LOGIN</a></li>
 		            </ul>
 	            </c:when>
 	            <c:otherwise>
