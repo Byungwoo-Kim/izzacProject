@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/main.css?ver=1" />
 <!-- <style type="text/css">
 .white_content:target {
    opacity: 1;
@@ -84,9 +84,9 @@
          <div class="inner">
             <!-- Search -->
             <section id="search" class="alt">
-           <iframe width="340" height="305" src='crawlingMain.jsp' name="test" scrolling="no"></iframe> 
+           <iframe src='crawlingMain.jsp' name="test" scrolling="no"></iframe> 
            <%-- <%@include file = "crawlingMain.jsp" %> --%>
-  
+  <!--  width="340" height="305"  -->
             
             
             </section>
@@ -99,7 +99,7 @@
                <li><span class="opener">내 정보</span>
                   <ul>
                      <li><a href="#" onclick="window.open('payment/payment.html','window','width=1900,height=1000,left=0,top=0')">서비스가입 / 연장</a></li>
-                     <li><a href="#" target="mainFrame">내 정보 수정</a></li>
+                     <li><a href="InfoEdit.jsp" target="mainFrame">내 정보 수정</a></li>
                   </ul></li>
                <li><span class="opener">매출 분석</span>
                   <ul>

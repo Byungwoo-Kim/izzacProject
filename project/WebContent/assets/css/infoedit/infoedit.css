@@ -1,0 +1,24 @@
+@charset "EUC-KR";
+
+* {
+	font-size: 18px;
+	font-family: ³ª´®°íµñ,serif;
+}
+
+#container {
+	border:1px solid black;
+	width: 55em;
+	margin: 0px auto;
+}
+#editinfo{
+padding: 15px 15px 15px 15px;
+}
+table {
+	width: 54.9em;
+}
+input{
+	padding-right: 20px;
+}
+select {
+	padding-right:1.3em;
+}
