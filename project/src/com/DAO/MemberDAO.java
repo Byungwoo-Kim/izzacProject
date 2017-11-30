@@ -91,6 +91,7 @@ public class MemberDAO {
 		return result;
 	}
 
+	// 이메일 중복체크
 	public boolean emailCheck(String email) throws Exception {
 		conn = DBManager.getConnection();
 		String sql = "select * from Sales_Member where email = ?";
@@ -108,19 +109,40 @@ public class MemberDAO {
 		return result;
 	}
 
+	// 회원 수정 전 비밀번호 체크
+	public boolean CheckPw(String email, String pw) throws Exception {
+		conn = DBManager.getConnection();
+		String sql = "select pw from Sales_Member where email = ?";
+		boolean result = false;
+
+		pst = conn.prepareStatement(sql);
+		pst.setString(1, email);
+
+		rs = pst.executeQuery();
+
+		if (rs.next()) {
+			String getPW = rs.getString(1);
+			if (pw.equals(getPW)) {
+				result = true;
+			}
+		}
+
+		return result;
+	}
+
 	// 회원정보 수정을 위한 정보 조회
-	public MemberDTO ForMemberUpdate(String email, String pw) throws Exception {
+	public MemberDTO ForMemberUpdate(String email) throws Exception {
 		conn = DBManager.getConnection();
 
-		pst = conn.prepareStatement("select * from Sales_Member where email = ? and pw = ?");
+		pst = conn.prepareStatement("select * from Sales_Member where email = ?");
 		pst.setString(1, email);
-		pst.setString(2, pw);
 
 		rs = pst.executeQuery();
 
 		MemberDTO dto = null;
 
 		if (rs.next()) {
+			String pw = rs.getString(2);
 			int phone = rs.getInt(3);
 			String category = rs.getString(4);
 			String area = rs.getString(5);
@@ -160,7 +182,8 @@ public class MemberDAO {
 	public int MemberPayDateUpdate(String email, int payDate) throws Exception {
 		conn = DBManager.getConnection();
 
-		pst = conn.prepareStatement("update Sales_Member set payDate = to_char(to_date(payDate, 'YYYY-MM-DD') + ?, 'YYYY-MM-DD') where email=?");
+		pst = conn.prepareStatement(
+				"update Sales_Member set payDate = to_char(to_date(payDate, 'YYYY-MM-DD') + ?, 'YYYY-MM-DD') where email=?");
 		pst.setInt(1, payDate);
 		pst.setString(2, email);
 
@@ -179,21 +202,21 @@ public class MemberDAO {
 		pst.setString(1, email);
 
 		rs = pst.executeQuery();
-		
+
 		int FreeDay = 0;
 		boolean isDay = false;
-		
-		if(rs.next()) {
+
+		if (rs.next()) {
 			FreeDay = rs.getInt(1);
 		}
-		
-		if(FreeDay == 0) {
+
+		if (FreeDay == 0) {
 			pst = conn.prepareStatement("update Sales_Member set freeDay = 1 where email=?");
 			pst.setString(1, email);
-			
+
 			int cnt = pst.executeUpdate();
-			
-			if(cnt > 0) {
+
+			if (cnt > 0) {
 				isDay = true;
 			} else {
 				isDay = false;
