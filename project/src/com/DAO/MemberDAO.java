@@ -88,6 +88,23 @@ public class MemberDAO {
 		}
 		return result;
 	}
+	
+	public boolean emailCheck(String email) throws Exception {
+		conn = DBManager.getConnection();
+		String sql = "select * from Sales_Member where email = ?";
+		boolean result = true;
+
+		pst = conn.prepareStatement(sql);
+		pst.setString(1, email);
+		
+		rs = pst.executeQuery();
+		
+		if(rs.next()) {
+			result = false;
+		}
+		
+		return result;
+	}
 
 	// 회원정보 수정을 위한 정보 조회
 	public MemberDTO ForMemberUpdate(String email, String pw) throws Exception {

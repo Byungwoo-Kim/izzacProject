@@ -29,11 +29,11 @@ public class Controller extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("euc-kr");
 		String uri = request.getRequestURI();
-		System.out.println("요청한 URI : " + uri);
+		//System.out.println("요청한 URI : " + uri);
 		String path = request.getContextPath();
-		System.out.println("프로젝트명 : " + path);
+		//System.out.println("프로젝트명 : " + path);
 		String req_uri = uri.substring(path.length() + 1);
-		System.out.println("요청식별값 : " + req_uri);
+		//System.out.println("요청식별값 : " + req_uri);
 		
 		Command command  = map.get(req_uri);
 		
