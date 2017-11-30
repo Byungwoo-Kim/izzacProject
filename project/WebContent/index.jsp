@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/main.css?ver=1" />
 <!-- <style type="text/css">
 .white_content:target {
    opacity: 1;
@@ -43,7 +43,7 @@
             <c:choose>
             	<c:when test="${empty email}">
 		            <ul class="icons">
-		               <li><a href="#" class="button special fit" onclick="window.open('dasol.html','login/join','resizable=no width=780,height=550,left=500, top=300 menubar=1 status=0')">LOGIN</a></li>
+		               <li><a href="#" class="button special fit" onclick="window.open('dasol.html','login/join','resizable=no width=780,height=680,left=500, top=250 menubar=1 status=0')">LOGIN</a></li>
 		            </ul>
 	            </c:when>
 	            <c:otherwise>
@@ -84,22 +84,22 @@
          <div class="inner">
             <!-- Search -->
             <section id="search" class="alt">
-           <iframe width="340" height="305" src='crawlingMain.jsp' name="test" scrolling="no"></iframe> 
+           <iframe src='crawlingMain.jsp' name="test" scrolling="no"></iframe> 
            <%-- <%@include file = "crawlingMain.jsp" %> --%>
-  
+  <!--  width="340" height="305"  -->
             
             
             </section>
             <!-- Menu -->
             <nav id="menu"> <header class="major">
-            <h2>Menu</h2>
+            <h2>MENU</h2>
             </header>
             <ul>
-               <li><a href="ServiceMain.html" target="mainFrame">서비스 소개(폰트 나중에 수정)</a></li>
+               <li><a href="ServiceMain.html" target="mainFrame">서비스 소개</a></li>
                <li><span class="opener">내 정보</span>
                   <ul>
                      <li><a href="#" onclick="window.open('payment/payment.html','window','width=1900,height=1000,left=0,top=0')">서비스가입 / 연장</a></li>
-                     <li><a href="#" target="mainFrame">내 정보 수정</a></li>
+                     <li><a href="InfoEdit.jsp" target="mainFrame">내 정보 수정</a></li>
                   </ul></li>
                <li><span class="opener">매출 분석</span>
                   <ul>
@@ -117,7 +117,7 @@
             <section> <a href="#"><img src="images/Banner.jpg"
                alt="" id="ban"></a> <!-- 회원가입으로 고고 -->
             <ul class="contact">
-               <li class="fa-envelope-o"><a href="#">smhrd@smhrd.co.kr</a></li>
+               <li class="fa-envelope-o">smhrd@smhrd.co.kr</li>
                <li class="fa-phone">070-1234-4567</li>
                <li class="fa-home">광주 남구 송암로 60 광주CGI센터<br> 진흥원동 2층
                   스마트미디어학회

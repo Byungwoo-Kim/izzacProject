@@ -31,13 +31,14 @@ public class MemberDAO {
 	// 회원추가
 	public boolean addMember(MemberDTO member) throws Exception {
 		conn = DBManager.getConnection();
-		String sql = "insert into Sales_Member(email, pw, phone, category, signUpDate, payDate) values(?, ?, ?, ?, to_char(sysdate, 'YYYY-MM-DD'), to_char(sysdate + 7, 'YYYY-MM-DD'))";
+		String sql = "insert into Sales_Member(email, pw, phone, category, area, signUpDate, payDate) values(?, ?, ?, ?, ?, to_char(sysdate, 'YYYY-MM-DD'), to_char(sysdate + 7, 'YYYY-MM-DD'))";
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, member.getEmail());
 			pst.setString(2, member.getPw());
 			pst.setInt(3, member.getPhone());
 			pst.setString(4, member.getCategory());
+			pst.setString(5, member.getArea());
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -103,10 +104,11 @@ public class MemberDAO {
 		if (rs.next()) {
 			int phone = rs.getInt(3);
 			String category = rs.getString(4);
-			String environ = rs.getString(5);
-			String singUpDate = rs.getString(6);
-			String payDate = rs.getString(7);
-			dto = new MemberDTO(email, pw, phone, category, environ, singUpDate, payDate);
+			String area = rs.getString(5);
+			String environ = rs.getString(6);
+			String singUpDate = rs.getString(7);
+			String payDate = rs.getString(8);
+			dto = new MemberDTO(email, pw, phone, category, area, environ, singUpDate, payDate);
 		}
 		
 		close();
@@ -115,15 +117,16 @@ public class MemberDAO {
 	}
 	
 	//회원정보 수정
-	public int MemberUpdate(String email, String pw, int phone, String category, String environ) throws Exception {
+	public int MemberUpdate(String email, String pw, int phone, String category, String area, String environ) throws Exception {
 		conn = DBManager.getConnection();
 
-		pst = conn.prepareStatement("update Sales_Member set pw=?, phone=?, category=?, environ=? where email=?");
+		pst = conn.prepareStatement("update Sales_Member set pw=?, phone=?, category=?, area=?, environ=? where email=?");
 		pst.setString(1, pw);
 		pst.setInt(2, phone);
 		pst.setString(3, category);
-		pst.setString(4, environ);
-		pst.setString(5, email);
+		pst.setString(4, area);
+		pst.setString(5, environ);
+		pst.setString(6, email);
 
 		int cnt = pst.executeUpdate();
 		

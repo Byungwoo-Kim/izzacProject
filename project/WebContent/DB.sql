@@ -3,7 +3,8 @@ create table Sales_Member(
 	pw varchar2(18) not null,
 	phone number,
 	category varchar2(10) not null,
-	environ varchar2(25),
+	area varchar2(10) not null,
+	environ varchar2(60) DEFAULT '계절/요일/온도/습도/날씨/강수량',
 	signUpDate varchar2(20) not null,
 	payDate varchar2(20) not null,
 	CONSTRAINT PK_Sales_Member PRIMARY KEY(email)

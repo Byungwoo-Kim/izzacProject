@@ -620,7 +620,7 @@
 				<table>
 					<tr>
 						<td><img id="weatherImage" src="img/sunny.png"></td>
-						<td width="30"><span class="degree-symbol" id="tempShow">32กษ</span></td>
+						<td><span class="degree-symbol" id="tempShow">32กษ</span></td>
 
 						<td>
 							<li class="fontawesome-leaf left" id="humShow"><span

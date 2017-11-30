@@ -1,14 +1,16 @@
 @charset "EUC-KR";
 
-#supportName:invalid, #supportEmail:invalid, #supportMessage:invalid, #supportTitle:invalid{
+#supportName:invalid, #supportEmail:invalid, #supportMessage:invalid,
+	#supportTitle:invalid {
 	box-shadow: none;
 }
 
-#supportName:focus, #supportEmail:focus, #supportMessage:focus, #supportTitle:focus{
+#supportName:focus, #supportEmail:focus, #supportMessage:focus,
+	#supportTitle:focus {
 	border-color: orange;
 }
 
-#supportName, #supportEmail{
+#supportName, #supportEmail {
 	height: 2.5rem;
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -25,7 +27,7 @@
 	width: 100%;
 }
 
-#supportTitle{
+#supportTitle {
 	height: 2.5rem;
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -43,7 +45,6 @@
 }
 
 #supportMessage {
-	
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-ms-appearance: none;
@@ -59,24 +60,42 @@
 	width: 100%;
 }
 
-
 .QNA_Button {
 	background-color: white;
 	box-shadow: none;
 	color: #2e2b37 !important;
-	height: 2em;
-	width: 30%;
+	height: 3em;
+	width: 25%;
 	margin-top: 1.5em;
 }
 
-#SupportTable{
-	
-	width:95%;
+#SupportTable {
+	width: 95%;
 }
+#SupportTable
+ 
+td
+:not
+ 
+(
+#supportSubmit
+ 
+){
+padding
+:
+ 
+0
+.25em
+ 
+1
+.5em
+ 
+0
+.25em
+ 
+1
+.5em
+;
 
-#SupportTable td:not(#supportSubmit){
-	padding : 0.25em 1.5em 0.25em 1.5em;
+
 }
-
-
-
