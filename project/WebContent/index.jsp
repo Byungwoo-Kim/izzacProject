@@ -84,9 +84,7 @@
          <div class="inner">
             <!-- Search -->
             <section id="search" class="alt">
-           <iframe src='crawlingMain.jsp' name="test" scrolling="no"></iframe> 
-           <%-- <%@include file = "crawlingMain.jsp" %> --%>
-  <!--  width="340" height="305"  -->
+           
             
             
             </section>
