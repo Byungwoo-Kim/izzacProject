@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.Service.Command;
 import com.Service.JoinService;
 import com.Service.LoginService;
+import com.Service.ModifyPayService;
 import com.Service.UpdateService;
 
 @WebServlet("*.do")
@@ -23,7 +24,7 @@ public class Controller extends HttpServlet {
 		map.put("Login.do", new LoginService());
 		map.put("Join.do", new JoinService());
 		map.put("Update.do", new UpdateService());
-		//map.put("delete.do", new DeleteService());
+		map.put("ModifyPay.do", new ModifyPayService());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

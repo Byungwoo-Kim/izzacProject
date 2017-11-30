@@ -153,11 +153,11 @@ public class MemberDAO {
 	}
 	
 	//회원정보 만료일자수정
-	public int MemberPayDateUpdate(String email, String payDate) throws Exception {
+	public int MemberPayDateUpdate(String email, int payDate) throws Exception {
 		conn = DBManager.getConnection();
 
 		pst = conn.prepareStatement("update Sales_Member set payDate = to_char(to_date(payDate, 'YYYY-MM-DD') + ?, 'YYYY-MM-DD') where email=?");
-		pst.setString(1, payDate);
+		pst.setInt(1, payDate);
 		pst.setString(2, email);
 		
 		int cnt = pst.executeUpdate();

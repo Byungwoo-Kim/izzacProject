@@ -64,19 +64,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				function payment(){
 					var result = document.getElementById("result");
-										
-					alert("이용해주셔서 감사합니다.");
 					
-					if(result.innerHTML=="100,000 WON"){						
-						window.location.href = "#?payDate="+30;
-					}else if(result.innerHTML=="280,000 WON"){
-						window.location.href = "#?payDate="+90;
-					}else if(result.innerHTML=="480,000 WON"){
-						window.location.href = "#?payDate="+180;
-					}else if(result.innerHTML=="840,000 WON"){
-						window.location.href = "#?payDate="+365;
-					}
-										
+					alert("result : " + result.innerHTML);
+					
+					if(result.innerHTML == "") {
+						alert("상품을 선택해주세요!");
+					} else {
+						alert("이용해주셔서 감사합니다.");
+					
+						if(result.innerHTML=="100,000 WON"){						
+							window.location.href = "../ModifyPay.do?payDate="+30;
+						}else if(result.innerHTML=="280,000 WON"){
+							window.location.href = "../ModifyPay.do?payDate="+90;
+						}else if(result.innerHTML=="480,000 WON"){
+							window.location.href = "../ModifyPay.do?payDate="+180;
+						}else if(result.innerHTML=="840,000 WON"){
+							window.location.href = "../ModifyPay.do?payDate="+365;
+						}
+					}										
 				}
 								
 				</script>
@@ -103,7 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="first-row form-group">
 												<div class="controls">
 													<label class="control-label" style="font-family: sans-serif;">카드 앞면 이름</label>
-													<input class="billing-address-name form-control" type="text" name="name" placeholder="Hong Seong Eun">
+													<input class="billing-address-name form-control" type="text" name="name" placeholder="Hong Seong Eun" required="required">
 												</div>
 												<div class="w3_agileits_card_number_grids">
 													<div class="w3_agileits_card_number_grid_left">
@@ -111,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<label class="control-label" style="font-family: sans-serif;">카드번호</label>
 															<input class="number credit-card-number form-control" type="text" name="number"
 																		  inputmode="numeric" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number"
-																		  placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
+																		  placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;" required="required">
 														</div>
 													</div>
 													<div class="w3_agileits_card_number_grid_right">
@@ -120,14 +125,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<input class="security-code form-control"Â·
 																		  inputmode="numeric"
 																		  type="text" name="security-code"
-																		  placeholder="&#149;&#149;&#149;">
+																		  placeholder="&#149;&#149;&#149;" required="required">
 														</div>
 													</div>
 													<div class="clear"> </div>
 												</div>
 												<div class="controls">
 													<label class="control-label" style="font-family: sans-serif;">유효기간(월/년)</label>
-													<input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
+													<input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY" required="required">
 												</div>
 											</div>
 											<button class="submit" onclick="payment()"><span> THANK YOU <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button>
