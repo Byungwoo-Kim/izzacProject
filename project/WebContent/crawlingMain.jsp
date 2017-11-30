@@ -11,7 +11,7 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="assets/css/widget.css">
+<link rel="stylesheet" href="assets/css/widget.css?ver=2">
 
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>

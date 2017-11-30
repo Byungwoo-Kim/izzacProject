@@ -42,7 +42,7 @@
 body {
 	color: #eee;
 	font-family: 'Open Sans', sans-serif;
-	background-color: #f5f6f7;
+	/* background-color: #f5f6f7; */
 }
 
 nav {
@@ -85,7 +85,7 @@ section {
 	padding: 0px 20px;
 	float: left;
 	position: relative;
-	background-color: #1F222A;
+	background-color: darkgray;
 	border-radius: 7px;
 }
 
