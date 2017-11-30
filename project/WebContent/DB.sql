@@ -7,6 +7,7 @@ create table Sales_Member(
 	environ varchar2(60) DEFAULT '계절/요일/온도/습도/날씨/강수량',
 	signUpDate varchar2(20) not null,
 	payDate varchar2(20) not null,
+	freeDay number DEFAULT 0,
 	CONSTRAINT PK_Sales_Member PRIMARY KEY(email)
 );
 
