@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css?ver=3" />
+<link rel="stylesheet" href="assets/css/main.css?ver=4" />
 <!-- <style type="text/css">
 .white_content:target {
    opacity: 1;
@@ -93,8 +93,6 @@
             <!-- Section -->
 
             <!-- Section -->
-            <section><img src="images/Banner.jpg"
-               alt="" id="ban"> <!-- 회원가입으로 고고 -->
             <ul class="contact">
                <li class="fa-envelope-o">smhrd@smhrd.co.kr</li>
                <li class="fa-phone">070-1234-4567</li>

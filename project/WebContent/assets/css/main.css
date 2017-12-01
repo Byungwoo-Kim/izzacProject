@@ -31,7 +31,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 	display: block;
 }
 /* <----------profile css---------------> */
-
 #profilewrap {
 	width: 15em;
 	height: 7.5em;
@@ -3159,12 +3158,11 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 }
 
 #sidebar>.inner>.alt {
-	background-color:#ecf9ff;
+	background-color:#e9ebec; 
 	border-bottom: 0;
 	margin: -2.22222em 0 4.44444em -2.22222em;
 	width: calc(100% + 4.44444em);
 	padding-bottom: 0;
-
 }
 
 #sidebar .toggle {
@@ -3223,9 +3221,11 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 		width: 24em;
 	}
 	#sidebar>.inner>.alt {
-		margin: -1.66667em 0 3.33333em -1.66667em;
+		background-color:#e9ebec; 
+		margin : -1.66667em 0 3.33333em -1.66667em;
 		padding: 1.66667em;
 		width: calc(100% + 3.33333em);
+		margin: -1.66667em 0 3.33333em -1.66667em;
 	}
 	#sidebar .toggle {
 		height: 6.25em;

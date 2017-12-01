@@ -60,5 +60,10 @@ h2 {
 #bottom-left{
 	border:5px solid gray
 }
-
+#bottom-right-div {
+    width: 340px;
+    height: 340px;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
 
