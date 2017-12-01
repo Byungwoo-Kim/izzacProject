@@ -3159,7 +3159,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 }
 
 #sidebar>.inner>.alt {
-	background-color:#fbefe7;
+	background-color:#ecf9ff;
 	border-bottom: 0;
 	margin: -2.22222em 0 4.44444em -2.22222em;
 	width: calc(100% + 4.44444em);

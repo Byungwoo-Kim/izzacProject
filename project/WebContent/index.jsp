@@ -94,8 +94,8 @@
             <!-- Section -->
 
             <!-- Section -->
-            <section> <a href="#" onclick="isFree()"><img src="images/Banner.jpg"
-               alt="" id="ban"></a> <!-- 회원가입으로 고고 -->
+            <section><img src="images/Banner.jpg"
+               alt="" id="ban"> <!-- 회원가입으로 고고 -->
             <ul class="contact">
                <li class="fa-envelope-o">smhrd@smhrd.co.kr</li>
                <li class="fa-phone">070-1234-4567</li>
@@ -119,25 +119,6 @@
    <script src="assets/js/util.js"></script>
    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
    <script src="assets/js/main.js"></script>
-   <script type="text/javascript">
-   		function isFree() {
-			var isChecked = confirm("무료 체험판을 받으시겠습니까?");
-			
-			if(isChecked) {
-				$.ajax({
-					url : "FreeCheck.do",
-					success : function(data) {
-						if (data == "success") {
-							alert("30일이 성공적으로 연장되었습니다!");
-						} else if(data == "fail") {
-							alert("이미 받으셨습니다!");
-						}
-					}
-				});
-			} else {
-				alert("취소하셨습니다.");
-			}
-		}
-   </script>
+   
 </body>
 </html>

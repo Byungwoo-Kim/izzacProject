@@ -12,7 +12,7 @@ create table Sales_Member(
 	CONSTRAINT PK_Sales_Member PRIMARY KEY(email)
 );
 
-insert into SALES_MEMBER values('test@test', 'test', '01011112222', '요식업', '광주', 0, to_char(sysdate, 'YYYY-MM-DD'), to_char(sysdate + 7, 'YYYY-MM-DD'), 0);
+insert into SALES_MEMBER values('test@test', 'test', 01011112222, '요식업', '광주', 0, to_char(sysdate, 'YYYY-MM-DD'), to_char(sysdate + 7, 'YYYY-MM-DD'), 0);
 
 /* 파일 */
 create table Sales_Files(
@@ -21,6 +21,8 @@ create table Sales_Files(
 	up_Date varchar2(20) not null,
 	FOREIGN KEY(email) REFERENCES Sales_Member(email)
 );
+
+insert into SALES_FILES values('test@test', 'fakedata.csv', to_char(sysdate, 'YYYY-MM-DD'));
 
 /* 예측데이터 */
 create table Sales_Pre(
@@ -34,7 +36,7 @@ create table Sales_Pre(
 	preData5 varchar2(1000) not null,
 	preData6 varchar2(1000) not null,
 	preData7 varchar2(1000) not null,
-	preAccu varchar2(50) not null,
+	preAccu varchar2(50),
 	FOREIGN KEY(email) REFERENCES Sales_Member(email)
 );
 

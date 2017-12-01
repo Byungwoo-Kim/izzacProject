@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
@@ -102,9 +103,7 @@ color:#757575
             </div>
          </td>
          <td id="top-center"><div id="top-center-div">
-               <h4 class="title">프로그램 소개</h4>
-               <h3>부우우우우~!뷰유융~시인~
-                 </h3>
+          <a href="#" onclick="isFree()"><img src="images/bigban.jpg" alt="이미지 오류" width="400" height="380"></a>
             </div></td>
          <td id=top-right"><div id="top-right-div">
                <iframe width="400" height="400" src='crawlingMain.jsp' name="test"
@@ -135,5 +134,26 @@ color:#757575
             </div></td>
       </tr>
    </table>
+   
+   <script type="text/javascript">
+   		function isFree() {
+			var isChecked = confirm("무료 체험판을 받으시겠습니까?");
+			
+			if(isChecked) {
+				$.ajax({
+					url : "FreeCheck.do",
+					success : function(data) {
+						if (data == "success") {
+							alert("30일이 성공적으로 연장되었습니다!");
+						} else if(data == "fail") {
+							alert("이미 받으셨습니다!");
+						}
+					}
+				});
+			} else {
+				alert("취소하셨습니다.");
+			}
+		}
+   </script>
 </body>
 </html>
