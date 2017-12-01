@@ -9,15 +9,13 @@ body {
 	padding-left: 25%;
 }
 
-#uploadArea{
-height : 300px;
-
+#uploadArea {
+	height: 300px;
 }
 
-
 #contents {
-	margin-top : 10%;	
-	margin-left: 25%;
+	margin-top: 10%;
+	margin-left: 15%;
 	background-image: url(img/caution.png);
 	background-repeat: no-repeat;
 	position: absolute;
@@ -50,38 +48,45 @@ tr {
 	height: 85px;
 }
 
-.fileBox .fileName {
-	display: inline-block;
-	width: 190px;
-	height: 30px;
-	padding-left: 10px;
-	margin-right: 5px;
-	line-height: 30px;
-	border: 1px solid #aaa;
-	background-color: #fff;
-	vertical-align: middle
+.file_input_textbox {
+	float: left;
+	height: 80px;
+	width: 460px;
 }
 
-.fileBox .btn_file {
-	display: inline-block;
-	border: 1px solid #000;
-	width: 100px;
-	height: 30px;
-	font-size: 0.8em;
-	line-height: 30px;
-	text-align: center;
-	vertical-align: middle
-}
-
-.fileBox input[type="file"] {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
+.file_input_div {
+	position: relative;
+	width: 500px;
+	height: 100px;
 	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0
+}
+
+.file_input_img_btn {
+	padding: 0 0 0 5px;
+	height: 80px;
+}
+
+.file_input_hidden {
+	font-size: 29px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	-ms-filter: alpha(opacity = 0);
+	cursor: pointer;
+}
+
+.upload {
+	background: url('image/ok.png');
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 80px;
+	border: 0px;
+	cursor: pointer;
+	outline: 0;
+	background-repeat: no-repeat;
 }
 </style>
 <script type="text/javascript">
@@ -99,21 +104,6 @@ tr {
 <title>Insert title here</title>
 </head>
 <body>
-
-
-
-
-	<div id = "uploadArea">
-		<form action="UpLoadService" method="post"
-			enctype="multipart/form-data">
-			<input type="file" name="file" id="file"> <input
-				type="submit" id="ok" value="파일 업로드" class="upload">
-		</form>
-	</div>
-	
-	
-	
-	
 	<div id="contents">
 		<div id="emptySpace"></div>
 		<table class="cautionTable">
@@ -144,8 +134,20 @@ tr {
 			<tr>
 				<td><a href="">예시 파일 다운로드하기 </a></td>
 			</tr>
+			<tr>
+				<td>
+					<form action="UpLoadService" method="post"
+						enctype="multipart/form-data">
+						<input type="file" name="file" id="file"> <input
+							type="submit" id="ok" value="파일 업로드" class="upload">
+					</form>
+				</td>
+			</tr>
+
 		</table>
 	</div>
+
+
 
 
 
