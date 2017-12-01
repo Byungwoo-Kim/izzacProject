@@ -85,8 +85,8 @@
 			</c:when>
 			<c:otherwise>
 				<div id="profileright">
-					<div id="profileright_top"><span id="email">${sessionScope.email }</span></div>
-					<div id="profileright_bottom">서비스 만료일자 : ${payDate }</span></div>
+					<div id="profileright_top"><span id="profileid">${sessionScope.email }</span></div>
+					<div id="profileright_bottom"><span id="profilehi">서비스 만료일자 : ${payDate }</span></div>
 				</div>
 			</c:otherwise>
 		</c:choose>
