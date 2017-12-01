@@ -157,9 +157,8 @@ public class MemberDAO {
 		return dto;
 	}
 
-	// 회원정보 수정
-	public int MemberUpdate(String email, String pw, int phone, String category, String area, String environ)
-			throws Exception {
+	// 회원정보 수정(비밀번호 있을 때)
+	public int MemberUpdate(String email, String pw, int phone, String category, String area, int environ) throws Exception {
 		conn = DBManager.getConnection();
 
 		pst = conn
@@ -168,7 +167,7 @@ public class MemberDAO {
 		pst.setInt(2, phone);
 		pst.setString(3, category);
 		pst.setString(4, area);
-		pst.setString(5, environ);
+		pst.setInt(5, environ);
 		pst.setString(6, email);
 
 		int cnt = pst.executeUpdate();
@@ -177,6 +176,45 @@ public class MemberDAO {
 
 		return cnt;
 	}
+	
+	// 회원정보 수정(비밀번호 없을 때)
+	public int MemberUpdate(String email, int phone, String category, String area, int environ) throws Exception {
+		conn = DBManager.getConnection();
+
+		pst = conn
+				.prepareStatement("update Sales_Member set phone=?, category=?, area=?, environ=? where email=?");
+		pst.setInt(1, phone);
+		pst.setString(2, category);
+		pst.setString(3, area);
+		pst.setInt(4, environ);
+		pst.setString(5, email);
+
+		int cnt = pst.executeUpdate();
+
+		close();
+
+		return cnt;
+	}
+	
+	// 만료일자 조회
+		public String SelectPayDate(String email) throws Exception {
+			conn = DBManager.getConnection();
+
+			pst = conn.prepareStatement("select payDate from Sales_Member where email = ?");
+			pst.setString(1, email);
+
+			rs = pst.executeQuery();
+
+			String payDate = "";
+
+			if (rs.next()) {
+				payDate = rs.getString(1);
+			}
+
+			close();
+
+			return payDate;
+		}
 
 	// 회원정보 만료일자수정
 	public int MemberPayDateUpdate(String email, int payDate) throws Exception {

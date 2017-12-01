@@ -1,5 +1,7 @@
+<%@page import="com.DAO.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,26 +57,40 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+		String sessionEmail = (String)session.getAttribute("email");
+		MemberDAO dao = new MemberDAO();
+		String payDate = dao.SelectPayDate(sessionEmail);
+		
+		request.setAttribute("payDate", payDate);
+	%>
+
 	<div id="profilewrap">
 		<div id="profileleft">
 			<img src="images/logocolor.jpg" alt="이미지오류" width="159px" height="130px">
 		</div>
 		<!-- 노로그인 -->
-		<div id="profileright">
-			<div id="profileright_top">
-				<span id="profileid">GUEST</span>
-			</div>
-			<div id="profileright_bottom">
-				&nbsp<span id="profilehi">Nice To Meet You,<br> I Hope Your
-					Life Is Happy
-				</span>
-			</div>
-		</div>
+		<c:choose>
+			<c:when test="${empty email }">
+				<div id="profileright">
+					<div id="profileright_top">
+						<span id="profileid">GUEST</span>
+					</div>
+					<div id="profileright_bottom">
+						&nbsp<span id="profilehi">Nice To Meet You,<br> I Hope Your
+							Life Is Happy
+						</span>
+					</div>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div id="profileright">
+					<div id="profileright_top"><span>${sessionScope.email }</span></div>
+					<div id="profileright_bottom">서비스 만료일자 : ${payDate }</span></div>
+				</div>
+			</c:otherwise>
+		</c:choose>
 		<!-- 로그인 했을때 -->
-		<!-- <div id="profileright">
-			<div id="profileright_top"><span>E-mail</span></div>
-			<div id="profileright_bottom">&nbspD-35</span></div>
-		</div> -->
 	</div>
 </body>
 </html>

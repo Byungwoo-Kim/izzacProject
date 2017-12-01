@@ -6,41 +6,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style type="text/css">
+	select.location {
+		display: inline;
+		width: 49%;
+	}
+	
+	input#updateSub{
+		margin-left: 45%;
+		width: 10%;
+	}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<link rel="stylesheet" href="assets/css/InfoEdit.css?ver=1" />
+<link rel="stylesheet" href="assets/css/InfoEdit.css" />
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-	var temp = "";
-	var wind = "";
-	var hum = "";
-	var rain = "";
-
-	//옵션 선택하면 값 넘기기
-	/* function psnSelect(regionName) {
-		//분류1
-		var city = "";
-		
-		if (regionName == '서울·경기·인천') {
-			city = document.getElementById("city1");
-		} else if (regionName == '강원도') {
-			city = document.getElementById("city2");
-		} else if (regionName == '충청도') {
-			city = document.getElementById("city3");
-		} else if (regionName == '전라북도') {
-			city = document.getElementById("city4");
-		} else if (regionName == '전라남도') {
-			city = document.getElementById("city5");
-		} else if (regionName == '경상북도') {
-			city = document.getElementById("city6");
-		} else if (regionName == '경상남도') {
-			city = document.getElementById("city7");
-		} else if (regionName == '제주도') {
-			city = document.getElementById("city8");
-		}
-		
-		alert(city.checked);
-	} */
 
 	//상위 셀렉트로 하위 셀렉트 제어하기
 	function showSub(obj) {
@@ -48,6 +29,7 @@
 		f = document.forms.update;
 
 		if (obj == 1) {
+			f.city.style.display = "none";
 			f.city1.style.display = "";
 			f.city2.style.display = "none";
 			f.city3.style.display = "none";
@@ -57,6 +39,7 @@
 			f.city7.style.display = "none";
 			f.city8.style.display = "none";
 		} else if (obj == 2) {
+			f.city.style.display = "none";
 			f.city1.style.display = "none";
 			f.city2.style.display = "";
 			f.city3.style.display = "none";
@@ -66,6 +49,7 @@
 			f.city7.style.display = "none";
 			f.city8.style.display = "none";
 		} else if (obj == 3) {
+			f.city.style.display = "none";
 			f.city1.style.display = "none";
 			f.city2.style.display = "none";
 			f.city3.style.display = "";
@@ -75,6 +59,7 @@
 			f.city7.style.display = "none";
 			f.city8.style.display = "none";
 		} else if (obj == 4) {
+			f.city.style.display = "none";
 			f.city1.style.display = "none";
 			f.city2.style.display = "none";
 			f.city3.style.display = "none";
@@ -84,6 +69,7 @@
 			f.city7.style.display = "none";
 			f.city8.style.display = "none";
 		} else if (obj == 5) {
+			f.city.style.display = "none";
 			f.city1.style.display = "none";
 			f.city2.style.display = "none";
 			f.city3.style.display = "none";
@@ -93,6 +79,7 @@
 			f.city7.style.display = "none";
 			f.city8.style.display = "none";
 		} else if (obj == 6) {
+			f.city.style.display = "none";
 			f.city1.style.display = "none";
 			f.city2.style.display = "none";
 			f.city3.style.display = "none";
@@ -102,6 +89,7 @@
 			f.city7.style.display = "none";
 			f.city8.style.display = "none";
 		} else if (obj == 7) {
+			f.city.style.display = "none";
 			f.city1.style.display = "none";
 			f.city2.style.display = "none";
 			f.city3.style.display = "none";
@@ -111,6 +99,7 @@
 			f.city7.style.display = "";
 			f.city8.style.display = "none";
 		} else if (obj == 8) {
+			f.city.style.display = "none";
 			f.city1.style.display = "none";
 			f.city2.style.display = "none";
 			f.city3.style.display = "none";
@@ -130,27 +119,32 @@
 	
 	//유효검사
 	function check(){
-		//비밀번호 길이 체크(4~8자 까지 허용)
-        if (document.update.pw.value.length<4 || document.update.pw.value.length>12) {
-            alert("비밀번호를 4~12자까지 입력해주세요.")
-            document.f.my_pwd.focus()
-            document.f.my_pwd.select()
-            return false;
-        }
-	//비밀번호 확인 체크
-		if(document.update.pw.value!=document.update.pwConfirm.value){
-			alert("비밀번호가 일치하지 않습니다.")
-            document.f.my_pwd.focus()
-            document.f.my_pwd.select()
-            return false;
+		if(document.update.NewPw.value != "") {
+			//비밀번호 길이 체크(4~8자 까지 허용)
+	        if (document.update.NewPw.value.length<4 || document.update.NewPw.value.length>12) {
+	            alert("비밀번호를 4~12자까지 입력해주세요.")
+	            document.f.my_pwd.focus()
+	            document.f.my_pwd.select()
+	            return false;
+	        }
+			//비밀번호 확인 체크
+			if(document.update.NewPw.value!=document.update.NewPwConfirm.value){
+				alert("새로운 비밀번호가 일치하지 않습니다.")
+	            document.f.my_pwd.focus()
+	            document.f.my_pwd.select()
+	            return false;
+			}
 		}
-	//폰번호 체크
-		 if (!isNumeric(document.update.phoneNum.value)) {
-            alert("핸드폰번호는 숫자로 입력하세요.");
-            document.f.phoneNum.value = ""
-            document.f.phoneNum.focus()
-            return false;
-          } 	
+		
+		if(document.update.NewPhone.value != "") {
+			//폰번호 체크
+			if (!isNumeric(document.update.NewPhone.value)) {
+	            alert("핸드폰번호는 숫자로 입력하세요.");
+	            document.f.phoneNum.value = ""
+	            document.f.phoneNum.focus()
+	            return false;
+			}
+		}
 	}
 	
 </script>
@@ -166,7 +160,7 @@
 		</table>
 	</form>
 	
-	<form action="Update.do" id="Modify" style="display: none;" name="update">
+	<form action="Update.do" id="Modify" style="display: none;" name="update" method="post">
 	<%
 		String sessionEmail = (String)session.getAttribute("email");
 		MemberDAO dao = new MemberDAO();
@@ -184,24 +178,24 @@
 					</tr>
 					<tr>
 						<td>신규 비밀번호</td>
-						<td><input type="password" name="NewPassword">&nbsp비밀번호
+						<td><input type="password" name="NewPw">&nbsp비밀번호
 							변경을 원하시면 신규 비밀번호를 입력해주세요</td>
 					</tr>
 					<tr>
 						<td>신규 비밀번호 확인</td>
-						<td><input type="password" name="NewPasswordCon">&nbsp비밀번호를
+						<td><input type="password" name="NewPwConfirm">&nbsp비밀번호를
 							한 번 더 입력해주세요</td>
 					</tr>
 					<tr>
 						<td>핸드폰 번호</td>
-						<td><input type="text" name="NewPhone"
-							placeholder=${dto.getPhone() }>&nbsp-없이 숫자만 입력해주세요</td>
+						<td><input type="tel" name="NewPhone"
+							value=${dto.getPhone() }>&nbsp-없이 숫자만 입력해주세요</td>
 					</tr>
 					<tr>
 						<td>업종</td>
 						<td>
 							<select name="category">
-								<option value="">${dto.getCategory() }</option>
+								<option value=${dto.getCategory() }>${dto.getCategory() }</option>
 								<option value="요식업">요식업</option>
 								<option value="화훼업">화훼업</option>
 								<option value="편의점">편의점</option>
@@ -212,7 +206,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>지역</td>
+						<td>지역 ${dto.getArea() }</td>
 						<td>
 							<select name="test" title="시,도" id="wide_select" class="location" onChange="showSub(this.options[this.selectedIndex].value);" required="required">
 								<option>도시선택</option>
@@ -224,7 +218,10 @@
 								<option value="6">경상북도</option>
 								<option value="7">경상남도</option>
 								<option value="8">제주도</option>
-							</select>&nbsp;&nbsp;
+							</select>&nbsp;&nbsp;&nbsp;&nbsp;
+							<select name="location" class="location" style="display: ;" id="city" >
+								<option value="">도시를 선택해주세요</option>
+							</select>
 							<select name="location1" class="location" style="display: none;" id="city1" >
 								<option value="">지역선택</option>
 								<option value="강화">강화</option>
@@ -341,13 +338,49 @@
 							</select>
 						</td>
 					</tr>
+					<tr>
+						<td>방법</td>
+						<td>
+							<input type="hidden" value="${dto.getEnviron() }" id="getEnviron">
+							<input type="radio" name="environ" value="0" id="environ1">
+							<label for="environ1">방법1</label>
+							<input type="radio" name="environ" value="1" id="environ2">
+							<label for="environ2">방법2</label>
+							<input type="radio" name="environ" value="2" id="environ3">
+							<label for="environ3">방법3</label>
+							<input type="radio" name="environ" value="3" id="environ4">
+							<label for="environ4">방법4</label>
+							<input type="radio" name="environ" value="4" id="environ5">
+							<label for="environ5">방법5</label>
+							<input type="radio" name="environ" value="5" id="environ6">
+							<label for="environ6">방법6</label>
+							<input type="radio" name="environ" value="6" id="environ7">
+							<label for="environ7">방법7</label>
+							<input type="radio" name="environ" value="7" id="environ8">
+							<label for="environ8">방법8</label>
+						</td>
+					</tr>
 				</table>
-				<input type="button" value="수정">
+				<input type="submit" value="수정" id="updateSub" onclick="check()">
 			</div>
 		</div>
 	</form>
 	
 	<script type="text/javascript">
+		function test() {
+			//var getEnviron = document.getElementById("getEnviron").value;
+			var environ = document.getElementsByName("environ");
+						
+			var getEnviron = document.update.getEnviron.value;
+			
+			for(var i = 0; i < environ.length; i++) {
+				if(getEnviron == environ[i].value)	{
+					environ[i].checked = true;
+				}
+			}
+			
+		}
+	
    		function CheckPw() {
 			var pw = document.getElementById("ckPw").value;
 			var chPwF = document.getElementById("chPwForm");
@@ -360,9 +393,9 @@
 					url : "CheckPw.do?pw=" + pw,
 					success : function(data) {
 						if (data == "success") {
-							alert("성공");
 							chPwF.style.display = "none";
 							modi.style.display = "block";
+							test();
 						} else if(data == "fail") {
 							alert("비밀번호를 확인해주세요!");
 						}
