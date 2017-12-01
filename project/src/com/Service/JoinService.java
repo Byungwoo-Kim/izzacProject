@@ -39,8 +39,6 @@ public class JoinService implements Command {
 			location=request.getParameter("location8");
 		}
 		
-		System.out.println(location);
-		
 		MemberDAO dao = new MemberDAO();
 		
 		try {

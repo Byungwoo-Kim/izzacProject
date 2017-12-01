@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css?ver=1" />
+<link rel="stylesheet" href="assets/css/main.css?ver=3" />
 <!-- <style type="text/css">
 .white_content:target {
    opacity: 1;
@@ -55,25 +55,6 @@
             </header>
             <!-- Banner -->
             <section id="banner">
-			
-
-            <div class="white_content" id="open">
-
-               <div>
-                  <div style="position: relative;">
-                     <a href='#'
-                        style="position: absolute; right: 10px; color: white; font-size: 25px; font-weight: bold;"
-                        onclick="close()">X</a>
-                  </div>
-                  <iframe width="100%" height="1000px" src='Login_Signup.html'></iframe>
-               </div>
-            </div>
-
-				<script type="text/javascript">
-					function close() {
-						document.querySelector("div.white_content").style.opacity = "0";
-					}
-				</script>
 				<iframe name="mainFrame" id="mainFrame" frameborder="0" scrolling="no" width="100%" height="1816px" src = "MainContents.jsp" ></iframe>
 				 </section>
 
@@ -83,11 +64,11 @@
       <div id="sidebar">
          <div class="inner">
             <!-- Search -->
-            <section id="search" class="alt">
+     <section id="search" class="alt">
            
-            
-            
-            </section>
+<iframe src="profile.jsp" scrolling="no" height="100%" width="100%">뿌잉뿌잉</iframe>
+
+         </section>
             <!-- Menu -->
             <nav id="menu"> <header class="major">
             <h2>MENU</h2>
@@ -112,7 +93,7 @@
             <!-- Section -->
 
             <!-- Section -->
-            <section> <a href="#"><img src="images/Banner.jpg"
+            <section> <a href="#" onclick="isFree()"><img src="images/Banner.jpg"
                alt="" id="ban"></a> <!-- 회원가입으로 고고 -->
             <ul class="contact">
                <li class="fa-envelope-o">smhrd@smhrd.co.kr</li>
@@ -137,5 +118,25 @@
    <script src="assets/js/util.js"></script>
    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
    <script src="assets/js/main.js"></script>
+   <script type="text/javascript">
+   		function isFree() {
+			var isChecked = confirm("무료 체험판을 받으시겠습니까?");
+			
+			if(isChecked) {
+				$.ajax({
+					url : "FreeCheck.do",
+					success : function(data) {
+						if (data == "success") {
+							alert("30일이 성공적으로 연장되었습니다!");
+						} else if(data == "fail") {
+							alert("이미 받으셨습니다!");
+						}
+					}
+				});
+			} else {
+				alert("취소하셨습니다.");
+			}
+		}
+   </script>
 </body>
 </html>
