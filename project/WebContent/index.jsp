@@ -82,6 +82,7 @@
                   </ul></li>
                <li><span class="opener">매출 분석</span>
                   <ul>
+                  <li><a href="FileUploadPage.jsp" target="mainFrame">파일 업로드</a></li>
                      <li><a href="#" target="mainFrame">오늘의 매출</a></li>
                      <li><a href="CalendarMain.jsp" target="mainFrame">과거의 매출</a></li>
                   </ul></li>
