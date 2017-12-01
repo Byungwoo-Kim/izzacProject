@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.Service.CheckPwService;
 import com.Service.Command;
+import com.Service.FreeCheckService;
 import com.Service.JoinService;
 import com.Service.LoginService;
+import com.Service.ModifyPayService;
 import com.Service.UpdateService;
 
 @WebServlet("*.do")
@@ -23,7 +26,9 @@ public class Controller extends HttpServlet {
 		map.put("Login.do", new LoginService());
 		map.put("Join.do", new JoinService());
 		map.put("Update.do", new UpdateService());
-		//map.put("delete.do", new DeleteService());
+		map.put("ModifyPay.do", new ModifyPayService());
+		map.put("FreeCheck.do", new FreeCheckService());
+		map.put("CheckPw.do", new CheckPwService());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -11,7 +11,7 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="assets/css/widget.css">
+<link rel="stylesheet" href="assets/css/widget.css?ver=4">
 
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
@@ -386,7 +386,7 @@
 		<section>
 
 		<h1 id="selectedCity">
-			Los Angeles, CA <a href="#widgetOpen" class="add">+</a>
+			서울특별시<a href="#widgetOpen" class="add">+</a>
 			<div class="widget_content" id="widgetOpen">
 				<div>
 					<form name="select_machine" action="Widget.jsp">
@@ -603,59 +603,57 @@
 							<option value="11C10401">추풍령</option>
 							<option value="11C10101">충주</option></select>
 
-						<button onclick='psnSelect()'>onclick(자바스크립트)</button>
-
+						<button onclick='psnSelect()'>확인</button>
+					<p>
+						<a href="#close">닫기</a>
+					</p>
 					</form>
 
 
 
-					<p>
-						주소 입력 <a href="#close">닫기</a>
-					</p>
+
 				</div>
 			</div>
 		</h1>
 		<div class="temperature entypo-light-up">
 			<h2>
-				<table>
+				<table align="center">
 					<tr>
-						<td><img id="weatherImage" src="img/sunny.png"></td>
-						<td><span class="degree-symbol" id="tempShow">32℃</span></td>
-
+						<td colspan="3" align="center"><img id="weatherImage"
+							src="img/sunny.png"></td>
+						<td colspan="3"><span class="degree-symbol" id="tempShow">32℃</span></td>
+					</tr>
+					<tr>
+						<td>  <br></td>
+					</tr>
+					<tr>
+						<td><img width="30px" height="30px"
+							src="img/humidityBlack.png"></td>
 						<td>
+
 							<li class="fontawesome-leaf left" id="humShow"><span
-								id="conText">4mph</span></li>
+								id="conText">습도</span></li>
+						</td>
+						<td><img width="30px" height="30px"
+							src="img/umbrellaBlack.png"></td>
+						<td>
+
 							<li class="fontawesome-tint center" id="rainShow"><span
-								id="conText">65%</span></li>
+								id="conText">강수량</span></li>
+						</td>
+						<td><img width="30px" height="30px" src="img/windBlack.png"></td>
+						<td>
+
 							<li class="fontawesome-umbrella right" id="windShow"><span
-								id="conText">10%</span></li>
+								id="conText">풍속</span></li>
 						</td>
 					</tr>
-
 				</table>
 
 
 
 			</h2>
 		</div>
-
-		<div>
-			<table>
-				<tr>
-					<td><li class="fontawesome-leaf left"><span id="oilShow">
-								유가?</span></li></td>
-				</tr>
-				<tr>
-					<td><li class="fontawesome-tint center"><span
-							id="lifeShow"> 물가?</span></li></td>
-				</tr>
-
-			</table>
-
-
-
-		</div>
-
 		</section>
 
 	</div>

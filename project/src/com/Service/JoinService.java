@@ -39,8 +39,6 @@ public class JoinService implements Command {
 			location=request.getParameter("location8");
 		}
 		
-		System.out.println(location);
-		
 		MemberDAO dao = new MemberDAO();
 		
 		try {
@@ -54,7 +52,7 @@ public class JoinService implements Command {
 				
 				out.println("<script>alert('가입완료! 로그인 되었습니다!');opener.window.location.reload();window.close();</script>");
 			} else {
-				out.println("<script>alert('같은 아이디가 존재 합니다!!');history.go('dasol.html#signup');</script>");
+				out.println("<script>alert('같은 아이디가 존재 합니다!!');history.go(-1);</script>");
 			}
 		} catch (Exception e) {
 			System.out.println("Join -> " + e.getMessage());

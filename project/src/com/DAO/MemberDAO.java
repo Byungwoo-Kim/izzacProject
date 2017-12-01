@@ -18,14 +18,17 @@ public class MemberDAO {
 	Connection conn = null;
 	PreparedStatement pst = null;
 	ResultSet rs = null;
-	
+
 	Logger logger = LoggerFactory.getLogger(MemberDAO.class);
-	
-	//close
+
+	// close
 	public void close() throws Exception {
-		if(rs!=null) rs.close();
-		if(pst != null) pst.close();
-		if(conn != null) conn.close();
+		if (rs != null)
+			rs.close();
+		if (pst != null)
+			pst.close();
+		if (conn != null)
+			conn.close();
 	}
 
 	// 회원추가
@@ -43,10 +46,9 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Error : " + e.getMessage());
-			logger.info("Error Code : {}",e.getErrorCode());
+			logger.info("Error Code : {}", e.getErrorCode());
 			return false;
-		}
-		finally {
+		} finally {
 			try {
 				close();
 			} catch (SQLException e) {
@@ -55,31 +57,31 @@ public class MemberDAO {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * 회원 로그인
+	 * 
 	 * @param uid
 	 * @param passwd
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public boolean login(String email, String pw) throws Exception {
 		conn = DBManager.getConnection();
 		String sql = "select email, pw from Sales_Member where email = ?";
 		boolean result = false;
-		
+
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, email);
 			rs = pst.executeQuery();
 			rs.next();
-			if(rs.getString("pw").equals(pw))
-				result=true;
+			if (rs.getString("pw").equals(pw))
+				result = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		}
-		finally {
+		} finally {
 			try {
 				close();
 			} catch (SQLException e) {
@@ -89,19 +91,58 @@ public class MemberDAO {
 		return result;
 	}
 
+	// 이메일 중복체크
+	public boolean emailCheck(String email) throws Exception {
+		conn = DBManager.getConnection();
+		String sql = "select * from Sales_Member where email = ?";
+		boolean result = true;
+
+		pst = conn.prepareStatement(sql);
+		pst.setString(1, email);
+
+		rs = pst.executeQuery();
+
+		if (rs.next()) {
+			result = false;
+		}
+
+		return result;
+	}
+
+	// 회원 수정 전 비밀번호 체크
+	public boolean CheckPw(String email, String pw) throws Exception {
+		conn = DBManager.getConnection();
+		String sql = "select pw from Sales_Member where email = ?";
+		boolean result = false;
+
+		pst = conn.prepareStatement(sql);
+		pst.setString(1, email);
+
+		rs = pst.executeQuery();
+
+		if (rs.next()) {
+			String getPW = rs.getString(1);
+			if (pw.equals(getPW)) {
+				result = true;
+			}
+		}
+
+		return result;
+	}
+
 	// 회원정보 수정을 위한 정보 조회
-	public MemberDTO ForMemberUpdate(String email, String pw) throws Exception {
+	public MemberDTO ForMemberUpdate(String email) throws Exception {
 		conn = DBManager.getConnection();
 
-		pst = conn.prepareStatement("select * from Sales_Member where email = ? and pw = ?");
+		pst = conn.prepareStatement("select * from Sales_Member where email = ?");
 		pst.setString(1, email);
-		pst.setString(2, pw);
 
 		rs = pst.executeQuery();
 
 		MemberDTO dto = null;
 
 		if (rs.next()) {
+			String pw = rs.getString(2);
 			int phone = rs.getInt(3);
 			String category = rs.getString(4);
 			String area = rs.getString(5);
@@ -110,43 +151,120 @@ public class MemberDAO {
 			String payDate = rs.getString(8);
 			dto = new MemberDTO(email, pw, phone, category, area, environ, singUpDate, payDate);
 		}
-		
+
 		close();
 
 		return dto;
 	}
-	
-	//회원정보 수정
-	public int MemberUpdate(String email, String pw, int phone, String category, String area, String environ) throws Exception {
+
+	// 회원정보 수정(비밀번호 있을 때)
+	public int MemberUpdate(String email, String pw, int phone, String category, String area, int environ) throws Exception {
 		conn = DBManager.getConnection();
 
-		pst = conn.prepareStatement("update Sales_Member set pw=?, phone=?, category=?, area=?, environ=? where email=?");
+		pst = conn
+				.prepareStatement("update Sales_Member set pw=?, phone=?, category=?, area=?, environ=? where email=?");
 		pst.setString(1, pw);
 		pst.setInt(2, phone);
 		pst.setString(3, category);
 		pst.setString(4, area);
-		pst.setString(5, environ);
+		pst.setInt(5, environ);
 		pst.setString(6, email);
 
 		int cnt = pst.executeUpdate();
-		
+
 		close();
 
 		return cnt;
 	}
 	
-	//회원정보 만료일자수정
-	public int MemberPayDateUpdate(String email, String payDate) throws Exception {
+	// 회원정보 수정(비밀번호 없을 때)
+	public int MemberUpdate(String email, int phone, String category, String area, int environ) throws Exception {
 		conn = DBManager.getConnection();
 
-		pst = conn.prepareStatement("update Sales_Member set payDate = to_char(to_date(payDate, 'YYYY-MM-DD') + ?, 'YYYY-MM-DD') where email=?");
-		pst.setString(1, payDate);
-		pst.setString(2, email);
-		
+		pst = conn
+				.prepareStatement("update Sales_Member set phone=?, category=?, area=?, environ=? where email=?");
+		pst.setInt(1, phone);
+		pst.setString(2, category);
+		pst.setString(3, area);
+		pst.setInt(4, environ);
+		pst.setString(5, email);
+
 		int cnt = pst.executeUpdate();
-		
+
 		close();
 
 		return cnt;
+	}
+	
+	// 만료일자 조회
+		public String SelectPayDate(String email) throws Exception {
+			conn = DBManager.getConnection();
+
+			pst = conn.prepareStatement("select payDate from Sales_Member where email = ?");
+			pst.setString(1, email);
+
+			rs = pst.executeQuery();
+
+			String payDate = "";
+
+			if (rs.next()) {
+				payDate = rs.getString(1);
+			}
+
+			close();
+
+			return payDate;
+		}
+
+	// 회원정보 만료일자수정
+	public int MemberPayDateUpdate(String email, int payDate) throws Exception {
+		conn = DBManager.getConnection();
+
+		pst = conn.prepareStatement(
+				"update Sales_Member set payDate = to_char(to_date(payDate, 'YYYY-MM-DD') + ?, 'YYYY-MM-DD') where email=?");
+		pst.setInt(1, payDate);
+		pst.setString(2, email);
+
+		int cnt = pst.executeUpdate();
+
+		close();
+
+		return cnt;
+	}
+
+	// 무료 체험판 여부
+	public boolean FreeDaySelect(String email) throws Exception {
+		conn = DBManager.getConnection();
+
+		pst = conn.prepareStatement("select freeDay from Sales_Member where email = ?");
+		pst.setString(1, email);
+
+		rs = pst.executeQuery();
+
+		int FreeDay = 0;
+		boolean isDay = false;
+
+		if (rs.next()) {
+			FreeDay = rs.getInt(1);
+		}
+
+		if (FreeDay == 0) {
+			pst = conn.prepareStatement("update Sales_Member set freeDay = 1, payDate = to_char(to_date(payDate, 'YYYY-MM-DD') + 30, 'YYYY-MM-DD') where email=?");
+			pst.setString(1, email);
+
+			int cnt = pst.executeUpdate();
+
+			if (cnt > 0) {
+				isDay = true;
+			} else {
+				isDay = false;
+			}
+		} else {
+			isDay = false;
+		}
+
+		close();
+
+		return isDay;
 	}
 }
