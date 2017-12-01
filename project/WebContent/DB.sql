@@ -22,6 +22,8 @@ create table Sales_Files(
 	FOREIGN KEY(email) REFERENCES Sales_Member(email)
 );
 
+insert into SALES_FILES values('test@test', 'fakedata.csv', to_char(sysdate, 'YYYY-MM-DD'));
+
 /* 예측데이터 */
 create table Sales_Pre(
 	email varchar2(25),
