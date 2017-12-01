@@ -177,7 +177,7 @@ public class MemberDAO {
 		return cnt;
 	}
 	
-	// 회원정보 수정(비밀번호 없을 때
+	// 회원정보 수정(비밀번호 없을 때)
 	public int MemberUpdate(String email, int phone, String category, String area, int environ) throws Exception {
 		conn = DBManager.getConnection();
 
@@ -195,6 +195,26 @@ public class MemberDAO {
 
 		return cnt;
 	}
+	
+	// 만료일자 조회
+		public String SelectPayDate(String email) throws Exception {
+			conn = DBManager.getConnection();
+
+			pst = conn.prepareStatement("select payDate from Sales_Member where email = ?");
+			pst.setString(1, email);
+
+			rs = pst.executeQuery();
+
+			String payDate = "";
+
+			if (rs.next()) {
+				payDate = rs.getString(1);
+			}
+
+			close();
+
+			return payDate;
+		}
 
 	// 회원정보 만료일자수정
 	public int MemberPayDateUpdate(String email, int payDate) throws Exception {
