@@ -249,7 +249,7 @@ public class MemberDAO {
 		}
 
 		if (FreeDay == 0) {
-			pst = conn.prepareStatement("update Sales_Member set freeDay = 1 where email=?");
+			pst = conn.prepareStatement("update Sales_Member set freeDay = 1, payDate = to_char(to_date(payDate, 'YYYY-MM-DD') + 30, 'YYYY-MM-DD') where email=?");
 			pst.setString(1, email);
 
 			int cnt = pst.executeUpdate();

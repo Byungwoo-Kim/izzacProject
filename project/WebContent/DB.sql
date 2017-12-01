@@ -12,7 +12,7 @@ create table Sales_Member(
 	CONSTRAINT PK_Sales_Member PRIMARY KEY(email)
 );
 
-insert into SALES_MEMBER values('test@test', 'test', '01011112222', '요식업', '광주', 0, to_char(sysdate, 'YYYY-MM-DD'), to_char(sysdate + 7, 'YYYY-MM-DD'), 0);
+insert into SALES_MEMBER values('test@test', 'test', 01011112222, '요식업', '광주', 0, to_char(sysdate, 'YYYY-MM-DD'), to_char(sysdate + 7, 'YYYY-MM-DD'), 0);
 
 /* 파일 */
 create table Sales_Files(
