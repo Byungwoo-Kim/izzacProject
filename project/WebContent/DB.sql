@@ -36,7 +36,7 @@ create table Sales_Pre(
 	preData5 varchar2(1000) not null,
 	preData6 varchar2(1000) not null,
 	preData7 varchar2(1000) not null,
-	preAccu varchar2(50) not null,
+	preAccu varchar2(50),
 	FOREIGN KEY(email) REFERENCES Sales_Member(email)
 );
 
