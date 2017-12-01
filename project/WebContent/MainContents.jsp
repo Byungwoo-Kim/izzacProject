@@ -102,9 +102,7 @@ color:#757575
             </div>
          </td>
          <td id="top-center"><div id="top-center-div">
-               <h4 class="title">프로그램 소개</h4>
-               <h3>부우우우우~!뷰유융~시인~
-                 </h3>
+          <a href="#" onclick="isFree()"><img src="images/bigban.jpg" alt="이미지 오류" width="400" height="380"></a>
             </div></td>
          <td id=top-right"><div id="top-right-div">
                <iframe width="400" height="400" src='crawlingMain.jsp' name="test"

@@ -8,10 +8,10 @@
 #profilewrap {
 	width: 24.5em;
     height: 8.5em;
-	border: 1px solid #ed9357;
+	/* border: 1px solid #ed9357; */
 	box-sizing: border-box;
 	text-align: center;
-	border-radius: 0px 15px 0px 15px;
+	/* border-radius: 0px 15px 0px 15px; */
 	z-index: 2;
 }
 
@@ -48,7 +48,7 @@
 
 #profilehi {
 	font-family: "Caviar Dreams", serif;
-	font-size: 15px;
+	font-size: 18px;
 	color: #607D8B;
 }
 </style>
@@ -57,7 +57,7 @@
 <body>
 	<div id="profilewrap">
 		<div id="profileleft">
-			<img src="images/logo3.jpg" alt="이미지오류" width="159px" height="130px">
+			<img src="images/logocolor.jpg" alt="이미지오류" width="159px" height="130px">
 		</div>
 		<!-- 노로그인 -->
 		<div id="profileright">
