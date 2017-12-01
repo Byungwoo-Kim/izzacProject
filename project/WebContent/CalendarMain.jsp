@@ -159,12 +159,12 @@
 		<%
 			if (nowMonth > 0) {
 		%>
-		<input id="left" type="button" value="¢¸" onclick="slide(<%=nowYear%>)">
-		<%-- 		<a
+		<%-- <input id="left" type="button" value="¢¸" onclick="slide(<%=nowYear%>)"> --%>
+		<a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="left"><img src="images/left.png"
-			width="30" height="30"></a> --%>
+			width="30" height="30"></a>
 
 		<%
 			} else if (nowMonth == 0) {

@@ -141,6 +141,7 @@ tr {
 						<input type="file" name="file" id="file"> <input
 							type="submit" id="ok" value="파일 업로드" class="upload">
 					</form>
+					
 				</td>
 			</tr>
 
