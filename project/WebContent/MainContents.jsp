@@ -72,13 +72,22 @@ th, td {
 
 .title {
    font-weight: bold;
-   font-size: medium;
+   font-size: 30px;
+   color: #424242
 }
 #team{
 font-size: 25px;
 }
-#board{   
+h1{   
 color: #FFC331;
+}
+.contents{
+font-size: 25px;
+color: #FFC331;
+}
+h3{
+font-size: 15px;
+color:#757575
 }
 </style>
 </head>
@@ -104,12 +113,12 @@ color: #FFC331;
       </tr>
       <tr>
          <td><div id="middle-center-div">
-               <h1 id="board">게시판</h1>
+               <h1>게시판</h1>
                게시글 제목들...가능하다면 클릭시...해당게시물로........이걸..해내는..여러분이...4차산업혁명의...선도..인력
             </div></td>
          <td><div id="middle-right-div">
-               <h4 class="title">보도자료</h4>
-               <h2 class="contents">스마트미디어인재개발원 2차 프로젝트에서 우수한 성적으로 입상</h2>
+               <h4 class="title"><u>보도자료</u></h4>
+               <h2 class="contents">스마트미디어인재개발원 2차 <br>프로젝트에서 우수한 성적으로 입상</h2>
                <h3>Parasol(www.parasol.co.kr, 대표이사 사장 홍성은)은 4일, 광주 남구 CGI센터
                   강의실에서 열린 '제 2차 프로젝트'...</h3>
                <h5>2017-12-04</h5>

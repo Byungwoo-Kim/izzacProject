@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css?ver=1" />
+<link rel="stylesheet" href="assets/css/main.css?ver=3" />
 <!-- <style type="text/css">
 .white_content:target {
    opacity: 1;
@@ -64,11 +64,11 @@
       <div id="sidebar">
          <div class="inner">
             <!-- Search -->
-            <section id="search" class="alt">
+     <section id="search" class="alt">
            
-            
-            
-            </section>
+<iframe src="profile.jsp" scrolling="no" height="100%" width="100%">뿌잉뿌잉</iframe>
+
+         </section>
             <!-- Menu -->
             <nav id="menu"> <header class="major">
             <h2>MENU</h2>
