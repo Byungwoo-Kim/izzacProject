@@ -16,7 +16,7 @@ public class UpdateService implements Command {
 		String email = (String)session.getAttribute("email");
 		
 		String newPw = request.getParameter("NewPw");
-		int newPhone = Integer.parseInt(request.getParameter("NewPhone"));
+		String newPhone = request.getParameter("NewPhone");
 		String category = request.getParameter("category");
 		
 		System.out.println(category);

@@ -3,14 +3,14 @@ package com.DTO;
 public class MemberDTO {
 	private String email;
 	private String pw;
-	private int phone;
+	private String phone;
 	private String category;
 	private String area;
 	private String environ;
 	private String signUpDate;
 	private String payDate;
 	
-	public MemberDTO(String email, String pw, int phone, String category, String area, String environ, String signUpDate, String payDate) {
+	public MemberDTO(String email, String pw, String phone, String category, String area, String environ, String signUpDate, String payDate) {
 		super();
 		this.email = email;
 		this.pw = pw;
@@ -22,7 +22,7 @@ public class MemberDTO {
 		this.payDate =payDate;
 	}
 	
-	public MemberDTO(String email, String pw, int phone, String category, String area) {
+	public MemberDTO(String email, String pw, String phone, String category, String area) {
 		super();
 		this.email = email;
 		this.pw = pw;
@@ -35,63 +35,31 @@ public class MemberDTO {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getPw() {
 		return pw;
 	}
 
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
-
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
-	}
-
-	public void setPhone(int phone) {
-		this.phone = phone;
 	}
 	
 	public String getEnviron() {
 		return environ;
 	}
 
-	public void setEnviron(String environ) {
-		this.environ = environ;
-	}
-
 	public String getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
 	public String getSignUpDate() {
 		return signUpDate;
-	}
-
-	public void setSignUpDate(String signUpDate) {
-		this.signUpDate = signUpDate;
 	}
 	
 	public String getPayDate() {
 		return payDate;
 	}
 
-	public void setPayDate(String payDate) {
-		this.payDate = payDate;
-	}
-
 	public String getArea() {
 		return area;
-	}
-
-	public void setArea(String area) {
-		this.area = area;
 	}
 }
