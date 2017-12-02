@@ -22,7 +22,6 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-
 	//상위 셀렉트로 하위 셀렉트 제어하기
 	function showSub(obj) {
 
@@ -192,10 +191,9 @@
 							value=${dto.getPhone() }>&nbsp-없이 숫자만 입력해주세요</td>
 					</tr>
 					<tr>
-						<td>업종</td>
+						<td>업종<input type="hidden" value="${dto.getCategory() }" name="getCategory" id="getCategory"></td>
 						<td>
 							<select name="category">
-								<option value=${dto.getCategory() }>${dto.getCategory() }</option>
 								<option value="요식업">요식업</option>
 								<option value="화훼업">화훼업</option>
 								<option value="편의점">편의점</option>
@@ -206,10 +204,9 @@
 						</td>
 					</tr>
 					<tr>
-						<td>지역 ${dto.getArea() }</td>
+						<td>지역 <input type="hidden" value="${dto.getArea() }" name="getArea" id="getArea"></td>
 						<td>
 							<select name="test" title="시,도" id="wide_select" class="location" onChange="showSub(this.options[this.selectedIndex].value);" required="required">
-								<option>도시선택</option>
 								<option value="1">서울·경기·인천</option>
 								<option value="2">강원도</option>
 								<option value="3">충청도</option>
@@ -223,7 +220,6 @@
 								<option value="">도시를 선택해주세요</option>
 							</select>
 							<select name="location1" class="location" style="display: none;" id="city1" >
-								<option value="">지역선택</option>
 								<option value="강화">강화</option>
 								<option value="동두천">동두천</option>
 								<option value="백령도">백령도</option>
@@ -235,7 +231,6 @@
 								<option value="파주">파주</option>
 							</select>
 							<select name="location2" class="location" style="display: none;" id="city2">
-								<option value="">지역선택</option>
 								<option value="강릉">강릉</option>
 								<option value="대관령">대관령</option>
 								<option value="동해">동해</option>
@@ -250,7 +245,6 @@
 								<option value="홍천">홍천</option>
 							</select>
 							<select name="location3" class="location" style="display: none;" id="city3">
-								<option value="">지역선택</option>
 								<option value="금산">금산</option>
 								<option value="대전">대전</option>
 								<option value="보은">보은</option>
@@ -265,7 +259,6 @@
 								<option value="홍성">홍성</option>
 							</select>
 							<select name="location4" class="location" style="display: none;" id="city4" >
-								<option value="">지역선택</option>
 								<option value="고창">고창</option>
 								<option value="군산">군산</option>
 								<option value="남원">남원</option>
@@ -277,7 +270,6 @@
 								<option value="정읍">정읍</option>
 							</select>
 							<select name="location5" class="location" style="display: none;" id="city5" >
-								<option value="">지역선택</option>
 								<option value="강진">강진</option>
 								<option value="고흥">고흥</option>
 								<option value="광양">광양</option>
@@ -294,7 +286,6 @@
 								<option value="흑산도">흑산도</option>
 							</select>
 							<select name="location6" class="location" style="display: none;" id="city6" >
-								<option value="">지역선택</option>
 								<option value="경주">경주</option>
 								<option value="구미">구미</option>
 								<option value="대구">대구</option>
@@ -312,7 +303,6 @@
 								<option value="포항">포항</option>
 							</select>
 							<select name="location7" class="location" style="display: none;" id="city7" >
-								<option value="">지역선택</option>
 								<option value="거제">거제</option>
 								<option value="거창">거창</option>
 								<option value="김해">김해</option>
@@ -330,7 +320,6 @@
 								<option value="합천">합천</option>
 							</select>
 							<select name="location8" class="location" style="display: none;" id="city8">
-								<option value="">지역선택</option>
 								<option value="고산">고산</option>
 								<option value="서귀포">서귀포</option>
 								<option value="성산">성산</option>
@@ -368,14 +357,36 @@
 	
 	<script type="text/javascript">
 		function test() {
-			//var getEnviron = document.getElementById("getEnviron").value;
 			var environ = document.getElementsByName("environ");
+			var getArea = document.getElementById("getArea").value;
+			var getCategory = document.getElementById("getCategory").value;
+			
+			for(var i = 1 ; i <= 8; i++) {
+				var getArea = document.getElementById("getArea").value;
+				var location = document.getElementsByName("location"+i);
+				
+				for(var j = 0; j < location[0].length; j++) {
+					if(getArea == location[0][j].value) {
+						document.update.test.options[i-1].selected = "selected";
+						showSub(i);
+						location[0].options[j].selected = "selected";
+					}
+				}
+			}
 						
 			var getEnviron = document.update.getEnviron.value;
 			
 			for(var i = 0; i < environ.length; i++) {
 				if(getEnviron == environ[i].value)	{
 					environ[i].checked = true;
+				}
+			}
+			
+			var category = document.update.category;
+
+			for(var i = 0; i < category.length; i++) {
+				if(getCategory == category[i].value) {
+					category.options[i].selected = "selected";
 				}
 			}
 			
