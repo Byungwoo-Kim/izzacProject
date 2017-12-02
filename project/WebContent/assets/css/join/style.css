@@ -100,35 +100,40 @@ body .container .content label:nth-of-type(4), body .container .content input:nt
   -webkit-animation: slideIn 0.7s cubic-bezier(0.37, 0.82, 0.2, 1);
   animation: slideIn 0.7s cubic-bezier(0.37, 0.82, 0.2, 1);
 }
-body .container .content label:nth-of-type(5), body .container .content select:first-of-type, body .container .content .more:nth-of-type(5) {
+body .container .content label:nth-of-type(5), body .container .content input:nth-of-type(5), body .container .content .more:nth-of-type(5) {
   -moz-animation: slideIn 0.8s cubic-bezier(0.37, 0.82, 0.2, 1);
   -webkit-animation: slideIn 0.8s cubic-bezier(0.37, 0.82, 0.2, 1);
   animation: slideIn 0.8s cubic-bezier(0.37, 0.82, 0.2, 1);
 }
-body .container .content label:nth-of-type(6), body .container .content select:nth-of-type(2), body .container .content .more:nth-of-type(6) {
+body .container .content label:nth-of-type(6), body .container .content select:first-of-type, body .container .content .more:nth-of-type(6) {
   -moz-animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
   -webkit-animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
   animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
 }
-body .container .content select:nth-of-type(3), body .container .content .more:nth-of-type(7), body .container .content select:nth-of-type(4), body .container .content .more:nth-of-type(8)  {
-  -moz-animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
-  -webkit-animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
-  animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
+body .container .content label:nth-of-type(7), body .container .content select:nth-of-type(2), body .container .content .more:nth-of-type(7) {
+  -moz-animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+  -webkit-animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+  animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
 }
-body .container .content select:nth-of-type(5), body .container .content .more:nth-of-type(9), body .container .content select:nth-of-type(6), body .container .content .more:nth-of-type(10)  {
-  -moz-animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
-  -webkit-animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
-  animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
+body .container .content select:nth-of-type(3), body .container .content .more:nth-of-type(8), body .container .content select:nth-of-type(4), body .container .content .more:nth-of-type(9)  {
+  -moz-animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+  -webkit-animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+  animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
 }
-body .container .content select:nth-of-type(7), body .container .content .more:nth-of-type(11), body .container .content select:nth-of-type(8), body .container .content .more:nth-of-type(12)  {
-  -moz-animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
-  -webkit-animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
-  animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
+body .container .content select:nth-of-type(5), body .container .content .more:nth-of-type(10), body .container .content select:nth-of-type(6), body .container .content .more:nth-of-type(11)  {
+  -moz-animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+  -webkit-animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+  animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
 }
-body .container .content select:nth-of-type(9), body .container .content .more:nth-of-type(13), body .container .content select:nth-of-type(10), body .container .content .more:nth-of-type(14)  {
-  -moz-animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
-  -webkit-animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
-  animation: slideIn 0.9s cubic-bezier(0.37, 0.82, 0.2, 1);
+body .container .content select:nth-of-type(7), body .container .content .more:nth-of-type(12), body .container .content select:nth-of-type(8), body .container .content .more:nth-of-type(13)  {
+  -moz-animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+  -webkit-animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+  animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+}
+body .container .content select:nth-of-type(9), body .container .content .more:nth-of-type(14), body .container .content select:nth-of-type(10), body .container .content .more:nth-of-type(15)  {
+  -moz-animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+  -webkit-animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
+  animation: slideIn 1.0s cubic-bezier(0.37, 0.82, 0.2, 1);
 }
 body .container .content label {
   font-size: 12px;
@@ -183,27 +188,27 @@ body .container .content select.location {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-body .container .content input.inpt::-webkit-input-placeholder, body .container .content select.select::-webkit-input-placeholder, body .container .content select.location::-webkit-input-placeholder, body .container .content button.emailCk::-webkit-input-placeholder {
+body .container .content input.inpt::-webkit-input-placeholder, body .container .content select.select::-webkit-input-placeholder, body .container .content select.location::-webkit-input-placeholder, body .container .content input.emailCk::-webkit-input-placeholder {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt:-moz-placeholder, body .container .content select.select:-moz-placeholder, body .container .content select.location:-moz-placeholder, body .container .content button.emailCk:-moz-placeholder {
+body .container .content input.inpt:-moz-placeholder, body .container .content select.select:-moz-placeholder, body .container .content select.location:-moz-placeholder, body .container .content input.emailCk:-moz-placeholder {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt::-moz-placeholder, body .container .content  select.select::-moz-placeholder, body .container .content select.location::-moz-placeholder, body .container .content button.emailCk::-moz-placeholder  {
+body .container .content input.inpt::-moz-placeholder, body .container .content  select.select::-moz-placeholder, body .container .content select.location::-moz-placeholder, body .container .content input.emailCk::-moz-placeholder  {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt:-ms-input-placeholder, body .container .content select.select:-ms-input-placeholder, body .container .content select.location:-ms-input-placeholder, body .container .content button.emailCk:-ms-input-placeholder {
+body .container .content input.inpt:-ms-input-placeholder, body .container .content select.select:-ms-input-placeholder, body .container .content select.location:-ms-input-placeholder, body .container .content input.emailCk:-ms-input-placeholder {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt:focus, body .container .content select.select:focus, body .container .content select.location:focus, body .container .content button.emailCk:focus {
+body .container .content input.inpt:focus, body .container .content select.select:focus, body .container .content select.location:focus, body .container .content input.emailCk:focus {
   border-color: #999999;
 }
 body .container .content input.submit{
@@ -223,7 +228,7 @@ body .container .content input.submit{
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-body .container .content button.emailCk{
+body .container .content input.emailCk{
   font-size: 12px;
   line-height: 24px;
   display: inline;
@@ -248,7 +253,7 @@ body .container .content input.submit:hover {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
-body .container .content input:focus, body .container .content select:focus, body .container .content button:focus {
+body .container .content input:focus, body .container .content select:focus {
   outline: none;
 }
 body .container .content .checkbox {

@@ -105,7 +105,7 @@ public class DataDAO {
 	public ArrayList<PreDTO> SelectPre(String email) throws Exception {
 		getConn();
 
-		pst = conn.prepareStatement("select pDate, preData from Sales_Pre where email = ?");
+		pst = conn.prepareStatement("select * from Sales_Pre where email = ?");
 		pst.setString(1, email);
 
 		rs = pst.executeQuery();
@@ -113,9 +113,17 @@ public class DataDAO {
 		ArrayList<PreDTO> list = new ArrayList<PreDTO>();
 
 		while (rs.next()) {
-			String pDate = rs.getString(1);
-			String preData = rs.getString(2);
-			list.add(new PreDTO(pDate, preData));
+			String pDate = rs.getString(2);
+			String preData0 = rs.getString(3);
+			String preData1 = rs.getString(4);
+			String preData2 = rs.getString(5);
+			String preData3 = rs.getString(6);
+			String preData4 = rs.getString(7);
+			String preData5 = rs.getString(8);
+			String preData6 = rs.getString(9);
+			String preData7 = rs.getString(10);
+			String preAccu = rs.getString(11);
+			list.add(new PreDTO(email, pDate, preData0, preData1, preData2, preData3, preData4, preData5, preData6, preData7, preAccu));
 		}
 		
 		close();
@@ -136,13 +144,8 @@ public class DataDAO {
 
 		while (rs.next()) {
 			String aDate = rs.getString(2);
-			String analData1 = rs.getString(3);
-			String analData2 = rs.getString(4);
-			String analData3 = rs.getString(4);
-			String analData4 = rs.getString(5);
-			String analData5 = rs.getString(6);
-			String analAccu = rs.getString(7);
-			list.add(new AnalDTO(email, aDate, analData1, analData2, analData3, analData4, analData5, analAccu));
+			String analData = rs.getString(3);
+			list.add(new AnalDTO(email, aDate, analData));
 		}
 		
 		close();

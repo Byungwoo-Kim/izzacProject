@@ -14,7 +14,7 @@
 </script>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assets/css/CalendarStyle.css">
+<link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=3">
 </head>
 <body>
 

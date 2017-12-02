@@ -17,7 +17,7 @@ public class JoinService implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String email = request.getParameter("email");
-		int phoneNum = Integer.parseInt(request.getParameter("phoneNum"));
+		String phoneNum = request.getParameter("phoneNum");
 		String pw = request.getParameter("pw");
 		String category = request.getParameter("category");
 		String location = "";
