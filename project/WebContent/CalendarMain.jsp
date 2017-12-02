@@ -7,7 +7,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+.outLine {
+	margin-left: 550px;
+	height: 600px;
+	width: 610px;
+	background-color: #eff1f2;
+	border-radius: 3em;
+}
 
+.detail, .detail tr, .detail td {
+	text-align: center;
+	width: 600px;
+	font-size: large;
+}
+
+.detail td {
+	height: 50px;
+}
+
+.void {
+	height: 30px;
+}
+
+.rank {
+	color: gray;
+}
+
+.title {
+	font-size: xx-large;
+	color: orange;
+}
+
+#result {
+	color: red;
+}
+
+h1 {
+	font-size: xx-large;
+}
+</style>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script
@@ -27,6 +66,57 @@
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
 				
+				alert(result);
+				var menuAndQty = result.split("/");
+				var itemlist = menuAndQty[0].split(",");
+				var qtyList = menuAndQty[1].split(",");
+				
+				var item1 = itemlist[0];
+				var item2 = itemlist[1];
+				var item3 = itemlist[2];
+				
+				var qty1 = qtyList[0];
+				var qty2 = qtyList[1];
+				var qty3 = qtyList[2];
+				alert(item1);
+				alert(item2);
+				alert(item3);
+				alert(qty1);
+				alert(qty2);
+				alert(qty3);
+				
+				var Qtag1 = document.getElementById("realQty1");
+				var Qtag2 = document.getElementById("realQty2");
+				var Qtag3 = document.getElementById("realQty3");
+				
+				var Mtag1 = document.getElementById("realMenu1");
+				var Mtag2 = document.getElementById("realMenu2");
+				var Mtag3 = document.getElementById("realMenu3");
+				
+				
+
+				
+				Qtag1.innerHTML = qty1;
+				Qtag2.innerHTML = qty2;
+				Qtag3.innerHTML = qty3;
+				
+				Mtag1.innerHTML = item1;
+				Mtag2.innerHTML = item2;
+				Mtag3.innerHTML = item3;
+				
+			},
+			error : function(request, status, error) {
+				alert("code:" + request.status + "\n" + "message:"
+						+ request.responseText + "\n" + "error:" + error);
+			}
+
+		});
+	$.ajax({
+		//당일 실제 판매량 검색
+			url : "DailyAnalService",
+			data : "year=" + year +"&month=" + month+"&date="+date,
+			success : function(result) {
+				
 				alert("?");
 				alert(result);
 			},
@@ -36,14 +126,15 @@
 			}
 
 		});
-
+	
+	
 	}
 
 </script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
-		int nowMonth = today.get(today.MONTH)+1;
+		int nowMonth = today.get(today.MONTH) + 1;
 		int nowDay = today.get(today.DAY_OF_MONTH);
 		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
 		String eng_month = "";
@@ -177,11 +268,9 @@
 			<div class="ring-right"></div>
 
 		</div>
-		
-		
-		<div>
-		
-		</div>
+
+
+		<div></div>
 		<!--달력 넘기기  -->
 		<!-- slide 함수에 2들어가면 해가 바뀌고 1이 넘어가면 월이 바뀐다  -->
 		<%
@@ -231,6 +320,66 @@
 	</div>
 	<!-- end container -->
 	<!-- 일 눌렀을때 오른쪽에 나오는 창  -->
+
+	<div class="outLine">
+		<table class="detail">
+			<tr>
+				<td colspan="3" class="title">예측 판매량</td>
+				<td colspan="3" class="title">실제 판매량</td>
+			</tr>
+			<tr>
+				<td class="rank">1.</td>
+				<td id="preMenu1">Iced Americano</td>
+				<td id="preQty1">87</td>
+				<td class="rank">1.</td>
+				<td id="realMenu1">Iced Americano</td>
+				<td id = "realQty1">79</td>
+			</tr>
+			<tr>
+				<td class="rank">2.</td>
+				<td id="preMenu2">Iced Vanilla Latte</td>
+				<td id="preQty2">54</td>
+				<td class="rank">2.</td>
+				<td id="realMenu2">Hot Chocolate</td>
+				<td id = "realQty2">43</td>
+			</tr>
+			<tr>
+				<td class="rank">3.</td>
+				<td id="preMenu3">Espresso</td>
+				<td id="preQty3">45</td>
+				<td class="rank">3.</td>
+				<td id="realMenu3">Iced Vanilla Latte</td>
+				<td id = "realQty3">39</td>
+			</tr>
+			<tr>
+				<td td colspan="6" class="void"></td>
+
+			</tr>
+			<tr>
+				<td td colspan="3" class="title">예상 매출액</td>
+				<td td colspan="3" class="title">실제 매출액</td>
+			</tr>
+			<tr>
+				<td td colspan="3">2562500원</td>
+				<td td colspan="3">2315800원</td>
+			</tr>
+			<tr>
+				<td td colspan="6" class="void"></td>
+
+			</tr>
+			<tr>
+				<td colspan="6" class="title"><h1 id="result">99%</h1></td>
+
+			</tr>
+
+
+		</table>
+	</div>
+
+
+
+
+
 
 
 
