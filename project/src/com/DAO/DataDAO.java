@@ -82,18 +82,21 @@ public class DataDAO {
 	}
 	
 	// 로그인한 회원의 오늘의 매출 예상 조회
-	public String SelectTodayPre(String email) throws Exception {
+	public String SelectTodayPre(String email, String environ) throws Exception {
 		getConn();
 
+
 		pst = conn.prepareStatement("select preData from Sales_Pre where email = ? and pDate = to_char(sysdate, 'YYYY-MM-D'");
+
 		pst.setString(1, email);
 
 		rs = pst.executeQuery();
 
 		String preData = "";
+		int environNum = Integer.parseInt(environ);
 		
 		if (rs.next()) {
-			preData = rs.getString(1);
+			preData = rs.getString(environNum + 3);
 		}
 		
 		close();
