@@ -109,6 +109,7 @@ public class DataDAO {
 		pst.setString(1, email);
 
 		rs = pst.executeQuery();
+		//¤¾¤·
 		
 		ArrayList<PreDTO> list = new ArrayList<PreDTO>();
 
