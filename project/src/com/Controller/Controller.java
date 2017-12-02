@@ -33,6 +33,8 @@ public class Controller extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("euc-kr");
+		response.setContentType("text/html;charset=euc-kr");
+		
 		String uri = request.getRequestURI();
 		System.out.println("ø‰√ª«— URI : " + uri);
 		String path = request.getContextPath();

@@ -23,6 +23,8 @@ create table Sales_Files(
 );
 
 insert into SALES_FILES values('test@test', 'fakedata.csv', to_char(sysdate, 'YYYY-MM-DD'));
+insert into SALES_FILES values('test@test', 'fakedata1.csv', to_char(sysdate, 'YYYY-MM-DD'));
+insert into SALES_FILES values('test@test', 'fakedata0.csv', to_char(sysdate-1, 'YYYY-MM-DD'));
 
 /* 예측데이터 */
 create table Sales_Pre(
