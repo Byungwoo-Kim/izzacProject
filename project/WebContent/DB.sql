@@ -86,3 +86,12 @@ CREATE TABLE Sales_Reply (
 create sequence reply_num
 start with 1
 increment by 1;
+
+/* ∞Ì∞¥ºæ≈Õ */
+CREATE TABLE Sales_Support(
+	email varchar2(25),
+	phonenum varchar2(25),
+	title varchar2(100),
+	context varchar2(1000)
+	
+)

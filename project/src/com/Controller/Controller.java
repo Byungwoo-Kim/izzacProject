@@ -15,6 +15,7 @@ import com.Service.FreeCheckService;
 import com.Service.JoinService;
 import com.Service.LoginService;
 import com.Service.ModifyPayService;
+import com.Service.SupportService;
 import com.Service.UpdateService;
 
 @WebServlet("*.do")
@@ -29,6 +30,7 @@ public class Controller extends HttpServlet {
 		map.put("ModifyPay.do", new ModifyPayService());
 		map.put("FreeCheck.do", new FreeCheckService());
 		map.put("CheckPw.do", new CheckPwService());
+		map.put("Support.do", new SupportService());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
