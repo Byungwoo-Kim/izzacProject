@@ -7,12 +7,14 @@
 <html>
 <head>
 
+<link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=6">
+
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=3">
+
 </head>
 <body>
 	<script type="text/javascript">
@@ -130,7 +132,6 @@
 	
 	}
 	function test(number){
-		alert(number);
 
 		
 		var QtyTag1 = document.getElementById("preQty1");
@@ -331,14 +332,13 @@
 							System.out.println(start);
 							System.out.println(endDay);
 
-
 							int newLine = 0;
 							Calendar todayCal = Calendar.getInstance();
 							SimpleDateFormat sdf = new SimpleDateFormat("yyyMMdd");
 							int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 							//시작하는 요일 설정
 							for (int index = 1; index < start; index++) {
-								out.println("<TD >&nbsp;</TD>");
+								out.println("<TD id='blank'>&nbsp;</TD>");
 								newLine++;
 							}
 
@@ -367,7 +367,7 @@
 								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
-						<div
+						<div id="dateArea"
 							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth + 1%>,<%=index%>)'>
 							<font color='<%=color%>'> <%=index%>
 							</font>
@@ -403,6 +403,7 @@
 		</div>
 		<!-- end calendar-container -->
 		<!--달력 넘기기  -->
+
 		<%
 			if (nowMonth > 0) {
 		%>
@@ -446,7 +447,70 @@
 		%>
 		<!--달력 넘기기 끝  -->
 		<!-- end container -->
+		<div class="outLine">
+			<table class="detail">
+				<tr>
+					<td><button onclick="test(1);" onmouseover="요거슨 뭐시냐며는">1</button>
+						<button onclick="test(2);" onmouseover="요거슨 뭐시냐며는">2</button>
+						<button onclick="test(3);" onmouseover="요거슨 뭐시냐며는">3</button>
+						<button onclick="test(4);" onmouseover="요거슨 뭐시냐며는">4</button>
+						<button onclick="test(5);" onmouseover="요거슨 뭐시냐며는">5</button>
+						<button onclick="test(6);" onmouseover="요거슨 뭐시냐며는">6</button>
+						<button onclick="test(7);" onmouseover="요거슨 뭐시냐며는">7</button>
+						<button onclick="test(8);" onmouseover="요거슨 뭐시냐며는">8</button></td>
+				</tr>
+				<tr>
+					<td colspan="3" class="title">예측 판매량</td>
+					<td colspan="3" class="title">실제 판매량</td>
+				</tr>
+				<tr>
+					<td class="rank">1.</td>
+					<td id="preMenu1">Iced Americano</td>
+					<td id="preQty1">87</td>
+					<td class="rank">1.</td>
+					<td id="realMenu1">Iced Americano</td>
+					<td id="realQty1">79</td>
+				</tr>
+				<tr>
+					<td class="rank">2.</td>
+					<td id="preMenu2">Iced Vanilla Latte</td>
+					<td id="preQty2">54</td>
+					<td class="rank">2.</td>
+					<td id="realMenu2">Hot Chocolate</td>
+					<td id="realQty2">43</td>
+				</tr>
+				<tr>
+					<td class="rank">3.</td>
+					<td id="preMenu3">Espresso</td>
+					<td id="preQty3">45</td>
+					<td class="rank">3.</td>
+					<td id="realMenu3">Iced Vanilla Latte</td>
+					<td id="realQty3">39</td>
+				</tr>
+				<tr>
+					<td td colspan="6" class="void"></td>
 
+				</tr>
+				<tr>
+					<td td colspan="3" class="title">예상 매출액</td>
+					<td td colspan="3" class="title">실제 매출액</td>
+				</tr>
+				<tr>
+					<td td colspan="3">2562500원</td>
+					<td td colspan="3">2315800원</td>
+				</tr>
+				<tr>
+					<td td colspan="6" class="void"></td>
+
+				</tr>
+				<tr>
+					<td colspan="6" class="title"><h1 id="result">99%</h1></td>
+
+				</tr>
+
+
+			</table>
+		</div>
 
 		<script type="text/javascript">
 		// 당월 총 일수 구하기

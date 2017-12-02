@@ -7,44 +7,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=8">
 <style type="text/css">
-.outLine {
-	margin-left: 550px;
-	height: 600px;
-	width: 610px;
-	background-color: #eff1f2;
-	border-radius: 3em;
-}
-
-.detail, .detail tr, .detail td {
-	text-align: center;
-	width: 600px;
-	font-size: large;
-}
-
-.detail td {
-	height: 50px;
-}
-
-.void {
-	height: 30px;
-}
-
-.rank {
-	color: gray;
-}
-
-.title {
-	font-size: xx-large;
-	color: orange;
-}
-
-#result {
-	color: red;
-}
-
-h1 {
-	font-size: xx-large;
+.container {
+	margin-left: 17em;
+	margin-top: 20em;
+	/* 	left: 30%;
+	top: 10%; */
+	position: absolute;
+	transform: translate(-50%, -50%);
 }
 </style>
 <meta charset="EUC-KR">
@@ -52,7 +23,7 @@ h1 {
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=3">
+
 </head>
 <body>
 	<script type="text/javascript">
@@ -170,7 +141,6 @@ h1 {
 	
 	}
 	function test(number){
-		alert(number);
 
 		
 		var QtyTag1 = document.getElementById("preQty1");
@@ -395,7 +365,7 @@ h1 {
 								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
-						<div
+						<div id="dateArea"
 							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'>
 							<font color='<%=color%>'> <%=index%>
 							</font>
@@ -419,7 +389,6 @@ h1 {
 								newLine++;
 							}
 						%>
-
 					</TR>
 
 				</TBODY>

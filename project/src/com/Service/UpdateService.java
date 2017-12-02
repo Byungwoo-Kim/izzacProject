@@ -22,6 +22,7 @@ public class UpdateService implements Command {
 		System.out.println(category);
 		
 		String location = "";
+		
 		if(!(request.getParameter("location1").equals(""))) {
 			location=request.getParameter("location1");
 		}else if(!(request.getParameter("location2").equals(""))) {
@@ -39,6 +40,7 @@ public class UpdateService implements Command {
 		}else if(!(request.getParameter("location8").equals(""))) {
 			location=request.getParameter("location8");
 		}
+		
 		int environ = Integer.parseInt(request.getParameter("environ"));
 		
 		MemberDAO dao = new MemberDAO();
@@ -55,10 +57,11 @@ public class UpdateService implements Command {
 			}
 			
 			if(cnt > 0) {
-				out.println("<script>alert('수정완료!');</script>");
+				System.out.println(location);
+				out.print ("<script>alert('수정완료!');</script>");
 				response.sendRedirect("MainContents.jsp");
 			} else {
-				out.println("<script>alert('수정실패 ㅜㅜ');history.go(-1);</script>");
+				out.print("<script>alert('수정실패 ㅜㅜ');history.go(-1);</script>");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

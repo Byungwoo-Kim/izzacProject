@@ -6,6 +6,8 @@ body {
 	margin: 0;
 }
 
+
+
 #left {
 	position: absolute;
 	top: 50%;
@@ -17,33 +19,8 @@ body {
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
-#right {
-	position: absolute;
-	top: 50%;
-	right: 0px;
-	border: 0px;
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	background-color: rgba(0, 0, 0, 0.1);
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 td {
-	padding: 0;
-}
-
-.container {
-	margin-left: 17em;
-	margin-top: 20em;
-	/* 	left: 30%;
-	top: 10%; */
-	position: absolute;
-	transform: translate(-50%, -50%);
+	padding: 0px;
 }
 
 .calendar-container {
@@ -87,7 +64,7 @@ td {
 }
 
 .calendar td {
-	padding: .5em 1em;
+
 	text-align: center;
 }
 
@@ -113,6 +90,22 @@ td {
 	left: 2em;
 }
 
+#right {
+	position: absolute;
+	top: 50%;
+	right: 0px;
+	border: 0px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 .ring-right {
 	right: 2em;
 }
@@ -129,4 +122,48 @@ td {
 	margin: 8px;
 	height: 32px;
 	width: 8px;
+}
+
+.outLine {
+	margin-left: 550px;
+	height: 600px;
+	width: 610px;
+	background-color: #eff1f2;
+	border-radius: 3em;
+}
+
+.detail, .detail tr, .detail td {
+	text-align: center;
+	width: 600px;
+	font-size: large;
+}
+
+.detail td {
+	height: 50px;
+}
+
+.void {
+	height: 30px;
+}
+
+.rank {
+	color: gray;
+}
+
+.title {
+	font-size: xx-large;
+	color: orange;
+}
+
+#result {
+	color: red;
+}
+
+h1 {
+	font-size: xx-large;
+}
+
+#dateArea{
+	width:56px;
+	height : 37px;
 }
