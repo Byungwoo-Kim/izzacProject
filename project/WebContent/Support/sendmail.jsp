@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<%@page import="com.DTO.MemberDTO"%>
+<%@page import="com.DAO.MemberDAO"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -19,6 +24,15 @@
 </head>
 <body><div id="wrap">
 	<form method="post" action="../Support.do">
+	<%
+		if(session.getAttribute("email") != null) {
+			String email = (String)session.getAttribute("email");
+			MemberDAO dao = new MemberDAO();
+			MemberDTO dto = dao.ForMemberUpdate(email);
+			
+			request.setAttribute("dto", dto);
+		}
+	%>
 	<br><br>
 	<table id="SupportTable">
 		<tr>
@@ -26,8 +40,8 @@
 			<td>답변받으실 이메일</td>
 		</tr>
 		<tr>
-			<td><input type="text" name="phoneNum" id="supportName"/></td>
-			<td><input type="text" name="sendEmail" id="supportEmail"/></td>
+			<td><input type="text" name="phoneNum" id="supportName" value="${dto.getPhone() }"/></td>
+			<td><input type="text" name="sendEmail" id="supportEmail" value="${email }"/></td>
 		</tr>
 		<tr>
 			<td colsapn="2">제목</td>

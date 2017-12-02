@@ -101,6 +101,34 @@ public class MessageDAO {
 		}
 		return datas;
 	}
+	
+	public ArrayList<String> SelectAll() throws Exception {
+		ArrayList<String> list = new ArrayList<String>();
+		conn = DBManager.getConnection();
+		String sql;
+
+		try {
+			sql = "select * from Sales_Message order by mdate desc";
+			pst = conn.prepareStatement(sql);
+
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				String msg = rs.getString(3);
+				list.add(msg);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getErrorCode());
+		} finally {
+			try {
+				close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println(e.getErrorCode());
+			}
+		}
+		return list;
+	}
 
 	/**
 	 * 신규 메시지 등록

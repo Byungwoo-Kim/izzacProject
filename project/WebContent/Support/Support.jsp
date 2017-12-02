@@ -47,7 +47,7 @@ background-color: #e9e1e1
 					<td class="bo"><a onclick="supportClick('카톡상담')" target="aa"
 						href="kakao.html"><img src="../images/kakao.png"></a><br>카톡상담</td>
 					<td class="boo"><a onclick="supportClick('문의메일')" target="aa"
-						href="sendmail.html"><img src="../images/mail.png"></a><br>문의메일</td>
+						href="sendmail.jsp"><img src="../images/mail.png"></a><br>문의메일</td>
 				</tr>
 			</table>
 		</div>
