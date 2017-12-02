@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.DataDAO;
+import com.DTO.AnalDTO;
 import com.DTO.PreDTO;
 
 @WebServlet("/DailyResultService")
@@ -31,43 +32,28 @@ public class DailyResultService extends HttpServlet {
 
 		DataDAO dao = new DataDAO();
 
-		ArrayList<PreDTO> list = new ArrayList<>();
+		ArrayList<AnalDTO> list = new ArrayList<>();
 		String emailExample = "test@test";
-		System.out.println(emailExample);
 		try {
-			list = dao.SelectPre(emailExample);
+			System.out.println("여기까진 됐고,");
+			list = dao.SelectAnal(emailExample);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(list.get(0).getPreData0());
-		String all = "";
+		System.out.println("선택한 날짜 : " + selectedDate);
+		System.out.println("데이터 날짜 : " + list.get(0).getaDate());
+		String AnalData = "";
 		for (int i = 0; i < list.size(); i++) {
-			if ((list.get(i).getpDate()).equals(selectedDate)) {
+			if ((list.get(i).getaDate()).equals(selectedDate)) {
 				System.out.println("1단계");
-				String choice1 = list.get(i).getPreData0();
-				System.out.println(choice1);
-				String choice2 = list.get(i).getPreData1();
-				String choice3 = list.get(i).getPreData2();
-				String choice4 = list.get(i).getPreData3();
-				String choice5 = list.get(i).getPreData4();
-				String choice6 = list.get(i).getPreData5();
-				String choice7 = list.get(i).getPreData6();
-				String choice8 = list.get(i).getPreData7();
-				all += choice1 + ",";
-				all += choice2 + ",";
-				all += choice3 + ",";
-				all += choice4 + ",";
-				all += choice5 + ",";
-				all += choice6 + ",";
-				all += choice7 + ",";
-				all += choice8 + ",";
+				AnalData = list.get(i).getAnalData();
 
 			}
 		}
-		System.out.println(all);
-		out.print(all);
+		System.out.println(AnalData);
+		out.print(AnalData);
 
 	}
 

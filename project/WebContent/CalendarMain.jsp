@@ -22,6 +22,7 @@
 		
 	alert(year + "년" + month + "월" + date + "일");
 	$.ajax({
+		//당일 실제 판매량 검색
 			url : "DailyResultService",
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
@@ -42,33 +43,33 @@
 	<%
 		GregorianCalendar today = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
-		int nowMonth = today.get(today.MONTH);
+		int nowMonth = today.get(today.MONTH)+1;
 		int nowDay = today.get(today.DAY_OF_MONTH);
 		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
 		String eng_month = "";
-		if (nowMonth == 0) {
+		if (nowMonth == 1) {
 			eng_month = "January";
-		} else if (nowMonth == 1) {
-			eng_month = "Febrary";
 		} else if (nowMonth == 2) {
-			eng_month = "March";
+			eng_month = "Febrary";
 		} else if (nowMonth == 3) {
-			eng_month = "April";
+			eng_month = "March";
 		} else if (nowMonth == 4) {
-			eng_month = "May";
+			eng_month = "April";
 		} else if (nowMonth == 5) {
-			eng_month = "June";
+			eng_month = "May";
 		} else if (nowMonth == 6) {
-			eng_month = "July";
+			eng_month = "June";
 		} else if (nowMonth == 7) {
-			eng_month = "August";
+			eng_month = "July";
 		} else if (nowMonth == 8) {
-			eng_month = "September";
+			eng_month = "August";
 		} else if (nowMonth == 9) {
-			eng_month = "October";
+			eng_month = "September";
 		} else if (nowMonth == 10) {
-			eng_month = "November";
+			eng_month = "October";
 		} else if (nowMonth == 11) {
+			eng_month = "November";
+		} else if (nowMonth == 12) {
 			eng_month = "December";
 		}
 	%>
