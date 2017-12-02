@@ -62,7 +62,7 @@
 		if(msgdao.delMsg(msg.getMid())) 
 			response.sendRedirect(home);			
 		else
-			throw new Exception("메시지 등록 오류!!");;
+			throw new Exception("메시지 삭제 오류!!");;
 	} 
 	// 댓글 삭제
 	else if (action.equals("delreply")) {
@@ -70,7 +70,7 @@
 			pageContext.forward(home);
 		}
 		else
-			throw new Exception("메시지 등록 오류!!");;
+			throw new Exception("댓글 삭제 오류!!");;
 	} 
 	// 전체 게시글 가져오기
 	else if (action.equals("getall")) {

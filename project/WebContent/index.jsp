@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,7 +19,7 @@ padding-left: 3.2em;
 padding-top: 30px;
 }
 </style>
-<title>Insert title here</title>
+<title>더 나은 내일을 위한 Parameter Solution----Parasol입니다.</title>
 </head>
 <body>
    <!-- Wrapper -->
@@ -30,7 +30,7 @@ padding-top: 30px;
 
             <!-- Header -->
             <header id="header"> 
-            <span ID="parasol"><img src="images/logo1.jpg" alt="로고가 안보여잉" width="100px" height="85px">PARASOL</span>
+            <span ID="parasol"><a href="index.jsp"><img src="images/logo1.jpg" alt="로고가 안보여잉" width="100px" height="85px">PARASOL</a></span>
             
             <!-- <a href="index.jsp" class="logo"><strong>Project</strong>
                by BBcompany</a> --> <c:choose>
@@ -65,7 +65,7 @@ padding-top: 30px;
             <h2>MENU</h2>
             </header>
             <ul>
-               <li><a href="ServiceMain.html" target="mainFrame">서비스 소개</a></li>
+               <li><a href="ServiceMain.jsp" target="mainFrame">서비스 소개</a></li>
                <li><span class="opener">내 정보</span>
                   <ul>
                      <li><a href="#"
