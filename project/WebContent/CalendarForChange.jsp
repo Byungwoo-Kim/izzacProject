@@ -16,23 +16,243 @@
 </head>
 <body>
 	<script type="text/javascript">
-	//선택한 날짜 추출 후 창 띄우기
+	 var choice1menu = "";
+	 var choice2menu = "";
+	 var choice3menu = "";
+	 var choice4menu = "";
+	 var choice5menu = "";
+	 var choice6menu = "";
+	 var choice7menu = "";
+	 var choice8menu = "";
+	
+	 var choice1qty = "";
+	 var choice2qty = "";
+	 var choice3qty = "";
+	 var choice4qty = "";
+	 var choice5qty = "";
+	 var choice6qty = "";
+	 var choice7qty = "";
+	 var choice8qty = "";
+	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
 	function clickTrEvent(year, month, date) {
-		alert(year + "년" + month + "월" + date + "일");
-		$.ajax({
-				url : "DailyResultService",
-				data : "year=" + year +"&month=" + nowMonth+"&date="+date,
-				success : function(result) {
-					alert(result);
-				},
-				error : function(request, status, error) {
-					alert("code:" + request.status + "\n" + "message:"
-							+ request.responseText + "\n" + "error:" + error);
-				}
 
-			});
+	$.ajax({
+		//당일 실제 판매량 검색
+			url : "DailyAnalService",
+			data : "year=" + year +"&month=" + month+"&date="+date,
+			success : function(result) {
+				
+				var menuAndQty = result.split("/");
+				var itemlist = menuAndQty[0].split(",");
+				var qtyList = menuAndQty[1].split(",");
+				
+				var item1 = itemlist[0];
+				var item2 = itemlist[1];
+				var item3 = itemlist[2];
+				
+				var qty1 = qtyList[0];
+				var qty2 = qtyList[1];
+				var qty3 = qtyList[2];
+
+				
+				var Qtag1 = document.getElementById("realQty1");
+				var Qtag2 = document.getElementById("realQty2");
+				var Qtag3 = document.getElementById("realQty3");
+				
+				var Mtag1 = document.getElementById("realMenu1");
+				var Mtag2 = document.getElementById("realMenu2");
+				var Mtag3 = document.getElementById("realMenu3");
+				
+				
+
+				
+				Qtag1.innerHTML = qty1;
+				Qtag2.innerHTML = qty2;
+				Qtag3.innerHTML = qty3;
+				
+				Mtag1.innerHTML = item1;
+				Mtag2.innerHTML = item2;
+				Mtag3.innerHTML = item3;
+				
+			},
+			error : function(request, status, error) {
+				alert("code:" + request.status + "\n" + "message:"
+						+ request.responseText + "\n" + "error:" + error);
+			}
+
+		});
+	$.ajax({
+		//당일 실제 판매량 검색
+			url : "DailyResultService",
+			data : "year=" + year +"&month=" + month+"&date="+date,
+			success : function(result) {
+			var devideChoice = result.split("_");	
+			var choice1 = devideChoice[0];
+			var choice2 = devideChoice[1];
+			var choice3 = devideChoice[2];
+			var choice4 = devideChoice[3];
+			var choice5 = devideChoice[4];
+			var choice6 = devideChoice[5];
+			var choice7 = devideChoice[6];
+			var choice8 = devideChoice[7];
+			
+			choice1menu = choice1.split("/")[0];
+			choice2menu = choice2.split("/")[0];
+			choice3menu = choice3.split("/")[0];
+			choice4menu = choice4.split("/")[0];
+			choice5menu = choice5.split("/")[0];
+			choice6menu = choice6.split("/")[0];
+			choice7menu = choice7.split("/")[0];
+			choice8menu = choice8.split("/")[0];
+			
+			choice1qty = choice1.split("/")[1];
+			choice2qty = choice2.split("/")[1];
+			choice3qty = choice3.split("/")[1];
+			choice4qty = choice4.split("/")[1];
+			choice5qty = choice5.split("/")[1];
+			choice6qty = choice6.split("/")[1];
+			choice7qty = choice7.split("/")[1];
+			choice8qty = choice8.split("/")[1];
+			
+
+			
+			
+			
+			},
+			error : function(request, status, error) {
+				alert("code:" + request.status + "\n" + "message:"
+						+ request.responseText + "\n" + "error:" + error);
+			}
+
+		});
+
+	
+	
+	}
+	function test(number){
+		alert(number);
+
 		
+		var QtyTag1 = document.getElementById("preQty1");
+		var QtyTag2 = document.getElementById("preQty2");
+		var QtyTag3 = document.getElementById("preQty3");
+		
+		var MenuTag1 = document.getElementById("preMenu1");
+		var MenuTag2 = document.getElementById("preMenu2");
+		var MenuTag3 = document.getElementById("preMenu3");
+		
+		if(number==1){
+			
+			var choice1menuS = choice1menu.split(",");
+			var choice1qtyS = choice1qty.split(",");
+			alert(choice1qtyS[0]);
+			
+			
+			QtyTag1.innerHTML = choice1qtyS[0];
+			QtyTag2.innerHTML = choice1qtyS[1];
+			QtyTag3.innerHTML = choice1qtyS[2];
+			
+			MenuTag1.innerHTML = choice1menuS[0];
+			MenuTag2.innerHTML = choice1menuS[1];
+			MenuTag3.innerHTML = choice1menuS[2];
+
+			
+			
+			
+		}else if(number==2){
+			var choice2menuS = choice2menu.split(",");
+			var choice2qtyS = choice2qty.split(",");
+			
+			QtyTag1.innerHTML = choice2qtyS[0];
+			QtyTag2.innerHTML = choice2qtyS[1];
+			QtyTag3.innerHTML = choice2qtyS[2];
+			
+			MenuTag1.innerHTML = choice2menuS[0];
+			MenuTag2.innerHTML = choice2menuS[1];
+			MenuTag3.innerHTML = choice2menuS[2];
+			
+		}else if(number==3){
+			var choice3menuS = choice3menu.split(",");
+			var choice3qtyS = choice3qty.split(",");
+			
+			QtyTag1.innerHTML = choice3qtyS[0];
+			QtyTag2.innerHTML = choice3qtyS[1];
+			QtyTag3.innerHTML = choice3qtyS[2];
+			
+			MenuTag1.innerHTML = choice3menuS[0];
+			MenuTag2.innerHTML = choice3menuS[1];
+			MenuTag3.innerHTML = choice3menuS[2];
+			
+		}else if(number==4){
+			var choice4menuS = choice4menu.split(",");
+			var choice4qtyS = choice4qty.split(",");
+			
+			QtyTag1.innerHTML = choice4qtyS[0];
+			QtyTag2.innerHTML = choice4qtyS[1];
+			QtyTag3.innerHTML = choice4qtyS[2];
+			
+			MenuTag1.innerHTML = choice4menuS[0];
+			MenuTag2.innerHTML = choice4menuS[1];
+			MenuTag3.innerHTML = choice4menuS[2];
+			
+		}else if(number==5){
+			var choice5menuS = choice5menu.split(",");
+			var choice5qtyS = choice5qty.split(",");
+			
+			QtyTag1.innerHTML = choice5qtyS[0];
+			QtyTag2.innerHTML = choice5qtyS[1];
+			QtyTag3.innerHTML = choice5qtyS[2];
+			
+			MenuTag1.innerHTML = choice5menuS[0];
+			MenuTag2.innerHTML = choice5menuS[1];
+			MenuTag3.innerHTML = choice5menuS[2];
+			
+		}else if(number==6){
+			var choice6menuS = choice6menu.split(",");
+			var choice6qtyS = choice6qty.split(",");
+			
+			QtyTag1.innerHTML = choice6qtyS[0];
+			QtyTag2.innerHTML = choice6qtyS[1];
+			QtyTag3.innerHTML = choice6qtyS[2];
+			
+			MenuTag1.innerHTML = choice6menuS[0];
+			MenuTag2.innerHTML = choice6menuS[1];
+			MenuTag3.innerHTML = choice6menuS[2];
+			
+		}else if(number==7){
+			var choice7menuS = choice7menu.split(",");
+			var choice7qtyS = choice7qty.split(",");
+			
+			QtyTag1.innerHTML = choice7qtyS[0];
+			QtyTag2.innerHTML = choice7qtyS[1];
+			QtyTag3.innerHTML = choice7qtyS[2];
+			
+			MenuTag1.innerHTML = choice7menuS[0];
+			MenuTag2.innerHTML = choice7menuS[1];
+			MenuTag3.innerHTML = choice7menuS[2];
+			
+		}else if(number==8){
+			var choice8menuS = choice8menu.split(",");
+			var choice8qtyS = choice8qty.split(",");
+			
+			QtyTag1.innerHTML = choice8qtyS[0];
+			QtyTag2.innerHTML = choice8qtyS[1];
+			QtyTag3.innerHTML = choice8qtyS[2];
+			
+			MenuTag1.innerHTML = choice8menuS[0];
+			MenuTag2.innerHTML = choice8menuS[1];
+			MenuTag3.innerHTML = choice8menuS[2];
+			
 		}
+		Qtag1.innerHTML = qty1;
+		Qtag2.innerHTML = qty2;
+		Qtag3.innerHTML = qty3;
+		
+		Mtag1.innerHTML = item1;
+		Mtag2.innerHTML = item2;
+		Mtag3.innerHTML = item3;
+	
+}
 </script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
@@ -99,35 +319,18 @@
 					<TR>
 						<%
 							Calendar cal = Calendar.getInstance();
-
-							int start = Integer.parseInt(request.getParameter("startDayNext"));
 							Calendar cal2 = new GregorianCalendar(nowYear, nowMonth, 1);
+							int start = cal2.get(java.util.Calendar.DAY_OF_WEEK);
+							/* Integer.parseInt(request.getParameter("startDayNext")); */
+							System.out.println("년 : " + nowYear);
+							System.out.println("이번달 : " + nowMonth);
+							System.out.println("해당 월 시작요일 : " + start);
+
 							int endDay = cal2.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
-							if (endDay == 30) {
-								if (start == 6) {
-									start = 1;
-								} else if (start == 7) {
-									start = 2;
-								} else {
-									start += 2;
-								}
-							} else if (endDay == 31) {
-								if (start == 5) {
-									start = 1;
-								} else if (start == 6) {
-									start = 2;
-								} else if (start == 7) {
-									start = 3;
-								} else {
-									start += 3;
-								}
-							} else if (endDay == 29) {
-								if (start == 7) {
-									start = 1;
-								} else {
-									start += 1;
-								}
-							}
+							System.out.println("해당 월 날짜수 : " + endDay);
+							System.out.println(start);
+							System.out.println(endDay);
+
 
 							int newLine = 0;
 							Calendar todayCal = Calendar.getInstance();
