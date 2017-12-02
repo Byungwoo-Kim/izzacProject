@@ -31,6 +31,7 @@ public class DailyResultService extends HttpServlet {
 		String date = request.getParameter("date");
 		String selectedDate = year + "-" + (month+1) + "-" + date;
 		System.out.println(selectedDate);
+		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter out = response.getWriter();
 
 		DataDAO dao = new DataDAO();
