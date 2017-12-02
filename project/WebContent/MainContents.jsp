@@ -27,9 +27,8 @@ th, td {
 }
 
 #top-center-div {
-   padding: 30px;
-   width: 385px;
-   height: 360px;
+padding: 0;   width: 385px;
+   height: 360px;margin-top: 35px;
 }
 
 #top-right-div {
@@ -46,41 +45,39 @@ th, td {
 #bottom-right-div {
    width: 340px;
    height: 340px;
+   padding-top: 30px;
+    box-sizing: border-box;
 }
 
 #middle-center-div {
-   background-color: #61564B;
-   width: 390px;
-   height: 360px;
+   background-color: #e9ebec;
+  width: 390px;
+    height: 378px;
    border-radius: 0px 15px 0px 15px;
-   border: 3px solid;
-   border-bottom-color: #61564B;
-   border-top-color: #61564B;
-   border-left-color: #61564B;
-   border-right-color: #61564B;
+   border: 3px solid #e9ebec;
+   margin-top: 10px;
 }
 
 #middle-right-div {
    padding: 30px;
    width: 340px;
-   height: 340px;
+    height: 400px;
 }
-
 #yel {
    color: #FFC331;
    font-weight: bold;
 }
-
 .title {
    font-weight: bold;
-   font-size: 30px;
-   color: #424242
+   font-size: 35px;
+   color: #424242;
+   margin-top: 20px;
 }
 #team{
 font-size: 25px;
 }
 h1{   
-color: #FFC331;
+color: #ed9357;
 }
 .contents{
 font-size: 25px;
@@ -89,6 +86,16 @@ color: #FFC331;
 h3{
 font-size: 15px;
 color:#757575
+}
+#board{
+color:#212121;
+font-family:"@12롯데마트드림Light",serif;
+font-size: 38px;
+font-weight: bold;
+}
+li{
+font-size: 20px;
+font-family: 나눔스퀘어라운드, serif;
 }
 </style>
 </head>
@@ -103,7 +110,7 @@ color:#757575
             </div>
          </td>
          <td id="top-center"><div id="top-center-div">
-          <a href="#" onclick="isFree()"><img src="images/bigban.jpg" alt="이미지 오류" width="400" height="380"></a>
+          <a href="#" onclick="isFree()"><img src="images/bigban1.jpg" alt="이미지 오류" width="400" height="380"></a>
             </div></td>
          <td id=top-right"><div id="top-right-div">
                <iframe width="400" height="400" src='crawlingMain.jsp' name="test"
@@ -112,8 +119,18 @@ color:#757575
       </tr>
       <tr>
          <td><div id="middle-center-div">
-               <h1>게시판</h1>
-               게시글 제목들...가능하다면 클릭시...해당게시물로........이걸..해내는..여러분이...4차산업혁명의...선도..인력
+               <span id="board">게시판</span><br>
+               <ul type="circle">
+               <li>니 맘을 모르는게 아냐 니가 모르는 거지</li>
+               <li>나는 네게 걱정없는 맘을 주고싶어</li>
+               <li>난 문어야 널 너문어무 조아해</li>
+               <li>너는 정말 예쁘구나</li>
+               <li>추억 열차가 당신에게 닿기를</li>
+               <li>있잖아 배고파</li>
+               <li>오늘 저녁은 뭘 먹을까?</li>
+               <li>다음 회식은 어디서?</li>
+               <li>모두 힘내...1등하자!</li>
+               </ul>
             </div></td>
          <td><div id="middle-right-div">
                <h4 class="title"><u>보도자료</u></h4>
