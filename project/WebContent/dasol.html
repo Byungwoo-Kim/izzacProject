@@ -10,37 +10,6 @@
       <link rel="stylesheet" href="assets/css/join/style.css">
 
 <script type="text/javascript">
-	var temp = "";
-	var wind = "";
-	var hum = "";
-	var rain = "";
-
-	//옵션 선택하면 값 넘기기
-	/* function psnSelect(regionName) {
-		//분류1
-		var city = "";
-		
-		if (regionName == '서울·경기·인천') {
-			city = document.getElementById("city1");
-		} else if (regionName == '강원도') {
-			city = document.getElementById("city2");
-		} else if (regionName == '충청도') {
-			city = document.getElementById("city3");
-		} else if (regionName == '전라북도') {
-			city = document.getElementById("city4");
-		} else if (regionName == '전라남도') {
-			city = document.getElementById("city5");
-		} else if (regionName == '경상북도') {
-			city = document.getElementById("city6");
-		} else if (regionName == '경상남도') {
-			city = document.getElementById("city7");
-		} else if (regionName == '제주도') {
-			city = document.getElementById("city8");
-		}
-		
-		alert(city.checked);
-	} */
-
 	//상위 셀렉트로 하위 셀렉트 제어하기
 	function showSub(obj) {
 
@@ -127,49 +96,148 @@
 		psnSelect(regionName); */
 	}
 	
+	var check1 = false;
+	var check2 = false;
+	var check3 = false;
+	var check4 = false;
+	var check5 = false;
+	
 	//유효검사
 	function check(){
 		var regExp = /^[0-9]+$/;
-		
-		//비밀번호 길이 체크(4~8자 까지 허용)
-        if (document.joinSelect.pw.value.length<4 || document.joinSelect.pw.value.length>12) {
-            alert("비밀번호를 4~12자까지 입력해주세요.")
-            document.joinSelect.pw.focus()
-            document.joinSelect.pw.select()
-            return false;
-        }
-	//비밀번호 확인 체크
-		if(document.joinSelect.pw.value!=document.joinSelect.pwConfirm.value){
-			alert("비밀번호가 일치하지 않습니다.")
-            document.joinSelect.pwConfirm.focus()
-            document.joinSelect.pwConfirm.select()
-            return false;
-		}
-	//폰번호 체크
-		 if (!regExp.test(document.joinSelect.phoneNum.value)) {
-            alert("핸드폰번호는 숫자로 입력하세요.");
-            document.f.phoneNum.value = ""
-            document.f.phoneNum.focus()
-            return false;
-          } 	
-	}
 	
-	function emailCheck(){
 		var email = document.getElementById("JoinEmail").value;
+		var pw = document.joinSelect.pw;
+		var phoneNum = document.joinSelect.phoneNum;
+		var category = document.joinSelect.category.options[document.joinSelect.category.selectedIndex].value;
+		var area = document.joinSelect.test.selectedIndex;
+		var loc = "";
+		var location;
+		
+		//이메일 확인
+		if (email == "") {
+			alert("이메일을 입력해주세요!");
+			return false;
+		} else {
+			if(check1 == false) {
+				alert("아이디 중복확인을 해주세요!");
+				return false; 
+			}
+		}
+
+		//비밀번호 길이 체크(4~8자 까지 허용)
+		if (pw.value.length<4 || pw.value.length>12) {
+			alert("비밀번호를 4~12자까지 입력해주세요.")
+			pw.focus()
+			pw.select()
+			return false;
+		}
+		//비밀번호 확인 체크
+		if (pw.value != document.joinSelect.pwConfirm.value) {
+			alert("비밀번호가 일치하지 않습니다.")
+			document.joinSelect.pwConfirm.focus()
+			document.joinSelect.pwConfirm.select()
+			return false;
+		} else {
+			check2 = true;
+		}
+		
+		//폰번호 체크
+		if (!regExp.test(phoneNum.value)) {
+			alert("핸드폰번호는 숫자로 입력하세요.");
+			phoneNum.value = "";
+			document.joinSelect.phoneNum.focus();
+			return false;
+		} else {
+			check3 = true;
+		}
+		
+		//카테고리 확인
+		if(category == "") {
+			alert("업종을 선택해주세요.");
+			document.joinSelect.category.focus();
+			return false;
+		} else {
+			check4 = true;
+		}
+		
+		//지역 확인
+		if(area == 0) {
+			alert("도시를 선택해주세요.");
+			document.joinSelect.test.focus();
+			return false;
+		} else {
+			if(area == 1) {
+				loc = document.joinSelect.location1;
+			} else if(area == 2) {
+				loc = document.joinSelect.location2;
+			} else if(area == 3) {
+				loc = document.joinSelect.location3;
+			} else if(area == 4) {
+				loc = document.joinSelect.location4;
+			} else if(area == 5) {
+				loc = document.joinSelect.location5;
+			} else if(area == 6) {
+				loc = document.joinSelect.location6;
+			} else if(area ==7 ) {
+				loc = document.joinSelect.location7;
+			} else if(area == 8) {
+				loc = document.joinSelect.location8;
+			}
+			
+			if(loc.selectedIndex == 0) {
+				alert("지역을 선택해주세요!");
+				loc.focus();
+			} else {
+				location = loc.options[loc.selectedIndex].value;
+				check5 = true;
+			}
+		}
+
+
+		if (check1 && check2 && check3 && check4 && check5) {
+			$.ajax({
+				url : "Join.do",
+				method : "GET",
+				data : "email="+email+"&pw="+pw.value+"&phoneNum="+phoneNum.value+"&category="+category+"&location="+location,
+				success : function(result) {
+					alert('가입완료! 로그인 되었습니다!');
+					opener.window.location.reload();
+					window.close();
+				},
+				error : function() {
+					alert('가입이 완료되지 않았습니다ㅜㅜ');
+				}
+			});
+		} else if (check1 == false) {
+			alert("이메일 중복확인을 해주세요.");
+		}
+	}
+
+	 function emailCheck(){
+		var email = document.getElementById("JoinEmail").value;
+		var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 		
 		if(email == "") {
 			alert("이메일을 입력해주세요!");
 		} else {
-			$.ajax({
-				url : "EmailCheck?email="+email,
-				success : function(data) {
-					if (data == "success") {
-						alert("사용가능한 아이디입니다.")
-					} else if(data == "fail") {
-						alert("중복된 아이디입니다.")
+			if(regExp.test(email)) {
+				$.ajax({
+					url : "EmailCheck?email="+email,
+					success : function(data) {
+						if (data == "success") {
+							alert("사용가능한 아이디입니다.");
+							check1 = true;
+						} else if(data == "fail") {
+							alert("중복된 아이디입니다.");
+							check1 = false;
+						}
 					}
-				}
-			});
+				});
+			} else {
+				alert("이메일 형식에 맞지 않습니다!");
+				document.joinSelect.email.focus();
+			}
 		}
 	}
 </script>
@@ -196,7 +264,7 @@
         					        </form>
     				        </div>
     				        <div class="signup-cont cont">
-                				<form action="Join.do" method="post" name="joinSelect"><!--  onsubmit="check()"  -->
+                				<form action="#" name="joinSelect"><!--  onsubmit="check()"  -->
      								<input type="email" name="email" id="JoinEmail" class="inpt" required="required" placeholder="E-mail을 입력주세요" style="width: 58%; display: inline;">
 						            <label for="email">E-mail</label>&nbsp;
 						            <input type="button" class="emailCk" onclick="emailCheck()" value="중복확인">
@@ -208,7 +276,7 @@
   									<input type="tel" name="phoneNum" id="phoneNum" class="inpt" required="required" placeholder="-없이 핸드폰번호만 입력해주세요">
   									<label for="tel">phoneNum</label>
   									<select name="category" class="select" id="select" required="required">
-					                     <option value=" ">업종을 선택해주세요</option>
+					                     <option value= "">업종을 선택해주세요</option>
 					                     <option value="요식업">요식업</option>
 					                     <option value="화훼업">화훼업</option>
 					                     <option value="편의점">편의점</option>
@@ -217,7 +285,7 @@
 					                     <option value="주류업">주류업</option>
 					               </select>
 					               <select name="test" title="시,도" id="wide_select" class="location" onChange="showSub(this.options[this.selectedIndex].value);" required="required">
-										<option>도시선택</option>
+										<option value="">도시선택</option>
 										<option value="1">서울·경기·인천</option>
 										<option value="2">강원도</option>
 										<option value="3">충청도</option>
@@ -342,7 +410,7 @@
 										<option value="제주">제주</option>
 									</select>
 				                    <div class="submit-wrap">
-					                        <input type="button" value="Sign up" class="submit" onclick="check()">
+				                    	<input type="button" value="Sign up" class="submit" onclick="check()">
 				                    </div>
 						    	</form>
             				</div>

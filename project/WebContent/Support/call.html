@@ -4,24 +4,53 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
-*{
-text-align: center;
-}
-span {
+* {
+	box-sizing: border-box;
 	font-family: 나눔스퀘어라운드, serif;
-font-size:25px;
+	font-size: 25px;
+}
+
+#wrap {
+	margin: 10px auto;
+	width: 46em;
+	height: 23em;
+}
+
+#top {
+	text-align: center;
+}
+
+#center {
+	margin-left: 16em;
+}
+
+h1 {
+	color: #ed9357
+}
+#color{	color: #ed9357
+
+}
+ul {
+	margin-left: 11em;
 }
 </style>
 </head>
 <body>
-<br>
-<div id="supportCall" class="supportCall">
-<h3>  070-1234-5678</h3>
-  <span>파라솔 고객센터입니다.</span><br><br>
-  <img src="../images/supportCall.png" alt="사진에러"></div>
-<span>- 운영시간 : 평일 09:00~18:00 (점심 12:00~13:00)<br>
-- 법정공휴일은 휴무입니다.<br>
-- 운영시간 이외에는 1:1 문의 혹은 카톡상담을 이용하세요.</span>
-
+	<div id="wrap">
+		<section id="top">
+			<h1>070-1234-5678</h1>
+			파라솔 고객센터입니다.
+		</section>
+		<section id="center">
+			<img src="../images/supportCall.png" alt="사진에러">
+		</section>
+		<section id="bottom">
+			<ul>
+				<li><span id="color">운영시간</span> : 평일 09:00~18:00(점심 12:00~13:00)</li>
+				<li>법정공휴일은 <span id="color">휴무입니다.</span></li>
+				<li>운영시간 이외에는 <span id="color">1:1 문의</span> 혹은 <span id="color">카톡상담</span>을 이용하세요.</li>
+			</ul>
+		</section>
+	</div>
 </body>
 </html>

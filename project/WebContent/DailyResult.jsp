@@ -53,26 +53,26 @@ h1 {
 				<td colspan="3" class="title">실제 판매량</td>
 			</tr>
 			<tr>
-				<td class="rank">1.</td>
+				<td class="rank" id="pre1">1.</td>
 				<td>Iced Americano</td>
 				<td>87</td>
-				<td class="rank">1.</td>
+				<td class="rank" id = "real1">1.</td>
 				<td>Iced Americano</td>
 				<td>79</td>
 			</tr>
 			<tr>
-				<td class="rank">2.</td>
+				<td class="rank" id="pre2">2.</td>
 				<td>Iced Vanilla Latte</td>
 				<td>54</td>
-				<td class="rank">2.</td>
+				<td class="rank" id = "real2">2.</td>
 				<td>Hot Chocolate</td>
 				<td>43</td>
 			</tr>
 			<tr>
-				<td class="rank">3.</td>
+				<td class="rank" id="pre3">3.</td>
 				<td>Espresso</td>
 				<td>45</td>
-				<td class="rank">3.</td>
+				<td class="rank" id = "real3">3.</td>
 				<td>Iced Vanilla Latte</td>
 				<td>39</td>
 			</tr>
