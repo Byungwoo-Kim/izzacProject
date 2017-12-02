@@ -9,7 +9,7 @@
 <style type="text/css">
 #profilewrap {
 	width: 24.5em;
-    height: 8.5em;
+    height: 10em;
 	/* border: 1px solid #ed9357; */
 	box-sizing: border-box;
 	text-align: center;
@@ -39,18 +39,18 @@
 #profileright_bottom {
 	height: 50%;
 	width: 100%;
-	line-height: 13px;
+	line-height: 18px;
 }
 
 #profileid {
 	font-family: "Bebas Neue", serif;
-	font-size: 45px;
+	font-size: 48px;
 	color: #008bac
 }
 
 #profilehi {
 	font-family: "Caviar Dreams", serif;
-	font-size: 18px;
+	font-size: 22px;
 	color: #607D8B;
 }
 </style>
@@ -67,7 +67,7 @@
 
 	<div id="profilewrap">
 		<div id="profileleft">
-			<img src="images/logocol.jpg" alt="이미지오류" width="159px" height="130px">
+			<img src="images/logo.jpg" alt="이미지오류" width="180px" height="150px">
 		</div>
 		<!-- 노로그인 -->
 		<c:choose>

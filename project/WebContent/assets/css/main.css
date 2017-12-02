@@ -2545,7 +2545,7 @@ input[type="submit"], input[type="reset"], input[type="button"], button,
 	background-color: transparent;
 	border-radius: 0.375em;
 	border: 0;
-	box-shadow: inset 0 0 0 2px #cac4c4;
+	box-shadow: inset 0 0 0 2px #ed9357;
 	color: #f56a6a !important;
 	cursor: pointer;
 	display: inline-block;
@@ -2628,8 +2628,8 @@ input[type="submit"].big, input[type="reset"].big, input[type="button"].big,
 
 input[type="submit"].special, input[type="reset"].special, input[type="button"].special,
 	button.special, .button.special {
-	background-color:#cac4c4;
-	color: #3d4449 !important;
+	background-color: #ed9357;
+    color: white !important;
 }
 
 input[type="submit"].special:hover, input[type="reset"].special:hover,
@@ -3124,7 +3124,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	-webkit-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
 	-ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
 	transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-	background-color: #eff1f2;
+	background-color: white;
 	font-size: 0.9em;
 	position: relative;
 	width: 26em;
@@ -3138,10 +3138,10 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	padding: 2.22222em 2.22222em 2.44444em 2.22222em;
 	position: relative;
 	width: 26em;
+
 }
 
 #sidebar>.inner>* {
-	border-bottom: solid 2px rgba(210, 215, 217, 0.75);
 	margin: 0 0 3em 0;
 	padding: 0 0 3.5em 0;
 }
@@ -3157,11 +3157,11 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 }
 
 #sidebar>.inner>.alt {
-	background-color:#e9ebec; 
-	border-bottom: 0;
+	background-color: white;
 	margin: -2.22222em 0 4.44444em -2.22222em;
 	width: calc(100% + 4.44444em);
-	padding-bottom: 0;
+	padding-bottom: 1em;
+	
 }
 
 #sidebar .toggle {
@@ -3220,8 +3220,8 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 		width: 24em;
 	}
 	#sidebar>.inner>.alt {
-		background-color:#e9ebec; 
-		margin : -1.66667em 0 3.33333em -1.66667em;
+		background-color: #e9ebec;
+		margin: -1.66667em 0 3.33333em -1.66667em;
 		padding: 1.66667em;
 		width: calc(100% + 3.33333em);
 		margin: -1.66667em 0 3.33333em -1.66667em;
@@ -3311,7 +3311,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
-	border-bottom: solid 5px #eeeeee;
+	
 	padding: 6em 0 0 0;
 	position: relative;
 }
