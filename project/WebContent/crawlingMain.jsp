@@ -1,3 +1,5 @@
+<%@page import="com.DTO.MemberDTO"%>
+<%@page import="com.DAO.MemberDAO"%>
 <%@page import="org.jsoup.select.Elements"%>
 <%@page import="org.jsoup.Jsoup"%>
 <%@page import="org.jsoup.nodes.Document"%>
@@ -5,7 +7,7 @@
 <%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -29,48 +31,73 @@
 	//옵션 선택하면 값 넘기기
 	function psnSelect() {
 		//분류1
-		var region = document.getElementById("wide_select");
-		var regionName = region.options[region.selectedIndex].text;
+		var region = "";
+		var regionName = "";
 		var city = "";
-
-		if (regionName == '강원영동') {
-			city = document.getElementById("city1");
-		} else if (regionName == '강원영서') {
-			city = document.getElementById("city2");
-		} else if (regionName == '경상남도') {
-			city = document.getElementById("city3");
-		} else if (regionName == '경상북도') {
-			city = document.getElementById("city4");
-		} else if (regionName == '서울·경기') {
+		var email = document.select_machine.email.value;
+		var getArea = document.select_machine.getArea.value;
+		
+		if(email == 'guest') {
+			regionName = '서울·경기';
 			city = document.getElementById("city5");
-		} else if (regionName == '서해5도') {
-			city = document.getElementById("city6");
-		} else if (regionName == '울릉도·독도') {
-			city = document.getElementById("city7");
-		} else if (regionName == '전라남도') {
-			city = document.getElementById("city8");
-		} else if (regionName == '전라북도') {
-			city = document.getElementById("city9");
-		} else if (regionName == '제주도') {
-			city = document.getElementById("city10");
-		} else if (regionName == '충청남도') {
-			city = document.getElementById("city11");
-		} else if (regionName == '충청북도') {
-			city = document.getElementById("city12");
+		} else {
+			region = document.getElementById("wide_select");
+			if(getArea != "") {
+				regionName = test(getArea);
+			} else {
+				regionName = region.options[region.selectedIndex].text;
+			}
+			
+			if (regionName == '강원영동') {
+				city = document.getElementById("city1");
+			} else if (regionName == '강원영서') {
+				city = document.getElementById("city2");
+			} else if (regionName == '경상남도') {
+				city = document.getElementById("city3");
+			} else if (regionName == '경상북도') {
+				city = document.getElementById("city4");
+			} else if (regionName == '서울·경기') {
+				city = document.getElementById("city5");
+			} else if (regionName == '서해5도') {
+				city = document.getElementById("city6");
+			} else if (regionName == '울릉도·독도') {
+				city = document.getElementById("city7");
+			} else if (regionName == '전라남도') {
+				city = document.getElementById("city8");
+			} else if (regionName == '전라북도') {
+				city = document.getElementById("city9");
+			} else if (regionName == '제주도') {
+				city = document.getElementById("city10");
+			} else if (regionName == '충청남도') {
+				city = document.getElementById("city11");
+			} else if (regionName == '충청북도') {
+				city = document.getElementById("city12");
+			}
 		}
 
 		//분류2
 
-		var cityName = city.options[city.selectedIndex].text;
-		var cityNum = city.options[city.selectedIndex].value;
+		var cityName = "";
+		var cityNum = "";
 		var h1Tag = document.getElementById("selectedCity");
 		var tempVar = document.getElementById("tempShow");
 		var windVar = document.getElementById("windShow");
 		var humVar = document.getElementById("humShow");
 		var rainVar = document.getElementById("rainShow");
 		var imgVar = document.getElementById("weatherImage");
-
-		var oilVar = document.getElementById("oilShow");
+		
+		if(email == 'guest') {
+			cityName = '서울';
+			cityNum = '11B10101';
+		} else {
+			if(getArea != ""){
+				cityName = getArea;
+				cityNum = getNum(getArea, city);
+			} else {
+				cityName = city.options[city.selectedIndex].text;
+				cityNum = city.options[city.selectedIndex].value;
+			}
+		}
 
 		function changeCity() {
 			h1Tag.innerHTML = regionName + " " + cityName;
@@ -121,37 +148,6 @@
 					}
 
 				});
-		$.ajax({
-			url : "CrawlingOil",
-			success : function(result) {
-				function show() {
-					oilVar.innerHTML = result + "원";
-
-				}
-				show();
-			},
-			error : function(request, status, error) {
-				alert("code:" + request.status + "\n" + "message:"
-						+ request.responseText + "\n" + "error:" + error);
-			}
-
-		});
-
-		$.ajax({
-			url : "CrawlingLife",
-			success : function(result) {
-				function show() {
-					lifeShow.innerHTML = result;
-
-				}
-				show();
-			},
-			error : function(request, status, error) {
-				alert("code:" + request.status + "\n" + "message:"
-						+ request.responseText + "\n" + "error:" + error);
-			}
-
-		});
 
 		//ajax 기름값
 		imgVar.addEventListener("mouseover", function() {
@@ -381,18 +377,36 @@
 
 </head>
 <body>
+	<%
+		if(session.getAttribute("email") != null) {
+			String sessionEmail = (String)session.getAttribute("email");
+			MemberDAO dao = new MemberDAO();
+			MemberDTO dto = dao.ForMemberUpdate(sessionEmail);
+			
+			request.setAttribute("dto", dto);
+		}
+	%>
+	
 	<div class="wrapper">
 
 		<section>
 
-		<h1 id="selectedCity" class="blue">
-			서울특별시<a href="#widgetOpen" class="add">+</a>
+		<h1 id="selectedCity" class="blue">서울특별시
+			<a href="#widgetOpen" class="add">+
 			<div class="widget_content" id="widgetOpen">
 				<div>
 					<form name="select_machine" action="Widget.jsp">
-
-						<select name="test" title="시,도" id="wide_select"
-							onChange="showSub(this.options[this.selectedIndex].value);">
+						<c:choose>
+							<c:when test="${empty sessionScope.email }">
+								<input type="hidden" value="guest" name="email">
+								<input type="hidden" value="" name="getArea">
+							</c:when>
+							<c:otherwise>
+								<input type="hidden" value="${sessionScope.email }" name="email">
+								<input type="hidden" value="${dto.getArea() }" name="getArea">
+							</c:otherwise>
+						</c:choose>
+						<select name="test" title="시,도" id="wide_select" onChange="showSub(this.options[this.selectedIndex].value);">
 							<option>선택</option>
 							<option value="1">강원영동</option>
 							<option value="2">강원영서</option>
@@ -406,8 +420,9 @@
 							<option value="10">제주도</option>
 							<option value="11">충청남도</option>
 							<option value="12">충청북도</option>
-						</select> <select name="SUB1" style="display:;" id="city1"><option
-								value="">지역선택</option>
+						</select>
+						<select name="SUB1" style="display:;" id="city1">
+							<option value="">지역선택</option>
 							<option value="11D20501">강릉</option>
 							<option value="11D20502">강원</option>
 							<option value="11D20402">고성</option>
@@ -417,8 +432,10 @@
 							<option value="11D20602">삼척</option>
 							<option value="11D20401">속초</option>
 							<option value="11D20403">양양</option>
-							<option value="11D20301">태백</option></select> <select name="SUB2"
-							style="display: none;" id="city2"><option value="">지역선택</option>
+							<option value="11D20301">태백</option>
+						</select>
+						<select name="SUB2" style="display: none;" id="city2">
+							<option value="">지역선택</option>
 							<option value="11D10202">양구</option>
 							<option value="11D10501">영월</option>
 							<option value="11D10401">원주</option>
@@ -429,8 +446,10 @@
 							<option value="11D10503">평창</option>
 							<option value="11D10302">홍천</option>
 							<option value="11D10102">화천</option>
-							<option value="11D10402">횡성</option></select> <select name="SUB3"
-							style="display: none;" id="city3"><option value="">지역선택</option>
+							<option value="11D10402">횡성</option>
+						</select>
+						<select name="SUB3" style="display: none;" id="city3">
+							<option value="">지역선택</option>
 							<option value="11H20403">거제</option>
 							<option value="11H20502">거창</option>
 							<option value="11H20404">고성</option>
@@ -453,8 +472,10 @@
 							<option value="11H20406">하동(해안)</option>
 							<option value="11H20603">함안</option>
 							<option value="11H20501">함양</option>
-							<option value="11H20503">합천</option></select> <select name="SUB4"
-							style="display: none;" id="city4"><option value="">지역선택</option>
+							<option value="11H20503">합천</option>
+						</select>
+						<select name="SUB4" style="display: none;" id="city4">
+							<option value="">지역선택</option>
 							<option value="11H10703">경산</option>
 							<option value="11H10202">경주</option>
 							<option value="11H10604">고령</option>
@@ -477,8 +498,10 @@
 							<option value="11H10704">청도</option>
 							<option value="11H10503">청송</option>
 							<option value="11H10705">칠곡</option>
-							<option value="11H10201">포항</option></select> <select name="SUB5"
-							style="display: none;" id="city5"><option value="">지역선택</option>
+							<option value="11H10201">포항</option>
+						</select>
+						<select name="SUB5" style="display: none;" id="city5">
+							<option value="">지역선택</option>
 							<option value="11B20404">가평</option>
 							<option value="11B20101">강화</option>
 							<option value="11B20302">고양</option>
@@ -492,7 +515,7 @@
 							<option value="11B20401">동두천</option>
 							<option value="11B20305">문산</option>
 							<option value="11B20204">부천</option>
-							<option value="11B10101" selected="selected">서울</option>
+							<option value="11B10101">서울</option>
 							<option value="11B20605">성남</option>
 							<option value="11B20601">수원</option>
 							<option value="11B20202">시흥</option>
@@ -513,15 +536,21 @@
 							<option value="11B20606">평택</option>
 							<option value="11B20403">포천</option>
 							<option value="11B20504">하남</option>
-							<option value="11B20604">화성</option></select> <select name="SUB6"
-							style="display: none;" id="city6"><option value="">지역선택</option>
+							<option value="11B20604">화성</option>
+						</select>
+						<select name="SUB6" style="display: none;" id="city6">
+							<option value="">지역선택</option>
 							<option value="11A00101">백령도</option>
 							<option value="11A00103">소청도</option>
-							<option value="11A00102">연평도</option></select> <select name="SUB7"
-							style="display: none;" id="city7"><option value="">지역선택</option>
+							<option value="11A00102">연평도</option>
+						</select>
+						<select name="SUB7" style="display: none;" id="city7">
+							<option value="">지역선택</option>
 							<option value="11E00102">독도</option>
-							<option value="11E00101">울릉도</option></select> <select name="SUB8"
-							style="display: none;" id="city8"><option value="">지역선택</option>
+							<option value="11E00101">울릉도</option>
+						</select>
+						<select name="SUB8" style="display: none;" id="city8">
+							<option value="">지역선택</option>
 							<option value="11F20303">강진</option>
 							<option value="11F20403">고흥</option>
 							<option value="11F20602">곡성</option>
@@ -547,8 +576,10 @@
 							<option value="11F20302">해남</option>
 							<option value="21F20202">해남(화원)</option>
 							<option value="11F20505">화순</option>
-							<option value="11F20701">흑산도</option></select> <select name="SUB9"
-							style="display: none;" id="city9"><option value="">지역선택</option>
+							<option value="11F20701">흑산도</option>
+						</select>
+						<select name="SUB9" style="display: none;" id="city9">
+							<option value="">지역선택</option>
 							<option value="21F10601">고창</option>
 							<option value="21F10501">군산</option>
 							<option value="21F10502">김제</option>
@@ -562,15 +593,19 @@
 							<option value="11F10301">장수</option>
 							<option value="11F10201">전주</option>
 							<option value="11F10203">정읍</option>
-							<option value="11F10303">진안</option></select> <select name="SUB10"
-							style="display: none;" id="city10"><option value="">지역선택</option>
+							<option value="11F10303">진안</option>
+						</select>
+						<select name="SUB10" style="display: none;" id="city10">
+							<option value="">지역선택</option>
 							<option value="11G00501">고산</option>
 							<option value="11G00401">서귀포</option>
 							<option value="11G00101">성산</option>
 							<option value="11G00302">성판악</option>
 							<option value="11G00301">윗세오름</option>
-							<option value="11G00201">제주</option></select> <select name="SUB11"
-							style="display: none;" id="city11"><option value="">지역선택</option>
+							<option value="11G00201">제주</option>
+						</select>
+						<select name="SUB11" style="display: none;" id="city11">
+							<option value="">지역선택</option>
 							<option value="11C20403">계룡</option>
 							<option value="11C20402">공주</option>
 							<option value="11C20601">금산</option>
@@ -587,8 +622,10 @@
 							<option value="11C20301">천안</option>
 							<option value="11C20502">청양</option>
 							<option value="11C20102">태안</option>
-							<option value="11C20104">홍성</option></select> <select name="SUB12"
-							style="display: none;" id="city12"><option value="">지역선택</option>
+							<option value="11C20104">홍성</option>
+						</select>
+						<select name="SUB12" style="display: none;" id="city12">
+							<option value="">지역선택</option>
 							<option value="11C10303">괴산</option>
 							<option value="11C10202">단양</option>
 							<option value="11C10302">보은</option>
@@ -601,20 +638,18 @@
 							<option value="11C10305">청원</option>
 							<option value="11C10301">청주</option>
 							<option value="11C10401">추풍령</option>
-							<option value="11C10101">충주</option></select>
+							<option value="11C10101">충주</option>
+						</select>
 
 						<button onclick='psnSelect()'>확인</button>
 					<p>
 						<a href="#close" class="blue">닫기</a>
 					</p>
 					</form>
-
-
-
-
 				</div>
 			</div>
-		</h1>
+		</span>	
+ 		</h1>
 		<div class="temperature entypo-light-up">
 			<h2>
 				<table align="center">
@@ -659,6 +694,40 @@
 	</div>
 
 	<div class="result"></div>
+	<script type="text/javascript">
+		psnSelect();
+	
+		function test(getArea) {
+			
+			for(var i = 1 ; i <= 12; i++) {
+				var location = document.getElementsByName("SUB"+i);
+				
+				for(var j = 0; j < location[0].length; j++) {
+					if(getArea == location[0][j].text) {
+						var region = document.getElementById("wide_select");
+						var regionName = region.options[i].text;
+						return regionName;
+					}
+				}
+			}
+			
+		}
+		
+		function getNum(getArea ,city) {
+			
+			for(var i = 1 ; i <= 12; i++) {
+				var location = document.getElementsByName("SUB"+i);
+				
+				for(var j = 0; j < location[0].length; j++) {
+					if(getArea == location[0][j].text) {
+						var cityNum = city.options[j].value;
+						return cityNum;
+					}
+				}
+			}
+			
+		}
+	</script>
 
 </body>
 </html>

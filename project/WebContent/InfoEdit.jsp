@@ -17,6 +17,14 @@
 		width: 10%;
 	}
 </style>
+
+<c:if test="${empty sessionScope.email}">
+<script type="text/javascript">
+alert('로그인이 필요한 서비스입니다.');
+location.href="MainContents.jsp";
+</script>
+</c:if>
+
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link rel="stylesheet" href="assets/css/InfoEdit.css" />
 <title>Insert title here</title>
