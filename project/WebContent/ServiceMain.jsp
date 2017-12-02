@@ -1,14 +1,16 @@
-<!DOCTYPE HTML>
-
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Parasol</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Parasol¿¡ ¿À½Å °ÍÀ» È¯¿µÇÕ´Ï´Ù.</title>
 <link rel="stylesheet" href="assets/css/ServiceMain.css" />
+
 </head>
 <body class="right-sidebar">
-	<div id="page-wrapper">
+<div id="page-wrapper">
 
 		<!-- Main Wrapper -->
 		<div id="main-wrapper">
@@ -27,39 +29,39 @@
 												<span style="color: #ed9357;">Para</span>meter <span
 													style="color: #ed9357;">Sol</span>ution
 											</h2>
-											<p>í™˜ê²½ë³€ìˆ˜ë¥¼ í†µí•œ ë§¤ì¼ì˜ ë§¤ì¶œì˜ˆì¸¡ì‹œìŠ¤í…œ-</p>
+											<p>È¯°æº¯¼ö¸¦ ÅëÇÑ ¸ÅÀÏÀÇ ¸ÅÃâ¿¹Ãø½Ã½ºÅÛ-</p>
 										</header>
 
 										<span class="image featured"><img src="images/logo.jpg"
 											alt="" style="width:25em; height:25em; float:left; padding-right: 3em;"/></span>
 
-										<p>ìš°ë¦¬ëŠ” ì—¬ë¦„ì´ ë‹¤ê°€ì˜¤ë©´ ì‹œì›í•œ ë§¥ì£¼ í•œ ìº”ì„ ìƒê°í•˜ê³ , ë¹„ì˜¤ëŠ” ë‚ ì—ëŠ” íŒŒì „ì— ë§‰ê±¸ë¦¬ë¥¼ ì™¸ì¹©ë‹ˆë‹¤.
-											í™˜ê²½ì— ë”°ë¼ ì†Œë¹„ìžì˜ ì„ í˜¸í’ˆëª©ì´ ë‹¬ë¼ì§€ëŠ” ê²ƒì€ ëª¨ë‘ê°€ ì•Œê³  ìžˆìŠµë‹ˆë‹¤. <br>  
-											  í•˜ì§€ë§Œ, ëƒ‰ë©´ íŒë§¤ëŸ‰ì´ ê¸‰ì¦í•˜ëŠ” ì˜¨ë„ëŠ”	ëª‡ ë„ë¶€í„°ì¼ê¹Œìš”? ë¶•ì–´ë¹µê³¼ êµ°ê³ êµ¬ë§ˆëŠ” ì–¸ì œë¶€í„° íŒ”ì•„ì•¼ ì´ë“ì¼ê¹Œìš”? 
-											  ë¬¼ê°€ê°€ ëª‡% ì˜¬ë¼ì•¼ ì†Œë¹„ìžê°€ ì™¸ì‹ì„ ê³ ë¯¼í•˜ê¸° ì‹œìž‘í• ê¹Œìš”? <br><br>
+										<p>¿ì¸®´Â ¿©¸§ÀÌ ´Ù°¡¿À¸é ½Ã¿øÇÑ ¸ÆÁÖ ÇÑ ÄµÀ» »ý°¢ÇÏ°í, ºñ¿À´Â ³¯¿¡´Â ÆÄÀü¿¡ ¸·°É¸®¸¦ ¿ÜÄ¨´Ï´Ù.
+											È¯°æ¿¡ µû¶ó ¼ÒºñÀÚÀÇ ¼±È£Ç°¸ñÀÌ ´Þ¶óÁö´Â °ÍÀº ¸ðµÎ°¡ ¾Ë°í ÀÖ½À´Ï´Ù. <br>  
+											  ÇÏÁö¸¸, ³Ã¸é ÆÇ¸Å·®ÀÌ ±ÞÁõÇÏ´Â ¿Âµµ´Â	¸î µµºÎÅÍÀÏ±î¿ä? ºØ¾î»§°ú ±º°í±¸¸¶´Â ¾ðÁ¦ºÎÅÍ ÆÈ¾Æ¾ß ÀÌµæÀÏ±î¿ä? 
+											  ¹°°¡°¡ ¸î% ¿Ã¶ó¾ß ¼ÒºñÀÚ°¡ ¿Ü½ÄÀ» °í¹ÎÇÏ±â ½ÃÀÛÇÒ±î¿ä? <br><br>
 											  
-											  í•œ ë§ˆíŠ¸ì—ì„œ ì¶•ì ëœ ë°ì´í„°ë¥¼ ë¶„ì„í•˜ì—¬, ê¸°ì €ê·€ì™€ ë§¥ì£¼ì˜ ìƒê´€ê´€ê³„ë¥¼ ë°í˜€ëƒˆë‹¤ëŠ” ì´ì•¼ê¸°ë¥¼ ë“¤ì–´ë³´ì…¨ë‚˜ìš”?<br>
-											  ë°ì´í„°ëŠ” ìš°ë¦¬ê°€ ìµížˆ ì•Œê³  ìžˆëŠ” ê³ ê°ë“¤ì˜ êµ¬ë§¤íŒ¨í„´ë¿ë§Œ ì•„ë‹ˆë¼, ë¬´ì˜ì‹ì ì¸ íŒ¨í„´ê¹Œì§€ ë¶„ì„í•˜ì—¬ ìƒê´€ê´€ê³„ë¥¼ ë°í˜€ë‚¼ ìˆ˜ ìžˆìŠµë‹ˆë‹¤. 
+											  ÇÑ ¸¶Æ®¿¡¼­ ÃàÀûµÈ µ¥ÀÌÅÍ¸¦ ºÐ¼®ÇÏ¿©, ±âÀú±Í¿Í ¸ÆÁÖÀÇ »ó°ü°ü°è¸¦ ¹àÇô³Â´Ù´Â ÀÌ¾ß±â¸¦ µé¾îº¸¼Ì³ª¿ä?<br>
+											  µ¥ÀÌÅÍ´Â ¿ì¸®°¡ ÀÍÈ÷ ¾Ë°í ÀÖ´Â °í°´µéÀÇ ±¸¸ÅÆÐÅÏ»Ó¸¸ ¾Æ´Ï¶ó, ¹«ÀÇ½ÄÀûÀÎ ÆÐÅÏ±îÁö ºÐ¼®ÇÏ¿© »ó°ü°ü°è¸¦ ¹àÇô³¾ ¼ö ÀÖ½À´Ï´Ù. 
 										
 									
-											<br>íŒŒë¼ì†”ì´ ì¸ê³µì§€ëŠ¥ì— ì˜í•œ ë¨¸ì‹ ëŸ¬ë‹(Machine Learning)ì„ í†µí•´ ë§¤ì¼ ë°ì´í„°ë¥¼ ìˆ˜ì§‘í•˜ê³  ë¶„ì„í•˜ì—¬ ì•Œë ¤ë“œë¦½ë‹ˆë‹¤.</p>
+											<br>ÆÄ¶ó¼ÖÀÌ ÀÎ°øÁö´É¿¡ ÀÇÇÑ ¸Ó½Å·¯´×(Machine Learning)À» ÅëÇØ ¸ÅÀÏ µ¥ÀÌÅÍ¸¦ ¼öÁýÇÏ°í ºÐ¼®ÇÏ¿© ¾Ë·Áµå¸³´Ï´Ù.</p>
 										
 										<h3>Introduce</h3>
-										<p>ìš°ë¦¬ë‚˜ë¼ì˜ ìžì˜ì—…ìž ë¹„ìœ¨ì€ 26.8%ì— ë‹¬í•©ë‹ˆë‹¤. ì´ëŠ” OECDê°€ìž…êµ­ ì¤‘ 5ìœ„ì´ë©° OECD í‰ê· ì˜
-											2ë°°ì¸ ìˆ˜ì¹˜ìž…ë‹ˆë‹¤. ê´€ê´‘ì—…ì— ëŒ€í•œ ì˜ì¡´ë„ê°€ ë†’ì§€ ì•ŠìŒì—ë„ ê²½ì œê·œëª¨ì— ë¹„í•´ ì§€ë‚˜ì¹˜ê²Œ ë†’ì€ ìžì˜ì—…ìž ë¹„ìœ¨ì€ ì‚¬íšŒì 
-											ë¬¸ì œë¡œ ê¾¸ì¤€ížˆ ì§€ì ë˜ì–´ ì™”ìŠµë‹ˆë‹¤. <br>2017ë…„ 1ì›”ì— ë°œí‘œëœ êµ­ì„¸ì²­ì˜ í†µê³„ì— ë”°ë¥´ë©´ í•˜ë£¨ 2ì²œëª…ì˜ ìžì˜ì—…ìžë“¤ì´
-											ë¬¸ì„ ë‹«ê³  ìžˆìœ¼ë©°, ìžì˜ì—…ìž ìƒì¡´ìœ¨ì€ 30.8%ì— ë¶ˆê³¼í•©ë‹ˆë‹¤. ì·¨ì—…ë‚œìœ¼ë¡œ ì¸í•´ ì²­ë…„ë“¤ê³¼ ì€í‡´í•œ ë² ì´ë¹„ë¶
-											ì„¸ëŒ€ë“¤ì´ ì„ íƒí•  ê¸¸ì´ í•œì •ë˜ì–´ ìžˆì–´ ìžì˜ì—…ìžë“¤ì€ ì•žìœ¼ë¡œë„ ëŠ˜ì–´ë‚  ê²ƒìœ¼ë¡œ ì˜ˆìƒë˜ì§€ë§Œ, ì¹˜í‚¨ì§‘ìœ¼ë¡œ ëŒ€í‘œë˜ëŠ” í•œì •ëœ
-											ì—…ì¢…ë“¤ê³¼ ìœ í–‰ì— ë”°ë¼ ìš°í›„ì£½ìˆœ ìƒê²¼ë‹¤ ì—†ì–´ì§€ëŠ” í”„ëžœì°¨ì´ì¦ˆ ë° ëª¨ë°©ì í¬ë“¤ì„ ë³¼ ë•Œ, ì‹¤ì œë¡œ â€˜ì¤€ë¹„ëœâ€™ ìžì˜ì—…ìžì˜
-											ë¹„ìœ¨ì€ ë†’ì§€ ì•Šì„ ê²ƒìœ¼ë¡œ ìƒê°ë©ë‹ˆë‹¤. <br>ìš°ë¦¬ëŠ” ì´ëŸ¬í•œ í˜„ì‹¤ì— ëˆˆë§žì¶° ìžì˜ì—…ìžë“¤ì˜ íŒë§¤ì „ëžµì˜ ë°œë¹ ë¥¸ ìˆ˜ì •ì„ ë•ê³ ,
-											ì§€ë‚œ í†µê³„ë¥¼ í†µí•´ ê³ ê°ë“¤ì„ ë§Œì¡±ì‹œí‚¬ ìˆ˜ ìžˆëŠ” ì‚¬ì—…ìž¥ì„ ë§Œë“œëŠ” ë° ë„ì›€ì„ ì£¼ê³ ìž í•©ë‹ˆë‹¤.</p>
+										<p>¿ì¸®³ª¶óÀÇ ÀÚ¿µ¾÷ÀÚ ºñÀ²Àº 26.8%¿¡ ´ÞÇÕ´Ï´Ù. ÀÌ´Â OECD°¡ÀÔ±¹ Áß 5À§ÀÌ¸ç OECD Æò±ÕÀÇ
+											2¹èÀÎ ¼öÄ¡ÀÔ´Ï´Ù. °ü±¤¾÷¿¡ ´ëÇÑ ÀÇÁ¸µµ°¡ ³ôÁö ¾ÊÀ½¿¡µµ °æÁ¦±Ô¸ð¿¡ ºñÇØ Áö³ªÄ¡°Ô ³ôÀº ÀÚ¿µ¾÷ÀÚ ºñÀ²Àº »çÈ¸Àû
+											¹®Á¦·Î ²ÙÁØÈ÷ ÁöÀûµÇ¾î ¿Ô½À´Ï´Ù. <br>2017³â 1¿ù¿¡ ¹ßÇ¥µÈ ±¹¼¼Ã»ÀÇ Åë°è¿¡ µû¸£¸é ÇÏ·ç 2Ãµ¸íÀÇ ÀÚ¿µ¾÷ÀÚµéÀÌ
+											¹®À» ´Ý°í ÀÖÀ¸¸ç, ÀÚ¿µ¾÷ÀÚ »ýÁ¸À²Àº 30.8%¿¡ ºÒ°úÇÕ´Ï´Ù. Ãë¾÷³­À¸·Î ÀÎÇØ Ã»³âµé°ú ÀºÅðÇÑ º£ÀÌºñºÕ
+											¼¼´ëµéÀÌ ¼±ÅÃÇÒ ±æÀÌ ÇÑÁ¤µÇ¾î ÀÖ¾î ÀÚ¿µ¾÷ÀÚµéÀº ¾ÕÀ¸·Îµµ ´Ã¾î³¯ °ÍÀ¸·Î ¿¹»óµÇÁö¸¸, Ä¡Å²ÁýÀ¸·Î ´ëÇ¥µÇ´Â ÇÑÁ¤µÈ
+											¾÷Á¾µé°ú À¯Çà¿¡ µû¶ó ¿ìÈÄÁ×¼ø »ý°å´Ù ¾ø¾îÁö´Â ÇÁ·£Â÷ÀÌÁî ¹× ¸ð¹æÁ¡Æ÷µéÀ» º¼ ¶§, ½ÇÁ¦·Î ¡®ÁØºñµÈ¡¯ ÀÚ¿µ¾÷ÀÚÀÇ
+											ºñÀ²Àº ³ôÁö ¾ÊÀ» °ÍÀ¸·Î »ý°¢µË´Ï´Ù. <br>¿ì¸®´Â ÀÌ·¯ÇÑ Çö½Ç¿¡ ´«¸ÂÃç ÀÚ¿µ¾÷ÀÚµéÀÇ ÆÇ¸ÅÀü·«ÀÇ ¹ßºü¸¥ ¼öÁ¤À» µ½°í,
+											Áö³­ Åë°è¸¦ ÅëÇØ °í°´µéÀ» ¸¸Á·½ÃÅ³ ¼ö ÀÖ´Â »ç¾÷ÀåÀ» ¸¸µå´Â µ¥ µµ¿òÀ» ÁÖ°íÀÚ ÇÕ´Ï´Ù.</p>
 										<h3>Our Service</h3>
-										<p>íŒŒë¼ì†”ì—ì„œëŠ” ì˜¨ë„, ìŠµë„, í’ì†, ê°•ìˆ˜ëŸ‰ê³¼ ê°™ì€ ë‚ ì”¨ì™€ ìœ ê°€ì •ë³´, ì†Œë¹„ìžë¬¼ê°€ë™í–¥ì§€ìˆ˜ ë“±ì˜ ì—¬ëŸ¬
-											í™˜ê²½ë³€ìˆ˜ë“¤ì„ ì‹¤ì‹œê°„ ìˆ˜ì§‘í•˜ê³  ìžˆìŠµë‹ˆë‹¤. ì´ë¥¼ ê¸°ì¡´ ë§¤ì¶œë°ì´í„°ì˜ í’ˆëª©ë‹¹ íŒë§¤ëŸ‰ / ê³ ê° ìˆ˜ì™€ ê²°í•©ì‹œì¼œ ë¨¸ì‹ ëŸ¬ë‹
-											ì•Œê³ ë¦¬ì¦˜ì„ í†µí•´ ë§¤ì¼ ì•„ì¹¨ ê° ì—…ìž¥ì— ìµœì í™”ëœ ì˜ˆìƒ ì´ë§¤ì¶œ / í’ˆëª©ë³„ íŒë§¤ ê°œìˆ˜ / ì˜ˆìƒë°©ë¬¸ ê³ ê° ìˆ˜ ë“±ì„
-											ì˜ˆì¸¡í•´ ë“œë¦½ë‹ˆë‹¤. <br>ê³¼ê±°ì˜ ë°ì´í„°ë¥¼ ê·¸ëž˜í”„ë¡œ ì‹œê°í™”í•¨ìœ¼ë¡œì¨ í•œëˆˆì— ë§¤ì¶œìƒí™©ì„ í™•ì¸í•  ìˆ˜ë„ ìžˆìœ¼ë©°, 
-											ì˜ˆì¸¡ë°ì´í„°ë¥¼ í†µí•´ íŒŒë¼ì†” ì´ìš©ê³ ê°ë‹˜ì€ ìž¬ê³ ê´€ë¦¬ë¥¼ í•œì¸µ íš¨ìœ¨ì ìœ¼ë¡œ í•  ìˆ˜ ìžˆì–´ ë‚­ë¹„ë¥¼ ì¤„ì¼ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
-											íŒŒë¼ì†”ê³¼ í•¨ê»˜ë¼ë©´ ë¹ ë¥¸ íŒë§¤ì „ëžµ ìˆ˜ì •ê³¼ ë©”ë‰´ì˜ íš¨ìœ¨í™”ë¥¼ í†µí•´ ê³ ê°ë“¤ì—ê²Œ ì‚¬ëž‘ë°›ëŠ” ì í¬ë¡œ ê±°ë“­ë‚  ê²ƒìž…ë‹ˆë‹¤.</p>
+										<p>ÆÄ¶ó¼Ö¿¡¼­´Â ¿Âµµ, ½Àµµ, Ç³¼Ó, °­¼ö·®°ú °°Àº ³¯¾¾¿Í À¯°¡Á¤º¸, ¼ÒºñÀÚ¹°°¡µ¿ÇâÁö¼ö µîÀÇ ¿©·¯
+											È¯°æº¯¼öµéÀ» ½Ç½Ã°£ ¼öÁýÇÏ°í ÀÖ½À´Ï´Ù. ÀÌ¸¦ ±âÁ¸ ¸ÅÃâµ¥ÀÌÅÍÀÇ Ç°¸ñ´ç ÆÇ¸Å·® / °í°´ ¼ö¿Í °áÇÕ½ÃÄÑ ¸Ó½Å·¯´×
+											¾Ë°í¸®ÁòÀ» ÅëÇØ ¸ÅÀÏ ¾ÆÄ§ °¢ ¾÷Àå¿¡ ÃÖÀûÈ­µÈ ¿¹»ó ÃÑ¸ÅÃâ / Ç°¸ñº° ÆÇ¸Å °³¼ö / ¿¹»ó¹æ¹® °í°´ ¼ö µîÀ»
+											¿¹ÃøÇØ µå¸³´Ï´Ù. <br>°ú°ÅÀÇ µ¥ÀÌÅÍ¸¦ ±×·¡ÇÁ·Î ½Ã°¢È­ÇÔÀ¸·Î½á ÇÑ´«¿¡ ¸ÅÃâ»óÈ²À» È®ÀÎÇÒ ¼öµµ ÀÖÀ¸¸ç, 
+											¿¹Ãøµ¥ÀÌÅÍ¸¦ ÅëÇØ ÆÄ¶ó¼Ö ÀÌ¿ë°í°´´ÔÀº Àç°í°ü¸®¸¦ ÇÑÃþ È¿À²ÀûÀ¸·Î ÇÒ ¼ö ÀÖ¾î ³¶ºñ¸¦ ÁÙÀÏ ¼ö ÀÖ½À´Ï´Ù.
+											ÆÄ¶ó¼Ö°ú ÇÔ²²¶ó¸é ºü¸¥ ÆÇ¸ÅÀü·« ¼öÁ¤°ú ¸Þ´ºÀÇ È¿À²È­¸¦ ÅëÇØ °í°´µé¿¡°Ô »ç¶û¹Þ´Â Á¡Æ÷·Î °Åµì³¯ °ÍÀÔ´Ï´Ù.</p>
 											
 											<hr><br>
 											
@@ -104,11 +106,14 @@
 									<header class="major">
 										<h2>JOIN US!</h2>
 									</header>
-									    <p align="center">ì§€ê¸ˆ íšŒì›ìœ¼ë¡œ ê°€ìž…í•˜ì‹œë©´ 7ì¼ê°„ ë¬´ë£Œë¡œ ì €í¬ì˜ ì„œë¹„ìŠ¤ë¥¼ ì²´í—˜í•´ë³´ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤. <br>
-										ë§¤ì¼ ì•„ì¹¨ ì˜ˆì¸¡ë¶„ì„ê²°ê³¼ë¥¼ ë°›ì•„ë³´ì„¸ìš”. </p>
+									    <p align="center">Áö±Ý È¸¿øÀ¸·Î °¡ÀÔÇÏ½Ã¸é 7ÀÏ°£ ¹«·á·Î ÀúÈñÀÇ ¼­ºñ½º¸¦ Ã¼ÇèÇØº¸½Ç ¼ö ÀÖ½À´Ï´Ù. <br>
+										¸ÅÀÏ ¾ÆÄ§ ¿¹ÃøºÐ¼®°á°ú¸¦ ¹Þ¾Æº¸¼¼¿ä. </p>
+										
+										<c:if test="${empty email }">
 										<footer>
-											<div align="right"><a href="dasol.html#signup" class="button icon fa-info-circle" onclick="window.open(this.href, '_blanck', 'resizable=no width=780,height=680,left=500, top=250 menubar=1 status=0'); return false">ê°€ìž…í•˜ëŸ¬ ê°€ê¸°</a></div>
+											<div align="right"><a href="dasol.html#signup" class="button icon fa-info-circle" onclick="window.open(this.href, '_blanck', 'resizable=no width=780,height=680,left=500, top=250 menubar=1 status=0'); return false">°¡ÀÔÇÏ·¯ °¡±â</a></div>
 										</footer>
+										</c:if>
 																		
 									</section>
 
@@ -120,6 +125,5 @@
 			</div>
 		</div>
 	<!-- </div> -->
-
 </body>
 </html>
