@@ -34,7 +34,7 @@ public class MemberDAO {
 	// 회원추가
 	public boolean addMember(MemberDTO member) throws Exception {
 		conn = DBManager.getConnection();
-		String sql = "insert into Sales_Member(email, pw, phone, category, area, signUpDate, payDate) values(?, ?, ?, ?, ?, to_char(sysdate, 'YYYY-MM-DD'), to_char(sysdate + 7, 'YYYY-MM-DD'))";
+		String sql = "insert into Sales_Member(email, pw, phone, category, area, signUpDate, payDate) values(?, ?, ?, ?, ?, to_char(sysdate, 'YYYY-MM-D'), to_char(sysdate + 7, 'YYYY-MM-D'))";
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, member.getEmail());
@@ -221,7 +221,7 @@ public class MemberDAO {
 		conn = DBManager.getConnection();
 
 		pst = conn.prepareStatement(
-				"update Sales_Member set payDate = to_char(to_date(payDate, 'YYYY-MM-DD') + ?, 'YYYY-MM-DD') where email=?");
+				"update Sales_Member set payDate = to_char(to_date(payDate, 'YYYY-MM-D') + ?, 'YYYY-MM-D') where email=?");
 		pst.setInt(1, payDate);
 		pst.setString(2, email);
 
@@ -249,7 +249,7 @@ public class MemberDAO {
 		}
 
 		if (FreeDay == 0) {
-			pst = conn.prepareStatement("update Sales_Member set freeDay = 1, payDate = to_char(to_date(payDate, 'YYYY-MM-DD') + 30, 'YYYY-MM-DD') where email=?");
+			pst = conn.prepareStatement("update Sales_Member set freeDay = 1, payDate = to_char(to_date(payDate, 'YYYY-MM-D') + 30, 'YYYY-MM-D') where email=?");
 			pst.setString(1, email);
 
 			int cnt = pst.executeUpdate();
