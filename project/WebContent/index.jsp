@@ -85,7 +85,7 @@
 							<li><a href="FileUploadPage.jsp" target="mainFrame">파일
 									업로드</a></li>
 							<li><a href="#" target="mainFrame">오늘의 매출</a></li>
-							<li><a href="CalendarMain.jsp" target="mainFrame">과거의 매출</a></li>
+							<li><a href="HistoryPage.jsp">과거의 매출</a></li>
 						</ul></li>
 					<li><a href="Board/index.jsp" target="mainFrame">게시판</a></li>
 					<li><a href="Support/Support.jsp" target="mainFrame">고객 센터</a></li>
@@ -95,8 +95,8 @@
 				<!-- Section -->
 
 				<!-- Section -->
-				<section>
-				<img src="images/Banner.jpg" alt="" id="ban"> <!-- 회원가입으로 고고 -->
+				<section> <img src="images/Banner.jpg" alt="" id="ban">
+				<!-- 회원가입으로 고고 -->
 				<ul class="contact">
 					<li class="fa-envelope-o">smhrd@smhrd.co.kr</li>
 					<li class="fa-phone">070-1234-4567</li>
