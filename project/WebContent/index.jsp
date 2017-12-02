@@ -7,26 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css?ver=3" />
-<!-- <style type="text/css">
-.white_content:target {
-   opacity: 1;
-   pointer-events: auto;
-   z-index: 100000;
-}
-
-.white_content>div {
-   position: absolute;
-   top: 25%;
-   left: 25%;
-   width: 50%;
-   /*  height: 50%; */
-   padding: 16px;
-   /*  overflow: auto */;
-}
-
-
-</style> -->
+<link rel="stylesheet" href="assets/css/main.css?ver=4" />
 
 <title>Insert title here</title>
 </head>

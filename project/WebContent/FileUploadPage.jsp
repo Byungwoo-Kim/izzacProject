@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,8 +15,8 @@ body {
 }
 
 #contents {
-	margin-top: 10%;
-	margin-left: 15%;
+	    margin-top: 5%;
+    margin-left: 5%;
 	background-image: url(img/caution.png);
 	background-repeat: no-repeat;
 	position: absolute;
@@ -89,10 +90,6 @@ tr {
 	background-repeat: no-repeat;
 }
 
-
-
-
-
 </style>
 <script type="text/javascript">
 	var uploadFile = $('.fileBox .uploadBtn');
@@ -106,9 +103,17 @@ tr {
 	});
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>ParaSol에 오신 것을 환영합니다.</title>
 </head>
 <body>
+
+<c:if test="${empty sessionScope.email}">
+<script type="text/javascript">
+alert('로그인이 필요한 서비스입니다.');
+location.href="MainContents.jsp";
+</script>
+</c:if>
+
 	<div id="contents">
 		<div id="emptySpace"></div>
 		<table class="cautionTable">

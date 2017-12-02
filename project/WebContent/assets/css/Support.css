@@ -11,7 +11,7 @@
 }
 
 #supportName, #supportEmail {
-	height: 2.5rem;
+	    height: 2em;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-ms-appearance: none;
@@ -28,7 +28,7 @@
 }
 
 #supportTitle {
-	height: 2.5rem;
+	    height: 2em;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-ms-appearance: none;
@@ -61,41 +61,59 @@
 }
 
 .QNA_Button {
-	background-color: white;
+	background-color: #eeeeee;
 	box-shadow: none;
-	color: #2e2b37 !important;
-	height: 3em;
+	color: #2f2d35 !important;
+	height: 2em;
 	width: 25%;
-	margin-top: 1.5em;
+	margin-top: 0;
 }
 
 #SupportTable {
 	width: 95%;
 }
 #SupportTable
+
  
+
 td
+
+
 :not
+
  
+
 (
 #supportSubmit
+
  
+
 ){
 padding
+
+
 :
+
  
+
 0
 .25em
+
  
+
 1
 .5em
+
  
+
 0
 .25em
+
  
+
 1
 .5em
+
+
 ;
-
-
 }
