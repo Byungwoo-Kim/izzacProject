@@ -9,8 +9,8 @@
 <head>
 <script type="text/javascript">
 	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
-	function clickTrEvent(trObj) {
-		alert(trObj.id);
+	function clickTrEvent(year, month, date) {
+		alert(year + "년" + month + "월" + date + "일");
 	}
 </script>
 <meta charset="EUC-KR">
@@ -117,14 +117,15 @@
 										: Integer.toString(index);
 
 								int iUseDate = Integer.parseInt(sUseDate);
-
+										
 								//달력 칸 나누기
-								out.println("<TD onclick='javascript:clickTrEvent(this)'>");
+								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
-						<font color='<%=color%>'> <%=index%>
-						</font>
-
+						<div  onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'>
+							<font color='<%=color%>'> <%=index%>
+							</font>
+						</div>
 						<%
 							//기능 제거 
 								out.println("</TD>");
