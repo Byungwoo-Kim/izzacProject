@@ -170,7 +170,7 @@ h1 {
 	
 	}
 	function test(number){
-
+		alert(number);
 
 		
 		var QtyTag1 = document.getElementById("preQty1");
@@ -184,7 +184,6 @@ h1 {
 		if(number==1){
 			var choice1menuS = choice1menu.split(",");
 			var choice1qtyS = choice1qty.split(",");
-			
 			
 			
 			QtyTag1.innerHTML = choice1qtyS[0];
@@ -296,33 +295,33 @@ h1 {
 	<%
 		GregorianCalendar today = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
-		int nowMonth = today.get(today.MONTH) + 1;
+		int nowMonth = today.get(today.MONTH);
 		int nowDay = today.get(today.DAY_OF_MONTH);
 		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
 		String eng_month = "";
-		if (nowMonth == 1) {
+		if (nowMonth == 0) {
 			eng_month = "January";
-		} else if (nowMonth == 2) {
+		} else if (nowMonth == 1) {
 			eng_month = "Febrary";
-		} else if (nowMonth == 3) {
+		} else if (nowMonth == 2) {
 			eng_month = "March";
-		} else if (nowMonth == 4) {
+		} else if (nowMonth == 3) {
 			eng_month = "April";
-		} else if (nowMonth == 5) {
+		} else if (nowMonth == 4) {
 			eng_month = "May";
-		} else if (nowMonth == 6) {
+		} else if (nowMonth == 5) {
 			eng_month = "June";
-		} else if (nowMonth == 7) {
+		} else if (nowMonth == 6) {
 			eng_month = "July";
-		} else if (nowMonth == 8) {
+		} else if (nowMonth == 7) {
 			eng_month = "August";
-		} else if (nowMonth == 9) {
+		} else if (nowMonth == 8) {
 			eng_month = "September";
-		} else if (nowMonth == 10) {
+		} else if (nowMonth == 9) {
 			eng_month = "October";
-		} else if (nowMonth == 11) {
+		} else if (nowMonth == 10) {
 			eng_month = "November";
-		} else if (nowMonth == 12) {
+		} else if (nowMonth == 11) {
 			eng_month = "December";
 		}
 	%>

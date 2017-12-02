@@ -8,7 +8,17 @@
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css?ver=4" />
-
+<style type="text/css">
+#parasol{
+font-size: 110px;
+text-align: center;
+font-family: "Bebas Neue", serif;
+font-weight: bold;
+color: #ed9357;
+padding-left: 3.2em;
+padding-top: 30px;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -19,8 +29,11 @@
          <div class="inner">
 
             <!-- Header -->
-            <header id="header"> <a href="index.jsp" class="logo"><strong>Project</strong>
-               by BBcompany</a> <c:choose>
+            <header id="header"> 
+            <span ID="parasol"><img src="images/logo1.jpg" alt="로고가 안보여잉" width="100px" height="85px">PARASOL</span>
+            
+            <!-- <a href="index.jsp" class="logo"><strong>Project</strong>
+               by BBcompany</a> --> <c:choose>
                <c:when test="${empty email}">
                   <ul class="icons">
                      <li><a href="#" class="button special fit"
@@ -43,10 +56,9 @@
       <!-- Sidebar -->
       <div id="sidebar">
          <div class="inner">
-            <!-- Search -->
-            <section id="search" class="alt"> <iframe
+          <!-- Search -->
+          <section id="search" class="alt"> <iframe
                src="profile.jsp" scrolling="no" height="100%" width="100%">뿌잉뿌잉</iframe>
-
             </section>
             <!-- Menu -->
             <nav id="menu"> <header class="major">
@@ -65,8 +77,9 @@
                   <ul>
                      <li><a href="FileUploadPage.jsp" target="mainFrame">파일
                            업로드</a></li>
-                     <li><a href="#" target="mainFrame">오늘의 매출</a></li>
-                     <li><a href="HistoryPage.jsp">과거의 매출</a></li>
+
+                     <li><a href="todayGraph/TodaySales.jsp" target="mainFrame">오늘의 매출</a></li>
+                     <li><a href="CalendarMain.jsp" target="mainFrame">과거의 매출</a></li>
                   </ul></li>
                <li><a href="Board/index.jsp" target="mainFrame">게시판</a></li>
                <li><a href="Support/Support.jsp" target="mainFrame">고객 센터</a></li>

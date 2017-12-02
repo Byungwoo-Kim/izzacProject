@@ -46,10 +46,9 @@ margin-left: 500px;
 
 				<!-- Banner -->
 				<section id="banner"></section>
-				<iframe width="476" height="600" src='CalendarMain.jsp' name="test"
+				<iframe width="1300" height="600" src='CalendarMain.jsp' name="test"
 					scrolling="no"></iframe>
-				<iframe width="790" height="600" src='DailyResult.jsp' name="dailyInfo"
-					scrolling="no" class='dailyShow'></iframe>
+
 
 			</div>
 		</div>

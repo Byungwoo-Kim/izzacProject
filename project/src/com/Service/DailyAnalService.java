@@ -28,9 +28,9 @@ public class DailyAnalService extends HttpServlet {
 		
 		
 		String year = request.getParameter("year");
-		String month = request.getParameter("month");
+		int month = Integer.parseInt(request.getParameter("month"));
 		String date = request.getParameter("date");
-		String selectedDate = year + "-" + month + "-" + date;
+		String selectedDate = year + "-" + (month+1) + "-" + date;
 		System.out.println(selectedDate);
 		
 		
@@ -41,7 +41,7 @@ public class DailyAnalService extends HttpServlet {
 
 		ArrayList<AnalDTO> list = new ArrayList<>();
 		try {
-			System.out.println("여기까진 됐고,");
+			
 			list = dao.SelectAnal(email);
 
 		} catch (Exception e) {
