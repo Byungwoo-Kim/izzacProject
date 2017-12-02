@@ -29,6 +29,10 @@ public class DailyResultService extends HttpServlet {
 		String year = request.getParameter("year");
 		int month = Integer.parseInt(request.getParameter("month"));
 		String date = request.getParameter("date");
+		if ((date.length())==1) {
+			date = "0"+date;
+			
+		}
 		String selectedDate = year + "-" + (month+1) + "-" + date;
 		System.out.println(selectedDate);
 		response.setContentType("text/html;charset=euc-kr");
