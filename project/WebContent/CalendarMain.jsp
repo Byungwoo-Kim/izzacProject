@@ -170,7 +170,7 @@ h1 {
 	
 	}
 	function test(number){
-
+		alert(number);
 
 		
 		var QtyTag1 = document.getElementById("preQty1");
@@ -184,7 +184,6 @@ h1 {
 		if(number==1){
 			var choice1menuS = choice1menu.split(",");
 			var choice1qtyS = choice1qty.split(",");
-			
 			
 			
 			QtyTag1.innerHTML = choice1qtyS[0];

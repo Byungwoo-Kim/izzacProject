@@ -27,9 +27,9 @@ public class DailyResultService extends HttpServlet {
 		String email = "test@test";
 		
 		String year = request.getParameter("year");
-		String month = request.getParameter("month");
+		int month = Integer.parseInt(request.getParameter("month"));
 		String date = request.getParameter("date");
-		String selectedDate = year + "-" + month + "-" + date;
+		String selectedDate = year + "-" + (month+1) + "-" + date;
 		System.out.println(selectedDate);
 		PrintWriter out = response.getWriter();
 
