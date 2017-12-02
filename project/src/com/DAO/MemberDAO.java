@@ -39,7 +39,7 @@ public class MemberDAO {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, member.getEmail());
 			pst.setString(2, member.getPw());
-			pst.setInt(3, member.getPhone());
+			pst.setString(3, member.getPhone());
 			pst.setString(4, member.getCategory());
 			pst.setString(5, member.getArea());
 			pst.executeUpdate();
@@ -143,7 +143,7 @@ public class MemberDAO {
 
 		if (rs.next()) {
 			String pw = rs.getString(2);
-			int phone = rs.getInt(3);
+			String phone = rs.getString(3);
 			String category = rs.getString(4);
 			String area = rs.getString(5);
 			String environ = rs.getString(6);
@@ -158,13 +158,13 @@ public class MemberDAO {
 	}
 
 	// 회원정보 수정(비밀번호 있을 때)
-	public int MemberUpdate(String email, String pw, int phone, String category, String area, int environ) throws Exception {
+	public int MemberUpdate(String email, String pw, String phone, String category, String area, int environ) throws Exception {
 		conn = DBManager.getConnection();
 
 		pst = conn
 				.prepareStatement("update Sales_Member set pw=?, phone=?, category=?, area=?, environ=? where email=?");
 		pst.setString(1, pw);
-		pst.setInt(2, phone);
+		pst.setString(2, phone);
 		pst.setString(3, category);
 		pst.setString(4, area);
 		pst.setInt(5, environ);
@@ -178,12 +178,12 @@ public class MemberDAO {
 	}
 	
 	// 회원정보 수정(비밀번호 없을 때)
-	public int MemberUpdate(String email, int phone, String category, String area, int environ) throws Exception {
+	public int MemberUpdate(String email, String phone, String category, String area, int environ) throws Exception {
 		conn = DBManager.getConnection();
 
 		pst = conn
 				.prepareStatement("update Sales_Member set phone=?, category=?, area=?, environ=? where email=?");
-		pst.setInt(1, phone);
+		pst.setString(1, phone);
 		pst.setString(2, category);
 		pst.setString(3, area);
 		pst.setInt(4, environ);

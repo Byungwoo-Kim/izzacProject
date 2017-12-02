@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
   
-      <link rel="stylesheet" href="assets/css/join/style.css?ver=1">
+      <link rel="stylesheet" href="assets/css/join/style.css">
 
 <script type="text/javascript">
 	var temp = "";
@@ -129,22 +129,24 @@
 	
 	//유효검사
 	function check(){
+		var regExp = /^[0-9]+$/;
+		
 		//비밀번호 길이 체크(4~8자 까지 허용)
         if (document.joinSelect.pw.value.length<4 || document.joinSelect.pw.value.length>12) {
             alert("비밀번호를 4~12자까지 입력해주세요.")
-            document.f.my_pwd.focus()
-            document.f.my_pwd.select()
+            document.joinSelect.pw.focus()
+            document.joinSelect.pw.select()
             return false;
         }
 	//비밀번호 확인 체크
 		if(document.joinSelect.pw.value!=document.joinSelect.pwConfirm.value){
 			alert("비밀번호가 일치하지 않습니다.")
-            document.f.my_pwd.focus()
-            document.f.my_pwd.select()
+            document.joinSelect.pwConfirm.focus()
+            document.joinSelect.pwConfirm.select()
             return false;
 		}
 	//폰번호 체크
-		 if (!isNumeric(document.joinSelect.phoneNum.value)) {
+		 if (!regExp.test(document.joinSelect.phoneNum.value)) {
             alert("핸드폰번호는 숫자로 입력하세요.");
             document.f.phoneNum.value = ""
             document.f.phoneNum.focus()
@@ -194,10 +196,10 @@
         					        </form>
     				        </div>
     				        <div class="signup-cont cont">
-                				<form action="Join.do" method="post" name="joinSelect" onsubmit="check()" >
+                				<form action="Join.do" method="post" name="joinSelect"><!--  onsubmit="check()"  -->
      								<input type="email" name="email" id="JoinEmail" class="inpt" required="required" placeholder="E-mail을 입력주세요" style="width: 58%; display: inline;">
 						            <label for="email">E-mail</label>&nbsp;
-						            <button class="emailCk" onclick="emailCheck()">중복 확인</button>
+						            <input type="button" class="emailCk" onclick="emailCheck()" value="중복확인">
 						            <label for="button">E-mailCheck</label>
 									<input type="password" name="pw" id="pw" class="inpt" required="required" placeholder="비밀번호를 입력해주세요">
                 					<label for="password">Password</label>
@@ -340,7 +342,7 @@
 										<option value="제주">제주</option>
 									</select>
 				                    <div class="submit-wrap">
-					                        <input type="submit" value="Sign up" class="submit">
+					                        <input type="button" value="Sign up" class="submit" onclick="check()">
 				                    </div>
 						    	</form>
             				</div>
