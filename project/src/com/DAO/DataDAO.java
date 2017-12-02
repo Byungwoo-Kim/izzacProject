@@ -47,7 +47,7 @@ public class DataDAO {
 	public int FileInsert(String email, String files) throws Exception {
 		getConn();
 
-		pst = conn.prepareStatement("insert into Sales_Files values(?, ?, to_char(sysdate, 'YYYY-MM-DD'))");
+		pst = conn.prepareStatement("insert into Sales_Files values(?, ?, to_char(sysdate, 'YYYY-MM-D'))");
 		pst.setString(1, email);
 		pst.setString(2, files);
 
@@ -85,7 +85,9 @@ public class DataDAO {
 	public String SelectTodayPre(String email, String environ) throws Exception {
 		getConn();
 
-		pst = conn.prepareStatement("select * from Sales_Pre where email = ? and pDate = to_char(sysdate, 'YYYY-MM-DD')");
+
+		pst = conn.prepareStatement("select preData from Sales_Pre where email = ? and pDate = to_char(sysdate, 'YYYY-MM-D'");
+
 		pst.setString(1, email);
 
 		rs = pst.executeQuery();
