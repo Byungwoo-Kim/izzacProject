@@ -364,9 +364,11 @@
 
 						<%
 							Calendar cal = Calendar.getInstance();
-
+							System.out.println(cal.getTime());
 							int start = cal.get(java.util.Calendar.DAY_OF_WEEK) - 1;
-
+							System.out.println("메인달력 시작하는 인덱스 :" + start);
+							//시작날짜 인식이 안돼서 임시로 숫자 넣어서 실행
+							start = 6;
 							int endDay = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
 
 							int newLine = 0;
@@ -429,7 +431,6 @@
 							}
 						%>
 					</TR>
-
 				</TBODY>
 			</TABLE>
 
@@ -660,3 +661,4 @@
 
 </body>
 </html>
+
