@@ -34,7 +34,9 @@ public class UploadService extends HttpServlet {
 		String email=(String)session.getAttribute("email");
 	
 		System.out.println("1단계");
+		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter out = response.getWriter();
+		
 		System.out.println(isMulti);
 		System.out.println("절대경로 >> " + saveDir);
 		if (isMulti) {
@@ -48,28 +50,34 @@ public class UploadService extends HttpServlet {
 			// 5. new DefaultFileRenamePolicy() : 동일한 이름일 경우 자동으로 이름이 변경
 
 			
+			
 			DataDAO Datadao = new DataDAO();
 			System.out.println("2단계");
 			String file = multi.getFilesystemName("file");
-			System.out.println(file);
-			try {
-				int cnt = Datadao.FileInsert(email, file);
-				String moveUrl = "";
+			
+			if(file.contains(".csv")) {
+				try {
+					int cnt = Datadao.FileInsert(email, file);
+					String moveUrl = "";
 
-				if (cnt > 0) {
+					if (cnt > 0) {
 
-					System.out.println("저장완료");
-					response.sendRedirect("#");
+						System.out.println("저장완료");
+						response.sendRedirect("#");
+						
+					} else {
+						System.out.println("저장실패");
+						response.sendRedirect("error/FileError.jsp");
+					}
 					
-				} else {
-					System.out.println("저장실패");
-					response.sendRedirect("error/error.jsp");
+				} catch (Exception e) {
+					response.sendRedirect("error/FileError.jsp");
+					e.printStackTrace();
 				}
-				
-			} catch (Exception e) {
-				response.sendRedirect("error/error.jsp");
-				e.printStackTrace();
+			}else {
+				out.print("<script>alert('csv파일이 아닙니다.');history.go(-1);</script>");
 			}
+			
 		} else {
 			System.out.println("일반전송 Form입니다.");
 		}

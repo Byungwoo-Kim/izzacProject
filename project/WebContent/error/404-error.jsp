@@ -4,18 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>mysns:404-error</title>
+<title>404-error</title>
 </head>
 <jsp:useBean id="now" class="java.util.Date" />
 <body>
 <div align=center>
-<H2>mysns:404-error 발생!!</H2>
+<H2>404-error 발생!!</H2>
 <HR>
 
 <table>
 <tr bgcolor="pink"><td>
 요청하신 파일을 찾을수 없습니다.<BR>
-URL 주소를 다시한번 확인해 주세요!!.
+URL 주소를 다시한번 확인해 주세요!!ㅠㅠ
 </td></tr>
 <tr><td>
 ${now}<p>
@@ -24,4 +24,5 @@ ${now}<p>
 </td></tr>
 </table>
 </div>
+</body>
 </html>
