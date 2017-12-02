@@ -1,5 +1,8 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.MessageDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -100,8 +103,12 @@ font-family: 나눔스퀘어라운드, serif;
 </style>
 </head>
 <body>
-
-
+	<%
+		MessageDAO dao = new MessageDAO();
+		ArrayList<String> list = dao.SelectAll();
+		
+		request.setAttribute("list", list);
+	%>
    <table class="mainTable" style="table-layout:fixed; word-break:break-all;" width="1200" height = "400" cellpadding="5" cellspacing="2" align="center" >
    
       <tr>
@@ -121,15 +128,9 @@ font-family: 나눔스퀘어라운드, serif;
          <td><div id="middle-center-div">
                <span id="board">게시판</span><br>
                <ul type="circle">
-               <li>니 맘을 모르는게 아냐 니가 모르는 거지</li>
-               <li>나는 네게 걱정없는 맘을 주고싶어</li>
-               <li>난 문어야 널 너문어무 조아해</li>
-               <li>너는 정말 예쁘구나</li>
-               <li>추억 열차가 당신에게 닿기를</li>
-               <li>있잖아 배고파</li>
-               <li>오늘 저녁은 뭘 먹을까?</li>
-               <li>다음 회식은 어디서?</li>
-               <li>모두 힘내...1등하자!</li>
+               <c:forEach items="${list }" var="i">
+			       <li>${i }</li>
+			   </c:forEach>
                </ul>
             </div></td>
          <td><div id="middle-right-div">
