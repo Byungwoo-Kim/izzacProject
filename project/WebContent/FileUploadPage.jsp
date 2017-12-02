@@ -88,6 +88,11 @@ tr {
 	outline: 0;
 	background-repeat: no-repeat;
 }
+
+
+
+
+
 </style>
 <script type="text/javascript">
 	var uploadFile = $('.fileBox .uploadBtn');
@@ -114,32 +119,32 @@ tr {
 				<td>1) 파일 확장자는 .csv 파일입니다.</td>
 			</tr>
 			<tr>
-				<td>2)</td>
+				<td>2) 각 열의 이름은 날짜-메뉴이름1-메뉴이름2-(총매출:선택).. 형식입니다.</td>
 			</tr>
 			<tr>
-				<td>3)</td>
+				<td>3) 첫번째 열의 내용은 변수 수집을 위해 연도까지 입력해주세요.(2017-12-01)</td>
 			</tr>
 			<tr>
-				<td>4)</td>
+				<td>4) 메뉴 이름 아래 당일 판매량을 입력하시면 됩니다.</td>
 			</tr>
 			<tr>
-				<td>5)</td>
+				<td>5) 첫 업로드는 정확한 예측과 분석을 위해 최소 한달 이상의 데이터를 권장드립니다.</td>
 			</tr>
 			<tr>
-				<td>6)</td>
+				<td>6) 업로드가 어려우신 분들은 고객센터에서 문의하시면 운영진이 도와드립니다.</td>
 			</tr>
 			<tr>
-				<td>하단의 예시파일을 참고하여 수정해주시기 바랍니다.</td>
+				<td>예시파일을 다운받아 참고하실 수 있습니다.</td>
 			</tr>
 			<tr>
-				<td><a href="">예시 파일 다운로드하기 </a></td>
+				<td><a href="Files/exam.csv">예시 파일 다운로드하기 </a></td>
 			</tr>
 			<tr>
 				<td>
 					<form action="UpLoadService" method="post"
 						enctype="multipart/form-data">
-						<input type="file" name="file" id="file"> <input
-							type="submit" id="ok" value="파일 업로드" class="upload">
+						<input type="file" name="file" id="file"> 
+						<input type="submit" id="ok" value="파일 업로드" class="upload">
 					</form>
 					
 				</td>

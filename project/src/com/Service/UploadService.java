@@ -11,11 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.Session;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.DAO.DataDAO;
-import com.Model.FileDAO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -31,7 +29,10 @@ public class UploadService extends HttpServlet {
 		int maxSize = 10 * 1024 * 1024; // 3MB
 		String encoding = "euc-kr";
 		MultipartRequest multi = null;
-		String email = "d";
+		
+		HttpSession session = request.getSession();
+		String email=(String)session.getAttribute("email");
+	
 		System.out.println("1단계");
 		PrintWriter out = response.getWriter();
 		System.out.println(isMulti);
@@ -45,34 +46,28 @@ public class UploadService extends HttpServlet {
 			// 3. maxSize : 파일 크기 제한
 			// 4. encoding : 인코딩 처리
 			// 5. new DefaultFileRenamePolicy() : 동일한 이름일 경우 자동으로 이름이 변경
+
 			
-			FileDAO dao = FileDAO.getInstance();
 			DataDAO Datadao = new DataDAO();
 			System.out.println("2단계");
 			String file = multi.getFilesystemName("file");
+			System.out.println(file);
 			try {
-				int insertCnt = Datadao.FileInsert(email, file);
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-
-			try {
-				int cnt = dao.uploadExcel(file);
+				int cnt = Datadao.FileInsert(email, file);
 				String moveUrl = "";
 
 				if (cnt > 0) {
 
 					System.out.println("저장완료");
-
-					moveUrl = "FileUploadPage.jsp";
-					out.println("<script>alert('저장완료!');opener.window.location.reload();window.close();</script>");
+					response.sendRedirect("#");
+					
 				} else {
 					System.out.println("저장실패");
-					moveUrl = "FileUploadSelectService";
+					response.sendRedirect("error/error.jsp");
 				}
-
-				response.sendRedirect(moveUrl);
+				
 			} catch (Exception e) {
+				response.sendRedirect("error/error.jsp");
 				e.printStackTrace();
 			}
 		} else {
