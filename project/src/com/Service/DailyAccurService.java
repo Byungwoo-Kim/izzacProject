@@ -9,62 +9,51 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.DAO.DataDAO;
-import com.DTO.AnalDTO;
 import com.DTO.PreDTO;
 
-@WebServlet("/DailyAnalService")
-public class DailyAnalService extends HttpServlet {
+@WebServlet("/DailyAccurService")
+public class DailyAccurService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		
-		//email 세션으로 나중에 바꿔줄것
-		//String email = (String) session.getAttribute("email");
+		// email 세션값으로 바꿔줘야함
+		// String email = (String) session.getAttribute("email");
 		String email = "test@test";
-		
-		
+
 		String year = request.getParameter("year");
 		int month = Integer.parseInt(request.getParameter("month"));
 		String date = request.getParameter("date");
-		if ((date.length())==1) {
-			date = "0"+date;
-			
+		if ((date.length()) == 1) {
+			date = "0" + date;
+
 		}
-		String selectedDate = year + "-" + (month+1) + "-" + date;
+		String selectedDate = year + "-" + (month + 1) + "-" + date;
 		System.out.println(selectedDate);
-		
-		
 		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter out = response.getWriter();
 
 		DataDAO dao = new DataDAO();
 
-		ArrayList<AnalDTO> list = new ArrayList<>();
+		ArrayList<PreDTO> list = new ArrayList<>();
 		try {
-			
-			list = dao.SelectAnal(email);
-
+			list = dao.SelectPre(email);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("선택한 날짜 : " + selectedDate);
-		System.out.println("데이터 날짜 : " + list.get(0).getaDate());
-		String AnalData = "";
-		for (int i = 0; i < list.size(); i++) {
-			if ((list.get(i).getaDate()).equals(selectedDate)) {
-				System.out.println("1단계");
-				AnalData = list.get(i).getAnalData();
 
+		String Accuracy = "";
+		String PreData = "";
+		for (int i = 0; i < list.size(); i++) {
+			if ((list.get(i).getpDate()).equals(selectedDate)) {
+
+				Accuracy = list.get(i).getPreAccu();
 			}
 		}
-		System.out.println(AnalData);
-		out.print(AnalData);
+		System.out.println(Accuracy);
+		out.print(Accuracy);
 
 	}
-
 }

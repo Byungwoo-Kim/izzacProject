@@ -44,6 +44,17 @@
 	 var choice6qty = "";
 	 var choice7qty = "";
 	 var choice8qty = "";
+	 
+	 var accu1="";
+	 var accu2="";
+	 var accu3="";
+	 var accu4="";
+	 var accu5="";
+	 var accu6="";
+	 var accu7="";
+	 var accu8="";
+	 
+	 
 	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
 	function clickTrEvent(year, month, date) {
 
@@ -85,15 +96,11 @@
 				Mtag2.innerHTML = item2;
 				Mtag3.innerHTML = item3;
 				
-			},
-			error : function(request, status, error) {
-				alert("code:" + request.status + "\n" + "message:"
-						+ request.responseText + "\n" + "error:" + error);
 			}
 
 		});
 	$.ajax({
-		//당일 실제 판매량 검색
+		//당일 예상 판매량 검색
 			url : "DailyResultService",
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
@@ -129,14 +136,29 @@
 			
 			
 			
-			},
-			error : function(request, status, error) {
-				alert("code:" + request.status + "\n" + "message:"
-						+ request.responseText + "\n" + "error:" + error);
 			}
 
 		});
+	$.ajax({
+		//정확도 가져오기(accur)
+			url : "DailyAccurService",
+			data : "year=" + year +"&month=" + month+"&date="+date,
+			success : function(result) {
+				
+				var AccuList = result.split(",");
+				accu1 = AccuList[0];
+				accu2 = AccuList[1];
+				accu3 = AccuList[2];
+				accu4 = AccuList[3];
+				accu5 = AccuList[4];
+				accu6 = AccuList[5];
+				accu7 = AccuList[6];
+				accu8 = AccuList[7];
+				
+				
+			}
 
+		});
 	
 	
 	}
@@ -151,6 +173,9 @@
 		var MenuTag2 = document.getElementById("preMenu2");
 		var MenuTag3 = document.getElementById("preMenu3");
 		
+		var resultTag = document.getElementById("result");
+		
+		
 		if(number==1){
 			var choice1menuS = choice1menu.split(",");
 			var choice1qtyS = choice1qty.split(",");
@@ -164,7 +189,7 @@
 			MenuTag2.innerHTML = choice1menuS[1];
 			MenuTag3.innerHTML = choice1menuS[2];
 
-			
+			resultTag.innerHTML = accu1 + "%";
 			
 			
 		}else if(number==2){
@@ -179,6 +204,10 @@
 			MenuTag2.innerHTML = choice2menuS[1];
 			MenuTag3.innerHTML = choice2menuS[2];
 			
+			//예측도 넣기
+			resultTag.innerHTML = accu2;
+			
+			
 		}else if(number==3){
 			var choice3menuS = choice3menu.split(",");
 			var choice3qtyS = choice3qty.split(",");
@@ -191,6 +220,7 @@
 			MenuTag2.innerHTML = choice3menuS[1];
 			MenuTag3.innerHTML = choice3menuS[2];
 			
+			resultTag.innerHTML = accu3;
 		}else if(number==4){
 			var choice4menuS = choice4menu.split(",");
 			var choice4qtyS = choice4qty.split(",");
@@ -202,6 +232,8 @@
 			MenuTag1.innerHTML = choice4menuS[0];
 			MenuTag2.innerHTML = choice4menuS[1];
 			MenuTag3.innerHTML = choice4menuS[2];
+			
+			resultTag.innerHTML = accu4;
 			
 		}else if(number==5){
 			var choice5menuS = choice5menu.split(",");
@@ -215,6 +247,8 @@
 			MenuTag2.innerHTML = choice5menuS[1];
 			MenuTag3.innerHTML = choice5menuS[2];
 			
+			resultTag.innerHTML = accu5;
+			
 		}else if(number==6){
 			var choice6menuS = choice6menu.split(",");
 			var choice6qtyS = choice6qty.split(",");
@@ -226,6 +260,8 @@
 			MenuTag1.innerHTML = choice6menuS[0];
 			MenuTag2.innerHTML = choice6menuS[1];
 			MenuTag3.innerHTML = choice6menuS[2];
+			
+			resultTag.innerHTML = accu6;
 			
 		}else if(number==7){
 			var choice7menuS = choice7menu.split(",");
@@ -239,6 +275,8 @@
 			MenuTag2.innerHTML = choice7menuS[1];
 			MenuTag3.innerHTML = choice7menuS[2];
 			
+			resultTag.innerHTML = accu7;
+			
 		}else if(number==8){
 			var choice8menuS = choice8menu.split(",");
 			var choice8qtyS = choice8qty.split(",");
@@ -251,6 +289,7 @@
 			MenuTag2.innerHTML = choice8menuS[1];
 			MenuTag3.innerHTML = choice8menuS[2];
 			
+			resultTag.innerHTML = accu8;
 		}
 		Qtag1.innerHTML = qty1;
 		Qtag2.innerHTML = qty2;
