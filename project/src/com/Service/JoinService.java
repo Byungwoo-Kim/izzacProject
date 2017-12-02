@@ -16,28 +16,19 @@ public class JoinService implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding("euc-kr");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		
 		String email = request.getParameter("email");
 		String phoneNum = request.getParameter("phoneNum");
 		String pw = request.getParameter("pw");
 		String category = request.getParameter("category");
-		String location = "";
-		if(!(request.getParameter("location1").equals(""))) {
-			location=request.getParameter("location1");
-		}else if(!(request.getParameter("location2").equals(""))) {
-			location=request.getParameter("location2");
-		}else if(!(request.getParameter("location3").equals(""))) {
-			location=request.getParameter("location3");
-		}else if(!(request.getParameter("location4").equals(""))) {
-			location=request.getParameter("location4");
-		}else if(!(request.getParameter("location5").equals(""))) {
-			location=request.getParameter("location5");
-		}else if(!(request.getParameter("location6").equals(""))) {
-			location=request.getParameter("location6");
-		}else if(!(request.getParameter("location7").equals(""))) {
-			location=request.getParameter("location7");
-		}else if(!(request.getParameter("location8").equals(""))) {
-			location=request.getParameter("location8");
-		}
+		String location = request.getParameter("location");
+		
+		System.out.println(email + "/" + pw + "/" + phoneNum + "/" + category + "/" + location);
 		
 		MemberDAO dao = new MemberDAO();
 		
@@ -49,10 +40,6 @@ public class JoinService implements Command {
 			if(isAdd) {
 				HttpSession session = request.getSession();
 				session.setAttribute("email", email);
-				
-				out.println("<script>alert('가입완료! 로그인 되었습니다!');opener.window.location.reload();window.close();</script>");
-			} else {
-				out.println("<script>alert('같은 아이디가 존재 합니다!!');history.go(-1);</script>");
 			}
 		} catch (Exception e) {
 			System.out.println("Join -> " + e.getMessage());
