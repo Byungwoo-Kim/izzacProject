@@ -6,7 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<style type="text/css">
+</style>
 <link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=6">
 
 <meta charset="EUC-KR">
