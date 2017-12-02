@@ -105,7 +105,7 @@ public class DataDAO {
 	public ArrayList<PreDTO> SelectPre(String email) throws Exception {
 		getConn();
 
-		pst = conn.prepareStatement("select * from Sales_Anal where email = ?");
+		pst = conn.prepareStatement("select * from Sales_Pre where email = ?");
 		pst.setString(1, email);
 
 		rs = pst.executeQuery();
