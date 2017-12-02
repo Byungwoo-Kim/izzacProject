@@ -14,8 +14,8 @@ body {
 }
 
 #contents {
-	margin-top: 10%;
-	margin-left: 15%;
+	    margin-top: 5%;
+    margin-left: 5%;
 	background-image: url(img/caution.png);
 	background-repeat: no-repeat;
 	position: absolute;

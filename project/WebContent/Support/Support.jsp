@@ -9,7 +9,6 @@
 *{
 text-align: center;
 box-sizing: border-box;
-
 }
 #wrap {
 	width: 75em; height : 51.5em;
@@ -24,21 +23,30 @@ td{
 font-family: 나눔스퀘어라운드, serif;
 font-size:25px 
 }
+table{
+border: 4px solid #eeeeee
+}
+.bo{
+background-color: #eeeeee
+}
+.boo{
+background-color: #e9e1e1
+}
 </style>
 
 </head>
 <body>
 	<div id="wrap">
 		<div id="top">
-			<table border="1px solid #e9ebec" cellspacing="0" width="1200em">
+			<table width="1200em">
 				<tr>
-					<td><a onclick="supportClick('FAQ')" target="aa"
+					<td class="bo"><a onclick="supportClick('FAQ')" target="aa"
 						href="faq.html"><img src="../images/faq.png"></a><br>FAQ</td>
-					<td><a onclick="supportClick('전화상담')" target="aa"
+					<td class="boo"><a onclick="supportClick('전화상담')" target="aa"
 						href="call.html"><img src="../images/call.png"></a><br>전화상담</td>
-					<td><a onclick="supportClick('카톡상담')" target="aa"
+					<td class="bo"><a onclick="supportClick('카톡상담')" target="aa"
 						href="kakao.html"><img src="../images/kakao.png"></a><br>카톡상담</td>
-					<td><a onclick="supportClick('문의메일')" target="aa"
+					<td class="boo"><a onclick="supportClick('문의메일')" target="aa"
 						href="sendmail.html"><img src="../images/mail.png"></a><br>문의메일</td>
 				</tr>
 			</table>
