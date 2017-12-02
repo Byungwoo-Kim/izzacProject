@@ -1,3 +1,4 @@
+<%@page import="com.DAO.DataDAO"%>
 <%@page import="com.DTO.MemberDTO"%>
 <%@page import="com.DAO.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -22,7 +23,7 @@ location.href="MainContents.jsp";
 <body>
 	<div id="wrapper">
 		<!-- text형식의 메뉴별 판매량 -->
-		<div id="text">테이블 형태?
+		<div id="text">
 		
 		<%		
 			String sessionEmail = (String)session.getAttribute("email");
@@ -32,24 +33,34 @@ location.href="MainContents.jsp";
 			
 			String userEnviron= dto.getEnviron();
  			
- 		
- 		
- 		
- 		
- 		
+			DataDAO dataDAO = new DataDAO();
+			String todayPre = dataDAO.SelectTodayPre(sessionEmail, userEnviron);
+ 			String[] result = todayPre.split("/");
+ 			
+ 			request.setAttribute("itemName", result[0]);
+ 			request.setAttribute("itemCount", result[1]);
+ 			
  		%>
+		<table>
+		<tr>
+		<!-- 아이템 -->
+		<c:forEach items="${itemName }" var="i">
+		<td>${i }</td>
+		</c:forEach>
+		</tr>
+		<!-- 예상개수 -->
+		<tr>
+		<c:forEach items="${itemCount }" var="j">
+		<td>${j }</td>
+		</c:forEach>
+		
+		</tr>
 		
 		
-		
-		
-		
-		
-		
-		
-		
+		</table>
 		
 		</div>
-		<!-- 오늘의 매출 그래프 R그래프 주소 넣으셈-->
+		<!-- R그래프-->
 		<section id="content1"> <img alt="그래프가 없습니다." src="barchart.jpg"> </section>
 		<section id="content2"><img alt="그래프가 없습니다." src="piechart.jpg"></section>
 
@@ -60,8 +71,7 @@ location.href="MainContents.jsp";
 			<iframe src="OilInfo.jsp" width="897px" height="310px"
 				frameborder=0 framespacing=0 marginheight=0 marginwidth=0
 				scrolling=no vspace=0></iframe>
-			<section id="content2"> <img alt="" src=""> </section>
-			<section id="content3"> <img alt="" src=""> </section>
+			<!-- <section id="content3"> <img alt="" src=""> </section> -->
 		</div>
 		<div id="wrap" style="position: absolute; top: -500px; left: -200px;">
 <!-- 		<iframe
