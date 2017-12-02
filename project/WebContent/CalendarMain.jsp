@@ -9,13 +9,13 @@
 <head>
 <script type="text/javascript">
 	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
-	function clickTrEvent(trObj) {
-		alert(trObj.id);
+	function clickTrEvent(year, month, date) {
+		alert(year + "년" + month + "월" + date + "일");
 	}
 </script>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assets/css/CalendarStyle.css">
+<link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=3">
 </head>
 <body>
 
@@ -117,14 +117,15 @@
 										: Integer.toString(index);
 
 								int iUseDate = Integer.parseInt(sUseDate);
-
+										
 								//달력 칸 나누기
-								out.println("<TD onclick='javascript:clickTrEvent(this)'>");
+								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
-						<font color='<%=color%>'> <%=index%>
-						</font>
-
+						<div  onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'>
+							<font color='<%=color%>'> <%=index%>
+							</font>
+						</div>
 						<%
 							//기능 제거 
 								out.println("</TD>");
@@ -159,12 +160,12 @@
 		<%
 			if (nowMonth > 0) {
 		%>
-		<input id="left" type="button" value="◀" onclick="slide(<%=nowYear%>)">
-		<%-- 		<a
+		<%-- <input id="left" type="button" value="◀" onclick="slide(<%=nowYear%>)"> --%>
+		<a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="left"><img src="images/left.png"
-			width="30" height="30"></a> --%>
+			width="30" height="30"></a>
 
 		<%
 			} else if (nowMonth == 0) {

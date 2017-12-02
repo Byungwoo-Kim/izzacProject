@@ -9,6 +9,14 @@
 -->
 <html>
 <head>
+<style type="text/css">
+iframe{
+position: absolute;
+}
+.dailyShow{
+margin-left: 500px;
+}
+</style>
 <title>Editorial by HTML5 UP</title>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -37,13 +45,11 @@
 				</header>
 
 				<!-- Banner -->
-				<section id="banner">
-
-					
-
-				</section>
-				<iframe width="800" height="600" src='CalendarMain.jsp' name="test" scrolling="no"></iframe>
-
+				<section id="banner"></section>
+				<iframe width="476" height="600" src='CalendarMain.jsp' name="test"
+					scrolling="no"></iframe>
+				<iframe width="790" height="600" src='DailyResult.jsp' name="dailyInfo"
+					scrolling="no" class='dailyShow'></iframe>
 
 			</div>
 		</div>

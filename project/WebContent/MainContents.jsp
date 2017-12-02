@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
@@ -133,5 +134,26 @@ color:#757575
             </div></td>
       </tr>
    </table>
+   
+   <script type="text/javascript">
+   		function isFree() {
+			var isChecked = confirm("무료 체험판을 받으시겠습니까?");
+			
+			if(isChecked) {
+				$.ajax({
+					url : "FreeCheck.do",
+					success : function(data) {
+						if (data == "success") {
+							alert("30일이 성공적으로 연장되었습니다!");
+						} else if(data == "fail") {
+							alert("이미 받으셨습니다!");
+						}
+					}
+				});
+			} else {
+				alert("취소하셨습니다.");
+			}
+		}
+   </script>
 </body>
 </html>
