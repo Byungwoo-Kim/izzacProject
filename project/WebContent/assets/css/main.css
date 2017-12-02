@@ -3158,7 +3158,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 
 #sidebar>.inner>.alt {
 	background-color: white;
-	margin: -2.22222em 0 4.44444em -2.22222em;
+	    margin: -2.22222em 0 1em -2.22222em;
 	width: calc(100% + 4.44444em);
 	padding-bottom: 1em;
 	
@@ -3311,8 +3311,8 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
-	
-	padding: 6em 0 0 0;
+	border-bottom: 2px solid #ed9357;
+	padding: 2em 0 0 0;
 	position: relative;
 }
 
@@ -3333,6 +3333,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 
 #header .icons {
 	text-align: right;
+	padding-top: 6.5em;
 }
 
 @media screen and (max-width: 1680px) {

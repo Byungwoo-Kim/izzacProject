@@ -9,7 +9,7 @@
 <style type="text/css">
 #profilewrap {
 	width: 24.5em;
-    height: 10em;
+    height: 8.5em;
 	/* border: 1px solid #ed9357; */
 	box-sizing: border-box;
 	text-align: center;
@@ -17,29 +17,18 @@
 	z-index: 2;
 }
 
-#profileleft {
+#profileleft{
 	height: 100%;
 	width: 50%;
+	line-height: 150px;
 	float: left;
-	z-index: 1;
 }
 
-#profileright {
+#profileright{
 	height: 100%;
 	width: 50%;
 	float: right;
-}
-
-#profileright_top {
-	height: 50%;
-	width: 100%;
-	line-height: 96px;
-}
-
-#profileright_bottom {
-	height: 50%;
-	width: 100%;
-	line-height: 18px;
+	padding-top: 1.5em;
 }
 
 #profileid {
@@ -52,6 +41,7 @@
 	font-family: "Caviar Dreams", serif;
 	font-size: 22px;
 	color: #607D8B;
+	font-weight: bold;
 }
 </style>
 <title>Insert title here</title>
@@ -66,28 +56,24 @@
 	%>
 
 	<div id="profilewrap">
-		<div id="profileleft">
+		<!-- <div id="profileleft">
 			<img src="images/logo.jpg" alt="이미지오류" width="180px" height="150px">
-		</div>
+		</div> -->
 		<!-- 노로그인 -->
 		<c:choose>
 			<c:when test="${empty email }">
-				<div id="profileright">
-					<div id="profileright_top">
+					<div id="profileleft">
 						<span id="profileid">GUEST</span>
 					</div>
-					<div id="profileright_bottom">
+					<div id="profileright">
 						&nbsp<span id="profilehi">Nice To Meet You,<br> I Hope Your
 							Life Is Happy
 						</span>
 					</div>
-				</div>
 			</c:when>
 			<c:otherwise>
-				<div id="profileright">
-					<div id="profileright_top"><span id="profileid">${sessionScope.email }</span></div>
-					<div id="profileright_bottom"><span id="profilehi">서비스 만료일자 : ${payDate }</span></div>
-				</div>
+					<div id="profileleft"><span id="profileid">${sessionScope.email }</span></div>
+					<div id="profileright"><span id="profilehi">서비스 만료일자 ${payDate }</span></div>
 			</c:otherwise>
 		</c:choose>
 		<!-- 로그인 했을때 -->
