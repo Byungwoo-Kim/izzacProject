@@ -54,35 +54,116 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				
 				<script type="text/javascript">
-						
-				function price(){
-		
+					function price(){
 						var result = document.getElementById("result");
 						result.innerHTML= document.f.period.value+" WON";
+					}
 				
-				}
-				
-				function payment(){
-					var result = document.getElementById("result");
+					function paypal() {
+						var result = document.getElementById("result");
+						var email = document.getElementById("email");
+						var pw = document.getElementById("pw");
 					
-					if(result.innerHTML == "") {
-						alert("상품을 선택해주세요!");
-					} else {
-						alert("이용해주셔서 감사합니다.");
-					
-						if(result.innerHTML=="100,000 WON"){						
-							window.location.href = "../ModifyPay.do?payDate="+30;
-						}else if(result.innerHTML=="280,000 WON"){
-							window.location.href = "../ModifyPay.do?payDate="+90;
-						}else if(result.innerHTML=="480,000 WON"){
-							window.location.href = "../ModifyPay.do?payDate="+180;
-						}else if(result.innerHTML=="840,000 WON"){
-							window.location.href = "../ModifyPay.do?payDate="+365;
+						if(result.innerHTML == "") {
+							alert("상품을 선택해주세요!");
+						} else {
+							var check1 = false;
+							var check2 = false;
+						
+							if(email.value == "") {
+								alert("이메일을 입력해주세요!");
+								email.focus();
+								return false;
+							} else {
+								check1 = true;
+							}
+						
+							if(pw.value == "") {
+								alert("비밀번호를 입력해주세요!");
+								pw.focus();
+								return false;
+							} else {
+								check2 = true;
+							}
+						
+							if(check1 && check2) {
+								alert("결제완료!");
+						
+								if(result.innerHTML=="100,000 WON"){						
+									window.location.href = "../ModifyPay.do?payDate="+30;
+								}else if(result.innerHTML=="280,000 WON"){
+									window.location.href = "../ModifyPay.do?payDate="+90;
+								}else if(result.innerHTML=="480,000 WON"){
+									window.location.href = "../ModifyPay.do?payDate="+180;
+								}else if(result.innerHTML=="840,000 WON"){
+									window.location.href = "../ModifyPay.do?payDate="+365;
+								}
+							}
 						}
-					}										
-
-				}
-								
+					}
+				
+					function payment(){
+						var result = document.getElementById("result");
+						var name = document.getElementById("name");
+						var number = document.getElementById("number");
+						var securityCode = document.getElementById("security-code");
+						var expiration = document.getElementById("expiration-month-and-year");
+					
+						if(result.innerHTML == "") {
+							alert("상품을 선택해주세요!");
+						} else {
+							var check1 = false;
+							var check2 = false;
+							var check3 = false;
+							var check4 = false;
+							
+							if(name.value == "") {
+								alert("이름을 입력해주세요!");
+								name.focus();
+								return false;
+							} else {
+								check1 = true;
+							}
+							
+							if(number.value == "") {
+								alert("카드번호를 입력해주세요!");
+								number.focus();
+								return false;
+							} else {
+								check2 = true;
+							}
+							
+							if(securityCode.value == "") {
+								alert("CVC번호를 입력해주세요!");
+								securityCode.focus();
+								return false;
+							} else {
+								check3 = true;
+							}
+							
+							if(expiration.value == "") {
+								alert("유효기간을 입력해주세요!");
+								expiration.focus();
+								return false;
+							} else {
+								check4 = true;
+							}
+							
+							if(check1 && check2 && check3 && check4) {
+								alert("결제완료!");
+							
+								if(result.innerHTML=="100,000 WON"){						
+									window.location.href = "../ModifyPay.do?payDate="+30;
+								}else if(result.innerHTML=="280,000 WON"){
+									window.location.href = "../ModifyPay.do?payDate="+90;
+								}else if(result.innerHTML=="480,000 WON"){
+									window.location.href = "../ModifyPay.do?payDate="+180;
+								}else if(result.innerHTML=="840,000 WON"){
+									window.location.href = "../ModifyPay.do?payDate="+365;
+								}
+							}
+						}					
+					}
 				</script>
 				
 				<div class="agile_amount">
@@ -107,13 +188,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="first-row form-group">
 												<div class="controls">
 													<label class="control-label" style="font-family: sans-serif;">카드 앞면 이름</label>
-													<input class="billing-address-name form-control" type="text" name="name" placeholder="Hong Seong Eun" required="required">
+													<input class="billing-address-name form-control" type="text" name="name" placeholder="Hong Seong Eun" required="required" id="name">
 												</div>
 												<div class="w3_agileits_card_number_grids">
 													<div class="w3_agileits_card_number_grid_left">
 														<div class="controls">
 															<label class="control-label" style="font-family: sans-serif;">카드번호</label>
-															<input class="number credit-card-number form-control" type="text" name="number"
+															<input class="number credit-card-number form-control" type="text" name="number" id="number"
 																		  inputmode="numeric" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number"
 																		  placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;" required="required">
 														</div>
@@ -123,7 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<label class="control-label" style="font-family: sans-serif;">CVC 번호</label>
 															<input class="security-code form-control"Â·
 																		  inputmode="numeric"
-																		  type="text" name="security-code"
+																		  type="text" name="security-code" id="security-code"
 																		  placeholder="&#149;&#149;&#149;" required="required">
 														</div>
 													</div>
@@ -131,7 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 												<div class="controls">
 													<label class="control-label" style="font-family: sans-serif;">유효기간(월/년)</label>
-													<input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY" required="required">
+													<input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" id="expiration-month-and-year" placeholder="MM / YY" required="required">
 												</div>
 											</div>
 											<button class="submit" onclick="payment()"><span> THANK YOU <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button>
@@ -141,10 +222,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="agileits_w3layouts_tab2">
 								<h3>paypal Account Login </h3>
-								<form action="f?period=">
-									<input type="email" name="Email" placeholder="Email" required="">
-									<input type="password" name="Password" placeholder="Password" required="">
-									<input type="submit" value="Login" onclick="payment()">
+								<form name="fpay">
+									<input type="email" name="Email" placeholder="Email" required="" id="email">
+									<input type="password" name="Password" placeholder="Password" required="" id="pw">
+									<input type="submit" value="Login" onclick="paypal()">
 								</form>
 							</div>
 						</div>

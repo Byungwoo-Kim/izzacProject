@@ -37,6 +37,12 @@
 	color: #008bac
 }
 
+#profileid2 {
+	font-family: "Bebas Neue", serif;
+	font-size: 45px;
+	color: #008bac
+}
+
 #profilehi {
 	font-family: "Caviar Dreams", serif;
 	font-size: 22px;
@@ -72,8 +78,10 @@
 					</div>
 			</c:when>
 			<c:otherwise>
-					<div id="profileleft"><span id="profileid">${sessionScope.email }</span></div>
-					<div id="profileright"><span id="profilehi">서비스 만료일자 ${payDate }</span></div>
+				<div id="profileright">
+					<div id="profileright_top"><span id="profileid2">${sessionScope.email }</span></div>
+					<div id="profileright_bottom"><span id="profilehi">서비스 만료일자 : ${payDate }</span></div>
+				</div>
 			</c:otherwise>
 		</c:choose>
 		<!-- 로그인 했을때 -->

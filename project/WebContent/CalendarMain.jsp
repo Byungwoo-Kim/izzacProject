@@ -56,17 +56,32 @@ h1 {
 </head>
 <body>
 	<script type="text/javascript">
+	 var choice1menu = "";
+	 var choice2menu = "";
+	 var choice3menu = "";
+	 var choice4menu = "";
+	 var choice5menu = "";
+	 var choice6menu = "";
+	 var choice7menu = "";
+	 var choice8menu = "";
+	
+	 var choice1qty = "";
+	 var choice2qty = "";
+	 var choice3qty = "";
+	 var choice4qty = "";
+	 var choice5qty = "";
+	 var choice6qty = "";
+	 var choice7qty = "";
+	 var choice8qty = "";
 	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
 	function clickTrEvent(year, month, date) {
-		
-	alert(year + "년" + month + "월" + date + "일");
+
 	$.ajax({
 		//당일 실제 판매량 검색
-			url : "DailyResultService",
+			url : "DailyAnalService",
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
 				
-				alert(result);
 				var menuAndQty = result.split("/");
 				var itemlist = menuAndQty[0].split(",");
 				var qtyList = menuAndQty[1].split(",");
@@ -78,12 +93,7 @@ h1 {
 				var qty1 = qtyList[0];
 				var qty2 = qtyList[1];
 				var qty3 = qtyList[2];
-				alert(item1);
-				alert(item2);
-				alert(item3);
-				alert(qty1);
-				alert(qty2);
-				alert(qty3);
+
 				
 				var Qtag1 = document.getElementById("realQty1");
 				var Qtag2 = document.getElementById("realQty2");
@@ -113,12 +123,41 @@ h1 {
 		});
 	$.ajax({
 		//당일 실제 판매량 검색
-			url : "DailyAnalService",
+			url : "DailyResultService",
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
-				
-				alert("?");
-				alert(result);
+			var devideChoice = result.split("_");	
+			var choice1 = devideChoice[0];
+			var choice2 = devideChoice[1];
+			var choice3 = devideChoice[2];
+			var choice4 = devideChoice[3];
+			var choice5 = devideChoice[4];
+			var choice6 = devideChoice[5];
+			var choice7 = devideChoice[6];
+			var choice8 = devideChoice[7];
+			
+			choice1menu = choice1.split("/")[0];
+			choice2menu = choice2.split("/")[0];
+			choice3menu = choice3.split("/")[0];
+			choice4menu = choice4.split("/")[0];
+			choice5menu = choice5.split("/")[0];
+			choice6menu = choice6.split("/")[0];
+			choice7menu = choice7.split("/")[0];
+			choice8menu = choice8.split("/")[0];
+			
+			choice1qty = choice1.split("/")[1];
+			choice2qty = choice2.split("/")[1];
+			choice3qty = choice3.split("/")[1];
+			choice4qty = choice4.split("/")[1];
+			choice5qty = choice5.split("/")[1];
+			choice6qty = choice6.split("/")[1];
+			choice7qty = choice7.split("/")[1];
+			choice8qty = choice8.split("/")[1];
+			
+
+			
+			
+			
 			},
 			error : function(request, status, error) {
 				alert("code:" + request.status + "\n" + "message:"
@@ -126,10 +165,133 @@ h1 {
 			}
 
 		});
+
 	
 	
 	}
+	function test(number){
 
+
+		
+		var QtyTag1 = document.getElementById("preQty1");
+		var QtyTag2 = document.getElementById("preQty2");
+		var QtyTag3 = document.getElementById("preQty3");
+		
+		var MenuTag1 = document.getElementById("preMenu1");
+		var MenuTag2 = document.getElementById("preMenu2");
+		var MenuTag3 = document.getElementById("preMenu3");
+		
+		if(number==1){
+			var choice1menuS = choice1menu.split(",");
+			var choice1qtyS = choice1qty.split(",");
+			
+			
+			
+			QtyTag1.innerHTML = choice1qtyS[0];
+			QtyTag2.innerHTML = choice1qtyS[1];
+			QtyTag3.innerHTML = choice1qtyS[2];
+			
+			MenuTag1.innerHTML = choice1menuS[0];
+			MenuTag2.innerHTML = choice1menuS[1];
+			MenuTag3.innerHTML = choice1menuS[2];
+
+			
+			
+			
+		}else if(number==2){
+			var choice2menuS = choice2menu.split(",");
+			var choice2qtyS = choice2qty.split(",");
+			
+			QtyTag1.innerHTML = choice2qtyS[0];
+			QtyTag2.innerHTML = choice2qtyS[1];
+			QtyTag3.innerHTML = choice2qtyS[2];
+			
+			MenuTag1.innerHTML = choice2menuS[0];
+			MenuTag2.innerHTML = choice2menuS[1];
+			MenuTag3.innerHTML = choice2menuS[2];
+			
+		}else if(number==3){
+			var choice3menuS = choice3menu.split(",");
+			var choice3qtyS = choice3qty.split(",");
+			
+			QtyTag1.innerHTML = choice3qtyS[0];
+			QtyTag2.innerHTML = choice3qtyS[1];
+			QtyTag3.innerHTML = choice3qtyS[2];
+			
+			MenuTag1.innerHTML = choice3menuS[0];
+			MenuTag2.innerHTML = choice3menuS[1];
+			MenuTag3.innerHTML = choice3menuS[2];
+			
+		}else if(number==4){
+			var choice4menuS = choice4menu.split(",");
+			var choice4qtyS = choice4qty.split(",");
+			
+			QtyTag1.innerHTML = choice4qtyS[0];
+			QtyTag2.innerHTML = choice4qtyS[1];
+			QtyTag3.innerHTML = choice4qtyS[2];
+			
+			MenuTag1.innerHTML = choice4menuS[0];
+			MenuTag2.innerHTML = choice4menuS[1];
+			MenuTag3.innerHTML = choice4menuS[2];
+			
+		}else if(number==5){
+			var choice5menuS = choice5menu.split(",");
+			var choice5qtyS = choice5qty.split(",");
+			
+			QtyTag1.innerHTML = choice5qtyS[0];
+			QtyTag2.innerHTML = choice5qtyS[1];
+			QtyTag3.innerHTML = choice5qtyS[2];
+			
+			MenuTag1.innerHTML = choice5menuS[0];
+			MenuTag2.innerHTML = choice5menuS[1];
+			MenuTag3.innerHTML = choice5menuS[2];
+			
+		}else if(number==6){
+			var choice6menuS = choice6menu.split(",");
+			var choice6qtyS = choice6qty.split(",");
+			
+			QtyTag1.innerHTML = choice6qtyS[0];
+			QtyTag2.innerHTML = choice6qtyS[1];
+			QtyTag3.innerHTML = choice6qtyS[2];
+			
+			MenuTag1.innerHTML = choice6menuS[0];
+			MenuTag2.innerHTML = choice6menuS[1];
+			MenuTag3.innerHTML = choice6menuS[2];
+			
+		}else if(number==7){
+			var choice7menuS = choice7menu.split(",");
+			var choice7qtyS = choice7qty.split(",");
+			
+			QtyTag1.innerHTML = choice7qtyS[0];
+			QtyTag2.innerHTML = choice7qtyS[1];
+			QtyTag3.innerHTML = choice7qtyS[2];
+			
+			MenuTag1.innerHTML = choice7menuS[0];
+			MenuTag2.innerHTML = choice7menuS[1];
+			MenuTag3.innerHTML = choice7menuS[2];
+			
+		}else if(number==8){
+			var choice8menuS = choice8menu.split(",");
+			var choice8qtyS = choice8qty.split(",");
+			
+			QtyTag1.innerHTML = choice8qtyS[0];
+			QtyTag2.innerHTML = choice8qtyS[1];
+			QtyTag3.innerHTML = choice8qtyS[2];
+			
+			MenuTag1.innerHTML = choice8menuS[0];
+			MenuTag2.innerHTML = choice8menuS[1];
+			MenuTag3.innerHTML = choice8menuS[2];
+			
+		}
+		Qtag1.innerHTML = qty1;
+		Qtag2.innerHTML = qty2;
+		Qtag3.innerHTML = qty3;
+		
+		Mtag1.innerHTML = item1;
+		Mtag2.innerHTML = item2;
+		Mtag3.innerHTML = item3;
+	
+}
 </script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
@@ -324,6 +486,16 @@ h1 {
 	<div class="outLine">
 		<table class="detail">
 			<tr>
+				<td><button onclick="test(1);" onmouseover="요거슨 뭐시냐며는">1</button>
+					<button onclick="test(2);" onmouseover="요거슨 뭐시냐며는">2</button>
+					<button onclick="test(3);" onmouseover="요거슨 뭐시냐며는">3</button>
+					<button onclick="test(4);" onmouseover="요거슨 뭐시냐며는">4</button>
+					<button onclick="test(5);" onmouseover="요거슨 뭐시냐며는">5</button>
+					<button onclick="test(6);" onmouseover="요거슨 뭐시냐며는">6</button>
+					<button onclick="test(7);" onmouseover="요거슨 뭐시냐며는">7</button>
+					<button onclick="test(8);" onmouseover="요거슨 뭐시냐며는">8</button></td>
+			</tr>
+			<tr>
 				<td colspan="3" class="title">예측 판매량</td>
 				<td colspan="3" class="title">실제 판매량</td>
 			</tr>
@@ -333,7 +505,7 @@ h1 {
 				<td id="preQty1">87</td>
 				<td class="rank">1.</td>
 				<td id="realMenu1">Iced Americano</td>
-				<td id = "realQty1">79</td>
+				<td id="realQty1">79</td>
 			</tr>
 			<tr>
 				<td class="rank">2.</td>
@@ -341,7 +513,7 @@ h1 {
 				<td id="preQty2">54</td>
 				<td class="rank">2.</td>
 				<td id="realMenu2">Hot Chocolate</td>
-				<td id = "realQty2">43</td>
+				<td id="realQty2">43</td>
 			</tr>
 			<tr>
 				<td class="rank">3.</td>
@@ -349,7 +521,7 @@ h1 {
 				<td id="preQty3">45</td>
 				<td class="rank">3.</td>
 				<td id="realMenu3">Iced Vanilla Latte</td>
-				<td id = "realQty3">39</td>
+				<td id="realQty3">39</td>
 			</tr>
 			<tr>
 				<td td colspan="6" class="void"></td>

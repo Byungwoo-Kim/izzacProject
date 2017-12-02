@@ -25,7 +25,7 @@ public class ModifyPayService implements Command{
 			int cnt = dao.MemberPayDateUpdate(email, payDate);
 			
 			if(cnt > 0) {
-				out.println("<script>alert('결제완료!');opener.window.location.reload();window.close();</script>");
+				out.println("<script>alert('이용해주셔서 감사합니다.');opener.window.location.reload();window.close();</script>");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
