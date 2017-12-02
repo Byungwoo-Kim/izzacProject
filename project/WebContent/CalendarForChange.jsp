@@ -99,19 +99,18 @@
 					<TR>
 						<%
 							Calendar cal = Calendar.getInstance();
-
-							int start = Integer.parseInt(request.getParameter("startDayNext"));
 							Calendar cal2 = new GregorianCalendar(nowYear, nowMonth, 1);
+							int start = cal2.get(java.util.Calendar.DAY_OF_WEEK);
+							/* Integer.parseInt(request.getParameter("startDayNext")); */
+							System.out.println("년 : " + nowYear);
+							System.out.println("이번달 : " + nowMonth);
+							System.out.println("해당 월 시작요일 : " + start);
+
 							int endDay = cal2.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
-							if (endDay == 30) {
-								if (start == 6) {
-									start = 1;
-								} else if (start == 7) {
-									start = 2;
-								} else {
-									start += 2;
-								}
-							} else if (endDay == 31) {
+							System.out.println("해당 월 날짜수 : " + endDay);
+							System.out.println(start);
+							System.out.println(endDay);
+							/* if (endDay == 30) {
 								if (start == 5) {
 									start = 1;
 								} else if (start == 6) {
@@ -121,13 +120,22 @@
 								} else {
 									start += 3;
 								}
+							} else if (endDay == 31) {
+								if (start == 6) {
+									start = 1;
+								} else if (start == 7) {
+									start = 2;
+								} else {
+									start += 2;
+								}
+
 							} else if (endDay == 29) {
 								if (start == 7) {
 									start = 1;
 								} else {
 									start += 1;
 								}
-							}
+							} */
 
 							int newLine = 0;
 							Calendar todayCal = Calendar.getInstance();
