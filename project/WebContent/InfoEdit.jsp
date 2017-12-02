@@ -207,6 +207,7 @@
 						<td>지역 <input type="hidden" value="${dto.getArea() }" name="getArea" id="getArea"></td>
 						<td>
 							<select name="test" title="시,도" id="wide_select" class="location" onChange="showSub(this.options[this.selectedIndex].value);" required="required">
+								<option value="">도시를 선택해주세요</option>
 								<option value="1">서울·경기·인천</option>
 								<option value="2">강원도</option>
 								<option value="3">충청도</option>
@@ -216,10 +217,11 @@
 								<option value="7">경상남도</option>
 								<option value="8">제주도</option>
 							</select>&nbsp;&nbsp;&nbsp;&nbsp;
-							<select name="location" class="location" style="display: ;" id="city" >
+							<!-- <select name="location" class="location" style="display: ;" id="city" >
 								<option value="">도시를 선택해주세요</option>
-							</select>
+							</select> -->
 							<select name="location1" class="location" style="display: none;" id="city1" >
+								<option value="">지역을 선택해주세요</option>
 								<option value="강화">강화</option>
 								<option value="동두천">동두천</option>
 								<option value="백령도">백령도</option>
@@ -231,6 +233,7 @@
 								<option value="파주">파주</option>
 							</select>
 							<select name="location2" class="location" style="display: none;" id="city2">
+								<option value="">지역을 선택해주세요</option>
 								<option value="강릉">강릉</option>
 								<option value="대관령">대관령</option>
 								<option value="동해">동해</option>
@@ -245,6 +248,7 @@
 								<option value="홍천">홍천</option>
 							</select>
 							<select name="location3" class="location" style="display: none;" id="city3">
+								<option value="">지역을 선택해주세요</option>
 								<option value="금산">금산</option>
 								<option value="대전">대전</option>
 								<option value="보은">보은</option>
@@ -259,6 +263,7 @@
 								<option value="홍성">홍성</option>
 							</select>
 							<select name="location4" class="location" style="display: none;" id="city4" >
+								<option value="">지역을 선택해주세요</option>
 								<option value="고창">고창</option>
 								<option value="군산">군산</option>
 								<option value="남원">남원</option>
@@ -270,6 +275,7 @@
 								<option value="정읍">정읍</option>
 							</select>
 							<select name="location5" class="location" style="display: none;" id="city5" >
+								<option value="">지역을 선택해주세요</option>
 								<option value="강진">강진</option>
 								<option value="고흥">고흥</option>
 								<option value="광양">광양</option>
@@ -286,6 +292,7 @@
 								<option value="흑산도">흑산도</option>
 							</select>
 							<select name="location6" class="location" style="display: none;" id="city6" >
+								<option value="">지역을 선택해주세요</option>
 								<option value="경주">경주</option>
 								<option value="구미">구미</option>
 								<option value="대구">대구</option>
@@ -303,6 +310,7 @@
 								<option value="포항">포항</option>
 							</select>
 							<select name="location7" class="location" style="display: none;" id="city7" >
+								<option value="">지역을 선택해주세요</option>
 								<option value="거제">거제</option>
 								<option value="거창">거창</option>
 								<option value="김해">김해</option>
@@ -320,6 +328,7 @@
 								<option value="합천">합천</option>
 							</select>
 							<select name="location8" class="location" style="display: none;" id="city8">
+								<option value="">지역을 선택해주세요</option>
 								<option value="고산">고산</option>
 								<option value="서귀포">서귀포</option>
 								<option value="성산">성산</option>
@@ -367,8 +376,8 @@
 				
 				for(var j = 0; j < location[0].length; j++) {
 					if(getArea == location[0][j].value) {
-						document.update.test.options[i-1].selected = "selected";
-						showSub(i);
+						document.update.test.options[i].selected = "selected";
+						location[0].style.display = "";
 						location[0].options[j].selected = "selected";
 					}
 				}
