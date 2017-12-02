@@ -77,7 +77,8 @@ padding-top: 30px;
                   <ul>
                      <li><a href="FileUploadPage.jsp" target="mainFrame">파일
                            업로드</a></li>
-                     <li><a href="#" target="mainFrame">오늘의 매출</a></li>
+
+                     <li><a href="todayGraph/TodaySales.jsp" target="mainFrame">오늘의 매출</a></li>
                      <li><a href="CalendarMain.jsp" target="mainFrame">과거의 매출</a></li>
                   </ul></li>
                <li><a href="Board/index.jsp" target="mainFrame">게시판</a></li>
