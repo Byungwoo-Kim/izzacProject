@@ -19,7 +19,7 @@ padding-left: 3.2em;
 padding-top: 30px;
 }
 </style>
-<title>Insert title here</title>
+<title>더 나은 내일을 위한 Parameter Solution----Parasol입니다.</title>
 </head>
 <body>
    <!-- Wrapper -->
