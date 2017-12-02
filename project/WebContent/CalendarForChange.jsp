@@ -6,18 +6,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
-	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
-	function clickTrEvent(trObj) {
-		alert(trObj.id);
-	}
-</script>
+
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=3">
 </head>
 <body>
+	<script type="text/javascript">
+	//선택한 날짜 추출 후 창 띄우기
+	function clickTrEvent(year, month, date) {
+		alert(year + "년" + month + "월" + date + "일");
+		$.ajax({
+				url : "DailyResultService",
+				data : "year=" + year +"&month=" + nowMonth+"&date="+date,
+				success : function(result) {
+					alert(result);
+				},
+				error : function(request, status, error) {
+					alert("code:" + request.status + "\n" + "message:"
+							+ request.responseText + "\n" + "error:" + error);
+				}
 
+			});
+		
+		}
+</script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
@@ -27,7 +43,7 @@
 		String eng_month = "";
 		nowYear = Integer.parseInt(request.getParameter("yearNext"));
 		nowMonth = Integer.parseInt(request.getParameter("monthNext"));
-		
+
 		if (nowMonth == 0) {
 			eng_month = "January";
 		} else if (nowMonth == 1) {
@@ -53,8 +69,6 @@
 		} else if (nowMonth == 11) {
 			eng_month = "December";
 		}
-		
-
 	%>
 	<!-- jQuery UI CSS파일  -->
 
@@ -87,34 +101,34 @@
 							Calendar cal = Calendar.getInstance();
 
 							int start = Integer.parseInt(request.getParameter("startDayNext"));
-							Calendar cal2 =  new GregorianCalendar(nowYear, nowMonth, 1);
+							Calendar cal2 = new GregorianCalendar(nowYear, nowMonth, 1);
 							int endDay = cal2.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
-							if(endDay==30){
-								if(start==6){
-									start=1;
-								}else if(start==7){
-									start=2;
-								}else{
-									start+=2;
+							if (endDay == 30) {
+								if (start == 6) {
+									start = 1;
+								} else if (start == 7) {
+									start = 2;
+								} else {
+									start += 2;
 								}
-							}else if(endDay==31){
-								if(start==5){
-									start=1;
-								}else if(start==6){
-									start=2;
-								}else if(start==7){
-									start=3;
-								}else{
-									start+=3;
+							} else if (endDay == 31) {
+								if (start == 5) {
+									start = 1;
+								} else if (start == 6) {
+									start = 2;
+								} else if (start == 7) {
+									start = 3;
+								} else {
+									start += 3;
 								}
-							}else if(endDay==29){
-								if(start==7){
-									start=1;
-								}else{
-									start+=1;
+							} else if (endDay == 29) {
+								if (start == 7) {
+									start = 1;
+								} else {
+									start += 1;
 								}
 							}
-							
+
 							int newLine = 0;
 							Calendar todayCal = Calendar.getInstance();
 							SimpleDateFormat sdf = new SimpleDateFormat("yyyMMdd");
@@ -147,11 +161,14 @@
 								int iUseDate = Integer.parseInt(sUseDate);
 
 								//달력 칸 나누기
-								out.println("<TD onclick='javascript:clickTrEvent(this)'>");
+								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
-						<font color='<%=color%>'> <%=index%>
-						</font>
+						<div
+							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth + 1%>,<%=index%>)'>
+							<font color='<%=color%>'> <%=index%>
+							</font>
+						</div>
 
 						<%
 							//기능 제거 
@@ -190,14 +207,16 @@
 		<a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="left"><img src="images/left.png" width="30" height="30"></a>
+		target="_self" id="left"><img src="images/left.png"
+			width="30" height="30"></a>
 		<%
 			} else if (nowMonth == 0) {
 		%>
 		<a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="left"><img src="images/left.png" width="30" height="30"> </a>
+		target="_self" id="left"><img src="images/left.png"
+			width="30" height="30"> </a>
 		<%
 			}
 		%>
@@ -209,22 +228,24 @@
 			href='CalendarForChange.jsp?yearNext=<%=nowYear%>
 		&amp;monthNext=<%=nowMonth + 1%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="right"><img src="images/right.png" width="30" height="30"></a>
+		target="_self" id="right"><img src="images/right.png"
+			width="30" height="30"></a>
 		<%
 			} else if (nowMonth == 11) {
 		%><a
 			href='CalendarForChange.jsp?yearNext=<%=nowYear + 1%>
 		&amp;monthNext=<%=0%>&amp;startDayNext=<%=start%>'
 			"
-		target="_self" id="right"><img src="images/right.png" width="30" height="30"></a>
+		target="_self" id="right"><img src="images/right.png"
+			width="30" height="30"></a>
 		<%
 			}
 		%>
 		<!--달력 넘기기 끝  -->
-	<!-- end container -->
+		<!-- end container -->
 
 
-	<script type="text/javascript">
+		<script type="text/javascript">
 		// 당월 총 일수 구하기
 		/** 년,월 받으면 일수계산 */
 		function getTotalDate(year, month) {
@@ -298,31 +319,11 @@
 				order = 0;
 			}
 			imgs[order].style.display = "block";
-
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		}
+	}
 
 	</script>
-	<form name="calendarFrm" id="calendarFrm" action="" method="post">
+		<form name="calendarFrm" id="calendarFrm" action="" method="post">
 
-	</form>
-	
-
-
-
+		</form>
 </body>
 </html>

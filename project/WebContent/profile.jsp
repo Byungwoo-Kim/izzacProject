@@ -67,7 +67,7 @@
 
 	<div id="profilewrap">
 		<div id="profileleft">
-			<img src="images/logocolor.jpg" alt="이미지오류" width="159px" height="130px">
+			<img src="images/logocol.jpg" alt="이미지오류" width="159px" height="130px">
 		</div>
 		<!-- 노로그인 -->
 		<c:choose>

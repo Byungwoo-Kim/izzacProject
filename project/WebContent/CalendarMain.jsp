@@ -7,18 +7,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
-	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
-	function clickTrEvent(year, month, date) {
-		alert(year + "년" + month + "월" + date + "일");
-	}
-</script>
+
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=3">
 </head>
 <body>
+	<script type="text/javascript">
+	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
+	function clickTrEvent(year, month, date) {
+		
+	alert(year + "년" + month + "월" + date + "일");
+	$.ajax({
+			url : "DailyResultService",
+			data : "year=" + year +"&month=" + month+"&date="+date,
+			success : function(result) {
+				
+				alert("?");
+				alert(result);
+			},
+			error : function(request, status, error) {
+				alert("code:" + request.status + "\n" + "message:"
+						+ request.responseText + "\n" + "error:" + error);
+			}
 
+		});
+
+	}
+
+</script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
@@ -117,12 +137,13 @@
 										: Integer.toString(index);
 
 								int iUseDate = Integer.parseInt(sUseDate);
-										
+
 								//달력 칸 나누기
 								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
-						<div  onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'>
+						<div
+							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'>
 							<font color='<%=color%>'> <%=index%>
 							</font>
 						</div>
@@ -154,6 +175,11 @@
 			<div class="ring-left"></div>
 			<div class="ring-right"></div>
 
+		</div>
+		
+		
+		<div>
+		
 		</div>
 		<!--달력 넘기기  -->
 		<!-- slide 함수에 2들어가면 해가 바뀌고 1이 넘어가면 월이 바뀐다  -->
@@ -203,6 +229,8 @@
 
 	</div>
 	<!-- end container -->
+	<!-- 일 눌렀을때 오른쪽에 나오는 창  -->
+
 
 
 	<script type="text/javascript">
@@ -293,13 +321,11 @@
 			imgs[order].style.display = "block";
  */
 		}
-		function dailyInfo() {
-
-		}
 	</script>
 	<form name="calendarFrm" id="calendarFrm" action="" method="post">
 
 	</form>
+
 
 
 

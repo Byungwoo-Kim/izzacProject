@@ -11,7 +11,7 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="assets/css/widget.css?ver=4">
+<link rel="stylesheet" href="assets/css/widget.css?ver=3">
 
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
@@ -385,7 +385,7 @@
 
 		<section>
 
-		<h1 id="selectedCity">
+		<h1 id="selectedCity" class="blue">
 			서울특별시<a href="#widgetOpen" class="add">+</a>
 			<div class="widget_content" id="widgetOpen">
 				<div>
@@ -605,7 +605,7 @@
 
 						<button onclick='psnSelect()'>확인</button>
 					<p>
-						<a href="#close">닫기</a>
+						<a href="#close" class="blue">닫기</a>
 					</p>
 					</form>
 
@@ -620,8 +620,8 @@
 				<table align="center">
 					<tr>
 						<td colspan="3" align="center"><img id="weatherImage"
-							src="img/sunny.png"></td>
-						<td colspan="3"><span class="degree-symbol" id="tempShow">32℃</span></td>
+							src="img/yellowsunny.jpg"></td>
+						<td colspan="3"><span class="degree-symbol" id="tempShow" class="blue">32℃</span></td>
 					</tr>
 					<tr>
 						<td>  <br></td>
@@ -632,20 +632,20 @@
 						<td>
 
 							<li class="fontawesome-leaf left" id="humShow"><span
-								id="conText">습도</span></li>
+								id="conText" class="blue">습도</span></li>
 						</td>
 						<td><img width="30px" height="30px"
 							src="img/umbrellaBlack.png"></td>
 						<td>
 
 							<li class="fontawesome-tint center" id="rainShow"><span
-								id="conText">강수량</span></li>
+								id="conText" class="blue">강수량</span></li>
 						</td>
 						<td><img width="30px" height="30px" src="img/windBlack.png"></td>
 						<td>
 
 							<li class="fontawesome-umbrella right" id="windShow"><span
-								id="conText">풍속</span></li>
+								id="conText" class="blue">풍속</span></li>
 						</td>
 					</tr>
 				</table>
