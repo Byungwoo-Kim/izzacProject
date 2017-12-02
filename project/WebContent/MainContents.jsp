@@ -110,7 +110,7 @@ font-family: 나눔스퀘어라운드, serif;
             </div>
          </td>
          <td id="top-center"><div id="top-center-div">
-          <a href="#" onclick="isFree()"><img src="images/bigban1.jpg" alt="이미지 오류" width="400" height="380"></a>
+          <a href="#" onclick="isFree()"><img src="images/bigban96.jpg" alt="이미지 오류" width="400" height="380"></a>
             </div></td>
          <td id=top-right"><div id="top-right-div">
                <iframe width="400" height="400" src='crawlingMain.jsp' name="test"

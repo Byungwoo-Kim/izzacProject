@@ -8,7 +8,17 @@
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css?ver=4" />
-
+<style type="text/css">
+#parasol{
+font-size: 110px;
+text-align: center;
+font-family: "Bebas Neue", serif;
+font-weight: bold;
+color: #ed9357;
+padding-left: 3.2em;
+padding-top: 30px;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -19,8 +29,11 @@
          <div class="inner">
 
             <!-- Header -->
-            <header id="header"> <a href="index.jsp" class="logo"><strong>Project</strong>
-               by BBcompany</a> <c:choose>
+            <header id="header"> 
+            <span ID="parasol"><img src="images/logo1.jpg" alt="·Î°í°¡ ¾Èº¸¿©À×" width="100px" height="85px">PARASOL</span>
+            
+            <!-- <a href="index.jsp" class="logo"><strong>Project</strong>
+               by BBcompany</a> --> <c:choose>
                <c:when test="${empty email}">
                   <ul class="icons">
                      <li><a href="#" class="button special fit"
@@ -43,10 +56,9 @@
       <!-- Sidebar -->
       <div id="sidebar">
          <div class="inner">
-            <!-- Search -->
-            <section id="search" class="alt"> <iframe
+          <!-- Search -->
+          <section id="search" class="alt"> <iframe
                src="profile.jsp" scrolling="no" height="100%" width="100%">»ÑÀ×»ÑÀ×</iframe>
-
             </section>
             <!-- Menu -->
             <nav id="menu"> <header class="major">
