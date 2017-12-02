@@ -22,44 +22,53 @@ public class DailyResultService extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		//email 세션으로 나중에 바꿔줄것
+		//email 세션값으로 바꿔줘야함
 		//String email = (String) session.getAttribute("email");
 		String email = "test@test";
-		
 		
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
 		String date = request.getParameter("date");
 		String selectedDate = year + "-" + month + "-" + date;
 		System.out.println(selectedDate);
-		
-		
-		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter out = response.getWriter();
 
 		DataDAO dao = new DataDAO();
 
-		ArrayList<AnalDTO> list = new ArrayList<>();
+		ArrayList<PreDTO> list = new ArrayList<>();
 		try {
-			System.out.println("여기까진 됐고,");
-			list = dao.SelectAnal(email);
-
+			list = dao.SelectPre(email);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("선택한 날짜 : " + selectedDate);
-		System.out.println("데이터 날짜 : " + list.get(0).getaDate());
-		String AnalData = "";
+		System.out.println("선택한 날짜pre : " + selectedDate);
+		System.out.println("데이터 날짜pre : " + list.get(0).getpDate());
+		String AnalData1 = "";
+		String AnalData2 = "";
+		String AnalData3 = "";
+		String AnalData4 = "";
+		String AnalData5 = "";
+		String AnalData6 = "";
+		String AnalData7 = "";
+		String AnalData8 = "";
+		String PreData = "";
 		for (int i = 0; i < list.size(); i++) {
-			if ((list.get(i).getaDate()).equals(selectedDate)) {
+			if ((list.get(i).getpDate()).equals(selectedDate)) {
 				System.out.println("1단계");
-				AnalData = list.get(i).getAnalData();
-
+				AnalData1 = list.get(i).getPreData0();
+				AnalData2 = list.get(i).getPreData1();
+				AnalData3 = list.get(i).getPreData2();
+				AnalData4 = list.get(i).getPreData3();
+				AnalData5 = list.get(i).getPreData4();
+				AnalData6 = list.get(i).getPreData5();
+				AnalData7 = list.get(i).getPreData6();
+				AnalData8 = list.get(i).getPreData7();
 			}
 		}
-		System.out.println(AnalData);
-		out.print(AnalData);
+		String all = AnalData1 + "_" + AnalData2 + "_" + AnalData3 + "_" + AnalData4 + "_" + AnalData5 + "_" + AnalData6 + "_" + AnalData7 + "_" + AnalData8;
+		System.out.println(all);
+		out.print(all);
 
 	}
 
