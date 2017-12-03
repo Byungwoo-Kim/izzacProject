@@ -55,8 +55,6 @@ location.href="../MainContents.jsp";
 
 		<table>
 		
-		
-		
 		<tr>
 		<td>상품명</td>
 		<!-- 아이템 -->
