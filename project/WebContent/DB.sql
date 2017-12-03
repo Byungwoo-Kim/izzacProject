@@ -97,3 +97,5 @@ CREATE TABLE Sales_Support(
 
 /* 실제매출 수정 */
 alter table Sales_Anal add(AnalMoney varchar2(100));
+
+select * from Sales_Anal where email = 'kutar37@gmail.com';
