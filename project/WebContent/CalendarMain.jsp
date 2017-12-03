@@ -8,6 +8,8 @@
 <html>
 <head>
 <link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=8">
+<script src="./Chart.min.js"></script>
+
 <style type="text/css">
 .container {
 	margin-left: 17em;
@@ -34,6 +36,71 @@
 	display: inline;
 	color: #e66b6b;
 }
+
+.doughnut-legend {
+			list-style: none;
+			position: absolute;
+			right: 8px;
+			top: 0;
+		}
+		.doughnut-legend li {
+			display: inline;
+			padding-left: 30px;
+			position: relative;
+			margin-bottom: 4px;
+			border-radius: 5px;
+			padding: 2px 8px 2px 28px;
+			font-size: 14px;
+			cursor: default;
+			-webkit-transition: background-color 200ms ease-in-out;
+			-moz-transition: background-color 200ms ease-in-out;
+			-o-transition: background-color 200ms ease-in-out;
+			transition: background-color 200ms ease-in-out;
+		}
+		.doughnut-legend li:hover {
+			background-color: #fafafa;
+		}
+		.doughnut-legend li span {
+			display: inline;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 20px;
+			height: 100%;
+			border-radius: 5px;
+		}
+		.polararea-legend {
+			list-style: none;
+			right: 300px;
+			top: 300px;
+		}
+		.polararea-legend li {
+			display: inline;
+			padding-left: 30px;
+			position: relative;
+			margin-bottom: 4px;
+			border-radius: 5px;
+			padding: 2px 8px 2px 28px;
+			font-size: 14px;
+			cursor: default;
+			-webkit-transition: background-color 200ms ease-in-out;
+			-moz-transition: background-color 200ms ease-in-out;
+			-o-transition: background-color 200ms ease-in-out;
+			transition: background-color 200ms ease-in-out;
+		}
+		.polararea-legend li:hover {
+			background-color: #fafafa;
+		}
+		.polararea-legend li span {
+			display: inline;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 20px;
+			height: 100%;
+			border-radius: 5px;
+		}
+		
 </style>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
@@ -893,16 +960,229 @@
 			}/*  else if (order == imgs.length) {
 				order = 0;
 			}
-			imgs[order].style.display = "block";
+			imgs[order].style.display = "inline";
  */
 		}
 	</script>
 	<form name="calendarFrm" id="calendarFrm" action="" method="post">
 
 	</form>
+	<br><br>
+<hr size="4px">
+<br><br>
 
+<!-- 파이그래프 -->
+<div style="width: 40%">
+		<canvas id="canvas" height="250px" width="350px"></canvas>
+	</div>
+	<br />
+	<input type="button" id="btnPolar" value="view polar-area">
+	<input type="button" id="btnPie" value="view pie">
+	<input type="button" id="btnDoughnut" value="view doughnut">
 
+	<script type="text/javascript">
+		
+		var chartData = [
+				{
+					value: 100,
+					color:"#F7464A",
+					highlight: "#FF5A5E",
+					label: "Red"
+				},
+				{
+					value: 99,
+					color: "#46BFBD",
+					highlight: "#5AD3D1",
+					label: "Green"
+				},
+				{
+					value: 50,
+					color: "#FDB45C",
+					highlight: "#FFC870",
+					label: "Yellow"
+				},
+				{
+					value: 40,
+					color: "#949FB1",
+					highlight: "#A8B3C5",
+					label: "Grey"
+				},
+				{
+					value: 30,
+					color: "#4D5360",
+					highlight: "#616774",
+					label: "Dark Grey"
+				}
 
+			];
+
+		var chart = null;
+		var canvas = null;
+		var ctx = null;
+		var legendHolder = null;
+		var helpers = Chart.helpers;
+		$(function() {
+			canvas = document.getElementById("canvas");
+			legendHolder = document.createElement('div');
+			ctx = canvas.getContext("2d");
+			chart = new Chart(ctx).PolarArea(chartData, {
+				scaleShowLabelBackdrop : true,
+				scaleBackdropColor : "rgba(255,255,255,0.75)",
+				scaleBeginAtZero : true,
+				scaleBackdropPaddingY : 2,
+				scaleBackdropPaddingX : 2,
+				scaleShowLine : true,
+				segmentShowStroke : true,
+				segmentStrokeColor : "#fff",
+				segmentStrokeWidth : 2,
+				animationSteps : 100,
+				animationEasing : "easeOutBounce",
+				animateRotate : true,
+				animateScale : false,
+				responsive: true,
+				onAnimationProgress: function() {
+					console.log("onAnimationProgress");
+				},
+				onAnimationComplete: function() {
+					console.log("onAnimationComplete");
+				}
+			});
+
+			legendHolder.innerHTML = chart.generateLegend();
+			helpers.each(legendHolder.firstChild.childNodes, function(legendNode, index){
+				helpers.addEvent(legendNode, 'mouseover', function(){
+					var activeSegment = chart.segments[index];
+					activeSegment.save();
+					activeSegment.fillColor = activeSegment.highlightColor;
+					chart.showTooltip([activeSegment]);
+					activeSegment.restore();
+				});
+			});
+			helpers.addEvent(legendHolder.firstChild, 'mouseout', function(){
+				chart.draw();
+			});
+			canvas.parentNode.appendChild(legendHolder.firstChild);
+		});
+
+		$("input#btnAdd").on("click", function() {
+			chart.addData({
+				value: randomScalingFactor(),
+				color: "#B48EAD",
+				highlight: "#C69CBE",
+				label: "Purple"
+			});
+		});
+
+		$("input#btnPolar").on("click", function() {
+			chart.destroy();
+			chart = new Chart(ctx).PolarArea(chartData, {
+				segmentStrokeColor: "#000000",
+				animation: true,
+				responsive: true,
+			});
+		});
+		
+		$("input#btnPie").on("click", function() {
+			chart.destroy();
+			chart = new Chart(ctx).Pie(chartData, {
+				animateScale: true,
+				animation: true,
+				responsive: true,
+			});
+		});
+
+		$("input#btnDoughnut").on("click", function() {
+			chart.destroy();
+			chart = new Chart(ctx).Doughnut(chartData, {
+				animateScale: true,
+				animation: true,
+				responsive: true,
+			});
+		});
+
+		$("canvas").on("click", function(e) {
+			var activePoints = chart.getSegmentsAtEvent(e);
+			console.log(activePoints);
+			for(var i in activePoints) {
+				console.log(activePoints[i].value);
+			}
+		});
+
+	</script>
+
+	<!-- bar그래프 -->
+<div style="width: 40%;">
+		<canvas id="canvas" height="450" width="600"></canvas>
+	</div>
+	<script type="text/javascript">
+				
+		var barChart = null;
+		var barChartData = {
+			labels : ["January","February","March","April","May","June","July"],
+			datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,0.8)",
+					highlightFill: "rgba(220,220,220,0.75)",
+					highlightStroke: "rgba(220,220,220,1)",
+					data : [1,2,3,4,5,6,7]
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,0.8)",
+					highlightFill : "rgba(151,187,205,0.75)",
+					highlightStroke : "rgba(151,187,205,1)",
+					data : [7,6,5,4,3,2,1]
+				}
+			]
+
+		};
+
+		$(function() {
+			var ctx = document.getElementById("canvas").getContext("2d");
+			barChart = new Chart(ctx).Bar(barChartData, {
+				//Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+				scaleBeginAtZero : false,
+				//Boolean - Whether grid lines are shown across the chart
+				scaleShowGridLines : true,
+				//String - Colour of the grid lines
+				scaleGridLineColor : "rgba(0,0,0,0.05)",
+				//Number - Width of the grid lines
+				scaleGridLineWidth : 1,
+				//Boolean - If there is a stroke on each bar
+				barShowStroke : false,
+				//Number - Pixel width of the bar stroke
+				barStrokeWidth : 2,
+				//Number - Spacing between each of the X value sets
+				barValueSpacing : 5,
+				//Number - Spacing between data sets within X values
+				barDatasetSpacing : 1,
+				onAnimationProgress: function() {
+					console.log("onAnimationProgress");
+				},
+				onAnimationComplete: function() {
+					console.log("onAnimationComplete");
+				}
+			});
+		});
+
+		$("input#btnAdd").on("click", function() {
+			barChart.addData(
+				[randomScalingFactor(),randomScalingFactor()], 
+				months[(barChart.datasets[0].bars.length)%12]
+			);
+		});
+
+		$("canvas").on("click", function(e) {
+			var activeBars = barChart.getBarsAtEvent(e);
+			console.log(activeBars);
+
+			for(var i in activeBars) {
+				console.log(activeBars[i].value);
+			}
+		});
+
+	</script>
 
 </body>
 </html>
