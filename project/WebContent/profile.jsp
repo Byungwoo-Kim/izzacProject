@@ -109,7 +109,7 @@ img {
 							request.setAttribute("emailSplit", emailSplit[0]);
 				%>
 				<div id="profiletop">
-				<img src="images/profileboo.jpg" alt="¶ì¿ë"> 
+				<img src="images/profilenew.jpg" alt="¶ì¿ë"> 
 					<span id="profileid2">${emailSplit }</span>
 				</div>
 				<div id="profilebottom">
