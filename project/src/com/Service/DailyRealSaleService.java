@@ -31,8 +31,8 @@ public class DailyRealSaleService extends HttpServlet {
 			date = "0" + date;
 
 		}
-		String selectedDate = year + "-" + (month + 1) + "-" + date;
-		System.out.println(selectedDate);
+		String selectedDate = year + "-" + month + "-" + date;
+		System.out.println("RealSale selectedDate : " + selectedDate);
 		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter out = response.getWriter();
 
@@ -51,12 +51,11 @@ public class DailyRealSaleService extends HttpServlet {
 			if ((list.get(i).getaDate()).equals(selectedDate)) {
 
 				analMoney = list.get(i).getAnalMoney();
+				System.out.println("RealSale analMoney : " + analMoney);
 				break;
-			}else {
-				analMoney = "당일 판매금액 데이터가 없습니다.";
 			}
 		}
-		System.out.println(analMoney);
+		
 		out.print(analMoney);
 
 	}

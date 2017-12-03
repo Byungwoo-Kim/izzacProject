@@ -34,8 +34,8 @@ public class DailyAnalService extends HttpServlet {
 			date = "0"+date;
 			
 		}
-		String selectedDate = year + "-" + (month+1) + "-" + date;
-		System.out.println(selectedDate);
+		String selectedDate = year + "-" + month + "-" + date;
+		System.out.println("DailyAnal selectedDate : " + selectedDate);
 		
 		
 		response.setContentType("text/html;charset=euc-kr");
@@ -62,10 +62,9 @@ public class DailyAnalService extends HttpServlet {
 				break;
 			}else {
 				AnalData = "nothing";
-				System.out.println("당일판매량 데이터가 없습니다.");
 			}
 		}
-		System.out.println(AnalData);
+		System.out.println("DailyAnal AnalData : " + AnalData);
 		out.print(AnalData);
 
 	}

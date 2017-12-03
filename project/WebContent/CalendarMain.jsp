@@ -44,11 +44,44 @@
 </head>
 <body>
 	<script type="text/javascript">
-/* 	function setToday(){
+	//날짜 , 최신 데이터 등 바로 실행될 함수
+	var lastDate = "";
+	var year = "";
+	var month = "";
+	var date = "";
+	
+
+	
+	
+	
+	opening();
+	function opening(){
+
+		$.ajax({
+			//최신 데이터 받아오기
+				url : "LastDataSearching",
+				success : function(result) {
+					
+					lastDate = result;
+					var temp = lastDate.split("-");
+					year = temp[0];
+					month = temp[1];
+					date = temp[2];
+					clickTrEvent(year, month, date);
+				}
+
+			});
+		
+		
+	}
+	
+	
+	
+ 	function setToday(){
 		var todayTag = document.getElementById("dateShow");
 		todayTag.innerHTML = '1';
 		
-	} */
+	}
 	 
 	
 	//버튼 위에 올리면 글자나오기
@@ -109,12 +142,17 @@
 	 var preMoney8 = "";
 	 
 	 var analMoney = "";
-	 
+
+		
 
 	 
-	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
+	//날짜 클릭이벤트
 	function clickTrEvent(year, month, date) {
-
+		var todayC =  year + "년 " + month + "월" + date + "일";
+		var dateTag = document.getElementById("dateShow");
+		dateTag.innerHTML = todayC;	
+		
+		
 		
 	$.ajax({
 			//실제 매출 가져오기
@@ -246,7 +284,6 @@
 	
 	
 	}
-	
 
 	function test(number){
 		var resultTag = document.getElementById("percentId");
@@ -264,11 +301,16 @@
 		var analMoney = document.getElementById("analMoney");
 		
 		
+		
+		
+		
+		
 		if(number==1){
 			var choice1menuS = choice1menu.split(",");
 			var choice1qtyS = choice1qty.split(",");
-			
-			
+			var choiceTemp = new Array();
+			var div = new Array();
+						
 			QtyTag1.innerHTML = choice1qtyS[0];
 			QtyTag2.innerHTML = choice1qtyS[1];
 			QtyTag3.innerHTML = choice1qtyS[2];
@@ -279,6 +321,8 @@
 
 			resultTag.innerHTML = accu1 + "%";
 			preMoney.innerHTML = preMoney1;
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 1";
 			
 		}else if(number==2){
 			var choice2menuS = choice2menu.split(",");
@@ -297,6 +341,8 @@
 			
 			preMoney.innerHTML = preMoney2;
 			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 2";
 			
 		}else if(number==3){
 			var choice3menuS = choice3menu.split(",");
@@ -314,6 +360,9 @@
 			resultTag.innerHTML = accu3 + "%";
 
 			preMoney.innerHTML = preMoney3;
+			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 3";
 		}else if(number==4){
 			var choice4menuS = choice4menu.split(",");
 			var choice4qtyS = choice4qty.split(",");
@@ -330,6 +379,8 @@
 			
 			preMoney.innerHTML = preMoney4;
 			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 4";
 		}else if(number==5){
 			var choice5menuS = choice5menu.split(",");
 			var choice5qtyS = choice5qty.split(",");
@@ -346,6 +397,9 @@
 			
 			preMoney.innerHTML = preMoney5;
 			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 5";
+			
 		}else if(number==6){
 			var choice6menuS = choice6menu.split(",");
 			var choice6qtyS = choice6qty.split(",");
@@ -361,6 +415,9 @@
 			resultTag.innerHTML = accu6 + "%";
 			
 			preMoney.innerHTML = preMoney6;
+			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 6";
 		}else if(number==7){
 			var choice7menuS = choice7menu.split(",");
 			var choice7qtyS = choice7qty.split(",");
@@ -377,6 +434,9 @@
 			
 			preMoney.innerHTML = preMoney7;
 			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 7";
+			
 		}else if(number==8){
 			var choice8menuS = choice8menu.split(",");
 			var choice8qtyS = choice8qty.split(",");
@@ -392,6 +452,9 @@
 			resultTag.innerHTML = accu8 + "%";
 			
 			preMoney.innerHTML = preMoney8;
+			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 8";
 		}
 		Qtag1.innerHTML = qty1;
 		Qtag2.innerHTML = qty2;
@@ -650,16 +713,17 @@
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 8</button></td>
 			</tr>
-			<tr><td colspan = "3" id = "dateShow">2017년 12월 03일</td><td colspan = "2">선택한 옵션</td><td width = "25%" id = "typeShow">TYPE 3</td>
 			<tr>
-				<td colspan="3" class="title">예측 판매량</td>
-				<td colspan="3" class="title">실제 판매량</td>
-			</tr>
+				<td colspan="3" id="dateShow">2017년 12월 03일</td>
+				<td colspan="2">선택한 옵션</td>
+				<td width="25%" id="typeShow">TYPE 1</td>
+			<tr>
 			<tr>
 				<td class="rank">1.</td>
 				<td id="preMenu1">Iced Americano</td>
 				<td id="preQty1">87</td>
 				<td class="rank">1.</td>
+
 				<td id="realMenu1">Iced Americano</td>
 				<td id="realQty1">79</td>
 			</tr>

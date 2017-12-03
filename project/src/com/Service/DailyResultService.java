@@ -32,8 +32,8 @@ public class DailyResultService extends HttpServlet {
 			date = "0"+date;
 			
 		}
-		String selectedDate = year + "-" + (month+1) + "-" + date;
-		System.out.println(selectedDate);
+		String selectedDate = year + "-" + month + "-" + date;
+		System.out.println("DailyResult selectedDate : " + selectedDate);
 		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter out = response.getWriter();
 
@@ -69,12 +69,10 @@ public class DailyResultService extends HttpServlet {
 				AnalData7 = list.get(i).getPreData6();
 				AnalData8 = list.get(i).getPreData7();
 				break;
-			}else {
-				System.out.println("예상 데이터가 없습니다.");
 			}
 		}
 		String all = AnalData1 + "_" + AnalData2 + "_" + AnalData3 + "_" + AnalData4 + "_" + AnalData5 + "_" + AnalData6 + "_" + AnalData7 + "_" + AnalData8;
-		System.out.println("예상판매량" + all);
+		System.out.println("예상판매량 : " + all);
 		out.print(all);
 
 	}
