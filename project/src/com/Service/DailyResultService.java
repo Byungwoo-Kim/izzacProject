@@ -71,7 +71,7 @@ public class DailyResultService extends HttpServlet {
 				break;
 			}
 		}
-		String all = AnalData1 + "_" + AnalData2 + "_" + AnalData3 + "_" + AnalData4 + "_" + AnalData5 + "_" + AnalData6 + "_" + AnalData7 + "_" + AnalData8;
+		String all = AnalData1 + "^" + AnalData2 + "^" + AnalData3 + "^" + AnalData4 + "^" + AnalData5 + "^" + AnalData6 + "^" + AnalData7 + "^" + AnalData8;
 		System.out.println("예상판매량 : " + all);
 		out.print(all);
 

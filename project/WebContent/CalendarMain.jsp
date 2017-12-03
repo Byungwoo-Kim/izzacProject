@@ -50,12 +50,8 @@
 	var month = "";
 	var date = "";
 	
-
-	
-	
-	
 	opening();
-	function opening(){
+ 	function opening(){
 		$.ajax({
 			//최신 데이터 받아오기
 				url : "LastDataSearching",
@@ -72,7 +68,7 @@
 			});
 		
 		
-	}
+	} 
 	
 	
 	
@@ -157,8 +153,8 @@
 	function clickTrEvent(year, month, date) {
 		var todayC =  year + "년 " + month + "월" + date + "일";
 		var dateTag = document.getElementById("dateShow");
-		dateTag.innerHTML = todayC;	
-		test2(1);
+		dateTag.innerHTML = todayC;
+		
 		
 		
 	$.ajax({
@@ -170,8 +166,7 @@
 					var dailySaleMoney = result;
 					var analMoneyTag = document.getElementById("analMoney");
 					analMoneyTag.innerHTML = dailySaleMoney;
-					
-					
+					test2(1);
 				}
 
 			});
@@ -182,9 +177,6 @@
 			success : function(result) {
 				if(result=="nothing"){
 					alert("해당하는 날짜에 데이터가 없습니다.");}
-				
-				
-				
 
 				var menuAndQty = result.split("/");
 				var itemlist = menuAndQty[0].split(",");
@@ -207,9 +199,6 @@
 				Mtag2 = document.getElementById("realMenu2");
 				Mtag3 = document.getElementById("realMenu3");
 				
-				
-
-				
 				Qtag1.innerHTML = qty1;
 				Qtag2.innerHTML = qty2;
 				Qtag3.innerHTML = qty3;
@@ -217,7 +206,7 @@
 				Mtag1.innerHTML = item1;
 				Mtag2.innerHTML = item2;
 				Mtag3.innerHTML = item3;
-				
+				test2(1);
 			}
 
 		});
@@ -226,7 +215,7 @@
 			url : "DailyResultService",
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
-			var devideChoice = result.split("_");	
+			var devideChoice = result.split("^");	
 			var choice1 = devideChoice[0];
 			var choice2 = devideChoice[1];
 			var choice3 = devideChoice[2];
@@ -253,6 +242,7 @@
 			choice6qty = choice6.split("/")[1];
 			choice7qty = choice7.split("/")[1];
 			choice8qty = choice8.split("/")[1];
+			
 			preMoney1 = choice1.split("/")[2];
 			preMoney2 = choice2.split("/")[2];
 			preMoney3 = choice3.split("/")[2];
@@ -262,9 +252,7 @@
 			preMoney7 = choice7.split("/")[2];
 			preMoney8 = choice8.split("/")[2];
 			
-			
-			
-			
+			test2(1);
 			}
 
 		});
@@ -283,8 +271,7 @@
 				accu6 = AccuList[5];
 				accu7 = AccuList[6];
 				accu8 = AccuList[7];
-				
-				
+				test2(1);
 			}
 
 		});
@@ -315,6 +302,7 @@
 		if(number==1){
 			var choice1menuS = choice1menu.split(",");
 			var choice1qtyS = choice1qty.split(",");
+			
 			var choiceTemp = new Array();
 			var div = new Array();
 						
@@ -487,15 +475,9 @@
 		var analMoney = document.getElementById("analMoney");
 		
 		
-		
-		
-		
-		
 		if(number==1){
 			var choice1menuS = choice1menu.split(",");
 			var choice1qtyS = choice1qty.split(",");
-			var choiceTemp = new Array();
-			var div = new Array();
 						
 			QtyTag1.innerHTML = choice1qtyS[0];
 			QtyTag2.innerHTML = choice1qtyS[1];
@@ -632,14 +614,14 @@
 										: Integer.toString(index);
 
 								int iUseDate = Integer.parseInt(sUseDate);
-								
+
 								int month = nowMonth + 1;
 
 								//달력 칸 나누기
 								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
-						
+
 						<div id="dateArea"
 							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=month%>,<%=index%>)'>
 							<font color='<%=color%>'> <%=index%>
@@ -765,33 +747,33 @@
 						class="btn-group">TYPE 8</button></td>
 			</tr>
 			<tr>
-				<td colspan="3" id="dateShow">2017년 12월 03일</td>
+				<td colspan="3" id="dateShow">2017년 11월 30일</td>
 				<td colspan="2">선택한 옵션</td>
 				<td width="25%" id="typeShow">TYPE 1</td>
 			<tr>
 			<tr>
-				<td class="rank">1.</td>
-				<td id="preMenu1">Iced Americano</td>
-				<td id="preQty1">87</td>
-				<td class="rank">1.</td>
+				<td class="rank">◎</td>
+				<td id="preMenu1">Americano_ICE</td>
+				<td id="preQty1">79</td>
+				<td class="rank">◎</td>
 
-				<td id="realMenu1">Iced Americano</td>
+				<td id="realMenu1">Americano_ICE</td>
 				<td id="realQty1">79</td>
 			</tr>
 			<tr>
-				<td class="rank">2.</td>
-				<td id="preMenu2">Iced Vanilla Latte</td>
+				<td class="rank">◎</td>
+				<td id="preMenu2">Americono_HOT</td>
 				<td id="preQty2">54</td>
-				<td class="rank">2.</td>
-				<td id="realMenu2">Hot Chocolate</td>
+				<td class="rank">◎</td>
+				<td id="realMenu2">Americono_HOT</td>
 				<td id="realQty2">43</td>
 			</tr>
 			<tr>
-				<td class="rank">3.</td>
-				<td id="preMenu3">Espresso</td>
+				<td class="rank">◎</td>
+				<td id="preMenu3">CafeMocha</td>
 				<td id="preQty3">45</td>
-				<td class="rank">3.</td>
-				<td id="realMenu3">Iced Vanilla Latte</td>
+				<td class="rank">◎</td>
+				<td id="realMenu3">CafeMocha</td>
 				<td id="realQty3">39</td>
 			</tr>
 			<tr>
