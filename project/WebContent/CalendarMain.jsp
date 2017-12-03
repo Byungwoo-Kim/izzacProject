@@ -181,7 +181,8 @@
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
 				if(result=="nothing"){
-					alert("해당하는 날짜에 데이터가 없습니다.");}
+					alert("해당하는 날짜에 데이터가 없습니다.");} 
+				else{
 				
 				
 				
@@ -217,7 +218,7 @@
 				Mtag1.innerHTML = item1;
 				Mtag2.innerHTML = item2;
 				Mtag3.innerHTML = item3;
-				
+				}
 			}
 
 		});
@@ -632,14 +633,14 @@
 										: Integer.toString(index);
 
 								int iUseDate = Integer.parseInt(sUseDate);
-								
+
 								int month = nowMonth + 1;
 
 								//달력 칸 나누기
 								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
-						
+
 						<div id="dateArea"
 							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=month%>,<%=index%>)'>
 							<font color='<%=color%>'> <%=index%>
