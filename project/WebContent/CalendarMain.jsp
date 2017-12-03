@@ -44,7 +44,11 @@
 </head>
 <body>
 	<script type="text/javascript">
-	
+	function setToday(){
+		var todayTag = document.getElementById("dateShow");
+		todayTag.innerHTML = 
+		
+	}
 	 
 	
 	//버튼 위에 올리면 글자나오기
@@ -646,6 +650,7 @@
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 8</button></td>
 			</tr>
+			<tr><td colspan = "3" id = "dateShow">2017년 12월 03일</td><td colspan = "2">선택한 옵션</td><td width = "25%" id = "typeShow">TYPE 3</td>
 			<tr>
 				<td colspan="3" class="title">예측 판매량</td>
 				<td colspan="3" class="title">실제 판매량</td>
