@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<link rel="stylesheet" href="../assets/css/TodaySales/TodaySales.css?ver=1">
+<link rel="stylesheet" href="../assets/css/TodaySales/TodaySales.css">
 <title>Insert title here</title>
 
 <c:if test="${empty email}">
@@ -21,28 +21,36 @@ location.href="../MainContents.jsp";
 
 </head>
 <body>
+	<%
+		
+		String sessionEmail = (String)session.getAttribute("email");
+	
+	if(sessionEmail!=null){
+	
+		MemberDAO dao = new MemberDAO();
+		MemberDTO dto = dao.ForMemberUpdate(sessionEmail);
+		
+		String userEnviron= dto.getEnviron();
+			
+		DataDAO dataDAO = new DataDAO();
+		String todayPre = dataDAO.SelectTodayPre(sessionEmail, userEnviron);
+		
+		if(todayPre.equals("")) {
+		
+	%>
+		<img alt="XXXX" src="../img/NoData.png" style="border: 0px; width: 100%;">
+	<%
+		} else { 
+			String[] result = todayPre.split("/");
+		
+			request.setAttribute("itemName", result[0]);
+			request.setAttribute("itemCount", result[1]);
+	%>
+
 	<div id="wrapper">
 		<!-- text형식의 메뉴별 판매량 -->
 		<div id="text">
-		
-		<%		
-			String sessionEmail = (String)session.getAttribute("email");
-		
-			if(sessionEmail!=null){
-				MemberDAO dao = new MemberDAO();
-				MemberDTO dto = dao.ForMemberUpdate(sessionEmail);
-				
-				String userEnviron= dto.getEnviron();
-	 			
-				DataDAO dataDAO = new DataDAO();
-				String todayPre = dataDAO.SelectTodayPre(sessionEmail, userEnviron);
-	 			String[] result = todayPre.split("/");
-	 			
-	 			request.setAttribute("itemName", result[0]);
-	 			request.setAttribute("itemCount", result[1]);
-			}
- 			
- 		%>
+
 		<table>
 		<tr>
 		<!-- 아이템 -->
@@ -81,7 +89,7 @@ location.href="../MainContents.jsp";
 			width="1200px" height="860px" scrolling="no" frameborder="0"></iframe> -->
 	</div>
 	</div>
-	
+	<% } }%>
 </body>
 </html>
 

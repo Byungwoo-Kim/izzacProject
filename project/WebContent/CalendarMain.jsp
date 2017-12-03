@@ -12,10 +12,27 @@
 .container {
 	margin-left: 17em;
 	margin-top: 20em;
-	/* 	left: 30%;
-	top: 10%; */
 	position: absolute;
 	transform: translate(-50%, -50%);
+}
+
+.mySlides {
+	display: none;
+}
+
+.btn-group {
+	width: 10%;
+	height: 70px;
+	background-color: #eff1f2;
+	border: none;
+	display: inline;
+	color: #e66b6b;
+	font-weight: bold;
+	height: 70px;
+	background-color: #eff1f2;
+	border: none;
+	display: inline;
+	color: #e66b6b;
 }
 </style>
 <meta charset="EUC-KR">
@@ -54,6 +71,17 @@
 	 var accu7="";
 	 var accu8="";
 	 
+	 var preMoney1 = "";
+	 var preMoney2 = "";
+	 var preMoney3 = "";
+	 var preMoney4 = "";
+	 var preMoney5 = "";
+	 var preMoney6 = "";
+	 var preMoney7 = "";
+	 var preMoney8 = "";
+	 
+	 var analMoney = "";
+	 
 	 
 	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
 	function clickTrEvent(year, month, date) {
@@ -63,7 +91,12 @@
 			url : "DailyAnalService",
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
+				if(result=="nothing"){
+					alert("해당하는 날짜에 데이터가 없습니다.");}
 				
+				
+				
+
 				var menuAndQty = result.split("/");
 				var itemlist = menuAndQty[0].split(",");
 				var qtyList = menuAndQty[1].split(",");
@@ -132,7 +165,15 @@
 			choice7qty = choice7.split("/")[1];
 			choice8qty = choice8.split("/")[1];
 			
-
+			preMoney1 = choice1.split("/")[2];
+			preMoney2 = choice1.split("/")[2];
+			preMoney3 = choice1.split("/")[2];
+			preMoney4 = choice1.split("/")[2];
+			preMoney5 = choice1.split("/")[2];
+			preMoney6 = choice1.split("/")[2];
+			preMoney7 = choice1.split("/")[2];
+			preMoney8 = choice1.split("/")[2];
+			
 			
 			
 			
@@ -162,6 +203,28 @@
 	
 	
 	}
+	
+	$.ajax({
+		//실제 매출 가져오기
+			url : "DailyRealSaleService",
+			data : "year=" + year +"&month=" + month+"&date="+date,
+			success : function(result) {
+				
+				var AccuList = result.split(",");
+				accu1 = AccuList[0];
+				accu2 = AccuList[1];
+				accu3 = AccuList[2];
+				accu4 = AccuList[3];
+				accu5 = AccuList[4];
+				accu6 = AccuList[5];
+				accu7 = AccuList[6];
+				accu8 = AccuList[7];
+				
+				
+			}
+
+		});
+	
 	function test(number){
 
 		
@@ -173,7 +236,9 @@
 		var MenuTag2 = document.getElementById("preMenu2");
 		var MenuTag3 = document.getElementById("preMenu3");
 		
-		var resultTag = document.getElementById("result");
+		var preMoney = document.getElementById("preMoney");
+				
+		var analMoney = document.getElementById("analMoney");
 		
 		
 		if(number==1){
@@ -190,7 +255,7 @@
 			MenuTag3.innerHTML = choice1menuS[2];
 
 			resultTag.innerHTML = accu1 + "%";
-			
+			preMoney.innerHTML = preMoney1;
 			
 		}else if(number==2){
 			var choice2menuS = choice2menu.split(",");
@@ -205,7 +270,9 @@
 			MenuTag3.innerHTML = choice2menuS[2];
 			
 			//예측도 넣기
-			resultTag.innerHTML = accu2;
+			resultTag.innerHTML = accu2 + "%";
+			
+			preMoney.innerHTML = preMoney2;
 			
 			
 		}else if(number==3){
@@ -220,7 +287,9 @@
 			MenuTag2.innerHTML = choice3menuS[1];
 			MenuTag3.innerHTML = choice3menuS[2];
 			
-			resultTag.innerHTML = accu3;
+			resultTag.innerHTML = accu3 + "%";
+			
+			preMoney.innerHTML = preMoney3;
 		}else if(number==4){
 			var choice4menuS = choice4menu.split(",");
 			var choice4qtyS = choice4qty.split(",");
@@ -233,7 +302,9 @@
 			MenuTag2.innerHTML = choice4menuS[1];
 			MenuTag3.innerHTML = choice4menuS[2];
 			
-			resultTag.innerHTML = accu4;
+			resultTag.innerHTML = accu4 + "%";
+			
+			preMoney.innerHTML = preMoney4;
 			
 		}else if(number==5){
 			var choice5menuS = choice5menu.split(",");
@@ -247,7 +318,9 @@
 			MenuTag2.innerHTML = choice5menuS[1];
 			MenuTag3.innerHTML = choice5menuS[2];
 			
-			resultTag.innerHTML = accu5;
+			resultTag.innerHTML = accu5 + "%";
+			
+			preMoney.innerHTML = preMoney5;
 			
 		}else if(number==6){
 			var choice6menuS = choice6menu.split(",");
@@ -261,8 +334,9 @@
 			MenuTag2.innerHTML = choice6menuS[1];
 			MenuTag3.innerHTML = choice6menuS[2];
 			
-			resultTag.innerHTML = accu6;
+			resultTag.innerHTML = accu6 + "%";
 			
+			preMoney.innerHTML = preMoney6;
 		}else if(number==7){
 			var choice7menuS = choice7menu.split(",");
 			var choice7qtyS = choice7qty.split(",");
@@ -275,7 +349,9 @@
 			MenuTag2.innerHTML = choice7menuS[1];
 			MenuTag3.innerHTML = choice7menuS[2];
 			
-			resultTag.innerHTML = accu7;
+			resultTag.innerHTML = accu7 + "%";
+			
+			preMoney.innerHTML = preMoney7;
 			
 		}else if(number==8){
 			var choice8menuS = choice8menu.split(",");
@@ -289,7 +365,9 @@
 			MenuTag2.innerHTML = choice8menuS[1];
 			MenuTag3.innerHTML = choice8menuS[2];
 			
-			resultTag.innerHTML = accu8;
+			resultTag.innerHTML = accu8 + "%";
+			
+			preMoney.innerHTML = preMoney8;
 		}
 		Qtag1.innerHTML = qty1;
 		Qtag2.innerHTML = qty2;
@@ -298,15 +376,31 @@
 		Mtag1.innerHTML = item1;
 		Mtag2.innerHTML = item2;
 		Mtag3.innerHTML = item3;
-	
-}
+	}
+
 </script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
+
+		GregorianCalendar movedCal = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
 		int nowMonth = today.get(today.MONTH);
 		int nowDay = today.get(today.DAY_OF_MONTH);
 		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+		if (request.getParameter("yearNext") != null) {
+			nowYear = Integer.parseInt(request.getParameter("yearNext"));
+			nowMonth = Integer.parseInt(request.getParameter("monthNext"));
+			nowDay = Integer.parseInt(request.getParameter("startDayNext"));
+			today = new GregorianCalendar(nowYear, nowMonth, nowDay);
+			lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+			System.out.println(nowYear);
+			System.out.println(nowMonth);
+			System.out.println(nowDay);
+
+		}
+
 		String eng_month = "";
 		if (nowMonth == 0) {
 			eng_month = "January";
@@ -364,11 +458,13 @@
 
 						<%
 							Calendar cal = Calendar.getInstance();
+							int start = 6;
+							if (request.getParameter("yearNext") != null) {
+								cal = new GregorianCalendar(nowYear, nowMonth, 1);
+								start = cal.get(java.util.Calendar.DAY_OF_WEEK);
+							}
 							System.out.println(cal.getTime());
-							int start = cal.get(java.util.Calendar.DAY_OF_WEEK) - 1;
 							System.out.println("메인달력 시작하는 인덱스 :" + start);
-							//시작날짜 인식이 안돼서 임시로 숫자 넣어서 실행
-							start = 6;
 							int endDay = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
 
 							int newLine = 0;
@@ -446,9 +542,8 @@
 		<%
 			if (nowMonth > 0) {
 		%>
-		<%-- <input id="left" type="button" value="◀" onclick="slide(<%=nowYear%>)"> --%>
 		<a
-			href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
+			href='CalendarMain.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="left"><img src="images/left.png"
 			width="30" height="30"></a>
@@ -457,7 +552,7 @@
 			} else if (nowMonth == 0) {
 		%>
 		<a
-			href='CalendarForChange.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
+			href='CalendarMain.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="left"><img src="images/left.png"
 			width="30" height="30"> </a>
@@ -469,7 +564,7 @@
 			if (nowMonth < 11) {
 		%>
 		<a
-			href='CalendarForChange.jsp?yearNext=<%=nowYear%>
+			href='CalendarMain.jsp?yearNext=<%=nowYear%>
 		&amp;monthNext=<%=nowMonth + 1%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="right"><img src="images/right.png"
@@ -477,7 +572,7 @@
 		<%
 			} else if (nowMonth == 11) {
 		%><a
-			href='CalendarForChange.jsp?yearNext=<%=nowYear + 1%>
+			href='CalendarMain.jsp?yearNext=<%=nowYear + 1%>
 		&amp;monthNext=<%=0%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="right"><img src="images/right.png"
@@ -492,16 +587,27 @@
 	<!-- 일 눌렀을때 오른쪽에 나오는 창  -->
 
 	<div class="outLine">
-		<table class="detail">
+		<img class="mySlides" src="img/nothing.png"> <img
+			class="mySlides" src="img/dayNoData.png">
+		<table class="detail" id="pictureShow">
 			<tr>
-				<td><button onclick="test(1);" onmouseover="요거슨 뭐시냐며는">1</button>
-					<button onclick="test(2);" onmouseover="요거슨 뭐시냐며는">2</button>
-					<button onclick="test(3);" onmouseover="요거슨 뭐시냐며는">3</button>
-					<button onclick="test(4);" onmouseover="요거슨 뭐시냐며는">4</button>
-					<button onclick="test(5);" onmouseover="요거슨 뭐시냐며는">5</button>
-					<button onclick="test(6);" onmouseover="요거슨 뭐시냐며는">6</button>
-					<button onclick="test(7);" onmouseover="요거슨 뭐시냐며는">7</button>
-					<button onclick="test(8);" onmouseover="요거슨 뭐시냐며는">8</button></td>
+				<td colspan="6" , style="width: 100;"><button
+						onclick="test(1);" onmouseover="요거슨 뭐시냐며는" class="btn-group">TYPE
+						1</button>
+					<button onclick="test(2);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 2</button>
+					<button onclick="test(3);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 3</button>
+					<button onclick="test(4);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 4</button>
+					<button onclick="test(5);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 5</button>
+					<button onclick="test(6);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 6</button>
+					<button onclick="test(7);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 7</button>
+					<button onclick="test(8);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 8</button></td>
 			</tr>
 			<tr>
 				<td colspan="3" class="title">예측 판매량</td>
@@ -540,15 +646,15 @@
 				<td td colspan="3" class="title">실제 매출액</td>
 			</tr>
 			<tr>
-				<td td colspan="3">2562500원</td>
-				<td td colspan="3">2315800원</td>
+				<td td colspan="3" id="preMoney">2562500원</td>
+				<td td colspan="3" id="analMoney">2315800원</td>
 			</tr>
 			<tr>
 				<td td colspan="6" class="void"></td>
 
 			</tr>
 			<tr>
-				<td colspan="6" class="title"><h1 id="result">99%</h1></td>
+				<td colspan="6" class="percentClass" id="percentId">99%</td>
 
 			</tr>
 

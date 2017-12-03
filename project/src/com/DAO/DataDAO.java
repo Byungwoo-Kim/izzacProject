@@ -149,7 +149,8 @@ public class DataDAO {
 		while (rs.next()) {
 			String aDate = rs.getString(2);
 			String analData = rs.getString(3);
-			list.add(new AnalDTO(email, aDate, analData));
+			String analMoney = rs.getString(4);
+			list.add(new AnalDTO(email, aDate, analData, analMoney));
 		}
 		
 		close();

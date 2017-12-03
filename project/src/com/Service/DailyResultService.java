@@ -22,9 +22,8 @@ public class DailyResultService extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		//email 세션값으로 바꿔줘야함
-		//String email = (String) session.getAttribute("email");
-		String email = "test@test";
+		String email = (String) session.getAttribute("email");
+
 		
 		String year = request.getParameter("year");
 		int month = Integer.parseInt(request.getParameter("month"));
@@ -48,7 +47,7 @@ public class DailyResultService extends HttpServlet {
 			e.printStackTrace();
 		}
 		System.out.println("선택한 날짜pre : " + selectedDate);
-		System.out.println("데이터 날짜pre : " + list.get(0).getpDate());
+
 		String AnalData1 = "";
 		String AnalData2 = "";
 		String AnalData3 = "";
@@ -60,7 +59,7 @@ public class DailyResultService extends HttpServlet {
 		String PreData = "";
 		for (int i = 0; i < list.size(); i++) {
 			if ((list.get(i).getpDate()).equals(selectedDate)) {
-				System.out.println("1단계");
+				System.out.println("데이터 날짜pre : " + list.get(i).getpDate());
 				AnalData1 = list.get(i).getPreData0();
 				AnalData2 = list.get(i).getPreData1();
 				AnalData3 = list.get(i).getPreData2();
