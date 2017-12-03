@@ -56,7 +56,6 @@
 	
 	opening();
 	function opening(){
-
 		$.ajax({
 			//최신 데이터 받아오기
 				url : "LastDataSearching",
@@ -142,6 +141,14 @@
 	 var preMoney8 = "";
 	 
 	 var analMoney = "";
+	 
+	 var Qtag1 = "";
+		var Qtag2 = "";
+		var Qtag3 = "";
+		
+		var Mtag1 = "";
+		var Mtag2 = "";
+		var Mtag3 = "";
 
 		
 
@@ -151,7 +158,7 @@
 		var todayC =  year + "년 " + month + "월" + date + "일";
 		var dateTag = document.getElementById("dateShow");
 		dateTag.innerHTML = todayC;	
-		
+		test2(1);
 		
 		
 	$.ajax({
@@ -192,13 +199,13 @@
 				var qty3 = qtyList[2];
 
 				
-				var Qtag1 = document.getElementById("realQty1");
-				var Qtag2 = document.getElementById("realQty2");
-				var Qtag3 = document.getElementById("realQty3");
+				Qtag1 = document.getElementById("realQty1");
+				Qtag2 = document.getElementById("realQty2");
+				Qtag3 = document.getElementById("realQty3");
 				
-				var Mtag1 = document.getElementById("realMenu1");
-				var Mtag2 = document.getElementById("realMenu2");
-				var Mtag3 = document.getElementById("realMenu3");
+				Mtag1 = document.getElementById("realMenu1");
+				Mtag2 = document.getElementById("realMenu2");
+				Mtag3 = document.getElementById("realMenu3");
 				
 				
 
@@ -464,6 +471,47 @@
 		Mtag2.innerHTML = item2;
 		Mtag3.innerHTML = item3;
 	}
+	function test2(number){
+		var resultTag = document.getElementById("percentId");
+		
+		var QtyTag1 = document.getElementById("preQty1");
+		var QtyTag2 = document.getElementById("preQty2");
+		var QtyTag3 = document.getElementById("preQty3");
+		
+		var MenuTag1 = document.getElementById("preMenu1");
+		var MenuTag2 = document.getElementById("preMenu2");
+		var MenuTag3 = document.getElementById("preMenu3");
+		
+		var preMoney = document.getElementById("preMoney");
+				
+		var analMoney = document.getElementById("analMoney");
+		
+		
+		
+		
+		
+		
+		if(number==1){
+			var choice1menuS = choice1menu.split(",");
+			var choice1qtyS = choice1qty.split(",");
+			var choiceTemp = new Array();
+			var div = new Array();
+						
+			QtyTag1.innerHTML = choice1qtyS[0];
+			QtyTag2.innerHTML = choice1qtyS[1];
+			QtyTag3.innerHTML = choice1qtyS[2];
+			
+			MenuTag1.innerHTML = choice1menuS[0];
+			MenuTag2.innerHTML = choice1menuS[1];
+			MenuTag3.innerHTML = choice1menuS[2];
+
+			resultTag.innerHTML = accu1 + "%";
+			preMoney.innerHTML = preMoney1;
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 1";
+			
+		}
+	}
 
 </script>
 	<%
@@ -584,13 +632,16 @@
 										: Integer.toString(index);
 
 								int iUseDate = Integer.parseInt(sUseDate);
+								
+								int month = nowMonth + 1;
 
 								//달력 칸 나누기
 								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
+						
 						<div id="dateArea"
-							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'>
+							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=month%>,<%=index%>)'>
 							<font color='<%=color%>'> <%=index%>
 							</font>
 						</div>
