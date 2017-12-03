@@ -29,6 +29,7 @@ body {
 .cautionTable {
 	width: 910px;
 	height: 600px;
+	align-self: center;
 }
 
 #emptySpace {
@@ -118,7 +119,7 @@ location.href="MainContents.jsp";
 		<div id="emptySpace"></div>
 		<table class="cautionTable">
 			<tr>
-				<td><h4 id="top">*분석과 예측을 시작하기 위해 아래 유의사항을 확인하신 후 양식에 맞추어 업로드 해주세요.</h4></td>
+				<td><h4 id="top">*매출데이터를 업로드하시면 분석과 예측이 시작됩니다.<br>아래 유의사항을 확인하신 후 양식에 맞추어 업로드 해주세요.</h4></td>
 			</tr> 
 			<tr>
 				<td>1) 파일 확장자는 .csv 파일입니다.</td>

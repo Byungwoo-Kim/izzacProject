@@ -6,7 +6,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+.container {
+	margin-left: 593px;
+	margin-top: 562px;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
 
+#dataArea {
+	width:56px;
+	height : 37px;
+}
+
+.outLine {
+	left: 30%;
+	top: 10%;
+}
+
+
+</style>
 <link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=6">
 
 <meta charset="EUC-KR">
@@ -18,6 +37,9 @@
 </head>
 <body>
 	<script type="text/javascript">
+	function testplz(){
+		alert("ㅎㅇ");
+	}
 	 var choice1menu = "";
 	 var choice2menu = "";
 	 var choice3menu = "";
@@ -48,13 +70,13 @@
 	 
 	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
 	function clickTrEvent(year, month, date) {
-
+	
 	$.ajax({
 		//당일 실제 판매량 검색
 			url : "DailyAnalService",
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
-				
+
 				var menuAndQty = result.split("/");
 				var itemlist = menuAndQty[0].split(",");
 				var qtyList = menuAndQty[1].split(",");
@@ -88,6 +110,7 @@
 				Mtag3.innerHTML = item3;
 				
 			}
+	});
 	$.ajax({
 		//당일 예상 판매량 검색
 			url : "DailyResultService",
@@ -122,9 +145,9 @@
 			choice8qty = choice8.split("/")[1];
 			
 
+			}
 			
-			
-			
+	});	
 			
 	$.ajax({
 		//정확도 가져오기(accur)
@@ -144,7 +167,7 @@
 				
 				
 			}
-	
+	});
 	
 	}
 	function test(number){
@@ -288,14 +311,12 @@
 </script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
-		int nowYear = today.get(today.YEAR);
-		int nowMonth = today.get(today.MONTH);
+		int nowYear = Integer.parseInt(request.getParameter("yearNext"));
+		int nowMonth = Integer.parseInt(request.getParameter("monthNext"));
 		int nowDay = today.get(today.DAY_OF_MONTH);
 		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
 		String eng_month = "";
-		nowYear = Integer.parseInt(request.getParameter("yearNext"));
-		nowMonth = Integer.parseInt(request.getParameter("monthNext"));
-
+		System.out.println(nowYear + "/" + nowMonth);
 		if (nowMonth == 0) {
 			eng_month = "January";
 		} else if (nowMonth == 1) {
@@ -398,8 +419,10 @@
 								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
-						<div id="dateArea"
-							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth + 1%>,<%=index%>)'>
+						<%-- <div id="dateArea"
+							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'> --%>
+						<div id="dataArea"
+							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'>
 							<font color='<%=color%>'> <%=index%>
 							</font>
 						</div>
@@ -478,7 +501,7 @@
 		%>
 		<!--달력 넘기기 끝  -->
 		<!-- end container -->
-		<div class="outLine">
+		<div class="outLine" id = "outLineId">
 			<table class="detail">
 				<tr>
 					<td><button onclick="test(1);" onmouseover="요거슨 뭐시냐며는">1</button>

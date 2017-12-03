@@ -108,7 +108,7 @@ public class MessageDAO {
 		String sql;
 
 		try {
-			sql = "select * from Sales_Message order by mdate desc";
+			sql = "select * from (select * from Sales_Message order by mdate desc) where rownum between 1 and 12";
 			pst = conn.prepareStatement(sql);
 
 			ResultSet rs = pst.executeQuery();

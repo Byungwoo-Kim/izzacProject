@@ -12,17 +12,20 @@
 <link rel="stylesheet" href="../assets/css/TodaySales/TodaySales.css">
 <title>Insert title here</title>
 
-<c:if test="${empty sessionScope.email}">
+<c:if test="${empty email}">
 <script type="text/javascript">
 alert('로그인이 필요한 서비스입니다.');
-location.href="MainContents.jsp";
+location.href="../MainContents.jsp";
 </script>
 </c:if>
 
 </head>
 <body>
-	<%		
+	<%
+		
 		String sessionEmail = (String)session.getAttribute("email");
+	
+	if(sessionEmail!=null){
 	
 		MemberDAO dao = new MemberDAO();
 		MemberDTO dto = dao.ForMemberUpdate(sessionEmail);
@@ -47,8 +50,7 @@ location.href="MainContents.jsp";
 	<div id="wrapper">
 		<!-- text형식의 메뉴별 판매량 -->
 		<div id="text">
-		
-		
+
 		<table>
 		<tr>
 		<!-- 아이템 -->
@@ -87,7 +89,7 @@ location.href="MainContents.jsp";
 			width="1200px" height="860px" scrolling="no" frameborder="0"></iframe> -->
 	</div>
 	</div>
-	<% } %>
+	<% } }%>
 </body>
 </html>
 

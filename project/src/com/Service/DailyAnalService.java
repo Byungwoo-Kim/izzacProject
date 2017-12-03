@@ -20,6 +20,7 @@ public class DailyAnalService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("넘어오니?");
 		HttpSession session = request.getSession();
 		
 		//email 세션으로 나중에 바꿔줄것
