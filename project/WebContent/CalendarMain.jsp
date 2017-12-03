@@ -17,7 +17,6 @@
 }
 
 .mySlides {
-
 	display: none;
 }
 
@@ -92,35 +91,8 @@
 			url : "DailyAnalService",
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
-				
-				
-				
-				
-				
-				var imgs = document.querySelectorAll("img");
-
-			      function slide() {
-			         //이미지 숨기기
-			         for(var i = 0; i < imgs.length; i++) {
-			            imgs[i].style.display = "none";
-			         }
-			         
-			         index = 1;
-			         
-			         if(result=="nothing"){
-							index=1;
-						}else{
-							index=0;
-						}
-			         imgs[index].style.display = "block";
-
-			      }
-				
-				
-				
-				
-				
-				
+				if(result=="nothing"){
+					alert("해당하는 날짜에 데이터가 없습니다.");}
 				
 				
 				
@@ -253,8 +225,6 @@
 
 		});
 	
-	
-	}
 	function test(number){
 
 		
@@ -406,8 +376,8 @@
 		Mtag1.innerHTML = item1;
 		Mtag2.innerHTML = item2;
 		Mtag3.innerHTML = item3;
-	
-}
+	}
+
 </script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
@@ -617,8 +587,8 @@
 	<!-- 일 눌렀을때 오른쪽에 나오는 창  -->
 
 	<div class="outLine">
-		<img class="mySlides" src="img/nothing.png"> 
-		<img class="mySlides" src="img/dayNoData.png">
+		<img class="mySlides" src="img/nothing.png"> <img
+			class="mySlides" src="img/dayNoData.png">
 		<table class="detail" id="pictureShow">
 			<tr>
 				<td colspan="6" , style="width: 100;"><button
@@ -676,8 +646,8 @@
 				<td td colspan="3" class="title">실제 매출액</td>
 			</tr>
 			<tr>
-				<td td colspan="3" id = "preMoney">2562500원</td>
-				<td td colspan="3" id = "analMoney">2315800원</td>
+				<td td colspan="3" id="preMoney">2562500원</td>
+				<td td colspan="3" id="analMoney">2315800원</td>
 			</tr>
 			<tr>
 				<td td colspan="6" class="void"></td>

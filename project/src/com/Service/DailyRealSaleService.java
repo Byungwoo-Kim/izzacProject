@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.DataDAO;
+import com.DTO.AnalDTO;
 import com.DTO.PreDTO;
 
 @WebServlet("/DailyRealSaleService")
@@ -19,7 +20,7 @@ public class DailyRealSaleService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
+		System.out.println("«œ∑Á √—∏≈√‚ º≠∫Ì∏¥");
 
 		String email = (String) session.getAttribute("email");
 
@@ -37,24 +38,23 @@ public class DailyRealSaleService extends HttpServlet {
 
 		DataDAO dao = new DataDAO();
 
-		ArrayList<PreDTO> list = new ArrayList<>();
+		ArrayList<AnalDTO> list = new ArrayList<>();
 		try {
-			list = dao.SelectPre(email);
+			list = dao.SelectAnal(email);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		String Accuracy = "";
-		String PreData = "";
+		String analMoney = "";
 		for (int i = 0; i < list.size(); i++) {
-			if ((list.get(i).getpDate()).equals(selectedDate)) {
+			if ((list.get(i).getaDate()).equals(selectedDate)) {
 
-				Accuracy = list.get(i).getPreAccu();
+				analMoney = list.get(i).getAnalMoney();
 			}
 		}
-		System.out.println(Accuracy);
-		out.print(Accuracy);
+		System.out.println(analMoney);
+		out.print(analMoney);
 
 	}
 
