@@ -15,6 +15,16 @@
 	position: absolute;
 	transform: translate(-50%, -50%);
 }
+
+.btn-group {
+	width : 10%;
+	height : 70px;
+	background-color: #eff1f2;
+	border:none;
+	display: inline;
+	color : #e66b6b;
+	font-weight: bold;
+}
 </style>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
@@ -301,19 +311,14 @@
 </script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
-	
 
-
-		
-		
-		
 		GregorianCalendar movedCal = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
 		int nowMonth = today.get(today.MONTH);
 		int nowDay = today.get(today.DAY_OF_MONTH);
 		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
-		
-		if(request.getParameter("yearNext")!=null){
+
+		if (request.getParameter("yearNext") != null) {
 			nowYear = Integer.parseInt(request.getParameter("yearNext"));
 			nowMonth = Integer.parseInt(request.getParameter("monthNext"));
 			nowDay = Integer.parseInt(request.getParameter("startDayNext"));
@@ -323,9 +328,9 @@
 			System.out.println(nowYear);
 			System.out.println(nowMonth);
 			System.out.println(nowDay);
-			
+
 		}
-		
+
 		String eng_month = "";
 		if (nowMonth == 0) {
 			eng_month = "January";
@@ -384,9 +389,9 @@
 						<%
 							Calendar cal = Calendar.getInstance();
 							int start = 6;
-							if(request.getParameter("yearNext")!=null){
-							cal =  new GregorianCalendar(nowYear, nowMonth, 1);
-							start = cal.get(java.util.Calendar.DAY_OF_WEEK);
+							if (request.getParameter("yearNext") != null) {
+								cal = new GregorianCalendar(nowYear, nowMonth, 1);
+								start = cal.get(java.util.Calendar.DAY_OF_WEEK);
 							}
 							System.out.println(cal.getTime());
 							System.out.println("메인달력 시작하는 인덱스 :" + start);
@@ -514,14 +519,22 @@
 	<div class="outLine">
 		<table class="detail">
 			<tr>
-				<td><button onclick="test(1);" onmouseover="요거슨 뭐시냐며는">1</button>
-					<button onclick="test(2);" onmouseover="요거슨 뭐시냐며는">2</button>
-					<button onclick="test(3);" onmouseover="요거슨 뭐시냐며는">3</button>
-					<button onclick="test(4);" onmouseover="요거슨 뭐시냐며는">4</button>
-					<button onclick="test(5);" onmouseover="요거슨 뭐시냐며는">5</button>
-					<button onclick="test(6);" onmouseover="요거슨 뭐시냐며는">6</button>
-					<button onclick="test(7);" onmouseover="요거슨 뭐시냐며는">7</button>
-					<button onclick="test(8);" onmouseover="요거슨 뭐시냐며는">8</button></td>
+				<td colspan = "6", style = "width:100;"><button onclick="test(1);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 1</button>
+					<button onclick="test(2);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 2</button>
+					<button onclick="test(3);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 3</button>
+					<button onclick="test(4);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 4</button>
+					<button onclick="test(5);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 5</button>
+					<button onclick="test(6);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 6</button>
+					<button onclick="test(7);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 7</button>
+					<button onclick="test(8);" onmouseover="요거슨 뭐시냐며는"
+						class="btn-group">TYPE 8</button></td>
 			</tr>
 			<tr>
 				<td colspan="3" class="title">예측 판매량</td>
