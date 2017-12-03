@@ -44,6 +44,34 @@
 </head>
 <body>
 	<script type="text/javascript">
+	function setToday(){
+		var todayTag = document.getElementById("dateShow");
+		todayTag.innerHTML = 
+		
+	}
+	 
+	
+	//버튼 위에 올리면 글자나오기
+	function setPreviewBox(e) { 
+		var e = e || window.event; 
+		    document.getElementById('preview').style.left = e.clientX+ document.body.scrollLeft + 20 + 'px';  // 마우스 
+		    document.getElementById('preview').style.top = e.clientY  + document.body.scrollTop + 'px';  // 포인트에 위치 
+		} 
+		  
+		function showPreview( content) { 
+		    var text; 
+		        text = '<table cellpadding="5" bgcolor="#ffffff" style="font-size:9pt;color:#005F8B;filter:alpha(opacity=90); border-width:1; border-color:#3291BD; border-style:solid;">'; 
+		        text += '<tr><td>' + content + '</td></tr></table>'; 
+		        document.getElementById('preview').innerHTML = text; 
+		        document.getElementById('preview').style.visibility = 'visible';  
+		} 
+		  
+		function hidePreview() { 
+		    document.getElementById('preview').innerHTML = ''; 
+		    document.getElementById('preview').style.visibility = 'hidden'; 
+		} 
+
+	
 	 var choice1menu = "";
 	 var choice2menu = "";
 	 var choice3menu = "";
@@ -82,10 +110,26 @@
 	 
 	 var analMoney = "";
 	 
+
 	 
 	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
 	function clickTrEvent(year, month, date) {
 
+		
+	$.ajax({
+			//실제 매출 가져오기
+				url : "DailyRealSaleService",
+				data : "year=" + year +"&month=" + month+"&date="+date,
+				success : function(result) {
+					
+					var dailySaleMoney = result;
+					var analMoneyTag = document.getElementById("analMoney");
+					analMoneyTag.innerHTML = dailySaleMoney;
+					
+					
+				}
+
+			});
 	$.ajax({
 		//당일 실제 판매량 검색
 			url : "DailyAnalService",
@@ -164,15 +208,14 @@
 			choice6qty = choice6.split("/")[1];
 			choice7qty = choice7.split("/")[1];
 			choice8qty = choice8.split("/")[1];
-			
 			preMoney1 = choice1.split("/")[2];
-			preMoney2 = choice1.split("/")[2];
-			preMoney3 = choice1.split("/")[2];
-			preMoney4 = choice1.split("/")[2];
-			preMoney5 = choice1.split("/")[2];
-			preMoney6 = choice1.split("/")[2];
-			preMoney7 = choice1.split("/")[2];
-			preMoney8 = choice1.split("/")[2];
+			preMoney2 = choice2.split("/")[2];
+			preMoney3 = choice3.split("/")[2];
+			preMoney4 = choice4.split("/")[2];
+			preMoney5 = choice5.split("/")[2];
+			preMoney6 = choice6.split("/")[2];
+			preMoney7 = choice7.split("/")[2];
+			preMoney8 = choice8.split("/")[2];
 			
 			
 			
@@ -204,29 +247,9 @@
 	
 	}
 	
-	$.ajax({
-		//실제 매출 가져오기
-			url : "DailyRealSaleService",
-			data : "year=" + year +"&month=" + month+"&date="+date,
-			success : function(result) {
-				
-				var AccuList = result.split(",");
-				accu1 = AccuList[0];
-				accu2 = AccuList[1];
-				accu3 = AccuList[2];
-				accu4 = AccuList[3];
-				accu5 = AccuList[4];
-				accu6 = AccuList[5];
-				accu7 = AccuList[6];
-				accu8 = AccuList[7];
-				
-				
-			}
 
-		});
-	
 	function test(number){
-
+		var resultTag = document.getElementById("percentId");
 		
 		var QtyTag1 = document.getElementById("preQty1");
 		var QtyTag2 = document.getElementById("preQty2");
@@ -286,9 +309,10 @@
 			MenuTag1.innerHTML = choice3menuS[0];
 			MenuTag2.innerHTML = choice3menuS[1];
 			MenuTag3.innerHTML = choice3menuS[2];
-			
+
+
 			resultTag.innerHTML = accu3 + "%";
-			
+
 			preMoney.innerHTML = preMoney3;
 		}else if(number==4){
 			var choice4menuS = choice4menu.split(",");
@@ -591,24 +615,42 @@
 			class="mySlides" src="img/dayNoData.png">
 		<table class="detail" id="pictureShow">
 			<tr>
-				<td colspan="6" , style="width: 100;"><button
-						onclick="test(1);" onmouseover="요거슨 뭐시냐며는" class="btn-group">TYPE
-						1</button>
-					<button onclick="test(2);" onmouseover="요거슨 뭐시냐며는"
+				<td colspan="6" , style="width: 100;"><div id='preview'
+						STYLE="BORDER-RIGHT: 1px; BORDER-TOP: 1px; Z-INDEX: 1; VISIBILITY: hidden; BORDER-LEFT: 1px; BORDER-BOTTOM: 1px; POSITION: absolute;"></div>
+					<button onclick="test(1);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다1.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 1</button>
+					<button onclick="test(2);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다2.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 2</button>
-					<button onclick="test(3);" onmouseover="요거슨 뭐시냐며는"
+					<button onclick="test(3);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('3333333.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 3</button>
-					<button onclick="test(4);" onmouseover="요거슨 뭐시냐며는"
+					<button onclick="test(4);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('44444.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 4</button>
-					<button onclick="test(5);" onmouseover="요거슨 뭐시냐며는"
+					<button onclick="test(5);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('55555.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 5</button>
-					<button onclick="test(6);" onmouseover="요거슨 뭐시냐며는"
+					<button onclick="test(6);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('666666.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 6</button>
-					<button onclick="test(7);" onmouseover="요거슨 뭐시냐며는"
+					<button onclick="test(7);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('7777771.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 7</button>
-					<button onclick="test(8);" onmouseover="요거슨 뭐시냐며는"
+					<button onclick="test(8);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('88888.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 8</button></td>
 			</tr>
+			<tr><td colspan = "3" id = "dateShow">2017년 12월 03일</td><td colspan = "2">선택한 옵션</td><td width = "25%" id = "typeShow">TYPE 3</td>
 			<tr>
 				<td colspan="3" class="title">예측 판매량</td>
 				<td colspan="3" class="title">실제 판매량</td>

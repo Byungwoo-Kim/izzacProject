@@ -167,6 +167,8 @@
 			}
 
 		})
+		
+		//날씨 이미지 변경
 		imgVar.addEventListener("mouseout", function() {
 			if (weatherImage == '맑음') {
 				imgVar.setAttribute("src", "img/sunny.png");
