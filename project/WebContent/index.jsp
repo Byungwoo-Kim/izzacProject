@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css?ver=5" />
+<link rel="stylesheet" href="assets/css/main.css?ver=6" />
 <style type="text/css">
 #parasol{
 font-size: 110px;

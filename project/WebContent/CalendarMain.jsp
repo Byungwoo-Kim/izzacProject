@@ -2,7 +2,7 @@
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.GregorianCalendar"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+   pageEncoding="EUC-KR"%>
 
 <!DOCTYPE html>
 <html>
@@ -10,39 +10,40 @@
 <link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=8">
 <style type="text/css">
 .container {
-	margin-left: 17em;
-	margin-top: 20em;
-	position: absolute;
-	transform: translate(-50%, -50%);
+   margin-left: 17em;
+   margin-top: 20em;
+   position: absolute;
+   transform: translate(-50%, -50%);
 }
 
 .mySlides {
-	display: none;
+   display: none;
 }
 
 .btn-group {
-	width: 10%;
-	height: 70px;
-	background-color: #eff1f2;
-	border: none;
-	display: inline;
-	color: #e66b6b;
-	font-weight: bold;
-	height: 70px;
-	background-color: #eff1f2;
-	border: none;
-	display: inline;
-	color: #e66b6b;
+   width: 10%;
+   height: 70px;
+   background-color: #eff1f2;
+   border: none;
+   display: inline;
+   color: #e66b6b;
+   font-weight: bold;
+   height: 70px;
+   background-color: #eff1f2;
+   border: none;
+   display: inline;
+   color: #e66b6b;
 }
 </style>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 </head>
 <body>
+<<<<<<< HEAD
 	<script type="text/javascript">
 	//날짜 , 최신 데이터 등 바로 실행될 함수
 	var lastDate = "";
@@ -102,7 +103,37 @@
 		    document.getElementById('preview').innerHTML = ''; 
 		    document.getElementById('preview').style.visibility = 'hidden'; 
 		} 
+=======
+   <script type="text/javascript">
+/*    function setToday(){
+      var todayTag = document.getElementById("dateShow");
+      todayTag.innerHTML = '1';
+      
+   } */
+    
+   
+   //버튼 위에 올리면 글자나오기
+   function setPreviewBox(e) { 
+      var e = e || window.event; 
+          document.getElementById('preview').style.left = e.clientX+ document.body.scrollLeft + 20 + 'px';  // 마우스 
+          document.getElementById('preview').style.top = e.clientY  + document.body.scrollTop + 'px';  // 포인트에 위치 
+      } 
+        
+      function showPreview( content) { 
+          var text; 
+              text = '<table cellpadding="5" bgcolor="#ffffff" style="font-size:9pt;color:#005F8B;filter:alpha(opacity=90); border-width:1; border-color:#3291BD; border-style:solid;">'; 
+              text += '<tr><td>' + content + '</td></tr></table>'; 
+              document.getElementById('preview').innerHTML = text; 
+              document.getElementById('preview').style.visibility = 'visible';  
+      } 
+        
+      function hidePreview() { 
+          document.getElementById('preview').innerHTML = ''; 
+          document.getElementById('preview').style.visibility = 'hidden'; 
+      } 
+>>>>>>> branch 'master' of https://github.com/Byungwoo-Kim/izzacProject.git
 
+<<<<<<< HEAD
 	
 	 var choice1menu = "";
 	 var choice2menu = "";
@@ -151,7 +182,49 @@
 		var Mtag3 = "";
 
 		
+=======
+   
+    var choice1menu = "";
+    var choice2menu = "";
+    var choice3menu = "";
+    var choice4menu = "";
+    var choice5menu = "";
+    var choice6menu = "";
+    var choice7menu = "";
+    var choice8menu = "";
+   
+    var choice1qty = "";
+    var choice2qty = "";
+    var choice3qty = "";
+    var choice4qty = "";
+    var choice5qty = "";
+    var choice6qty = "";
+    var choice7qty = "";
+    var choice8qty = "";
+    
+    var accu1="";
+    var accu2="";
+    var accu3="";
+    var accu4="";
+    var accu5="";
+    var accu6="";
+    var accu7="";
+    var accu8="";
+    
+    var preMoney1 = "";
+    var preMoney2 = "";
+    var preMoney3 = "";
+    var preMoney4 = "";
+    var preMoney5 = "";
+    var preMoney6 = "";
+    var preMoney7 = "";
+    var preMoney8 = "";
+    
+    var analMoney = "";
+    
+>>>>>>> branch 'master' of https://github.com/Byungwoo-Kim/izzacProject.git
 
+<<<<<<< HEAD
 	 
 	//날짜 클릭이벤트
 	function clickTrEvent(year, month, date) {
@@ -173,31 +246,51 @@
 					
 					
 				}
+=======
+    
+   //누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
+   function clickTrEvent(year, month, date) {
 
-			});
-	$.ajax({
-		//당일 실제 판매량 검색
-			url : "DailyAnalService",
-			data : "year=" + year +"&month=" + month+"&date="+date,
-			success : function(result) {
-				if(result=="nothing"){
-					alert("해당하는 날짜에 데이터가 없습니다.");}
-				
-				
-				
+      
+   $.ajax({
+         //실제 매출 가져오기
+            url : "DailyRealSaleService",
+            data : "year=" + year +"&month=" + month+"&date="+date,
+            success : function(result) {
+               
+               var dailySaleMoney = result;
+               var analMoneyTag = document.getElementById("analMoney");
+               analMoneyTag.innerHTML = dailySaleMoney;
+               
+               
+            }
+>>>>>>> branch 'master' of https://github.com/Byungwoo-Kim/izzacProject.git
 
-				var menuAndQty = result.split("/");
-				var itemlist = menuAndQty[0].split(",");
-				var qtyList = menuAndQty[1].split(",");
-				
-				var item1 = itemlist[0];
-				var item2 = itemlist[1];
-				var item3 = itemlist[2];
-				
-				var qty1 = qtyList[0];
-				var qty2 = qtyList[1];
-				var qty3 = qtyList[2];
+         });
+   $.ajax({
+      //당일 실제 판매량 검색
+         url : "DailyAnalService",
+         data : "year=" + year +"&month=" + month+"&date="+date,
+         success : function(result) {
+            if(result=="nothing"){
+               alert("해당하는 날짜에 데이터가 없습니다.");}
+            
+            
+            
 
+            var menuAndQty = result.split("/");
+            var itemlist = menuAndQty[0].split(",");
+            var qtyList = menuAndQty[1].split(",");
+            
+            var item1 = itemlist[0];
+            var item2 = itemlist[1];
+            var item3 = itemlist[2];
+            
+            var qty1 = qtyList[0];
+            var qty2 = qtyList[1];
+            var qty3 = qtyList[2];
+
+<<<<<<< HEAD
 				
 				Qtag1 = document.getElementById("realQty1");
 				Qtag2 = document.getElementById("realQty2");
@@ -208,90 +301,111 @@
 				Mtag3 = document.getElementById("realMenu3");
 				
 				
+=======
+            
+            var Qtag1 = document.getElementById("realQty1");
+            var Qtag2 = document.getElementById("realQty2");
+            var Qtag3 = document.getElementById("realQty3");
+            
+            var Mtag1 = document.getElementById("realMenu1");
+            var Mtag2 = document.getElementById("realMenu2");
+            var Mtag3 = document.getElementById("realMenu3");
+            
+            
+>>>>>>> branch 'master' of https://github.com/Byungwoo-Kim/izzacProject.git
 
-				
-				Qtag1.innerHTML = qty1;
-				Qtag2.innerHTML = qty2;
-				Qtag3.innerHTML = qty3;
-				
-				Mtag1.innerHTML = item1;
-				Mtag2.innerHTML = item2;
-				Mtag3.innerHTML = item3;
-				
-			}
+            
+            Qtag1.innerHTML = qty1;
+            Qtag2.innerHTML = qty2;
+            Qtag3.innerHTML = qty3;
+            
+            Mtag1.innerHTML = item1;
+            Mtag2.innerHTML = item2;
+            Mtag3.innerHTML = item3;
+            
+         }
 
-		});
-	$.ajax({
-		//당일 예상 판매량 검색
-			url : "DailyResultService",
-			data : "year=" + year +"&month=" + month+"&date="+date,
-			success : function(result) {
-			var devideChoice = result.split("_");	
-			var choice1 = devideChoice[0];
-			var choice2 = devideChoice[1];
-			var choice3 = devideChoice[2];
-			var choice4 = devideChoice[3];
-			var choice5 = devideChoice[4];
-			var choice6 = devideChoice[5];
-			var choice7 = devideChoice[6];
-			var choice8 = devideChoice[7];
-			
-			choice1menu = choice1.split("/")[0];
-			choice2menu = choice2.split("/")[0];
-			choice3menu = choice3.split("/")[0];
-			choice4menu = choice4.split("/")[0];
-			choice5menu = choice5.split("/")[0];
-			choice6menu = choice6.split("/")[0];
-			choice7menu = choice7.split("/")[0];
-			choice8menu = choice8.split("/")[0];
-			
-			choice1qty = choice1.split("/")[1];
-			choice2qty = choice2.split("/")[1];
-			choice3qty = choice3.split("/")[1];
-			choice4qty = choice4.split("/")[1];
-			choice5qty = choice5.split("/")[1];
-			choice6qty = choice6.split("/")[1];
-			choice7qty = choice7.split("/")[1];
-			choice8qty = choice8.split("/")[1];
-			preMoney1 = choice1.split("/")[2];
-			preMoney2 = choice2.split("/")[2];
-			preMoney3 = choice3.split("/")[2];
-			preMoney4 = choice4.split("/")[2];
-			preMoney5 = choice5.split("/")[2];
-			preMoney6 = choice6.split("/")[2];
-			preMoney7 = choice7.split("/")[2];
-			preMoney8 = choice8.split("/")[2];
-			
-			
-			
-			
-			}
+      });
+   $.ajax({
+      //당일 예상 판매량 검색
+         url : "DailyResultService",
+         data : "year=" + year +"&month=" + month+"&date="+date,
+         success : function(result) {
+         var devideChoice = result.split("_");   
+         var choice1 = devideChoice[0];
+         var choice2 = devideChoice[1];
+         var choice3 = devideChoice[2];
+         var choice4 = devideChoice[3];
+         var choice5 = devideChoice[4];
+         var choice6 = devideChoice[5];
+         var choice7 = devideChoice[6];
+         var choice8 = devideChoice[7];
+         
+         choice1menu = choice1.split("/")[0];
+         choice2menu = choice2.split("/")[0];
+         choice3menu = choice3.split("/")[0];
+         choice4menu = choice4.split("/")[0];
+         choice5menu = choice5.split("/")[0];
+         choice6menu = choice6.split("/")[0];
+         choice7menu = choice7.split("/")[0];
+         choice8menu = choice8.split("/")[0];
+         
+         choice1qty = choice1.split("/")[1];
+         choice2qty = choice2.split("/")[1];
+         choice3qty = choice3.split("/")[1];
+         choice4qty = choice4.split("/")[1];
+         choice5qty = choice5.split("/")[1];
+         choice6qty = choice6.split("/")[1];
+         choice7qty = choice7.split("/")[1];
+         choice8qty = choice8.split("/")[1];
+         preMoney1 = choice1.split("/")[2];
+         preMoney2 = choice2.split("/")[2];
+         preMoney3 = choice3.split("/")[2];
+         preMoney4 = choice4.split("/")[2];
+         preMoney5 = choice5.split("/")[2];
+         preMoney6 = choice6.split("/")[2];
+         preMoney7 = choice7.split("/")[2];
+         preMoney8 = choice8.split("/")[2];
+         
+         
+         
+         
+         }
 
-		});
-	$.ajax({
-		//정확도 가져오기(accur)
-			url : "DailyAccurService",
-			data : "year=" + year +"&month=" + month+"&date="+date,
-			success : function(result) {
-				
-				var AccuList = result.split(",");
-				accu1 = AccuList[0];
-				accu2 = AccuList[1];
-				accu3 = AccuList[2];
-				accu4 = AccuList[3];
-				accu5 = AccuList[4];
-				accu6 = AccuList[5];
-				accu7 = AccuList[6];
-				accu8 = AccuList[7];
-				
-				
-			}
+      });
+   $.ajax({
+      //정확도 가져오기(accur)
+         url : "DailyAccurService",
+         data : "year=" + year +"&month=" + month+"&date="+date,
+         success : function(result) {
+            
+            var AccuList = result.split(",");
+            accu1 = AccuList[0];
+            accu2 = AccuList[1];
+            accu3 = AccuList[2];
+            accu4 = AccuList[3];
+            accu5 = AccuList[4];
+            accu6 = AccuList[5];
+            accu7 = AccuList[6];
+            accu8 = AccuList[7];
+            
+            
+         }
 
+<<<<<<< HEAD
 		});
 	
 	
 	}
+=======
+      });
+   
+   
+   }
+   
+>>>>>>> branch 'master' of https://github.com/Byungwoo-Kim/izzacProject.git
 
+<<<<<<< HEAD
 	function test(number){
 		var resultTag = document.getElementById("percentId");
 		
@@ -325,7 +439,38 @@
 			MenuTag1.innerHTML = choice1menuS[0];
 			MenuTag2.innerHTML = choice1menuS[1];
 			MenuTag3.innerHTML = choice1menuS[2];
+=======
+   function test(number){
+      var resultTag = document.getElementById("percentId");
+      
+      var QtyTag1 = document.getElementById("preQty1");
+      var QtyTag2 = document.getElementById("preQty2");
+      var QtyTag3 = document.getElementById("preQty3");
+      
+      var MenuTag1 = document.getElementById("preMenu1");
+      var MenuTag2 = document.getElementById("preMenu2");
+      var MenuTag3 = document.getElementById("preMenu3");
+      
+      var preMoney = document.getElementById("preMoney");
+            
+      var analMoney = document.getElementById("analMoney");
+      
+      
+      if(number==1){
+         var choice1menuS = choice1menu.split(",");
+         var choice1qtyS = choice1qty.split(",");
+         
+         
+         QtyTag1.innerHTML = choice1qtyS[0];
+         QtyTag2.innerHTML = choice1qtyS[1];
+         QtyTag3.innerHTML = choice1qtyS[2];
+         
+         MenuTag1.innerHTML = choice1menuS[0];
+         MenuTag2.innerHTML = choice1menuS[1];
+         MenuTag3.innerHTML = choice1menuS[2];
+>>>>>>> branch 'master' of https://github.com/Byungwoo-Kim/izzacProject.git
 
+<<<<<<< HEAD
 			resultTag.innerHTML = accu1 + "%";
 			preMoney.innerHTML = preMoney1;
 			var typeTag = document.getElementById("typeShow");
@@ -362,10 +507,45 @@
 			MenuTag1.innerHTML = choice3menuS[0];
 			MenuTag2.innerHTML = choice3menuS[1];
 			MenuTag3.innerHTML = choice3menuS[2];
+=======
+         resultTag.innerHTML = accu1 + "%";
+         preMoney.innerHTML = preMoney1;
+         
+      }else if(number==2){
+         var choice2menuS = choice2menu.split(",");
+         var choice2qtyS = choice2qty.split(",");
+         
+         QtyTag1.innerHTML = choice2qtyS[0];
+         QtyTag2.innerHTML = choice2qtyS[1];
+         QtyTag3.innerHTML = choice2qtyS[2];
+         
+         MenuTag1.innerHTML = choice2menuS[0];
+         MenuTag2.innerHTML = choice2menuS[1];
+         MenuTag3.innerHTML = choice2menuS[2];
+         
+         //예측도 넣기
+         resultTag.innerHTML = accu2 + "%";
+         
+         preMoney.innerHTML = preMoney2;
+         
+         
+      }else if(number==3){
+         var choice3menuS = choice3menu.split(",");
+         var choice3qtyS = choice3qty.split(",");
+         
+         QtyTag1.innerHTML = choice3qtyS[0];
+         QtyTag2.innerHTML = choice3qtyS[1];
+         QtyTag3.innerHTML = choice3qtyS[2];
+         
+         MenuTag1.innerHTML = choice3menuS[0];
+         MenuTag2.innerHTML = choice3menuS[1];
+         MenuTag3.innerHTML = choice3menuS[2];
+>>>>>>> branch 'master' of https://github.com/Byungwoo-Kim/izzacProject.git
 
 
-			resultTag.innerHTML = accu3 + "%";
+         resultTag.innerHTML = accu3 + "%";
 
+<<<<<<< HEAD
 			preMoney.innerHTML = preMoney3;
 			
 			var typeTag = document.getElementById("typeShow");
@@ -512,128 +692,221 @@
 			
 		}
 	}
+=======
+         preMoney.innerHTML = preMoney3;
+      }else if(number==4){
+         var choice4menuS = choice4menu.split(",");
+         var choice4qtyS = choice4qty.split(",");
+         
+         QtyTag1.innerHTML = choice4qtyS[0];
+         QtyTag2.innerHTML = choice4qtyS[1];
+         QtyTag3.innerHTML = choice4qtyS[2];
+         
+         MenuTag1.innerHTML = choice4menuS[0];
+         MenuTag2.innerHTML = choice4menuS[1];
+         MenuTag3.innerHTML = choice4menuS[2];
+         
+         resultTag.innerHTML = accu4 + "%";
+         
+         preMoney.innerHTML = preMoney4;
+         
+      }else if(number==5){
+         var choice5menuS = choice5menu.split(",");
+         var choice5qtyS = choice5qty.split(",");
+         
+         QtyTag1.innerHTML = choice5qtyS[0];
+         QtyTag2.innerHTML = choice5qtyS[1];
+         QtyTag3.innerHTML = choice5qtyS[2];
+         
+         MenuTag1.innerHTML = choice5menuS[0];
+         MenuTag2.innerHTML = choice5menuS[1];
+         MenuTag3.innerHTML = choice5menuS[2];
+         
+         resultTag.innerHTML = accu5 + "%";
+         
+         preMoney.innerHTML = preMoney5;
+         
+      }else if(number==6){
+         var choice6menuS = choice6menu.split(",");
+         var choice6qtyS = choice6qty.split(",");
+         
+         QtyTag1.innerHTML = choice6qtyS[0];
+         QtyTag2.innerHTML = choice6qtyS[1];
+         QtyTag3.innerHTML = choice6qtyS[2];
+         
+         MenuTag1.innerHTML = choice6menuS[0];
+         MenuTag2.innerHTML = choice6menuS[1];
+         MenuTag3.innerHTML = choice6menuS[2];
+         
+         resultTag.innerHTML = accu6 + "%";
+         
+         preMoney.innerHTML = preMoney6;
+      }else if(number==7){
+         var choice7menuS = choice7menu.split(",");
+         var choice7qtyS = choice7qty.split(",");
+         
+         QtyTag1.innerHTML = choice7qtyS[0];
+         QtyTag2.innerHTML = choice7qtyS[1];
+         QtyTag3.innerHTML = choice7qtyS[2];
+         
+         MenuTag1.innerHTML = choice7menuS[0];
+         MenuTag2.innerHTML = choice7menuS[1];
+         MenuTag3.innerHTML = choice7menuS[2];
+         
+         resultTag.innerHTML = accu7 + "%";
+         
+         preMoney.innerHTML = preMoney7;
+         
+      }else if(number==8){
+         var choice8menuS = choice8menu.split(",");
+         var choice8qtyS = choice8qty.split(",");
+         
+         QtyTag1.innerHTML = choice8qtyS[0];
+         QtyTag2.innerHTML = choice8qtyS[1];
+         QtyTag3.innerHTML = choice8qtyS[2];
+         
+         MenuTag1.innerHTML = choice8menuS[0];
+         MenuTag2.innerHTML = choice8menuS[1];
+         MenuTag3.innerHTML = choice8menuS[2];
+         
+         resultTag.innerHTML = accu8 + "%";
+         
+         preMoney.innerHTML = preMoney8;
+      }
+      Qtag1.innerHTML = qty1;
+      Qtag2.innerHTML = qty2;
+      Qtag3.innerHTML = qty3;
+      
+      Mtag1.innerHTML = item1;
+      Mtag2.innerHTML = item2;
+      Mtag3.innerHTML = item3;
+   }
+>>>>>>> branch 'master' of https://github.com/Byungwoo-Kim/izzacProject.git
 
 </script>
-	<%
-		GregorianCalendar today = new GregorianCalendar();
+   <%
+      GregorianCalendar today = new GregorianCalendar();
 
-		GregorianCalendar movedCal = new GregorianCalendar();
-		int nowYear = today.get(today.YEAR);
-		int nowMonth = today.get(today.MONTH);
-		int nowDay = today.get(today.DAY_OF_MONTH);
-		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
+      GregorianCalendar movedCal = new GregorianCalendar();
+      int nowYear = today.get(today.YEAR);
+      int nowMonth = today.get(today.MONTH);
+      int nowDay = today.get(today.DAY_OF_MONTH);
+      int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-		if (request.getParameter("yearNext") != null) {
-			nowYear = Integer.parseInt(request.getParameter("yearNext"));
-			nowMonth = Integer.parseInt(request.getParameter("monthNext"));
-			nowDay = Integer.parseInt(request.getParameter("startDayNext"));
-			today = new GregorianCalendar(nowYear, nowMonth, nowDay);
-			lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
+      if (request.getParameter("yearNext") != null) {
+         nowYear = Integer.parseInt(request.getParameter("yearNext"));
+         nowMonth = Integer.parseInt(request.getParameter("monthNext"));
+         nowDay = Integer.parseInt(request.getParameter("startDayNext"));
+         today = new GregorianCalendar(nowYear, nowMonth, nowDay);
+         lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-			System.out.println(nowYear);
-			System.out.println(nowMonth);
-			System.out.println(nowDay);
+         System.out.println(nowYear);
+         System.out.println(nowMonth);
+         System.out.println(nowDay);
 
-		}
+      }
 
-		String eng_month = "";
-		if (nowMonth == 0) {
-			eng_month = "January";
-		} else if (nowMonth == 1) {
-			eng_month = "Febrary";
-		} else if (nowMonth == 2) {
-			eng_month = "March";
-		} else if (nowMonth == 3) {
-			eng_month = "April";
-		} else if (nowMonth == 4) {
-			eng_month = "May";
-		} else if (nowMonth == 5) {
-			eng_month = "June";
-		} else if (nowMonth == 6) {
-			eng_month = "July";
-		} else if (nowMonth == 7) {
-			eng_month = "August";
-		} else if (nowMonth == 8) {
-			eng_month = "September";
-		} else if (nowMonth == 9) {
-			eng_month = "October";
-		} else if (nowMonth == 10) {
-			eng_month = "November";
-		} else if (nowMonth == 11) {
-			eng_month = "December";
-		}
-	%>
-	<!-- jQuery UI CSS파일  -->
+      String eng_month = "";
+      if (nowMonth == 0) {
+         eng_month = "January";
+      } else if (nowMonth == 1) {
+         eng_month = "Febrary";
+      } else if (nowMonth == 2) {
+         eng_month = "March";
+      } else if (nowMonth == 3) {
+         eng_month = "April";
+      } else if (nowMonth == 4) {
+         eng_month = "May";
+      } else if (nowMonth == 5) {
+         eng_month = "June";
+      } else if (nowMonth == 6) {
+         eng_month = "July";
+      } else if (nowMonth == 7) {
+         eng_month = "August";
+      } else if (nowMonth == 8) {
+         eng_month = "September";
+      } else if (nowMonth == 9) {
+         eng_month = "October";
+      } else if (nowMonth == 10) {
+         eng_month = "November";
+      } else if (nowMonth == 11) {
+         eng_month = "December";
+      }
+   %>
+   <!-- jQuery UI CSS파일  -->
 
-	<div class="container">
+   <div class="container">
 
-		<div class="calendar-container">
+      <div class="calendar-container">
 
-			<header>
+         <header>
 
-				<div class="day"><%=nowYear%></div>
-				<div class="month"><%=eng_month%></div>
+            <div class="day"><%=nowYear%></div>
+            <div class="month"><%=eng_month%></div>
 
-			</header>
+         </header>
 
-			<table class="calendar">
-				<THEAD>
-					<TR>
-						<TD>Sun</TD>
-						<TD>Mon</TD>
-						<TD>Tue</TD>
-						<TD>Wed</TD>
-						<TD>Thu</TD>
-						<TD>Fri</TD>
-						<TD>Sat</TD>
-					</TR>
-				</THEAD>
-				<TBODY>
-					<TR>
+         <table class="calendar">
+            <THEAD>
+               <TR>
+                  <TD>Sun</TD>
+                  <TD>Mon</TD>
+                  <TD>Tue</TD>
+                  <TD>Wed</TD>
+                  <TD>Thu</TD>
+                  <TD>Fri</TD>
+                  <TD>Sat</TD>
+               </TR>
+            </THEAD>
+            <TBODY>
+               <TR>
 
-						<%
-							Calendar cal = Calendar.getInstance();
-							int start = 6;
-							if (request.getParameter("yearNext") != null) {
-								cal = new GregorianCalendar(nowYear, nowMonth, 1);
-								start = cal.get(java.util.Calendar.DAY_OF_WEEK);
-							}
-							System.out.println(cal.getTime());
-							System.out.println("메인달력 시작하는 인덱스 :" + start);
-							int endDay = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
+                  <%
+                     Calendar cal = Calendar.getInstance();
+                     int start = 6;
+                     if (request.getParameter("yearNext") != null) {
+                        cal = new GregorianCalendar(nowYear, nowMonth, 1);
+                        start = cal.get(java.util.Calendar.DAY_OF_WEEK);
+                     }
+                     System.out.println(cal.getTime());
+                     System.out.println("메인달력 시작하는 인덱스 :" + start);
+                     int endDay = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
 
-							int newLine = 0;
-							Calendar todayCal = Calendar.getInstance();
-							SimpleDateFormat sdf = new SimpleDateFormat("yyyMMdd");
-							int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
-							//시작하는 요일 설정
-							for (int index = 1; index < start; index++) {
-								out.println("<TD id='blank'>&nbsp;</TD>");
-								newLine++;
-							}
+                     int newLine = 0;
+                     Calendar todayCal = Calendar.getInstance();
+                     SimpleDateFormat sdf = new SimpleDateFormat("yyyMMdd");
+                     int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
+                     //시작하는 요일 설정
+                     for (int index = 1; index < start; index++) {
+                        out.println("<TD id='blank'>&nbsp;</TD>");
+                        newLine++;
+                     }
 
-							for (int index = 1; index <= endDay; index++) {
-								String color = "";
-								//주말 색 변경
-								if (newLine == 0) {
-									color = "RED";
-								} else if (newLine == 6) {
-									color = "#529dbc";
-								} else {
-									color = "BLACK";
-								} ;
+                     for (int index = 1; index <= endDay; index++) {
+                        String color = "";
+                        //주말 색 변경
+                        if (newLine == 0) {
+                           color = "RED";
+                        } else if (newLine == 6) {
+                           color = "#529dbc";
+                        } else {
+                           color = "BLACK";
+                        } ;
 
-								String sUseDate = Integer.toString(nowYear);
-								sUseDate += Integer.toString(nowMonth + 1).length() == 1
-										? "0" + Integer.toString(nowMonth + 1)
-										: Integer.toString(nowMonth + 1);
-								sUseDate += Integer.toString(index).length() == 1
-										? "0" + Integer.toString(index)
-										: Integer.toString(index);
+                        String sUseDate = Integer.toString(nowYear);
+                        sUseDate += Integer.toString(nowMonth + 1).length() == 1
+                              ? "0" + Integer.toString(nowMonth + 1)
+                              : Integer.toString(nowMonth + 1);
+                        sUseDate += Integer.toString(index).length() == 1
+                              ? "0" + Integer.toString(index)
+                              : Integer.toString(index);
+
 
 								int iUseDate = Integer.parseInt(sUseDate);
 								
 								int month = nowMonth + 1;
+
+
 
 								//달력 칸 나누기
 								out.println("<TD>");
@@ -668,62 +941,64 @@
 				</TBODY>
 			</TABLE>
 
-			<div class="ring-left"></div>
-			<div class="ring-right"></div>
 
-		</div>
+         <div class="ring-left"></div>
+         <div class="ring-right"></div>
+
+      </div>
 
 
-		<div></div>
-		<!--달력 넘기기  -->
-		<!-- slide 함수에 2들어가면 해가 바뀌고 1이 넘어가면 월이 바뀐다  -->
-		<%
-			if (nowMonth > 0) {
-		%>
-		<a
-			href='CalendarMain.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
-			"
-		target="_self" id="left"><img src="images/left.png"
-			width="30" height="30"></a>
+      <div></div>
+      <!--달력 넘기기  -->
+      <!-- slide 함수에 2들어가면 해가 바뀌고 1이 넘어가면 월이 바뀐다  -->
+      <%
+         if (nowMonth > 0) {
+      %>
+      <a
+         href='CalendarMain.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
+         "
+      target="_self" id="left"><img src="images/left.png"
+         width="30" height="30"></a>
 
-		<%
-			} else if (nowMonth == 0) {
-		%>
-		<a
-			href='CalendarMain.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
-			"
-		target="_self" id="left"><img src="images/left.png"
-			width="30" height="30"> </a>
-		<%
-			}
-		%>
+      <%
+         } else if (nowMonth == 0) {
+      %>
+      <a
+         href='CalendarMain.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
+         "
+      target="_self" id="left"><img src="images/left.png"
+         width="30" height="30"> </a>
+      <%
+         }
+      %>
 
-		<%
-			if (nowMonth < 11) {
-		%>
-		<a
-			href='CalendarMain.jsp?yearNext=<%=nowYear%>
-		&amp;monthNext=<%=nowMonth + 1%>&amp;startDayNext=<%=start%>'
-			"
-		target="_self" id="right"><img src="images/right.png"
-			width="30" height="30"></a>
-		<%
-			} else if (nowMonth == 11) {
-		%><a
-			href='CalendarMain.jsp?yearNext=<%=nowYear + 1%>
-		&amp;monthNext=<%=0%>&amp;startDayNext=<%=start%>'
-			"
-		target="_self" id="right"><img src="images/right.png"
-			width="30" height="30"></a>
-		<%
-			}
-		%>
-		<!--달력 넘기기 끝  -->
+      <%
+         if (nowMonth < 11) {
+      %>
+      <a
+         href='CalendarMain.jsp?yearNext=<%=nowYear%>
+      &amp;monthNext=<%=nowMonth + 1%>&amp;startDayNext=<%=start%>'
+         "
+      target="_self" id="right"><img src="images/right.png"
+         width="30" height="30"></a>
+      <%
+         } else if (nowMonth == 11) {
+      %><a
+         href='CalendarMain.jsp?yearNext=<%=nowYear + 1%>
+      &amp;monthNext=<%=0%>&amp;startDayNext=<%=start%>'
+         "
+      target="_self" id="right"><img src="images/right.png"
+         width="30" height="30"></a>
+      <%
+         }
+      %>
+      <!--달력 넘기기 끝  -->
 
-	</div>
-	<!-- end container -->
-	<!-- 일 눌렀을때 오른쪽에 나오는 창  -->
+   </div>
+   <!-- end container -->
+   <!-- 일 눌렀을때 오른쪽에 나오는 창  -->
 
+<<<<<<< HEAD
 	<div class="outLine">
 		<img class="mySlides" src="img/nothing.png"> <img
 			class="mySlides" src="img/dayNoData.png">
@@ -796,132 +1071,204 @@
 			</tr>
 			<tr>
 				<td td colspan="6" class="void"></td>
+=======
+   <div class="outLine">
+      <img class="mySlides" src="img/nothing.png"> <img
+         class="mySlides" src="img/dayNoData.png">
+      <table class="detail" id="pictureShow">
+         <tr>
+            <td colspan="6" , style="width: 100;"><div id='preview'
+                  STYLE="BORDER-RIGHT: 1px; BORDER-TOP: 1px; Z-INDEX: 1; VISIBILITY: hidden; BORDER-LEFT: 1px; BORDER-BOTTOM: 1px; POSITION: absolute;"></div>
+               <button onclick="test(1);" onMouseMove="setPreviewBox(event);"
+                  onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다1.'); return true;"
+                  onMouseOut="hidePreview(); return true;" onClick=""
+                  class="btn-group">TYPE 1</button>
+               <button onclick="test(2);" onMouseMove="setPreviewBox(event);"
+                  onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다2.'); return true;"
+                  onMouseOut="hidePreview(); return true;" onClick=""
+                  class="btn-group">TYPE 2</button>
+               <button onclick="test(3);" onMouseMove="setPreviewBox(event);"
+                  onMouseOver="showPreview('3333333.'); return true;"
+                  onMouseOut="hidePreview(); return true;" onClick=""
+                  class="btn-group">TYPE 3</button>
+               <button onclick="test(4);" onMouseMove="setPreviewBox(event);"
+                  onMouseOver="showPreview('44444.'); return true;"
+                  onMouseOut="hidePreview(); return true;" onClick=""
+                  class="btn-group">TYPE 4</button>
+               <button onclick="test(5);" onMouseMove="setPreviewBox(event);"
+                  onMouseOver="showPreview('55555.'); return true;"
+                  onMouseOut="hidePreview(); return true;" onClick=""
+                  class="btn-group">TYPE 5</button>
+               <button onclick="test(6);" onMouseMove="setPreviewBox(event);"
+                  onMouseOver="showPreview('666666.'); return true;"
+                  onMouseOut="hidePreview(); return true;" onClick=""
+                  class="btn-group">TYPE 6</button>
+               <button onclick="test(7);" onMouseMove="setPreviewBox(event);"
+                  onMouseOver="showPreview('7777771.'); return true;"
+                  onMouseOut="hidePreview(); return true;" onClick=""
+                  class="btn-group">TYPE 7</button>
+               <button onclick="test(8);" onMouseMove="setPreviewBox(event);"
+                  onMouseOver="showPreview('88888.'); return true;"
+                  onMouseOut="hidePreview(); return true;" onClick=""
+                  class="btn-group">TYPE 8</button></td>
+         </tr>
+         <tr><td colspan = "3" id = "dateShow">2017년 12월 03일</td><td colspan = "2">선택한 옵션</td><td width = "25%" id = "typeShow">TYPE 3</td>
+         <tr>
+            <td colspan="3" class="title">예측 판매량</td>
+            <td colspan="3" class="title">실제 판매량</td>
+         </tr>
+         <tr>
+            <td class="rank">1.</td>
+            <td id="preMenu1">Iced Americano</td>
+            <td id="preQty1">87</td>
+            <td class="rank">1.</td>
+            <td id="realMenu1">Iced Americano</td>
+            <td id="realQty1">79</td>
+         </tr>
+         <tr>
+            <td class="rank">2.</td>
+            <td id="preMenu2">Iced Vanilla Latte</td>
+            <td id="preQty2">54</td>
+            <td class="rank">2.</td>
+            <td id="realMenu2">Hot Chocolate</td>
+            <td id="realQty2">43</td>
+         </tr>
+         <tr>
+            <td class="rank">3.</td>
+            <td id="preMenu3">Espresso</td>
+            <td id="preQty3">45</td>
+            <td class="rank">3.</td>
+            <td id="realMenu3">Iced Vanilla Latte</td>
+            <td id="realQty3">39</td>
+         </tr>
+         <tr>
+            <td td colspan="6" class="void"></td>
+>>>>>>> branch 'master' of https://github.com/Byungwoo-Kim/izzacProject.git
 
-			</tr>
-			<tr>
-				<td td colspan="3" class="title">예상 매출액</td>
-				<td td colspan="3" class="title">실제 매출액</td>
-			</tr>
-			<tr>
-				<td td colspan="3" id="preMoney">2562500원</td>
-				<td td colspan="3" id="analMoney">2315800원</td>
-			</tr>
-			<tr>
-				<td td colspan="6" class="void"></td>
+         </tr>
+         <tr>
+            <td td colspan="3" class="title">예상 매출액</td>
+            <td td colspan="3" class="title">실제 매출액</td>
+         </tr>
+         <tr>
+            <td td colspan="3" id="preMoney">2562500원</td>
+            <td td colspan="3" id="analMoney">2315800원</td>
+         </tr>
+         <tr>
+            <td td colspan="6" class="void"></td>
 
-			</tr>
-			<tr>
-				<td colspan="6" class="percentClass" id="percentId">99%</td>
+         </tr>
+         <tr>
+            <td colspan="6" class="percentClass" id="percentId">99%</td>
 
-			</tr>
-
-
-		</table>
-	</div>
+         </tr>
 
 
+      </table>
+   </div>
 
 
 
 
 
 
-	<script type="text/javascript">
-		// 당월 총 일수 구하기
-		/** 년,월 받으면 일수계산 */
-		function getTotalDate(year, month) {
-			if (month == 4 || month == 6 || month == 9 || month == 11)
-				return 30;
-			else if (month == 2) //2월일때
-			{
-				if (year % 4 == 0) // 2월이면서 윤년일 때
-					return 29;
-				else
-					// 2월이면서 윤년이 아닐 때
-					return 28
-			} else
-				return 31;
-		}
 
-		//이번달 시작일의 요일 구하기
-		function makeStartDate(month) {
-			var temp_Month = now_Month; // 전역변수의 값을 변경하지 않도록
-			var startDay = now_Day; //시작요일 저장 / 기본값 : 현재요일
-			if (now_Month == month) //만약 시작일의 기준이 되는 달이 현재 달일 경우이다.
-			{
-				for (; temp_Month >= 0; temp_Month--) //시작값:현재 일자, 끝값 : 0 
-				{
-					startDay--; // -1씩 감소
-					if (startDay < 0) //요일 0~6
-					{
-						startDay = 6;
-					}
-					//당월 일수만큼 반복 
-					//1일일 경우 반복문 수행 x
-				}
-				return startDay;
-			}
-			alert("입력받은 월이 당월이 아닙니다.");
-		}
 
-		//이번달 마지막일 요일 구하기
-		function makeLastDate(month) {
-			var temp_Month = now_Month; // 전역변수의 값을 변경하지 않도록 다른변수에 값을 옮겨 넣는다.
-			var lastDay = now_Day; //시작요일을 저장하는 변수이다. 먼저 기본값으로 현재 요일을 저장한다.
-			if (now_Month == month) //만약 시작일의 기준이 되는 달이 현재 달일 경우이다.
-			{
-				//먼저 당월에 대한 총 일수를 구한다. 위에서 선언한 메소드를 가지고 구한다.
-				var totalDate = getTotalDate(now_Year, now_Month);
+   <script type="text/javascript">
+      // 당월 총 일수 구하기
+      /** 년,월 받으면 일수계산 */
+      function getTotalDate(year, month) {
+         if (month == 4 || month == 6 || month == 9 || month == 11)
+            return 30;
+         else if (month == 2) //2월일때
+         {
+            if (year % 4 == 0) // 2월이면서 윤년일 때
+               return 29;
+            else
+               // 2월이면서 윤년이 아닐 때
+               return 28
+         } else
+            return 31;
+      }
 
-				for (; temp_Month <= totalDate; temp_Month++) //시작값:현지 일자, 끝값 : 당월 마지막일
-				{
-					lastDay++; // +1씩 증가
-					if (totalDate > 6) //요일은 0부터 6까지 있기 때문에 6을 초과하면 0으로 초기화 해준다.(한바퀴)
-					{
-						startDay = 0;
-					}
-				}
-				return startDay;
-			}
-			alert("입력받은 월이 당월이 아닙니다.");
-		}
+      //이번달 시작일의 요일 구하기
+      function makeStartDate(month) {
+         var temp_Month = now_Month; // 전역변수의 값을 변경하지 않도록
+         var startDay = now_Day; //시작요일 저장 / 기본값 : 현재요일
+         if (now_Month == month) //만약 시작일의 기준이 되는 달이 현재 달일 경우이다.
+         {
+            for (; temp_Month >= 0; temp_Month--) //시작값:현재 일자, 끝값 : 0 
+            {
+               startDay--; // -1씩 감소
+               if (startDay < 0) //요일 0~6
+               {
+                  startDay = 6;
+               }
+               //당월 일수만큼 반복 
+               //1일일 경우 반복문 수행 x
+            }
+            return startDay;
+         }
+         alert("입력받은 월이 당월이 아닙니다.");
+      }
 
-		//달 넘기기
-		var order = 0;
-		function slide(num) {
+      //이번달 마지막일 요일 구하기
+      function makeLastDate(month) {
+         var temp_Month = now_Month; // 전역변수의 값을 변경하지 않도록 다른변수에 값을 옮겨 넣는다.
+         var lastDay = now_Day; //시작요일을 저장하는 변수이다. 먼저 기본값으로 현재 요일을 저장한다.
+         if (now_Month == month) //만약 시작일의 기준이 되는 달이 현재 달일 경우이다.
+         {
+            //먼저 당월에 대한 총 일수를 구한다. 위에서 선언한 메소드를 가지고 구한다.
+            var totalDate = getTotalDate(now_Year, now_Month);
 
-			order += num;
-			//전달로
-			if (order == -2) {
-				var tdTag = document.getElementById("blank");
-				tdTag.innerHTML = 'a';
+            for (; temp_Month <= totalDate; temp_Month++) //시작값:현지 일자, 끝값 : 당월 마지막일
+            {
+               lastDay++; // +1씩 증가
+               if (totalDate > 6) //요일은 0부터 6까지 있기 때문에 6을 초과하면 0으로 초기화 해준다.(한바퀴)
+               {
+                  startDay = 0;
+               }
+            }
+            return startDay;
+         }
+         alert("입력받은 월이 당월이 아닙니다.");
+      }
 
-				nowMonth == 11;
-				nowYear-= nowYear;
+      //달 넘기기
+      var order = 0;
+      function slide(num) {
 
-				<%-- <a
-				href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
-				"
-			target="_self" id="left"><img src="images/left.png"
-				width="30" height="30"></a> --%>
-				
-				
-				
-				
-			}/*  else if (order == imgs.length) {
-				order = 0;
-			}
-			imgs[order].style.display = "block";
+         order += num;
+         //전달로
+         if (order == -2) {
+            var tdTag = document.getElementById("blank");
+            tdTag.innerHTML = 'a';
+
+            nowMonth == 11;
+            nowYear-= nowYear;
+
+            <%-- <a
+            href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
+            "
+         target="_self" id="left"><img src="images/left.png"
+            width="30" height="30"></a> --%>
+            
+            
+            
+            
+         }/*  else if (order == imgs.length) {
+            order = 0;
+         }
+         imgs[order].style.display = "block";
  */
-		}
-	</script>
-	<form name="calendarFrm" id="calendarFrm" action="" method="post">
+      }
+   </script>
+   <form name="calendarFrm" id="calendarFrm" action="" method="post">
 
-	</form>
+   </form>
 
 
 
 
 </body>
 </html>
-

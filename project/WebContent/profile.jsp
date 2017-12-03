@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <style type="text/css">
 * {
-	/* border: 1px solid black; */
-	
+	 /* border: 1px solid black; 
+ */	
 }
 
 #profilewrap {
@@ -40,35 +40,35 @@
 
 #profileid {
 	font-family: "Bebas Neue", serif;
-	font-size: 59px;
+	font-size: 65px;
 	color: #008bac;
 	margin-right: 100px;
 }
 
 #profileid2 {
 	font-family: "Bebas Neue", serif;
-	font-size: 59px;
+	font-size: 65px;
 	color: #008bac;
-	margin-right: 120px;
+	    line-height: 1.3em;
 }
 
 #profilehi {
-	font-family: "Caviar Dreams", serif;
-	font-size: 30px;
+	font-family: "나눔바른펜", serif;
+	font-size: 26px;
 	color: #58585a;
 	font-weight: bold;
 }
 
 #profilehi2 {
 	font-family: 나눔바른펜, serif;
-	font-size: 25px;
+	font-size: 26px;
 	color: 58585a;
 	font-weight: bold;
 	line-height: 40px;
 }
 
 img {
-	padding-left: 23.5%;
+	padding-left: 22%;
 	float: left;
 	height: 70px;
 	width: 80px;
