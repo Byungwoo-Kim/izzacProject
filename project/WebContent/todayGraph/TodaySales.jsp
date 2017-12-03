@@ -103,6 +103,8 @@
 		}
 		}
 	%>
+	<form action="../Refresh.do">
+	<input type="submit" value="갱신하기"/></form>
 </body>
 </html>
 

@@ -68,7 +68,7 @@
 }
 
 img {
-	padding-left: 15%;
+	padding-left: 25%;
 	float: left;
 	height: 70px;
 	width: 80px;
