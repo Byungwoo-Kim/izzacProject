@@ -1,63 +1,89 @@
 <%@page import="com.DAO.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <style type="text/css">
+* {
+	/* border: 1px solid black; */
+	
+}
+
 #profilewrap {
 	width: 24.5em;
-    height: 8.5em;
+	height: 9em;
 	/* border: 1px solid #ed9357; */
 	box-sizing: border-box;
-	text-align: center;
 	/* border-radius: 0px 15px 0px 15px; */
-	z-index: 2;
 }
 
-#profileleft{
-	height: 100%;
-	width: 50%;
-	line-height: 150px;
-	float: left;
+#profiletop {
+	height: 50%;
+	width: 100%;
+	/* line-height: 150px; */
 }
 
-#profileright{
-	height: 100%;
-	width: 50%;
-	float: right;
-	padding-top: 1.5em;
+#profiletop {
+	height: 50%;
+	width: 100%;
+	/* 	line-height: 65px; */
+}
+
+#profilebottom {
+	height: 50%;
+	width: 100%;
+	text-align: center;
 }
 
 #profileid {
 	font-family: "Bebas Neue", serif;
-	font-size: 48px;
-	color: #008bac
+	font-size: 59px;
+	color: #008bac;
+	float: right;
+	margin-right: 100px;
 }
 
 #profileid2 {
 	font-family: "Bebas Neue", serif;
-	font-size: 45px;
-	color: #008bac
+	font-size: 59px;
+	color: #008bac;
+	float: right;
+	margin-right: 120px;
 }
 
 #profilehi {
 	font-family: "Caviar Dreams", serif;
-	font-size: 22px;
-	color: #607D8B;
+	font-size: 30px;
+	color: #58585a;
 	font-weight: bold;
+}
+
+#profilehi2 {
+	font-family: 나눔바른펜, serif;
+	font-size: 25px;
+	color: 58585a;
+	font-weight: bold;
+	line-height: 40px;
+}
+
+img {
+	padding-left: 23.5%;
+	float: left;
+	height: 70px;
+	width: 80px;
 }
 </style>
 <title>Insert title here</title>
 </head>
 <body>
 	<%
-		String sessionEmail = (String)session.getAttribute("email");
+		String sessionEmail = (String) session.getAttribute("email");
 		MemberDAO dao = new MemberDAO();
 		String payDate = dao.SelectPayDate(sessionEmail);
-		
+
 		request.setAttribute("payDate", payDate);
 	%>
 
@@ -68,20 +94,30 @@
 		<!-- 노로그인 -->
 		<c:choose>
 			<c:when test="${empty email }">
-					<div id="profileleft">
-						<span id="profileid">GUEST</span>
-					</div>
-					<div id="profileright">
-						&nbsp<span id="profilehi">Nice To Meet You,<br> I Hope Your
-							Life Is Happy
-						</span>
-					</div>
+				<div id="profiletop">
+					<img src="images/profileboo.jpg" alt="띠용"> <span
+						id="profileid">GUEST</span>
+				</div>
+				<div id="profilebottom">
+					<span id="profilehi">Nice To Meet You,<br> I Hope Your
+						Life Is Happy
+					</span>
+				</div>
 			</c:when>
 			<c:otherwise>
-				<div id="profileright">
-					<div id="profileright_top"><span id="profileid2">${sessionScope.email }</span></div>
-					<div id="profileright_bottom"><span id="profilehi">서비스 만료일자 : ${payDate }</span></div>
+				<%
+					String[] emailSplit = sessionEmail.split("@");
+
+							request.setAttribute("emailSplit", emailSplit[0]);
+				%>
+				<div id="profiletop">
+				<img src="images/profileboo.jpg" alt="띠용"> 
+					<span id="profileid2">${emailSplit }</span>
 				</div>
+				<div id="profilebottom">
+					<span id="profilehi2">서비스 만료일자<br>${payDate}</span>
+				</div>
+
 			</c:otherwise>
 		</c:choose>
 		<!-- 로그인 했을때 -->

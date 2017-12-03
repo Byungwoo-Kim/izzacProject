@@ -13,7 +13,7 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="assets/css/widget.css?ver=3">
+<link rel="stylesheet" href="assets/css/widget.css?ver=4">
 
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
@@ -655,32 +655,35 @@
 				<table align="center">
 					<tr>
 						<td colspan="3" align="center"><img id="weatherImage"
-							src="img/yellowsunny.jpg"></td>
+							src="img/whitesmokesunny.jpg"></td>
 						<td colspan="3"><span class="degree-symbol" id="tempShow" class="blue" style="color:#323232;">32℃</span></td>
 					</tr>
 					<tr>
 						<td>  <br></td>
 					</tr>
 					<tr>
-						<td><img width="30px" height="30px"
+						<td><img width="50px" height="50px"
 							src="img/humidityBlack.png"></td>
 						<td>
 
 							<li class="fontawesome-leaf left" id="humShow" style="color:#323232; font-size: 0.8em"><span
-								id="conText" class="blue" style="color:#323232; font-size: 0.8em;">습도</span></li>
+								id="conText" class="blue" style="color:#323232; font-size: 1.5em;">습도</span></li>
 						</td>
-						<td><img width="30px" height="30px"
+						</tr>
+						<tr>
+						<td><img width="50px" height="50px"
 							src="img/umbrellaBlack.png"></td>
 						<td>
 
 							<li class="fontawesome-tint center" id="rainShow" style="color:#323232; font-size: 0.8em;"><span
-								id="conText" class="blue" style="color:#323232; font-size: 0.8em;">강수량</span></li>
+								id="conText" class="blue" style="color:#323232; font-size: 1.5em;">강수량</span></li>
 						</td>
-						<td><img width="30px" height="30px" src="img/windBlack.png"></td>
+						<tr>
+						<td><img width="50px" height="50px" src="img/windBlack.png"></td>
 						<td>
 
 							<li class="fontawesome-umbrella right" id="windShow" style="color:#323232; font-size: 0.8em;"><span
-								id="conText" class="blue" style="color:#323232; font-size: 0.8em;">풍속</span></li>
+								id="conText" class="blue" style="color:#323232; font-size: 1.5em;">풍속</span></li>
 						</td>
 					</tr>
 				</table>
