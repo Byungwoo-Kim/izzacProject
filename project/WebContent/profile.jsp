@@ -42,7 +42,6 @@
 	font-family: "Bebas Neue", serif;
 	font-size: 59px;
 	color: #008bac;
-	float: right;
 	margin-right: 100px;
 }
 
@@ -50,7 +49,6 @@
 	font-family: "Bebas Neue", serif;
 	font-size: 59px;
 	color: #008bac;
-	float: right;
 	margin-right: 120px;
 }
 
@@ -95,7 +93,7 @@ img {
 		<c:choose>
 			<c:when test="${empty email }">
 				<div id="profiletop">
-					<img src="images/profileboo.jpg" alt="¶ì¿ë"> <span
+					<img src="images/profilenew.jpg" alt="¶ì¿ë"> <span
 						id="profileid">GUEST</span>
 				</div>
 				<div id="profilebottom">
@@ -111,7 +109,7 @@ img {
 							request.setAttribute("emailSplit", emailSplit[0]);
 				%>
 				<div id="profiletop">
-				<img src="images/profileboo.jpg" alt="¶ì¿ë"> 
+				<img src="images/profilenew.jpg" alt="¶ì¿ë"> 
 					<span id="profileid2">${emailSplit }</span>
 				</div>
 				<div id="profilebottom">
