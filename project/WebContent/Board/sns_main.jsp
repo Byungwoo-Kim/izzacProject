@@ -43,7 +43,7 @@ color: #008bac;
 	<div id="wrapper">
 		<section id="main">
 			<section id="content">
-				<b>내소식 업데이트</b>
+				<b>글쓰기</b>
 				<form class="m_form" method="post" action="sns_control.jsp?action=newmsg" style="border-bottom:5px solid #eeeeee;padding-bottom: 3em;">
 					<input type="hidden" name="email" value="${email}">
 					<sns:write type="msg"/>
@@ -51,7 +51,7 @@ color: #008bac;
 				</form>
 				<br>
 				<br>
-				<h3>친구들의 최신 소식</h3>
+				<h3>글 목록</h3>
 				<div id="accordion">
 					<c:forEach varStatus="mcnt" var="msgs" items="${datas}">
 					<c:set var="m" value="${msgs.message}"/>
