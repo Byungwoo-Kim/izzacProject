@@ -7,6 +7,12 @@
 <html>
 <head>
 <style type="text/css">
+.container {
+	margin-left: 17em;
+	margin-top: 20em;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
 </style>
 <link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=6">
 
