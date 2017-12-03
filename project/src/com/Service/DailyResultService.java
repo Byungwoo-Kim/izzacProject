@@ -68,6 +68,9 @@ public class DailyResultService extends HttpServlet {
 				AnalData6 = list.get(i).getPreData5();
 				AnalData7 = list.get(i).getPreData6();
 				AnalData8 = list.get(i).getPreData7();
+				break;
+			}else {
+				System.out.println("예상 데이터가 없습니다.");
 			}
 		}
 		String all = AnalData1 + "_" + AnalData2 + "_" + AnalData3 + "_" + AnalData4 + "_" + AnalData5 + "_" + AnalData6 + "_" + AnalData7 + "_" + AnalData8;

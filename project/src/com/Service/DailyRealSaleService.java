@@ -51,8 +51,9 @@ public class DailyRealSaleService extends HttpServlet {
 			if ((list.get(i).getaDate()).equals(selectedDate)) {
 
 				analMoney = list.get(i).getAnalMoney();
+				break;
 			}else {
-				analMoney = "데이터가 없습니다.";
+				analMoney = "당일 판매금액 데이터가 없습니다.";
 			}
 		}
 		System.out.println(analMoney);

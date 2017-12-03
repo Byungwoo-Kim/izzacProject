@@ -44,11 +44,11 @@
 </head>
 <body>
 	<script type="text/javascript">
-	function setToday(){
+/* 	function setToday(){
 		var todayTag = document.getElementById("dateShow");
-		todayTag.innerHTML = 
+		todayTag.innerHTML = '1';
 		
-	}
+	} */
 	 
 	
 	//버튼 위에 올리면 글자나오기
