@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <style type="text/css">
 * {
-	/* border: 1px solid black; */
-	
+	 /* border: 1px solid black; 
+ */	
 }
 
 #profilewrap {
@@ -49,7 +49,7 @@
 	font-family: "Bebas Neue", serif;
 	font-size: 59px;
 	color: #008bac;
-	margin-right: 120px;
+	    line-height: 1.3em;
 }
 
 #profilehi {
