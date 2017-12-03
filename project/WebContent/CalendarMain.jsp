@@ -301,10 +301,31 @@
 </script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
+	
+
+
+		
+		
+		
+		GregorianCalendar movedCal = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
 		int nowMonth = today.get(today.MONTH);
 		int nowDay = today.get(today.DAY_OF_MONTH);
 		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
+		
+		if(request.getParameter("yearNext")!=null){
+			nowYear = Integer.parseInt(request.getParameter("yearNext"));
+			nowMonth = Integer.parseInt(request.getParameter("monthNext"));
+			nowDay = Integer.parseInt(request.getParameter("startDayNext"));
+			today = new GregorianCalendar(nowYear, nowMonth, nowDay);
+			lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+			System.out.println(nowYear);
+			System.out.println(nowMonth);
+			System.out.println(nowDay);
+			
+		}
+		
 		String eng_month = "";
 		if (nowMonth == 0) {
 			eng_month = "January";
@@ -362,11 +383,13 @@
 
 						<%
 							Calendar cal = Calendar.getInstance();
+							int start = 6;
+							if(request.getParameter("yearNext")!=null){
+							cal =  new GregorianCalendar(nowYear, nowMonth, 1);
+							start = cal.get(java.util.Calendar.DAY_OF_WEEK);
+							}
 							System.out.println(cal.getTime());
-							int start = cal.get(java.util.Calendar.DAY_OF_WEEK) - 1;
 							System.out.println("메인달력 시작하는 인덱스 :" + start);
-							//시작날짜 인식이 안돼서 임시로 숫자 넣어서 실행
-							start = 6;
 							int endDay = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
 
 							int newLine = 0;
@@ -444,9 +467,8 @@
 		<%
 			if (nowMonth > 0) {
 		%>
-		<%-- <input id="left" type="button" value="◀" onclick="slide(<%=nowYear%>)"> --%>
 		<a
-			href='CalendarForChange.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
+			href='CalendarMain.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="left"><img src="images/left.png"
 			width="30" height="30"></a>
@@ -455,7 +477,7 @@
 			} else if (nowMonth == 0) {
 		%>
 		<a
-			href='CalendarForChange.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
+			href='CalendarMain.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="left"><img src="images/left.png"
 			width="30" height="30"> </a>
@@ -467,7 +489,7 @@
 			if (nowMonth < 11) {
 		%>
 		<a
-			href='CalendarForChange.jsp?yearNext=<%=nowYear%>
+			href='CalendarMain.jsp?yearNext=<%=nowYear%>
 		&amp;monthNext=<%=nowMonth + 1%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="right"><img src="images/right.png"
@@ -475,7 +497,7 @@
 		<%
 			} else if (nowMonth == 11) {
 		%><a
-			href='CalendarForChange.jsp?yearNext=<%=nowYear + 1%>
+			href='CalendarMain.jsp?yearNext=<%=nowYear + 1%>
 		&amp;monthNext=<%=0%>&amp;startDayNext=<%=start%>'
 			"
 		target="_self" id="right"><img src="images/right.png"
