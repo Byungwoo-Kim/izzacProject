@@ -40,14 +40,14 @@
 
 #profileid {
 	font-family: "Bebas Neue", serif;
-	font-size: 59px;
+	font-size: 65px;
 	color: #008bac;
 	margin-right: 100px;
 }
 
 #profileid2 {
 	font-family: "Bebas Neue", serif;
-	font-size: 59px;
+	font-size: 65px;
 	color: #008bac;
 	    line-height: 1.3em;
 }
@@ -61,14 +61,14 @@
 
 #profilehi2 {
 	font-family: ³ª´®¹Ù¸¥Ææ, serif;
-	font-size: 25px;
+	font-size: 26px;
 	color: 58585a;
 	font-weight: bold;
 	line-height: 40px;
 }
 
 img {
-	padding-left: 23.5%;
+	padding-left: 15%;
 	float: left;
 	height: 70px;
 	width: 80px;

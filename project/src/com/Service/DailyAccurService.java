@@ -51,6 +51,9 @@ public class DailyAccurService extends HttpServlet {
 			if ((list.get(i).getpDate()).equals(selectedDate)) {
 
 				Accuracy = list.get(i).getPreAccu();
+				break;
+			}else {
+				System.out.println("예측도 데이터가 없습니다.");
 			}
 		}
 		System.out.println(Accuracy);

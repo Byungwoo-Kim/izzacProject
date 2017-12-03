@@ -59,9 +59,10 @@ public class DailyAnalService extends HttpServlet {
 
 				System.out.println("실제 판매량 페이지 데이터 날짜 : " + list.get(i).getaDate());
 				AnalData = list.get(i).getAnalData();
-
+				break;
 			}else {
 				AnalData = "nothing";
+				System.out.println("당일판매량 데이터가 없습니다.");
 			}
 		}
 		System.out.println(AnalData);
