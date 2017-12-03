@@ -93,5 +93,8 @@ CREATE TABLE Sales_Support(
 	phonenum varchar2(25),
 	title varchar2(100),
 	context varchar2(1000)
-	
 )
+
+/* 예측, 실제매출 수정 */
+alter table Sales_Pre add(PreMoney varchar2(100));
+alter table Sales_Anal add(AnalMoney varchar2(100));
