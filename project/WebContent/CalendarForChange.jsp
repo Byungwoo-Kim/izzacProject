@@ -8,11 +8,23 @@
 <head>
 <style type="text/css">
 .container {
-	margin-left: 17em;
-	margin-top: 20em;
+	margin-left: 593px;
+	margin-top: 562px;
 	position: absolute;
 	transform: translate(-50%, -50%);
 }
+
+#dataArea {
+	width:56px;
+	height : 37px;
+}
+
+.outLine {
+	left: 30%;
+	top: 10%;
+}
+
+
 </style>
 <link rel="stylesheet" href="assets/css/CalendarStyle.css?ver=6">
 
@@ -25,6 +37,9 @@
 </head>
 <body>
 	<script type="text/javascript">
+	function testplz(){
+		alert("ㅎㅇ");
+	}
 	 var choice1menu = "";
 	 var choice2menu = "";
 	 var choice3menu = "";
@@ -404,7 +419,9 @@
 								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
-						<div id="dateArea"
+						<%-- <div id="dateArea"
+							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'> --%>
+						<div id="dataArea"
 							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'>
 							<font color='<%=color%>'> <%=index%>
 							</font>
@@ -484,7 +501,7 @@
 		%>
 		<!--달력 넘기기 끝  -->
 		<!-- end container -->
-		<div class="outLine">
+		<div class="outLine" id = "outLineId">
 			<table class="detail">
 				<tr>
 					<td><button onclick="test(1);" onmouseover="요거슨 뭐시냐며는">1</button>

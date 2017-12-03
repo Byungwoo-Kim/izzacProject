@@ -12,8 +12,6 @@
 .container {
 	margin-left: 17em;
 	margin-top: 20em;
-	/* 	left: 30%;
-	top: 10%; */
 	position: absolute;
 	transform: translate(-50%, -50%);
 }
