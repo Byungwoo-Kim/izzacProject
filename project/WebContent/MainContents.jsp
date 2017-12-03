@@ -21,7 +21,7 @@ th, td {
 #top-left-div {
    padding-top: 50px;
    padding-left: 40px;
-   background-image: url(mainImage/left_long.png);
+   background-image: url(mainImage/left_long.jpg);
    background-repeat: no-repeat;
    width: 340px;
    height: 750px;
