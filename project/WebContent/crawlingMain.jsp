@@ -656,7 +656,7 @@
 					<tr>
 						<td colspan="3" align="center"><img id="weatherImage"
 							src="img/yellowsunny.jpg"></td>
-						<td colspan="3"><span class="degree-symbol" id="tempShow" class="blue">32℃</span></td>
+						<td colspan="3"><span class="degree-symbol" id="tempShow" class="blue" style="color:#323232;">32℃</span></td>
 					</tr>
 					<tr>
 						<td>  <br></td>
@@ -666,21 +666,21 @@
 							src="img/humidityBlack.png"></td>
 						<td>
 
-							<li class="fontawesome-leaf left" id="humShow"><span
-								id="conText" class="blue">습도</span></li>
+							<li class="fontawesome-leaf left" id="humShow" style="color:#323232; font-size: 0.8em"><span
+								id="conText" class="blue" style="color:#323232; font-size: 0.8em;">습도</span></li>
 						</td>
 						<td><img width="30px" height="30px"
 							src="img/umbrellaBlack.png"></td>
 						<td>
 
-							<li class="fontawesome-tint center" id="rainShow"><span
-								id="conText" class="blue">강수량</span></li>
+							<li class="fontawesome-tint center" id="rainShow" style="color:#323232; font-size: 0.8em;"><span
+								id="conText" class="blue" style="color:#323232; font-size: 0.8em;">강수량</span></li>
 						</td>
 						<td><img width="30px" height="30px" src="img/windBlack.png"></td>
 						<td>
 
-							<li class="fontawesome-umbrella right" id="windShow"><span
-								id="conText" class="blue">풍속</span></li>
+							<li class="fontawesome-umbrella right" id="windShow" style="color:#323232; font-size: 0.8em;"><span
+								id="conText" class="blue" style="color:#323232; font-size: 0.8em;">풍속</span></li>
 						</td>
 					</tr>
 				</table>
