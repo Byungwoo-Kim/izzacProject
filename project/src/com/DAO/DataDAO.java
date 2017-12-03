@@ -157,4 +157,20 @@ public class DataDAO {
 
 		return list;
 	}
+	
+	//정확도 저장
+	public int AccuInsert(String email, String pdate, String preAccu) throws Exception {
+		getConn();
+
+		pst = conn.prepareStatement("update Sales_Pre set preAccu=? where email=? and pDate=?");
+		pst.setString(1, preAccu);
+		pst.setString(2, email);
+		pst.setString(3, pdate);
+
+		int cnt = pst.executeUpdate();
+
+		close();
+
+		return cnt;
+	}
 }
