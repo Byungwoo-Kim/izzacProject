@@ -5,8 +5,9 @@
 <%@ attribute name="mid" %>
 <%@ attribute name="auid" %>
 <%@ attribute name="curmsg" %>
+<%@ attribute name="rcnt" %>
 
-<c:if test="${email == auid}">
+<c:if test="${(email == auid) && rcnt == 0}">
 [<a href="sns_control.jsp?action=delmsg&mid=${mid}&curmsg=${curmsg}&cnt=${cnt}&suid=${suid}">삭제</a>] 
 </c:if>
 [<a href="sns_control.jsp?action=fav&mid=${mid}&curmsg=${curmsg}&cnt=${cnt}&suid=${suid}">좋아요</a>]

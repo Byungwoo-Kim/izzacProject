@@ -53,7 +53,7 @@
 					<h3>[${m.email}]${m.msg} :: [좋아요 ${m.favcount} | 댓글 ${m.replycount}]</h3>
 					<div>
 						<p></p>
-						<p><sns:smenu mid="${m.mid}" auid="${m.email}" curmsg="${mcnt.index}"/>/ ${m.date}에 작성된 글입니다.</p>
+						<p><sns:smenu mid="${m.mid}" auid="${m.email}" curmsg="${mcnt.index}" rcnt="${m.replycount}"/>/ ${m.date}에 작성된 글입니다.</p>
 						
 						<ul class="reply">
 						<c:forEach  var="r" items="${msgs.rlist}">

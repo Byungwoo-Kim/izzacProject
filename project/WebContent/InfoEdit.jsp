@@ -349,21 +349,21 @@ location.href="MainContents.jsp";
 						<td>
 							<input type="hidden" value="${dto.getEnviron() }" id="getEnviron">
 							<input type="radio" name="environ" value="0" id="environ1">
-							<label for="environ1">规过1</label>
+							<label for="environ1">TYPE 1</label>
 							<input type="radio" name="environ" value="1" id="environ2">
-							<label for="environ2">规过2</label>
+							<label for="environ2">TYPE 2</label>
 							<input type="radio" name="environ" value="2" id="environ3">
-							<label for="environ3">规过3</label>
+							<label for="environ3">TYPE 3</label>
 							<input type="radio" name="environ" value="3" id="environ4">
-							<label for="environ4">规过4</label>
+							<label for="environ4">TYPE 4</label>
 							<input type="radio" name="environ" value="4" id="environ5">
-							<label for="environ5">规过5</label>
+							<label for="environ5">TYPE 5</label>
 							<input type="radio" name="environ" value="5" id="environ6">
-							<label for="environ6">规过6</label>
+							<label for="environ6">TYPE 6</label>
 							<input type="radio" name="environ" value="6" id="environ7">
-							<label for="environ7">规过7</label>
+							<label for="environ7">TYPE 7</label>
 							<input type="radio" name="environ" value="7" id="environ8">
-							<label for="environ8">规过8</label>
+							<label for="environ8">TYPE 8</label>
 						</td>
 					</tr>
 				</table>
