@@ -53,8 +53,8 @@
 }
 
 #profilehi {
-	font-family: "Caviar Dreams", serif;
-	font-size: 30px;
+	font-family: "³ª´®¹Ù¸¥Ææ", serif;
+	font-size: 26px;
 	color: #58585a;
 	font-weight: bold;
 }
@@ -68,7 +68,7 @@
 }
 
 img {
-	padding-left: 25%;
+	padding-left: 22%;
 	float: left;
 	height: 70px;
 	width: 80px;
