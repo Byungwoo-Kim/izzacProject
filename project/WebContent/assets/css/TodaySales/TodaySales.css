@@ -1,9 +1,9 @@
 @charset "EUC-KR";
 
-* {
+/* * {
 	border: 1px solid black;
 }
-
+ */
 #wrapper {
 	width: 1000px;
 	margin: 10px auto;
