@@ -7,7 +7,8 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
+<head><style type="text/css">
+*{border: 1px solid black;}</style>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link rel="stylesheet" href="../assets/css/TodaySales/TodaySales.css">
 <title>Insert title here</title>
@@ -45,6 +46,7 @@ location.href="../MainContents.jsp";
 		
 			request.setAttribute("itemName", result[0]);
 			request.setAttribute("itemCount", result[1]);
+			request.setAttribute("money", result[2]);
 	%>
 
 	<div id="wrapper">
@@ -52,19 +54,31 @@ location.href="../MainContents.jsp";
 		<div id="text">
 
 		<table>
+		
 		<tr>
+		<td>상품명</td>
 		<!-- 아이템 -->
 		<c:forEach items="${itemName }" var="i">
 		<td>${i }</td>
+		
 		</c:forEach>
+		
+		<td>예상매출액</td>
 		</tr>
+		
 		<!-- 예상개수 -->
 		<tr>
+		<td>예상판매개수</td>
 		<c:forEach items="${itemCount }" var="j">
 		<td>${j }</td>
 		</c:forEach>
 		
+		<c:forEach items="${money }" var="k">
+		<td>${k }원</td>
+		</c:forEach>
 		</tr>
+		
+		
 		
 		
 		</table>

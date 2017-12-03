@@ -6,6 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style type="text/css">
+*{
+border: 1px solid black
+}
+</style>
 <title>My SNS</title>
 <!-- <link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" /> -->
 <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> -->
@@ -26,14 +31,14 @@
 
 <body>
 
-	<nav>
+	<%-- <nav>
 		<div class="menu">
 			<ul>
 				<li><a href="sns_control.jsp?action=getall">전체글보기</a>
 				<li><sns:login /></li>
 			</ul>
 		</div>
-	</nav>
+	</nav> --%>
 
 	<div id="wrapper">
 		<section id="main">

@@ -46,15 +46,21 @@ text
 [class*="fontawesome-"]:before {
 	font-family: 'FontAwesome', sans-serif;
 }
-
+*{
+	box-sizing: border-box;
+	
+}
 /* Colors declarations */
 /* General styles */
 .wrapper {
 	width:340px;
-	background:linear-gradient(to top,#b9eefb,#ebf9fc,#fdffff);
+	/* background:linear-gradient(to top,#b9eefb,#ebf9fc,#fdffff); */
+	    background-color: whitesmoke;
 	border-radius:7px;
 	height:380px;
 	margin:7px;
+	    padding: 7px 7px 7px 7px;
+	
 }
 
 body {
@@ -112,7 +118,7 @@ section h1 {
 	/* padding: 2px 0px 35px 0px; */
 	position: relative;
 	/* font-size: 1.5em; */
-	border-bottom: 2px solid #64b1ff;
+	/*  border-bottom: 2px solid #323232; */
 }
 
 section h1 a.add {
@@ -277,9 +283,12 @@ section .share:hover {
 	/* 	font-size: 0.3em; */
 	color: #eee;
 }
+h1#selectedCity.blue{
+	    border-bottom: 2px solid #323232;
+}
 
 .blue{
-	color: #64b1ff
+    color: #323232;
 }
 
  {

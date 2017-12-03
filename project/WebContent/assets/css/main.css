@@ -3124,7 +3124,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	-webkit-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
 	-ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
 	transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-	background-color: white;
+	background-color: #eee;
 	font-size: 0.9em;
 	position: relative;
 	width: 26em;
@@ -3157,8 +3157,8 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 }
 
 #sidebar>.inner>.alt {
-	background-color: white;
-	    margin: -2.22222em 0 1em -2.22222em;
+	background-color: #e8e8e8;
+	margin: -2.22222em 0 1em -2.22222em;
 	width: calc(100% + 4.44444em);
 	padding-bottom: 1em;
 	
