@@ -99,3 +99,6 @@ CREATE TABLE Sales_Support(
 alter table Sales_Anal add(AnalMoney varchar2(100));
 
 select * from SALES_PRE;
+
+select * from Sales_Anal where email = 'kutar37@gmail.com';
+

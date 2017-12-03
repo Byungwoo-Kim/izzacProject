@@ -12,16 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.DataDAO;
+import com.DTO.AnalDTO;
 import com.DTO.PreDTO;
 
-@WebServlet("/DailyAccurService")
-public class DailyAccurService extends HttpServlet {
-
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+@WebServlet("/DailyRealSaleService")
+public class DailyRealSaleService extends HttpServlet {
+	
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		System.out.println("«œ∑Á √—∏≈√‚ º≠∫Ì∏¥");
+
 		String email = (String) session.getAttribute("email");
-		
 
 		String year = request.getParameter("year");
 		int month = Integer.parseInt(request.getParameter("month"));
@@ -31,31 +32,32 @@ public class DailyAccurService extends HttpServlet {
 
 		}
 		String selectedDate = year + "-" + month + "-" + date;
-		System.out.println("DailyAccu selectedDate : " + selectedDate);
+		System.out.println("RealSale selectedDate : " + selectedDate);
 		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter out = response.getWriter();
 
 		DataDAO dao = new DataDAO();
 
-		ArrayList<PreDTO> list = new ArrayList<>();
+		ArrayList<AnalDTO> list = new ArrayList<>();
 		try {
-			list = dao.SelectPre(email);
+			list = dao.SelectAnal(email);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		String Accuracy = "";
-		String PreData = "";
+		String analMoney = "";
 		for (int i = 0; i < list.size(); i++) {
-			if ((list.get(i).getpDate()).equals(selectedDate)) {
+			if ((list.get(i).getaDate()).equals(selectedDate)) {
 
-				Accuracy = list.get(i).getPreAccu();
+				analMoney = list.get(i).getAnalMoney();
+				System.out.println("RealSale analMoney : " + analMoney);
 				break;
 			}
 		}
-		System.out.println("DailyAccu Accuracy : " + Accuracy);
-		out.print(Accuracy);
+		
+		out.print(analMoney);
 
 	}
+
 }

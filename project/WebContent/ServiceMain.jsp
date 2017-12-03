@@ -32,8 +32,8 @@
 											<p>환경변수를 통한 매일의 매출예측시스템-</p>
 										</header>
 
-										<span class="image featured"><img src="images/logo.jpg"
-											alt="" style="width:25em; height:25em; float:left; padding-right: 3em;"/></span>
+										<span class="image featured"><img src="images/logo1.jpg"
+											alt="" style="width:28em; height:25em; float:left; padding-right: 3em;"/></span>
 
 										<p>우리는 여름이 다가오면 시원한 맥주 한 캔을 생각하고, 비오는 날에는 파전에 막걸리를 외칩니다.
 											환경에 따라 소비자의 선호품목이 달라지는 것은 모두가 알고 있습니다. <br>  

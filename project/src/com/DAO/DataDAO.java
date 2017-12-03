@@ -139,7 +139,7 @@ public class DataDAO {
 	public ArrayList<AnalDTO> SelectAnal(String email) throws Exception {
 		getConn();
 
-		pst = conn.prepareStatement("select * from Sales_Anal where email = ?");
+		pst = conn.prepareStatement("select * from Sales_Anal where email = ? order by adate ASC");
 		pst.setString(1, email);
 
 		rs = pst.executeQuery();

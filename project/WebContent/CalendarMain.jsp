@@ -15,6 +15,25 @@
 	position: absolute;
 	transform: translate(-50%, -50%);
 }
+
+.mySlides {
+	display: none;
+}
+
+.btn-group {
+	width: 10%;
+	height: 70px;
+	background-color: #eff1f2;
+	border: none;
+	display: inline;
+	color: #e66b6b;
+	font-weight: bold;
+	height: 70px;
+	background-color: #eff1f2;
+	border: none;
+	display: inline;
+	color: #e66b6b;
+}
 </style>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
@@ -25,6 +44,66 @@
 </head>
 <body>
 	<script type="text/javascript">
+	//날짜 , 최신 데이터 등 바로 실행될 함수
+	var lastDate = "";
+	var year = "";
+	var month = "";
+	var date = "";
+	
+
+	
+	
+	
+	opening();
+	function opening(){
+		$.ajax({
+			//최신 데이터 받아오기
+				url : "LastDataSearching",
+				success : function(result) {
+					
+					lastDate = result;
+					var temp = lastDate.split("-");
+					year = temp[0];
+					month = temp[1];
+					date = temp[2];
+					clickTrEvent(year, month, date);
+				}
+
+			});
+		
+		
+	}
+	
+	
+	
+ 	function setToday(){
+		var todayTag = document.getElementById("dateShow");
+		todayTag.innerHTML = '1';
+		
+	}
+	 
+	
+	//버튼 위에 올리면 글자나오기
+	function setPreviewBox(e) { 
+		var e = e || window.event; 
+		    document.getElementById('preview').style.left = e.clientX+ document.body.scrollLeft + 20 + 'px';  // 마우스 
+		    document.getElementById('preview').style.top = e.clientY  + document.body.scrollTop + 'px';  // 포인트에 위치 
+		} 
+		  
+		function showPreview( content) { 
+		    var text; 
+		        text = '<table cellpadding="5" bgcolor="#ffffff" style="font-size:9pt;color:#005F8B;filter:alpha(opacity=90); border-width:1; border-color:#3291BD; border-style:solid;">'; 
+		        text += '<tr><td>' + content + '</td></tr></table>'; 
+		        document.getElementById('preview').innerHTML = text; 
+		        document.getElementById('preview').style.visibility = 'visible';  
+		} 
+		  
+		function hidePreview() { 
+		    document.getElementById('preview').innerHTML = ''; 
+		    document.getElementById('preview').style.visibility = 'hidden'; 
+		} 
+
+	
 	 var choice1menu = "";
 	 var choice2menu = "";
 	 var choice3menu = "";
@@ -52,16 +131,61 @@
 	 var accu7="";
 	 var accu8="";
 	 
+	 var preMoney1 = "";
+	 var preMoney2 = "";
+	 var preMoney3 = "";
+	 var preMoney4 = "";
+	 var preMoney5 = "";
+	 var preMoney6 = "";
+	 var preMoney7 = "";
+	 var preMoney8 = "";
 	 
-	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
-	function clickTrEvent(year, month, date) {
+	 var analMoney = "";
+	 
+	 var Qtag1 = "";
+		var Qtag2 = "";
+		var Qtag3 = "";
+		
+		var Mtag1 = "";
+		var Mtag2 = "";
+		var Mtag3 = "";
 
+		
+
+	 
+	//날짜 클릭이벤트
+	function clickTrEvent(year, month, date) {
+		var todayC =  year + "년 " + month + "월" + date + "일";
+		var dateTag = document.getElementById("dateShow");
+		dateTag.innerHTML = todayC;	
+		test2(1);
+		
+		
+	$.ajax({
+			//실제 매출 가져오기
+				url : "DailyRealSaleService",
+				data : "year=" + year +"&month=" + month+"&date="+date,
+				success : function(result) {
+					
+					var dailySaleMoney = result;
+					var analMoneyTag = document.getElementById("analMoney");
+					analMoneyTag.innerHTML = dailySaleMoney;
+					
+					
+				}
+
+			});
 	$.ajax({
 		//당일 실제 판매량 검색
 			url : "DailyAnalService",
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
+				if(result=="nothing"){
+					alert("해당하는 날짜에 데이터가 없습니다.");}
 				
+				
+				
+
 				var menuAndQty = result.split("/");
 				var itemlist = menuAndQty[0].split(",");
 				var qtyList = menuAndQty[1].split(",");
@@ -75,13 +199,13 @@
 				var qty3 = qtyList[2];
 
 				
-				var Qtag1 = document.getElementById("realQty1");
-				var Qtag2 = document.getElementById("realQty2");
-				var Qtag3 = document.getElementById("realQty3");
+				Qtag1 = document.getElementById("realQty1");
+				Qtag2 = document.getElementById("realQty2");
+				Qtag3 = document.getElementById("realQty3");
 				
-				var Mtag1 = document.getElementById("realMenu1");
-				var Mtag2 = document.getElementById("realMenu2");
-				var Mtag3 = document.getElementById("realMenu3");
+				Mtag1 = document.getElementById("realMenu1");
+				Mtag2 = document.getElementById("realMenu2");
+				Mtag3 = document.getElementById("realMenu3");
 				
 				
 
@@ -129,8 +253,15 @@
 			choice6qty = choice6.split("/")[1];
 			choice7qty = choice7.split("/")[1];
 			choice8qty = choice8.split("/")[1];
+			preMoney1 = choice1.split("/")[2];
+			preMoney2 = choice2.split("/")[2];
+			preMoney3 = choice3.split("/")[2];
+			preMoney4 = choice4.split("/")[2];
+			preMoney5 = choice5.split("/")[2];
+			preMoney6 = choice6.split("/")[2];
+			preMoney7 = choice7.split("/")[2];
+			preMoney8 = choice8.split("/")[2];
 			
-
 			
 			
 			
@@ -160,8 +291,9 @@
 	
 	
 	}
-	function test(number){
 
+	function test(number){
+		var resultTag = document.getElementById("percentId");
 		
 		var QtyTag1 = document.getElementById("preQty1");
 		var QtyTag2 = document.getElementById("preQty2");
@@ -171,14 +303,21 @@
 		var MenuTag2 = document.getElementById("preMenu2");
 		var MenuTag3 = document.getElementById("preMenu3");
 		
-		var resultTag = document.getElementById("result");
+		var preMoney = document.getElementById("preMoney");
+				
+		var analMoney = document.getElementById("analMoney");
+		
+		
+		
+		
 		
 		
 		if(number==1){
 			var choice1menuS = choice1menu.split(",");
 			var choice1qtyS = choice1qty.split(",");
-			
-			
+			var choiceTemp = new Array();
+			var div = new Array();
+						
 			QtyTag1.innerHTML = choice1qtyS[0];
 			QtyTag2.innerHTML = choice1qtyS[1];
 			QtyTag3.innerHTML = choice1qtyS[2];
@@ -188,7 +327,9 @@
 			MenuTag3.innerHTML = choice1menuS[2];
 
 			resultTag.innerHTML = accu1 + "%";
-			
+			preMoney.innerHTML = preMoney1;
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 1";
 			
 		}else if(number==2){
 			var choice2menuS = choice2menu.split(",");
@@ -203,8 +344,12 @@
 			MenuTag3.innerHTML = choice2menuS[2];
 			
 			//예측도 넣기
-			resultTag.innerHTML = accu2;
+			resultTag.innerHTML = accu2 + "%";
 			
+			preMoney.innerHTML = preMoney2;
+			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 2";
 			
 		}else if(number==3){
 			var choice3menuS = choice3menu.split(",");
@@ -217,8 +362,14 @@
 			MenuTag1.innerHTML = choice3menuS[0];
 			MenuTag2.innerHTML = choice3menuS[1];
 			MenuTag3.innerHTML = choice3menuS[2];
+
+
+			resultTag.innerHTML = accu3 + "%";
+
+			preMoney.innerHTML = preMoney3;
 			
-			resultTag.innerHTML = accu3;
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 3";
 		}else if(number==4){
 			var choice4menuS = choice4menu.split(",");
 			var choice4qtyS = choice4qty.split(",");
@@ -231,8 +382,12 @@
 			MenuTag2.innerHTML = choice4menuS[1];
 			MenuTag3.innerHTML = choice4menuS[2];
 			
-			resultTag.innerHTML = accu4;
+			resultTag.innerHTML = accu4 + "%";
 			
+			preMoney.innerHTML = preMoney4;
+			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 4";
 		}else if(number==5){
 			var choice5menuS = choice5menu.split(",");
 			var choice5qtyS = choice5qty.split(",");
@@ -245,7 +400,12 @@
 			MenuTag2.innerHTML = choice5menuS[1];
 			MenuTag3.innerHTML = choice5menuS[2];
 			
-			resultTag.innerHTML = accu5;
+			resultTag.innerHTML = accu5 + "%";
+			
+			preMoney.innerHTML = preMoney5;
+			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 5";
 			
 		}else if(number==6){
 			var choice6menuS = choice6menu.split(",");
@@ -259,8 +419,12 @@
 			MenuTag2.innerHTML = choice6menuS[1];
 			MenuTag3.innerHTML = choice6menuS[2];
 			
-			resultTag.innerHTML = accu6;
+			resultTag.innerHTML = accu6 + "%";
 			
+			preMoney.innerHTML = preMoney6;
+			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 6";
 		}else if(number==7){
 			var choice7menuS = choice7menu.split(",");
 			var choice7qtyS = choice7qty.split(",");
@@ -273,7 +437,12 @@
 			MenuTag2.innerHTML = choice7menuS[1];
 			MenuTag3.innerHTML = choice7menuS[2];
 			
-			resultTag.innerHTML = accu7;
+			resultTag.innerHTML = accu7 + "%";
+			
+			preMoney.innerHTML = preMoney7;
+			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 7";
 			
 		}else if(number==8){
 			var choice8menuS = choice8menu.split(",");
@@ -287,7 +456,12 @@
 			MenuTag2.innerHTML = choice8menuS[1];
 			MenuTag3.innerHTML = choice8menuS[2];
 			
-			resultTag.innerHTML = accu8;
+			resultTag.innerHTML = accu8 + "%";
+			
+			preMoney.innerHTML = preMoney8;
+			
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 8";
 		}
 		Qtag1.innerHTML = qty1;
 		Qtag2.innerHTML = qty2;
@@ -296,24 +470,60 @@
 		Mtag1.innerHTML = item1;
 		Mtag2.innerHTML = item2;
 		Mtag3.innerHTML = item3;
-	
-}
+	}
+	function test2(number){
+		var resultTag = document.getElementById("percentId");
+		
+		var QtyTag1 = document.getElementById("preQty1");
+		var QtyTag2 = document.getElementById("preQty2");
+		var QtyTag3 = document.getElementById("preQty3");
+		
+		var MenuTag1 = document.getElementById("preMenu1");
+		var MenuTag2 = document.getElementById("preMenu2");
+		var MenuTag3 = document.getElementById("preMenu3");
+		
+		var preMoney = document.getElementById("preMoney");
+				
+		var analMoney = document.getElementById("analMoney");
+		
+		
+		
+		
+		
+		
+		if(number==1){
+			var choice1menuS = choice1menu.split(",");
+			var choice1qtyS = choice1qty.split(",");
+			var choiceTemp = new Array();
+			var div = new Array();
+						
+			QtyTag1.innerHTML = choice1qtyS[0];
+			QtyTag2.innerHTML = choice1qtyS[1];
+			QtyTag3.innerHTML = choice1qtyS[2];
+			
+			MenuTag1.innerHTML = choice1menuS[0];
+			MenuTag2.innerHTML = choice1menuS[1];
+			MenuTag3.innerHTML = choice1menuS[2];
+
+			resultTag.innerHTML = accu1 + "%";
+			preMoney.innerHTML = preMoney1;
+			var typeTag = document.getElementById("typeShow");
+			typeTag.innerHTML = "TYPE 1";
+			
+		}
+	}
+
 </script>
 	<%
 		GregorianCalendar today = new GregorianCalendar();
-	
 
-
-		
-		
-		
 		GregorianCalendar movedCal = new GregorianCalendar();
 		int nowYear = today.get(today.YEAR);
 		int nowMonth = today.get(today.MONTH);
 		int nowDay = today.get(today.DAY_OF_MONTH);
 		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
-		
-		if(request.getParameter("yearNext")!=null){
+
+		if (request.getParameter("yearNext") != null) {
 			nowYear = Integer.parseInt(request.getParameter("yearNext"));
 			nowMonth = Integer.parseInt(request.getParameter("monthNext"));
 			nowDay = Integer.parseInt(request.getParameter("startDayNext"));
@@ -323,9 +533,9 @@
 			System.out.println(nowYear);
 			System.out.println(nowMonth);
 			System.out.println(nowDay);
-			
+
 		}
-		
+
 		String eng_month = "";
 		if (nowMonth == 0) {
 			eng_month = "January";
@@ -384,9 +594,9 @@
 						<%
 							Calendar cal = Calendar.getInstance();
 							int start = 6;
-							if(request.getParameter("yearNext")!=null){
-							cal =  new GregorianCalendar(nowYear, nowMonth, 1);
-							start = cal.get(java.util.Calendar.DAY_OF_WEEK);
+							if (request.getParameter("yearNext") != null) {
+								cal = new GregorianCalendar(nowYear, nowMonth, 1);
+								start = cal.get(java.util.Calendar.DAY_OF_WEEK);
 							}
 							System.out.println(cal.getTime());
 							System.out.println("메인달력 시작하는 인덱스 :" + start);
@@ -422,13 +632,16 @@
 										: Integer.toString(index);
 
 								int iUseDate = Integer.parseInt(sUseDate);
+								
+								int month = nowMonth + 1;
 
 								//달력 칸 나누기
 								out.println("<TD>");
 						%>
 						<!-- 칸에 날짜넣기  -->
+						
 						<div id="dateArea"
-							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=nowMonth%>,<%=index%>)'>
+							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=month%>,<%=index%>)'>
 							<font color='<%=color%>'> <%=index%>
 							</font>
 						</div>
@@ -512,26 +725,56 @@
 	<!-- 일 눌렀을때 오른쪽에 나오는 창  -->
 
 	<div class="outLine">
-		<table class="detail">
+		<img class="mySlides" src="img/nothing.png"> <img
+			class="mySlides" src="img/dayNoData.png">
+		<table class="detail" id="pictureShow">
 			<tr>
-				<td><button onclick="test(1);" onmouseover="요거슨 뭐시냐며는">1</button>
-					<button onclick="test(2);" onmouseover="요거슨 뭐시냐며는">2</button>
-					<button onclick="test(3);" onmouseover="요거슨 뭐시냐며는">3</button>
-					<button onclick="test(4);" onmouseover="요거슨 뭐시냐며는">4</button>
-					<button onclick="test(5);" onmouseover="요거슨 뭐시냐며는">5</button>
-					<button onclick="test(6);" onmouseover="요거슨 뭐시냐며는">6</button>
-					<button onclick="test(7);" onmouseover="요거슨 뭐시냐며는">7</button>
-					<button onclick="test(8);" onmouseover="요거슨 뭐시냐며는">8</button></td>
+				<td colspan="6" , style="width: 100;"><div id='preview'
+						STYLE="BORDER-RIGHT: 1px; BORDER-TOP: 1px; Z-INDEX: 1; VISIBILITY: hidden; BORDER-LEFT: 1px; BORDER-BOTTOM: 1px; POSITION: absolute;"></div>
+					<button onclick="test(1);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다1.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 1</button>
+					<button onclick="test(2);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다2.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 2</button>
+					<button onclick="test(3);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('3333333.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 3</button>
+					<button onclick="test(4);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('44444.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 4</button>
+					<button onclick="test(5);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('55555.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 5</button>
+					<button onclick="test(6);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('666666.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 6</button>
+					<button onclick="test(7);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('7777771.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 7</button>
+					<button onclick="test(8);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('88888.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 8</button></td>
 			</tr>
 			<tr>
-				<td colspan="3" class="title">예측 판매량</td>
-				<td colspan="3" class="title">실제 판매량</td>
-			</tr>
+				<td colspan="3" id="dateShow">2017년 12월 03일</td>
+				<td colspan="2">선택한 옵션</td>
+				<td width="25%" id="typeShow">TYPE 1</td>
+			<tr>
 			<tr>
 				<td class="rank">1.</td>
 				<td id="preMenu1">Iced Americano</td>
 				<td id="preQty1">87</td>
 				<td class="rank">1.</td>
+
 				<td id="realMenu1">Iced Americano</td>
 				<td id="realQty1">79</td>
 			</tr>
@@ -560,15 +803,15 @@
 				<td td colspan="3" class="title">실제 매출액</td>
 			</tr>
 			<tr>
-				<td td colspan="3">2562500원</td>
-				<td td colspan="3">2315800원</td>
+				<td td colspan="3" id="preMoney">2562500원</td>
+				<td td colspan="3" id="analMoney">2315800원</td>
 			</tr>
 			<tr>
 				<td td colspan="6" class="void"></td>
 
 			</tr>
 			<tr>
-				<td colspan="6" class="title"><h1 id="result">99%</h1></td>
+				<td colspan="6" class="percentClass" id="percentId">99%</td>
 
 			</tr>
 

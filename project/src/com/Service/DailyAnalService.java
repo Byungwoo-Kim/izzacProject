@@ -20,12 +20,11 @@ public class DailyAnalService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("넘어오니?");
+
 		HttpSession session = request.getSession();
 		
-		//email 세션으로 나중에 바꿔줄것
-		//String email = (String) session.getAttribute("email");
-		String email = "test@test";
+		String email = (String) session.getAttribute("email");
+
 		
 		
 		String year = request.getParameter("year");
@@ -35,8 +34,8 @@ public class DailyAnalService extends HttpServlet {
 			date = "0"+date;
 			
 		}
-		String selectedDate = year + "-" + (month+1) + "-" + date;
-		System.out.println(selectedDate);
+		String selectedDate = year + "-" + month + "-" + date;
+		System.out.println("DailyAnal selectedDate : " + selectedDate);
 		
 		
 		response.setContentType("text/html;charset=euc-kr");
@@ -53,17 +52,19 @@ public class DailyAnalService extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("선택한 날짜 : " + selectedDate);
-		System.out.println("데이터 날짜 : " + list.get(0).getaDate());
+		System.out.println("실제 판매량 페이지 선택한 날짜 : " + selectedDate);
 		String AnalData = "";
 		for (int i = 0; i < list.size(); i++) {
 			if ((list.get(i).getaDate()).equals(selectedDate)) {
-				System.out.println("1단계");
-				AnalData = list.get(i).getAnalData();
 
+				System.out.println("실제 판매량 페이지 데이터 날짜 : " + list.get(i).getaDate());
+				AnalData = list.get(i).getAnalData();
+				break;
+			}else {
+				AnalData = "nothing";
 			}
 		}
-		System.out.println(AnalData);
+		System.out.println("DailyAnal AnalData : " + AnalData);
 		out.print(AnalData);
 
 	}

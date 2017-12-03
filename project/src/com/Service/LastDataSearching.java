@@ -12,50 +12,39 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.DataDAO;
-import com.DTO.PreDTO;
+import com.DTO.AnalDTO;
 
-@WebServlet("/DailyAccurService")
-public class DailyAccurService extends HttpServlet {
+@WebServlet("/LastDataSearching")
+public class LastDataSearching extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String email = (String) session.getAttribute("email");
 		
-
-		String year = request.getParameter("year");
-		int month = Integer.parseInt(request.getParameter("month"));
-		String date = request.getParameter("date");
-		if ((date.length()) == 1) {
-			date = "0" + date;
-
-		}
-		String selectedDate = year + "-" + month + "-" + date;
-		System.out.println("DailyAccu selectedDate : " + selectedDate);
+		String email = (String) session.getAttribute("email");
+		System.out.println("email : " + email);
+		
 		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter out = response.getWriter();
 
 		DataDAO dao = new DataDAO();
 
-		ArrayList<PreDTO> list = new ArrayList<>();
+		ArrayList<AnalDTO> list = new ArrayList<>();
 		try {
-			list = dao.SelectPre(email);
+
+			list = dao.SelectAnal(email);
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		String Accuracy = "";
-		String PreData = "";
+		String lastDate = "";
+		System.out.println(list);
 		for (int i = 0; i < list.size(); i++) {
-			if ((list.get(i).getpDate()).equals(selectedDate)) {
-
-				Accuracy = list.get(i).getPreAccu();
-				break;
-			}
+			lastDate = list.get(i).getaDate();
 		}
-		System.out.println("DailyAccu Accuracy : " + Accuracy);
-		out.print(Accuracy);
-
+		System.out.println("마막지으로 저장된 날짜 : " + lastDate);
+		out.print(lastDate);
 	}
+
 }

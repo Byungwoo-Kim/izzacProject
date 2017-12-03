@@ -5,6 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+#boo{
+color: #008bac;
+}
+</style>
 <meta charset="UTF-8">
 <title>My SNS</title>
 <!-- <link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" /> -->
@@ -26,31 +31,31 @@
 
 <body>
 
-	<nav>
+	<%-- <nav>
 		<div class="menu">
 			<ul>
 				<li><a href="sns_control.jsp?action=getall">전체글보기</a>
 				<li><sns:login /></li>
 			</ul>
 		</div>
-	</nav>
+	</nav> --%>
 
 	<div id="wrapper">
 		<section id="main">
 			<section id="content">
-				<b>내소식 업데이트</b>
-				<form class="m_form" method="post" action="sns_control.jsp?action=newmsg">
+				<b>글쓰기</b>
+				<form class="m_form" method="post" action="sns_control.jsp?action=newmsg" style="border-bottom:5px solid #eeeeee;padding-bottom: 3em;">
 					<input type="hidden" name="email" value="${email}">
 					<sns:write type="msg"/>
 					<button class="submit" type="submit">등록</button>
 				</form>
 				<br>
 				<br>
-				<h3>친구들의 최신 소식</h3>
+				<h3>글 목록</h3>
 				<div id="accordion">
 					<c:forEach varStatus="mcnt" var="msgs" items="${datas}">
 					<c:set var="m" value="${msgs.message}"/>
-					<h3>[${m.email}]${m.msg} :: [좋아요 ${m.favcount} | 댓글 ${m.replycount}]</h3>
+					<h3>[<span id="boo">${m.email}</span>]${m.msg} :: [좋아요 ${m.favcount} | 댓글 ${m.replycount}]</h3>
 					<div>
 						<p></p>
 						<p><sns:smenu mid="${m.mid}" auid="${m.email}" curmsg="${mcnt.index}" rcnt="${m.replycount}"/>/ ${m.date}에 작성된 글입니다.</p>

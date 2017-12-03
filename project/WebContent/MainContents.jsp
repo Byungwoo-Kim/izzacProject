@@ -12,6 +12,7 @@
 <style type="text/css">
 *{
 font-family:나눔스퀘어라운드, serif;
+box-sizing: border-box;
 }
 
 th, td {
@@ -23,7 +24,7 @@ th, td {
    padding-left: 40px;
    background-image: url(mainImage/left_long.jpg);
    background-repeat: no-repeat;
-   width: 340px;
+   width: 380px;
    height: 750px;
    border-radius: 0px 15px 0px 15px;
    line-height: 50px;
@@ -32,6 +33,7 @@ th, td {
 #top-center-div {
 padding: 0;   width: 385px;
    height: 360px;margin-top: 35px;
+   border-radius: 0px 15px 0px 15px;
 }
 
 #top-right-div {
@@ -53,13 +55,14 @@ padding: 0;   width: 385px;
 }
 
 #middle-center-div {
-   background-color: #e9ebec;
-  width: 390px;
+   background-color: #b1b1b1;
+  width: 400px;
     height: 378px;
-   border-radius: 0px 15px 0px 15px;
+   border-radius: 15px 15px 15px 15px;
    border: 3px solid #e9ebec;
    margin-top: 10px;
-}
+   padding: 15px 15px 15px 15px;
+ }
 
 #middle-right-div {
    padding: 30px;
@@ -75,6 +78,7 @@ padding: 0;   width: 385px;
    font-size: 35px;
    color: #424242;
    margin-top: 20px;
+   margin-bottom: 20px;
 }
 #team{
 font-size: 25px;
@@ -117,7 +121,7 @@ font-family: 나눔스퀘어라운드, serif;
             </div>
          </td>
          <td id="top-center"><div id="top-center-div">
-          <a href="#" onclick="isFree()"><img src="images/bigban96.jpg" alt="이미지 오류" width="400" height="380"></a>
+          <a href="#" onclick="isFree()"><img src="images/bigban965.jpg" alt="이미지 오류" width="400" height="380"></a>
             </div></td>
          <td id=top-right"><div id="top-right-div">
                <iframe width="400" height="400" src='crawlingMain.jsp' name="test"
@@ -126,7 +130,7 @@ font-family: 나눔스퀘어라운드, serif;
       </tr>
       <tr>
          <td><div id="middle-center-div">
-               <span id="board">게시판</span><br>
+               <span id="board"><u>게시판</u></span><br>
                <ul type="circle">
                <c:forEach items="${list }" var="i">
 			       <li>${i }</li>
@@ -143,8 +147,8 @@ font-family: 나눔스퀘어라운드, serif;
       </tr>
       <tr>
          <td><div id="bottom-left-div">
-               <h1>팀원 소개</h1><br><span id="team">홍성은 : 리더(kutar37@tistory.com)<br>김병우 : 잔머리꾼+똥쟁이(http://blog.naver.com/kbw0104)<br>강새힘
-						: 코딩여왕(사막의 오아시스)<br>윤다솔 : 갑과 을에서을(비쥬얼센터)</span>
+               <h1>팀원 소개</h1><br><span id="team">홍성은 : 리더(kutar37@tistory.com)<br>김병우 : 잔머리꾼+똥쟁이<br>(http://blog.naver.com/kbw0104)<br>강새힘
+						: 코딩여왕(사막의 오아시스)<br>윤다솔 : 갑과 을에서 갑(비쥬얼센터)</span>
             </div></td>
          <td colspan="2"><div id="bottom-right-div">
                <video src="dasol.mp4" autoplay="autoplay"

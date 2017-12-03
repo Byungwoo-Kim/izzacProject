@@ -15,6 +15,7 @@ import com.Service.FreeCheckService;
 import com.Service.JoinService;
 import com.Service.LoginService;
 import com.Service.ModifyPayService;
+import com.Service.RefreshService;
 import com.Service.SupportService;
 import com.Service.UpdateService;
 
@@ -31,6 +32,7 @@ public class Controller extends HttpServlet {
 		map.put("FreeCheck.do", new FreeCheckService());
 		map.put("CheckPw.do", new CheckPwService());
 		map.put("Support.do", new SupportService());
+		map.put("Refresh.do", new RefreshService());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

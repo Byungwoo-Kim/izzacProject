@@ -6,8 +6,6 @@ body {
 	margin: 0;
 }
 
-
-
 #left {
 	position: absolute;
 	top: 50%;
@@ -64,7 +62,6 @@ td {
 }
 
 .calendar td {
-
 	text-align: center;
 }
 
@@ -155,15 +152,22 @@ table {
 	color: orange;
 }
 
-#result {
+.percentClass {
 	color: red;
+	font-size: 50px;
 }
+
+#percentId {
+	color: red;
+	font-size: 50px;
+}
+
 
 h1 {
 	font-size: xx-large;
 }
 
-#dateArea{
-	width:56px;
-	height : 37px;
+#dateArea {
+	width: 56px;
+	height: 37px;
 }
