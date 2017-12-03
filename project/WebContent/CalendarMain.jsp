@@ -16,14 +16,24 @@
 	transform: translate(-50%, -50%);
 }
 
+.mySlides {
+
+	display: none;
+}
+
 .btn-group {
-	width : 10%;
-	height : 70px;
+	width: 10%;
+	height: 70px;
 	background-color: #eff1f2;
-	border:none;
+	border: none;
 	display: inline;
-	color : #e66b6b;
+	color: #e66b6b;
 	font-weight: bold;
+	height: 70px;
+	background-color: #eff1f2;
+	border: none;
+	display: inline;
+	color: #e66b6b;
 }
 </style>
 <meta charset="EUC-KR">
@@ -62,6 +72,17 @@
 	 var accu7="";
 	 var accu8="";
 	 
+	 var preMoney1 = "";
+	 var preMoney2 = "";
+	 var preMoney3 = "";
+	 var preMoney4 = "";
+	 var preMoney5 = "";
+	 var preMoney6 = "";
+	 var preMoney7 = "";
+	 var preMoney8 = "";
+	 
+	 var analMoney = "";
+	 
 	 
 	//누르면 옆에 창 띄우는 코드를 함수안에 집어넣어볼까
 	function clickTrEvent(year, month, date) {
@@ -72,6 +93,38 @@
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
 				
+				
+				
+				
+				
+				var imgs = document.querySelectorAll("img");
+
+			      function slide() {
+			         //이미지 숨기기
+			         for(var i = 0; i < imgs.length; i++) {
+			            imgs[i].style.display = "none";
+			         }
+			         
+			         index = 1;
+			         
+			         if(result=="nothing"){
+							index=1;
+						}else{
+							index=0;
+						}
+			         imgs[index].style.display = "block";
+
+			      }
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
 				var menuAndQty = result.split("/");
 				var itemlist = menuAndQty[0].split(",");
 				var qtyList = menuAndQty[1].split(",");
@@ -140,7 +193,15 @@
 			choice7qty = choice7.split("/")[1];
 			choice8qty = choice8.split("/")[1];
 			
-
+			preMoney1 = choice1.split("/")[2];
+			preMoney2 = choice1.split("/")[2];
+			preMoney3 = choice1.split("/")[2];
+			preMoney4 = choice1.split("/")[2];
+			preMoney5 = choice1.split("/")[2];
+			preMoney6 = choice1.split("/")[2];
+			preMoney7 = choice1.split("/")[2];
+			preMoney8 = choice1.split("/")[2];
+			
 			
 			
 			
@@ -150,6 +211,30 @@
 	$.ajax({
 		//정확도 가져오기(accur)
 			url : "DailyAccurService",
+			data : "year=" + year +"&month=" + month+"&date="+date,
+			success : function(result) {
+				
+				var AccuList = result.split(",");
+				accu1 = AccuList[0];
+				accu2 = AccuList[1];
+				accu3 = AccuList[2];
+				accu4 = AccuList[3];
+				accu5 = AccuList[4];
+				accu6 = AccuList[5];
+				accu7 = AccuList[6];
+				accu8 = AccuList[7];
+				
+				
+			}
+
+		});
+	
+	
+	}
+	
+	$.ajax({
+		//실제 매출 가져오기
+			url : "DailyRealSaleService",
 			data : "year=" + year +"&month=" + month+"&date="+date,
 			success : function(result) {
 				
@@ -181,7 +266,9 @@
 		var MenuTag2 = document.getElementById("preMenu2");
 		var MenuTag3 = document.getElementById("preMenu3");
 		
-		var resultTag = document.getElementById("result");
+		var preMoney = document.getElementById("preMoney");
+				
+		var analMoney = document.getElementById("analMoney");
 		
 		
 		if(number==1){
@@ -198,7 +285,7 @@
 			MenuTag3.innerHTML = choice1menuS[2];
 
 			resultTag.innerHTML = accu1 + "%";
-			
+			preMoney.innerHTML = preMoney1;
 			
 		}else if(number==2){
 			var choice2menuS = choice2menu.split(",");
@@ -213,7 +300,9 @@
 			MenuTag3.innerHTML = choice2menuS[2];
 			
 			//예측도 넣기
-			resultTag.innerHTML = accu2;
+			resultTag.innerHTML = accu2 + "%";
+			
+			preMoney.innerHTML = preMoney2;
 			
 			
 		}else if(number==3){
@@ -228,7 +317,9 @@
 			MenuTag2.innerHTML = choice3menuS[1];
 			MenuTag3.innerHTML = choice3menuS[2];
 			
-			resultTag.innerHTML = accu3;
+			resultTag.innerHTML = accu3 + "%";
+			
+			preMoney.innerHTML = preMoney3;
 		}else if(number==4){
 			var choice4menuS = choice4menu.split(",");
 			var choice4qtyS = choice4qty.split(",");
@@ -241,7 +332,9 @@
 			MenuTag2.innerHTML = choice4menuS[1];
 			MenuTag3.innerHTML = choice4menuS[2];
 			
-			resultTag.innerHTML = accu4;
+			resultTag.innerHTML = accu4 + "%";
+			
+			preMoney.innerHTML = preMoney4;
 			
 		}else if(number==5){
 			var choice5menuS = choice5menu.split(",");
@@ -255,7 +348,9 @@
 			MenuTag2.innerHTML = choice5menuS[1];
 			MenuTag3.innerHTML = choice5menuS[2];
 			
-			resultTag.innerHTML = accu5;
+			resultTag.innerHTML = accu5 + "%";
+			
+			preMoney.innerHTML = preMoney5;
 			
 		}else if(number==6){
 			var choice6menuS = choice6menu.split(",");
@@ -269,8 +364,9 @@
 			MenuTag2.innerHTML = choice6menuS[1];
 			MenuTag3.innerHTML = choice6menuS[2];
 			
-			resultTag.innerHTML = accu6;
+			resultTag.innerHTML = accu6 + "%";
 			
+			preMoney.innerHTML = preMoney6;
 		}else if(number==7){
 			var choice7menuS = choice7menu.split(",");
 			var choice7qtyS = choice7qty.split(",");
@@ -283,7 +379,9 @@
 			MenuTag2.innerHTML = choice7menuS[1];
 			MenuTag3.innerHTML = choice7menuS[2];
 			
-			resultTag.innerHTML = accu7;
+			resultTag.innerHTML = accu7 + "%";
+			
+			preMoney.innerHTML = preMoney7;
 			
 		}else if(number==8){
 			var choice8menuS = choice8menu.split(",");
@@ -297,7 +395,9 @@
 			MenuTag2.innerHTML = choice8menuS[1];
 			MenuTag3.innerHTML = choice8menuS[2];
 			
-			resultTag.innerHTML = accu8;
+			resultTag.innerHTML = accu8 + "%";
+			
+			preMoney.innerHTML = preMoney8;
 		}
 		Qtag1.innerHTML = qty1;
 		Qtag2.innerHTML = qty2;
@@ -517,10 +617,13 @@
 	<!-- 일 눌렀을때 오른쪽에 나오는 창  -->
 
 	<div class="outLine">
-		<table class="detail">
+		<img class="mySlides" src="img/nothing.png"> 
+		<img class="mySlides" src="img/dayNoData.png">
+		<table class="detail" id="pictureShow">
 			<tr>
-				<td colspan = "6", style = "width:100;"><button onclick="test(1);" onmouseover="요거슨 뭐시냐며는"
-						class="btn-group">TYPE 1</button>
+				<td colspan="6" , style="width: 100;"><button
+						onclick="test(1);" onmouseover="요거슨 뭐시냐며는" class="btn-group">TYPE
+						1</button>
 					<button onclick="test(2);" onmouseover="요거슨 뭐시냐며는"
 						class="btn-group">TYPE 2</button>
 					<button onclick="test(3);" onmouseover="요거슨 뭐시냐며는"
@@ -573,15 +676,15 @@
 				<td td colspan="3" class="title">실제 매출액</td>
 			</tr>
 			<tr>
-				<td td colspan="3">2562500원</td>
-				<td td colspan="3">2315800원</td>
+				<td td colspan="3" id = "preMoney">2562500원</td>
+				<td td colspan="3" id = "analMoney">2315800원</td>
 			</tr>
 			<tr>
 				<td td colspan="6" class="void"></td>
 
 			</tr>
 			<tr>
-				<td colspan="6" class="title"><h1 id="result">99%</h1></td>
+				<td colspan="6" class="percentClass" id="percentId">99%</td>
 
 			</tr>
 

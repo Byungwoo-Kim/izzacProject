@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.DAO.DataDAO;
 import com.DTO.PreDTO;
@@ -18,9 +19,9 @@ public class DailyAccurService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// email ¼¼¼Ç°ªÀ¸·Î ¹Ù²ãÁà¾ßÇÔ
-		// String email = (String) session.getAttribute("email");
-		String email = "test@test";
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
+		
 
 		String year = request.getParameter("year");
 		int month = Integer.parseInt(request.getParameter("month"));
