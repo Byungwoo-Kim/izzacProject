@@ -2,7 +2,7 @@
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.GregorianCalendar"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,105 +12,111 @@
 
 <style type="text/css">
 .container {
-   margin-left: 17em;
-   margin-top: 20em;
-   position: absolute;
-   transform: translate(-50%, -50%);
+	margin-left: 17em;
+	margin-top: 20em;
+	position: absolute;
+	transform: translate(-50%, -50%);
 }
 
 .mySlides {
-   display: none;
+	display: none;
 }
 
 .btn-group {
-   width: 10%;
-   height: 70px;
-   background-color: #eff1f2;
-   border: none;
-   display: inline;
-   color: #e66b6b;
-   font-weight: bold;
-   height: 70px;
-   background-color: #eff1f2;
-   border: none;
-   display: inline;
-   color: #e66b6b;
+	width: 10%;
+	height: 70px;
+	background-color: #eff1f2;
+	border: none;
+	display: inline;
+	color: #e66b6b;
+	font-weight: bold;
+	height: 70px;
+	background-color: #eff1f2;
+	border: none;
+	display: inline;
+	color: #e66b6b;
 }
 
 .doughnut-legend {
-         list-style: none;
-         position: absolute;
-         right: 8px;
-         top: 0;
-      }
-      .doughnut-legend li {
-         display: inline;
-         padding-left: 30px;
-         position: relative;
-         margin-bottom: 4px;
-         border-radius: 5px;
-         padding: 2px 8px 2px 28px;
-         font-size: 14px;
-         cursor: default;
-         -webkit-transition: background-color 200ms ease-in-out;
-         -moz-transition: background-color 200ms ease-in-out;
-         -o-transition: background-color 200ms ease-in-out;
-         transition: background-color 200ms ease-in-out;
-      }
-      .doughnut-legend li:hover {
-         background-color: #fafafa;
-      }
-      .doughnut-legend li span {
-         display: inline;
-         position: absolute;
-         left: 0;
-         top: 0;
-         width: 20px;
-         height: 100%;
-         border-radius: 5px;
-      }
-      .polararea-legend {
-         list-style: none;
-         right: 300px;
-         top: 300px;
-      }
-      .polararea-legend li {
-         display: inline;
-         padding-left: 30px;
-         position: relative;
-         margin-bottom: 4px;
-         border-radius: 5px;
-         padding: 2px 8px 2px 28px;
-         font-size: 14px;
-         cursor: default;
-         -webkit-transition: background-color 200ms ease-in-out;
-         -moz-transition: background-color 200ms ease-in-out;
-         -o-transition: background-color 200ms ease-in-out;
-         transition: background-color 200ms ease-in-out;
-      }
-      .polararea-legend li:hover {
-         background-color: #fafafa;
-      }
-      .polararea-legend li span {
-         display: inline;
-         position: absolute;
-         left: 0;
-         top: 0;
-         width: 20px;
-         height: 100%;
-         border-radius: 5px;
-      }
-      
+	list-style: none;
+	position: absolute;
+	right: 8px;
+	top: 0;
+}
+
+.doughnut-legend li {
+	display: inline;
+	padding-left: 30px;
+	position: relative;
+	margin-bottom: 4px;
+	border-radius: 5px;
+	padding: 2px 8px 2px 28px;
+	font-size: 14px;
+	cursor: default;
+	-webkit-transition: background-color 200ms ease-in-out;
+	-moz-transition: background-color 200ms ease-in-out;
+	-o-transition: background-color 200ms ease-in-out;
+	transition: background-color 200ms ease-in-out;
+}
+
+.doughnut-legend li:hover {
+	background-color: #fafafa;
+}
+
+.doughnut-legend li span {
+	display: inline;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 20px;
+	height: 100%;
+	border-radius: 5px;
+}
+
+.polararea-legend {
+	list-style: none;
+	right: 300px;
+	top: 300px;
+}
+
+.polararea-legend li {
+	display: inline;
+	padding-left: 30px;
+	position: relative;
+	margin-bottom: 4px;
+	border-radius: 5px;
+	padding: 2px 8px 2px 28px;
+	font-size: 14px;
+	cursor: default;
+	-webkit-transition: background-color 200ms ease-in-out;
+	-moz-transition: background-color 200ms ease-in-out;
+	-o-transition: background-color 200ms ease-in-out;
+	transition: background-color 200ms ease-in-out;
+}
+
+.polararea-legend li:hover {
+	background-color: #fafafa;
+}
+
+.polararea-legend li span {
+	display: inline;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 20px;
+	height: 100%;
+	border-radius: 5px;
+}
 </style>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 </head>
 <body>
-   <script type="text/javascript">
+	<script type="text/javascript">
    //날짜 , 최신 데이터 등 바로 실행될 함수
    var lastDate = "";
    var year = "";
@@ -130,6 +136,7 @@
                month = temp[1];
                date = temp[2];
                clickTrEvent(year, month, date);
+               
             }
 
          });
@@ -221,6 +228,30 @@
       var todayC =  year + "년 " + month + "월" + date + "일";
       var dateTag = document.getElementById("dateShow");
       dateTag.innerHTML = todayC;
+      
+      //bar차트 그리기!!
+      $.ajax({
+          //barChart 일주일 매출 가져오기
+             url : "DailyRealSaleServiceForBar",
+             data : "year=" + year +"&month=" + month+"&date="+date,
+             success : function(result) {
+            	
+                var weeklyMoneyList = result.split("^");
+                var bar1 = Number(weeklyMoneyList[0]);
+                var bar2 = Number(weeklyMoneyList[1]);
+                var bar3 = Number(weeklyMoneyList[2]);
+                var bar4 = Number(weeklyMoneyList[3]);
+                var bar5 = Number(weeklyMoneyList[4]);
+                var bar6 = Number(weeklyMoneyList[5]);
+                var bar7 = Number(weeklyMoneyList[6]);
+                
+				
+                barCrt(bar1, bar2, bar3, bar4, bar5, bar6, bar7, month, date);
+                
+             }
+
+          });   
+      
       
       
       
@@ -562,320 +593,397 @@
       }
    }
 
+   
+   
+   
+   
+   
+   
+   
+   //bar차트 함수
+   function barCrt(bar1, bar2, bar3, bar4, bar5, bar6, bar7, month, date){
+	   month = Number(month);
+	   date = Number(date);
+    var barChart = null;
+      var barChartData = {
+         labels : [month+"."+(date-6),month+"."+(date-5),month+"."+(date-4),month+"."+(date-3),month+"."+(date-2),month+"."+(date-1),month+"."+date],
+         datasets : [
+            {
+               fillColor : "rgba(220,220,220,0.5)",
+               strokeColor : "rgba(220,220,220,0.8)",
+               highlightFill: "rgba(220,220,220,0.75)",
+               highlightStroke: "rgba(220,220,220,1)",
+               data : [bar1, bar2, bar3, bar4, bar5, bar6, bar7]
+            },
+            {
+               fillColor : "rgba(151,187,205,0.5)",
+               strokeColor : "rgba(151,187,205,0.8)",
+               highlightFill : "rgba(151,187,205,0.75)",
+               highlightStroke : "rgba(151,187,205,1)",
+               data : [bar1+100000,bar2-1000000,bar3+90000,bar4-100000,bar5+999999,bar6+1111111,bar7+1114]
+            }
+         ]
+
+      };
+
+      $(function() {
+         var ctx = document.getElementById("canvas").getContext("2d");
+         barChart = new Chart(ctx).Bar(barChartData, {
+            //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+            scaleBeginAtZero : false,
+            //Boolean - Whether grid lines are shown across the chart
+            scaleShowGridLines : true,
+            //String - Colour of the grid lines
+            scaleGridLineColor : "rgba(0,0,0,0.05)",
+            //Number - Width of the grid lines
+            scaleGridLineWidth : 1,
+            //Boolean - If there is a stroke on each bar
+            barShowStroke : false,
+            //Number - Pixel width of the bar stroke
+            barStrokeWidth : 2,
+            //Number - Spacing between each of the X value sets
+            barValueSpacing : 5,
+            //Number - Spacing between data sets within X values
+            barDatasetSpacing : 1,
+            onAnimationProgress: function() {
+               console.log("onAnimationProgress");
+            },
+            onAnimationComplete: function() {
+               console.log("onAnimationComplete");
+            }
+         });
+      });
+
+      $("input#btnAdd").on("click", function() {
+         barChart.addData(
+            [randomScalingFactor(),randomScalingFactor()], 
+            months[(barChart.datasets[0].bars.length)%12]
+         );
+      });
+
+      $("canvas").on("click", function(e) {
+         var activeBars = barChart.getBarsAtEvent(e);
+         console.log(activeBars);
+
+         for(var i in activeBars) {
+            console.log(activeBars[i].value);
+         }
+      });
+   }
 </script>
-   <%
-      GregorianCalendar today = new GregorianCalendar();
+	<%
+		GregorianCalendar today = new GregorianCalendar();
 
-      GregorianCalendar movedCal = new GregorianCalendar();
-      int nowYear = today.get(today.YEAR);
-      int nowMonth = today.get(today.MONTH);
-      int nowDay = today.get(today.DAY_OF_MONTH);
-      int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
+		GregorianCalendar movedCal = new GregorianCalendar();
+		int nowYear = today.get(today.YEAR);
+		int nowMonth = today.get(today.MONTH);
+		int nowDay = today.get(today.DAY_OF_MONTH);
+		int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-      if (request.getParameter("yearNext") != null) {
-         nowYear = Integer.parseInt(request.getParameter("yearNext"));
-         nowMonth = Integer.parseInt(request.getParameter("monthNext"));
-         nowDay = Integer.parseInt(request.getParameter("startDayNext"));
-         today = new GregorianCalendar(nowYear, nowMonth, nowDay);
-         lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
+		if (request.getParameter("yearNext") != null) {
+			nowYear = Integer.parseInt(request.getParameter("yearNext"));
+			nowMonth = Integer.parseInt(request.getParameter("monthNext"));
+			nowDay = Integer.parseInt(request.getParameter("startDayNext"));
+			today = new GregorianCalendar(nowYear, nowMonth, nowDay);
+			lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-         System.out.println(nowYear);
-         System.out.println(nowMonth);
-         System.out.println(nowDay);
+			System.out.println(nowYear);
+			System.out.println(nowMonth);
+			System.out.println(nowDay);
 
-      }
+		}
 
-      String eng_month = "";
-      if (nowMonth == 0) {
-         eng_month = "January";
-      } else if (nowMonth == 1) {
-         eng_month = "Febrary";
-      } else if (nowMonth == 2) {
-         eng_month = "March";
-      } else if (nowMonth == 3) {
-         eng_month = "April";
-      } else if (nowMonth == 4) {
-         eng_month = "May";
-      } else if (nowMonth == 5) {
-         eng_month = "June";
-      } else if (nowMonth == 6) {
-         eng_month = "July";
-      } else if (nowMonth == 7) {
-         eng_month = "August";
-      } else if (nowMonth == 8) {
-         eng_month = "September";
-      } else if (nowMonth == 9) {
-         eng_month = "October";
-      } else if (nowMonth == 10) {
-         eng_month = "November";
-      } else if (nowMonth == 11) {
-         eng_month = "December";
-      }
-   %>
-   <!-- jQuery UI CSS파일  -->
+		String eng_month = "";
+		if (nowMonth == 0) {
+			eng_month = "January";
+		} else if (nowMonth == 1) {
+			eng_month = "Febrary";
+		} else if (nowMonth == 2) {
+			eng_month = "March";
+		} else if (nowMonth == 3) {
+			eng_month = "April";
+		} else if (nowMonth == 4) {
+			eng_month = "May";
+		} else if (nowMonth == 5) {
+			eng_month = "June";
+		} else if (nowMonth == 6) {
+			eng_month = "July";
+		} else if (nowMonth == 7) {
+			eng_month = "August";
+		} else if (nowMonth == 8) {
+			eng_month = "September";
+		} else if (nowMonth == 9) {
+			eng_month = "October";
+		} else if (nowMonth == 10) {
+			eng_month = "November";
+		} else if (nowMonth == 11) {
+			eng_month = "December";
+		}
+	%>
+	<!-- jQuery UI CSS파일  -->
 
-   <div class="container">
+	<div class="container">
 
-      <div class="calendar-container">
+		<div class="calendar-container">
 
-         <header>
+			<header>
 
-            <div class="day"><%=nowYear%></div>
-            <div class="month"><%=eng_month%></div>
+				<div class="day"><%=nowYear%></div>
+				<div class="month"><%=eng_month%></div>
 
-         </header>
+			</header>
 
-         <table class="calendar">
-            <THEAD>
-               <TR>
-                  <TD>Sun</TD>
-                  <TD>Mon</TD>
-                  <TD>Tue</TD>
-                  <TD>Wed</TD>
-                  <TD>Thu</TD>
-                  <TD>Fri</TD>
-                  <TD>Sat</TD>
-               </TR>
-            </THEAD>
-            <TBODY>
-               <TR>
+			<table class="calendar">
+				<THEAD>
+					<TR>
+						<TD>Sun</TD>
+						<TD>Mon</TD>
+						<TD>Tue</TD>
+						<TD>Wed</TD>
+						<TD>Thu</TD>
+						<TD>Fri</TD>
+						<TD>Sat</TD>
+					</TR>
+				</THEAD>
+				<TBODY>
+					<TR>
 
-                  <%
-                     Calendar cal = Calendar.getInstance();
-                     int start = 6;
-                     if (request.getParameter("yearNext") != null) {
-                        cal = new GregorianCalendar(nowYear, nowMonth, 1);
-                        start = cal.get(java.util.Calendar.DAY_OF_WEEK);
-                     }
-                     System.out.println(cal.getTime());
-                     System.out.println("메인달력 시작하는 인덱스 :" + start);
-                     int endDay = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
+						<%
+							Calendar cal = Calendar.getInstance();
+							int start = 6;
+							if (request.getParameter("yearNext") != null) {
+								cal = new GregorianCalendar(nowYear, nowMonth, 1);
+								start = cal.get(java.util.Calendar.DAY_OF_WEEK);
+							}
+							System.out.println(cal.getTime());
+							System.out.println("메인달력 시작하는 인덱스 :" + start);
+							int endDay = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
 
-                     int newLine = 0;
-                     Calendar todayCal = Calendar.getInstance();
-                     SimpleDateFormat sdf = new SimpleDateFormat("yyyMMdd");
-                     int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
-                     //시작하는 요일 설정
-                     for (int index = 1; index < start; index++) {
-                        out.println("<TD id='blank'>&nbsp;</TD>");
-                        newLine++;
-                     }
+							int newLine = 0;
+							Calendar todayCal = Calendar.getInstance();
+							SimpleDateFormat sdf = new SimpleDateFormat("yyyMMdd");
+							int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
+							//시작하는 요일 설정
+							for (int index = 1; index < start; index++) {
+								out.println("<TD id='blank'>&nbsp;</TD>");
+								newLine++;
+							}
 
-                     for (int index = 1; index <= endDay; index++) {
-                        String color = "";
-                        //주말 색 변경
-                        if (newLine == 0) {
-                           color = "RED";
-                        } else if (newLine == 6) {
-                           color = "#529dbc";
-                        } else {
-                           color = "BLACK";
-                        } ;
+							for (int index = 1; index <= endDay; index++) {
+								String color = "";
+								//주말 색 변경
+								if (newLine == 0) {
+									color = "RED";
+								} else if (newLine == 6) {
+									color = "#529dbc";
+								} else {
+									color = "BLACK";
+								} ;
 
-                        String sUseDate = Integer.toString(nowYear);
-                        sUseDate += Integer.toString(nowMonth + 1).length() == 1
-                              ? "0" + Integer.toString(nowMonth + 1)
-                              : Integer.toString(nowMonth + 1);
-                        sUseDate += Integer.toString(index).length() == 1
-                              ? "0" + Integer.toString(index)
-                              : Integer.toString(index);
+								String sUseDate = Integer.toString(nowYear);
+								sUseDate += Integer.toString(nowMonth + 1).length() == 1
+										? "0" + Integer.toString(nowMonth + 1)
+										: Integer.toString(nowMonth + 1);
+								sUseDate += Integer.toString(index).length() == 1
+										? "0" + Integer.toString(index)
+										: Integer.toString(index);
 
-                        int iUseDate = Integer.parseInt(sUseDate);
+								int iUseDate = Integer.parseInt(sUseDate);
 
-                        int month = nowMonth + 1;
+								int month = nowMonth + 1;
 
-                        //달력 칸 나누기
-                        out.println("<TD>");
-                  %>
-                  <!-- 칸에 날짜넣기  -->
+								//달력 칸 나누기
+								out.println("<TD>");
+						%>
+						<!-- 칸에 날짜넣기  -->
 
-                  <div id="dateArea"
-                     onclick='javascript:clickTrEvent(<%=nowYear%>,<%=month%>,<%=index%>)'>
-                     <font color='<%=color%>'> <%=index%>
-                     </font>
-                  </div>
-                  <%
-                     //기능 제거 
-                        out.println("</TD>");
-                        newLine++;
-                        //주별로 칸 내리기
-                        if (newLine == 7) {
-                           out.println("</TR>");
-                           if (index <= endDay) {
-                              out.println("<TR>");
-                           }
-                           newLine = 0;
-                        }
-                     }
-                     //마지막 공란 LOOP
-                     while (newLine > 0 && newLine < 7) {
-                        out.println("<TD>&nbsp;</TD>");
-                        newLine++;
-                     }
-                  %>
-               </TR>
-            </TBODY>
-         </TABLE>
+						<div id="dateArea"
+							onclick='javascript:clickTrEvent(<%=nowYear%>,<%=month%>,<%=index%>)'>
+							<font color='<%=color%>'> <%=index%>
+							</font>
+						</div>
+						<%
+							//기능 제거 
+								out.println("</TD>");
+								newLine++;
+								//주별로 칸 내리기
+								if (newLine == 7) {
+									out.println("</TR>");
+									if (index <= endDay) {
+										out.println("<TR>");
+									}
+									newLine = 0;
+								}
+							}
+							//마지막 공란 LOOP
+							while (newLine > 0 && newLine < 7) {
+								out.println("<TD>&nbsp;</TD>");
+								newLine++;
+							}
+						%>
+					</TR>
+				</TBODY>
+			</TABLE>
 
-         <div class="ring-left"></div>
-         <div class="ring-right"></div>
+			<div class="ring-left"></div>
+			<div class="ring-right"></div>
 
-      </div>
+		</div>
 
 
-      <div></div>
-      <!--달력 넘기기  -->
-      <!-- slide 함수에 2들어가면 해가 바뀌고 1이 넘어가면 월이 바뀐다  -->
-      <%
-         if (nowMonth > 0) {
-      %>
-      <a
-         href='CalendarMain.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
-         "
+		<div></div>
+		<!--달력 넘기기  -->
+		<!-- slide 함수에 2들어가면 해가 바뀌고 1이 넘어가면 월이 바뀐다  -->
+		<%
+			if (nowMonth > 0) {
+		%>
+		<a
+			href='CalendarMain.jsp?yearNext=<%=nowYear%>&amp;monthNext=<%=nowMonth - 1%>&amp;startDayNext=<%=start%>'
+			"
       target="_self" id="left"><img src="images/left.png"
-         width="30" height="30"></a>
+			width="30" height="30"></a>
 
-      <%
-         } else if (nowMonth == 0) {
-      %>
-      <a
-         href='CalendarMain.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
-         "
+		<%
+			} else if (nowMonth == 0) {
+		%>
+		<a
+			href='CalendarMain.jsp?yearNext=<%=nowYear - 1%>&amp;monthNext=<%=11%>&amp;startDayNext=<%=start%>'
+			"
       target="_self" id="left"><img src="images/left.png"
-         width="30" height="30"> </a>
-      <%
-         }
-      %>
+			width="30" height="30"> </a>
+		<%
+			}
+		%>
 
-      <%
-         if (nowMonth < 11) {
-      %>
-      <a
-         href='CalendarMain.jsp?yearNext=<%=nowYear%>
+		<%
+			if (nowMonth < 11) {
+		%>
+		<a
+			href='CalendarMain.jsp?yearNext=<%=nowYear%>
       &amp;monthNext=<%=nowMonth + 1%>&amp;startDayNext=<%=start%>'
-         "
+			"
       target="_self" id="right"><img src="images/right.png"
-         width="30" height="30"></a>
-      <%
-         } else if (nowMonth == 11) {
-      %><a
-         href='CalendarMain.jsp?yearNext=<%=nowYear + 1%>
+			width="30" height="30"></a>
+		<%
+			} else if (nowMonth == 11) {
+		%><a
+			href='CalendarMain.jsp?yearNext=<%=nowYear + 1%>
       &amp;monthNext=<%=0%>&amp;startDayNext=<%=start%>'
-         "
+			"
       target="_self" id="right"><img src="images/right.png"
-         width="30" height="30"></a>
-      <%
-         }
-      %>
-      <!--달력 넘기기 끝  -->
+			width="30" height="30"></a>
+		<%
+			}
+		%>
+		<!--달력 넘기기 끝  -->
 
-   </div>
-   <!-- end container -->
-   <!-- 일 눌렀을때 오른쪽에 나오는 창  -->
+	</div>
+	<!-- end container -->
+	<!-- 일 눌렀을때 오른쪽에 나오는 창  -->
 
-   <div class="outLine">
-      <img class="mySlides" src="img/nothing.png"> <img
-         class="mySlides" src="img/dayNoData.png">
-      <table class="detail" id="pictureShow">
-         <tr>
-            <td colspan="6" , style="width: 100;"><div id='preview'
-                  STYLE="BORDER-RIGHT: 1px; BORDER-TOP: 1px; Z-INDEX: 1; VISIBILITY: hidden; BORDER-LEFT: 1px; BORDER-BOTTOM: 1px; POSITION: absolute;"></div>
-               <button onclick="test(1);" onMouseMove="setPreviewBox(event);"
-                  onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다1.'); return true;"
-                  onMouseOut="hidePreview(); return true;" onClick=""
-                  class="btn-group">TYPE 1</button>
-               <button onclick="test(2);" onMouseMove="setPreviewBox(event);"
-                  onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다2.'); return true;"
-                  onMouseOut="hidePreview(); return true;" onClick=""
-                  class="btn-group">TYPE 2</button>
-               <button onclick="test(3);" onMouseMove="setPreviewBox(event);"
-                  onMouseOver="showPreview('3333333.'); return true;"
-                  onMouseOut="hidePreview(); return true;" onClick=""
-                  class="btn-group">TYPE 3</button>
-               <button onclick="test(4);" onMouseMove="setPreviewBox(event);"
-                  onMouseOver="showPreview('44444.'); return true;"
-                  onMouseOut="hidePreview(); return true;" onClick=""
-                  class="btn-group">TYPE 4</button>
-               <button onclick="test(5);" onMouseMove="setPreviewBox(event);"
-                  onMouseOver="showPreview('55555.'); return true;"
-                  onMouseOut="hidePreview(); return true;" onClick=""
-                  class="btn-group">TYPE 5</button>
-               <button onclick="test(6);" onMouseMove="setPreviewBox(event);"
-                  onMouseOver="showPreview('666666.'); return true;"
-                  onMouseOut="hidePreview(); return true;" onClick=""
-                  class="btn-group">TYPE 6</button>
-               <button onclick="test(7);" onMouseMove="setPreviewBox(event);"
-                  onMouseOver="showPreview('7777771.'); return true;"
-                  onMouseOut="hidePreview(); return true;" onClick=""
-                  class="btn-group">TYPE 7</button>
-               <button onclick="test(8);" onMouseMove="setPreviewBox(event);"
-                  onMouseOver="showPreview('88888.'); return true;"
-                  onMouseOut="hidePreview(); return true;" onClick=""
-                  class="btn-group">TYPE 8</button></td>
-         </tr>
-         <tr>
-            <td colspan="3" id="dateShow">2017년 11월 30일</td>
-            <td colspan="2">선택한 옵션</td>
-            <td width="25%" id="typeShow">TYPE 1</td>
-         <tr>
-         <tr>
-            <td class="rank">◎</td>
-            <td id="preMenu1">Americano_ICE</td>
-            <td id="preQty1">79</td>
-            <td class="rank">◎</td>
+	<div class="outLine">
+		<img class="mySlides" src="img/nothing.png"> <img
+			class="mySlides" src="img/dayNoData.png">
+		<table class="detail" id="pictureShow">
+			<tr>
+				<td colspan="6" , style="width: 100;"><div id='preview'
+						STYLE="BORDER-RIGHT: 1px; BORDER-TOP: 1px; Z-INDEX: 1; VISIBILITY: hidden; BORDER-LEFT: 1px; BORDER-BOTTOM: 1px; POSITION: absolute;"></div>
+					<button onclick="test(1);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다1.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 1</button>
+					<button onclick="test(2);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다2.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 2</button>
+					<button onclick="test(3);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('3333333.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 3</button>
+					<button onclick="test(4);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('44444.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 4</button>
+					<button onclick="test(5);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('55555.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 5</button>
+					<button onclick="test(6);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('666666.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 6</button>
+					<button onclick="test(7);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('7777771.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 7</button>
+					<button onclick="test(8);" onMouseMove="setPreviewBox(event);"
+						onMouseOver="showPreview('88888.'); return true;"
+						onMouseOut="hidePreview(); return true;" onClick=""
+						class="btn-group">TYPE 8</button></td>
+			</tr>
+			<tr>
+				<td colspan="3" id="dateShow">2017년 11월 30일</td>
+				<td colspan="2">선택한 옵션</td>
+				<td width="25%" id="typeShow">TYPE 1</td>
+			<tr>
+			<tr>
+				<td class="rank">◎</td>
+				<td id="preMenu1">Americano_ICE</td>
+				<td id="preQty1">79</td>
+				<td class="rank">◎</td>
 
-            <td id="realMenu1">Americano_ICE</td>
-            <td id="realQty1">79</td>
-         </tr>
-         <tr>
-            <td class="rank">◎</td>
-            <td id="preMenu2">Americono_HOT</td>
-            <td id="preQty2">54</td>
-            <td class="rank">◎</td>
-            <td id="realMenu2">Americono_HOT</td>
-            <td id="realQty2">43</td>
-         </tr>
-         <tr>
-            <td class="rank">◎</td>
-            <td id="preMenu3">CafeMocha</td>
-            <td id="preQty3">45</td>
-            <td class="rank">◎</td>
-            <td id="realMenu3">CafeMocha</td>
-            <td id="realQty3">39</td>
-         </tr>
-         <tr>
-            <td td colspan="6" class="void"></td>
+				<td id="realMenu1">Americano_ICE</td>
+				<td id="realQty1">79</td>
+			</tr>
+			<tr>
+				<td class="rank">◎</td>
+				<td id="preMenu2">Americono_HOT</td>
+				<td id="preQty2">54</td>
+				<td class="rank">◎</td>
+				<td id="realMenu2">Americono_HOT</td>
+				<td id="realQty2">43</td>
+			</tr>
+			<tr>
+				<td class="rank">◎</td>
+				<td id="preMenu3">CafeMocha</td>
+				<td id="preQty3">45</td>
+				<td class="rank">◎</td>
+				<td id="realMenu3">CafeMocha</td>
+				<td id="realQty3">39</td>
+			</tr>
+			<tr>
+				<td td colspan="6" class="void"></td>
 
-         </tr>
-         <tr>
-            <td td colspan="3" class="title">예상 매출액</td>
-            <td td colspan="3" class="title">실제 매출액</td>
-         </tr>
-         <tr>
-            <td td colspan="3" id="preMoney">2562500원</td>
-            <td td colspan="3" id="analMoney">2315800원</td>
-         </tr>
-         <tr>
-            <td td colspan="6" class="void"></td>
+			</tr>
+			<tr>
+				<td td colspan="3" class="title">예상 매출액</td>
+				<td td colspan="3" class="title">실제 매출액</td>
+			</tr>
+			<tr>
+				<td td colspan="3" id="preMoney">2562500원</td>
+				<td td colspan="3" id="analMoney">2315800원</td>
+			</tr>
+			<tr>
+				<td td colspan="6" class="void"></td>
 
-         </tr>
-         <tr>
-            <td colspan="6" class="percentClass" id="percentId">99%</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="percentClass" id="percentId">99%</td>
 
-         </tr>
-
-
-      </table>
-   </div>
+			</tr>
 
 
+		</table>
+	</div>
 
 
 
 
 
 
-   <script type="text/javascript">
+
+
+	<script type="text/javascript">
       // 당월 총 일수 구하기
       /** 년,월 받으면 일수계산 */
       function getTotalDate(year, month) {
@@ -964,15 +1072,17 @@
  */
       }
    </script>
-   <form name="calendarFrm" id="calendarFrm" action="" method="post">
+	<form name="calendarFrm" id="calendarFrm" action="" method="post">
 
-   </form>
-   <br><br>
-<hr size="4px">
-<br><br>
+	</form>
+	<br>
+	<br>
+	<hr size="4px">
+	<br>
+	<br>
 
-<!-- 파이그래프 -->
-<div style="width: 40%">
+	<!-- 파이그래프 -->
+	<!-- <div style="width: 40%">
       <canvas id="canvas" height="250px" width="350px"></canvas>
    </div>
    <br />
@@ -1108,80 +1218,15 @@
          }
       });
 
-   </script>
+   </script> -->
 
-   <!-- bar그래프 -->
-<div style="width: 40%;">
-      <canvas id="canvas" height="450" width="600"></canvas>
-   </div>
-   <script type="text/javascript">
+	<!-- bar그래프 -->
+	<div style="width: 40%;">
+		<canvas id="canvas" height="450" width="600"></canvas>
+	</div>
+	<script type="text/javascript">
             
-      var barChart = null;
-      var barChartData = {
-         labels : ["January","February","March","April","May","June","July"],
-         datasets : [
-            {
-               fillColor : "rgba(220,220,220,0.5)",
-               strokeColor : "rgba(220,220,220,0.8)",
-               highlightFill: "rgba(220,220,220,0.75)",
-               highlightStroke: "rgba(220,220,220,1)",
-               data : [1,2,3,4,5,6,7]
-            },
-            {
-               fillColor : "rgba(151,187,205,0.5)",
-               strokeColor : "rgba(151,187,205,0.8)",
-               highlightFill : "rgba(151,187,205,0.75)",
-               highlightStroke : "rgba(151,187,205,1)",
-               data : [7,6,5,4,3,2,1]
-            }
-         ]
-
-      };
-
-      $(function() {
-         var ctx = document.getElementById("canvas").getContext("2d");
-         barChart = new Chart(ctx).Bar(barChartData, {
-            //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-            scaleBeginAtZero : false,
-            //Boolean - Whether grid lines are shown across the chart
-            scaleShowGridLines : true,
-            //String - Colour of the grid lines
-            scaleGridLineColor : "rgba(0,0,0,0.05)",
-            //Number - Width of the grid lines
-            scaleGridLineWidth : 1,
-            //Boolean - If there is a stroke on each bar
-            barShowStroke : false,
-            //Number - Pixel width of the bar stroke
-            barStrokeWidth : 2,
-            //Number - Spacing between each of the X value sets
-            barValueSpacing : 5,
-            //Number - Spacing between data sets within X values
-            barDatasetSpacing : 1,
-            onAnimationProgress: function() {
-               console.log("onAnimationProgress");
-            },
-            onAnimationComplete: function() {
-               console.log("onAnimationComplete");
-            }
-         });
-      });
-
-      $("input#btnAdd").on("click", function() {
-         barChart.addData(
-            [randomScalingFactor(),randomScalingFactor()], 
-            months[(barChart.datasets[0].bars.length)%12]
-         );
-      });
-
-      $("canvas").on("click", function(e) {
-         var activeBars = barChart.getBarsAtEvent(e);
-         console.log(activeBars);
-
-         for(var i in activeBars) {
-            console.log(activeBars[i].value);
-         }
-      });
-
+     
    </script>
 
 </body>
