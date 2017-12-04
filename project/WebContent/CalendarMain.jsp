@@ -230,7 +230,7 @@
       dateTag.innerHTML = todayC;
       
       //bar차트 그리기!!
-     /*  $.ajax({
+       /* $.ajax({
           //barChart 일주일 매출 가져오기
              url : "DailyRealSaleServiceForBar",
              data : "year=" + year +"&month=" + month+"&date="+date,
@@ -250,7 +250,7 @@
                 
              }
 
-          });    */
+          });   */  
       
       
       
@@ -901,7 +901,7 @@
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 3</button>
 					<button onclick="test(4);" onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('유행에 민감한 업종에 적합합니다.'); return true;"
+						onMouseOver="showPreview('사회적 분위기에 많이 영향을 받는 오락,유흥업에 적합합니다.'); return true;"
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 4</button>
 					<button onclick="test(5);" onMouseMove="setPreviewBox(event);"
@@ -909,7 +909,7 @@
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 5</button>
 					<button onclick="test(6);" onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('유통, 운수업 등 교통과 밀접한 관계가 있는 업종에 적합합니다.'); return true;"
+						onMouseOver="showPreview('매장 위치가 고립된 경우와 매출 변동이 날씨에 따라서 변동이 큰 경우 사용하기 적합합니다..'); return true;"
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 6</button>
 					<button onclick="test(7);" onMouseMove="setPreviewBox(event);"
