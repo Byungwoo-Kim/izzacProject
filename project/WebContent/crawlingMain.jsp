@@ -122,7 +122,7 @@
 							rainVar.innerHTML = " " + rain + " mm";
 							windVar.innerHTML = " " + wind;
 							if (weatherImage == '맑음') {
-								imgVar.setAttribute("src", "img/sunny.png");
+								imgVar.setAttribute("src", "img/sunny2.png");
 							} else if ((weatherImage == '구름조금')
 									|| (weatherImage == '흐려져 비')) {
 								imgVar.setAttribute("src", "img/sunCloud.png");
@@ -171,7 +171,7 @@
 		//날씨 이미지 변경
 		imgVar.addEventListener("mouseout", function() {
 			if (weatherImage == '맑음') {
-				imgVar.setAttribute("src", "img/sunny.png");
+				imgVar.setAttribute("src", "img/sunny2.png");
 			} else if ((weatherImage == '구름조금') || (weatherImage == '흐려져 비')) {
 				imgVar.setAttribute("src", "img/sunCloud.png");
 			} else if (weatherImage == '비또는 눈') {
