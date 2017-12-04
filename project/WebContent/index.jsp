@@ -45,7 +45,7 @@ padding-top: 30px;
                      <li><a href="Logout.jsp" class="button special fit">Logout</a></li>
                   </ul>
                </c:otherwise>
-            </c:choose> </header>
+            </c:choose> </header>	
             <!-- Banner -->
             <section id="banner"> <iframe name="mainFrame"
                id="mainFrame" frameborder="0" scrolling="no" width="100%"

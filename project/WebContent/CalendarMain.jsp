@@ -230,7 +230,7 @@
       dateTag.innerHTML = todayC;
       
       //bar차트 그리기!!
-      $.ajax({
+     /*  $.ajax({
           //barChart 일주일 매출 가져오기
              url : "DailyRealSaleServiceForBar",
              data : "year=" + year +"&month=" + month+"&date="+date,
@@ -250,7 +250,7 @@
                 
              }
 
-          });   
+          });    */
       
       
       
@@ -889,35 +889,35 @@
 				<td colspan="6" , style="width: 100;"><div id='preview'
 						STYLE="BORDER-RIGHT: 1px; BORDER-TOP: 1px; Z-INDEX: 1; VISIBILITY: hidden; BORDER-LEFT: 1px; BORDER-BOTTOM: 1px; POSITION: absolute;"></div>
 					<button onclick="test(1);" onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다1.'); return true;"
+						onMouseOver="showPreview('특별한 외부 환경요소에 영향을 많이 받지 않는 업종에 적합합니다.'); return true;"
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 1</button>
 					<button onclick="test(2);" onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('마우스오버시 레이어박스에 지금 내용이 나오게 됩니다2.'); return true;"
+						onMouseOver="showPreview('매장 위치가 도시외각, 도서지역 등 외진곳에 있을 경우 적합합니다.'); return true;"
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 2</button>
 					<button onclick="test(3);" onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('3333333.'); return true;"
+						onMouseOver="showPreview('국제정세에 영향을 많이 받는 경우, 수입/수출을 할 경우 적합합니다.'); return true;"
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 3</button>
 					<button onclick="test(4);" onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('44444.'); return true;"
+						onMouseOver="showPreview('유행에 민감한 업종에 적합합니다.'); return true;"
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 4</button>
 					<button onclick="test(5);" onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('55555.'); return true;"
+						onMouseOver="showPreview('매장 위치가 도시외각, 도서지역 등 외진곳에 있을 경우 적합합니다.'); return true;"
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 5</button>
 					<button onclick="test(6);" onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('666666.'); return true;"
+						onMouseOver="showPreview('유통, 운수업 등 교통과 밀접한 관계가 있는 업종에 적합합니다.'); return true;"
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 6</button>
 					<button onclick="test(7);" onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('7777771.'); return true;"
+						onMouseOver="showPreview('유행에 민감한 업종에 적합합니다.'); return true;"
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 7</button>
 					<button onclick="test(8);" onMouseMove="setPreviewBox(event);"
-						onMouseOver="showPreview('88888.'); return true;"
+						onMouseOver="showPreview('가장 많은 환경변수를 포함하고 있습니다. 주변 환경변수에 가장 민감한 업종에 적합합니다.'); return true;"
 						onMouseOut="hidePreview(); return true;" onClick=""
 						class="btn-group">TYPE 8</button></td>
 			</tr>
